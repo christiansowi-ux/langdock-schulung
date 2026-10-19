@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>LLMs unter der Lupe – Arbeitsheft Tag 3 – {{P:name}}</title>
+{{HEAD}}
+</head>
+<body>
+
+<!-- ============ TITELSEITE ============ -->
+<section class="cover t2 t3">
+  <img class="logo" src="{{LOGO}}" alt="Futureway KI Institut">
+  <div class="profile">
+    {{P:icon}}
+    <div class="kicker">KI Automations Spezialist · Tag 3 · 30.09.2026 · 3 Stunden</div>
+  </div>
+  <h1>LLMs unter der Lupe</h1>
+  <div class="sub">Was passiert, wenn man in Langdock eine Frage abschickt?</div>
+  <p class="forwhom">Arbeitsheft für <b>{{P:name}}</b> · {{P:fach}}</p>
+  <p class="lead">Erst verstehen, dann ausprobieren: Man geht die Folien der Lektion Schritt für Schritt durch und testet alles direkt in Langdock. Danach übt man im Prompt-Labor, wie ein guter Prompt gebaut ist. Jeder Schritt ist erklärt – man muss nichts vorher wissen.</p>
+
+  <div class="outcome"><div class="bar"></div><div><span class="lbl">Ergebnis am Ende</span>Die fünf Stationen einer KI-Anfrage in eigenen Worten erklären können – und die erste Mission im Prompt-Labor geschafft.</div></div>
+
+  <h4>Ablauf</h4>
+  <table class="plan">
+    <tr><th>Abschnitt</th><th>Zeit</th><th>Aufgaben</th><th>Folien</th></tr>
+    <tr><td>1 · Die Reise einer Anfrage</td><td>0:00–1:00</td><td>1 Die fünf Stationen<br>2 Tokens und Vektoren<br>3 Was die KI wirklich sieht</td><td>2–9</td></tr>
+    <tr><td>2 · Erste Übungen im Prompt-Labor</td><td>1:00–2:00</td><td>4 Das erste Lernmodul<br>5 Die erste Mission</td><td>7</td></tr>
+    <tr><td>3 · Selbst entdecken und mitnehmen</td><td>2:00–3:00</td><td>6 Selbst entdecken<br>7 Den besten Prompt in Langdock sichern</td><td>–</td></tr>
+  </table>
+  <p class="small plan-note">Am Ende jedes Abschnitts wartet eine <b>Zusatzaufgabe für {{P:fach_kurz}}</b> – freiwillig, für alle, die schneller fertig sind.</p>
+
+  <h4>So liest man dieses Heft</h4>
+  {{LEGEND}}
+
+  <div class="namefields"><div>Name</div><div>Datum</div></div>
+</section>
+
+<!-- ============ BEVOR ES LOSGEHT ============ -->
+<section class="section">
+  <h2 class="plain">Bevor es losgeht</h2>
+
+  <h4>So läuft der Tag</h4>
+  <table class="how">
+    <tr><th>Abschnitt</th><th>Was passiert</th></tr>
+    <tr><td>1 · Die Reise einer Anfrage</td><td>Die Folien der Lektion zum Anfassen: Man ordnet die fünf Stationen, sieht Tokens und Vektoren – und erlebt, was die KI wirklich „weiß“. Alles direkt in Langdock.</td></tr>
+    <tr><td>2 · Erste Übungen im Prompt-Labor</td><td>Auf der Übungsseite <b>prompt.veluna-labs.de</b>: ein kurzes Lernmodul und die erste Mission im Lernspiel „Prompt Launch“. Jeder Klick ist beschrieben.</td></tr>
+    <tr><td>3 · Selbst entdecken und mitnehmen</td><td>Man sucht sich aus, was man weiter ausprobiert – und speichert den besten Prompt des Tages in Langdock, damit man ihn morgen wiederfindet.</td></tr>
+  </table>
+
+  <h4 style="margin-top:6mm">Sicher arbeiten – diese 5 Regeln gelten den ganzen Tag</h4>
+  <div class="rules">
+    <div class="rule"><div class="num">1</div><div><b>Nur ausgedachte Daten</b>Keine echten Namen, Kundendaten, Personaldaten oder Verträge – weder in Langdock noch im Prompt-Labor.</div></div>
+    <div class="rule"><div class="num">2</div><div><b>Auch das Prompt-Labor fragt eine KI</b>Beim Auswerten und beim „Ergebnis erzeugen“ geht der Text an ein Sprachmodell. Deshalb gilt dort dasselbe wie in Langdock.</div></div>
+    <div class="rule"><div class="num">3</div><div><b>Punkte selbst prüfen</b>Manche Bewertungen im Prompt-Labor stammen von einer KI. Sie können sich irren – das eigene Urteil zählt.</div></div>
+    <div class="rule"><div class="num">4</div><div><b>Fortschritt liegt im Browser</b>Das Prompt-Labor hat kein Konto. Punkte und Prompts liegen nur in diesem Browser: kein privates Fenster, immer denselben Browser nutzen.</div></div>
+    <div class="rule"><div class="num">5</div><div><b>Unklar? Sofort melden</b>In der Online-Fassung hat jeder Schritt einen Knopf „Unklar?“ – die Schulungsleitung sieht die Frage sofort. Auf Papier: ein Fragezeichen an den Rand.</div></div>
+  </div>
+
+  <div class="bridge">
+    <div class="q">„</div>
+    <div><b>Die Frage der Lektion (Folie 2)</b><br>
+    „Was passiert eigentlich im Hintergrund, wenn man bei Langdock eine Anfrage stellt?“ – Die Antwort sind fünf Stationen, die in Sekundenbruchteilen ablaufen. Genau diese fünf Stationen geht man heute Schritt für Schritt durch.</div>
+  </div>
+</section>
+
+<!-- ============ WISSEN KOMPAKT ============ -->
+<section class="section">
+  <h2 class="plain">Wissen kompakt: Die Reise einer KI-Anfrage <span class="fref">Folien 2–9</span></h2>
+
+  <div class="flow">
+    <div><span class="no">1</span><b>Die Anfrage</b>Man tippt eine Frage in Langdock. Man sieht nur die Oberfläche – die eigentliche „Intelligenz“ läuft woanders. <span class="fref">Folie 3</span></div>
+    <div><span class="no">2</span><b>Transport</b>Die Frage reist verschlüsselt (HTTPS/SSL) durchs Internet zum Anbieter des Modells – wie ein versiegelter Brief. <span class="fref">Folie 4</span></div>
+    <div><span class="no">3</span><b>Load Balancer</b>Verteilt die vielen Anfragen auf freie Server – wie ein Weichenstellwerk am Bahnhof. <span class="fref">Folie 5</span></div>
+    <div><span class="no">4</span><b>API</b>Die Schnittstelle: bringt die Frage zum richtigen Modell, in einer Form, die es versteht – und die Antwort zurück. <span class="fref">Folie 6</span></div>
+    <div><span class="no">5</span><b>Rechenzentrum</b>Ein Gebäude voller Hochleistungsrechner. Hier läuft das Sprachmodell und rechnet die Antwort aus. <span class="fref">Folie 7</span></div>
+  </div>
+
+  <h4>Im Rechenzentrum: die Schritte aus Folie 7 in einfachen Worten</h4>
+  <table class="dec steps7">
+    <tr><th style="width:9mm"></th><th style="width:52mm">Auf der Folie</th><th>Einfach gesagt</th></tr>
+    <tr><td class="num">1</td><td>Server empfängt die Anfrage</td><td>Die Frage ist im Rechenzentrum angekommen.</td></tr>
+    <tr><td class="num">2</td><td>Kontext zusammenbauen</td><td>Alles einsammeln, was zu dieser Frage gehört: die Frage, der bisherige Chat, angehängte Dateien.</td></tr>
+    <tr><td class="num">3</td><td>Tokenisierung (auf CPU)</td><td>Den Text in kleine Stücke schneiden – ganze Wörter, Wortteile oder Zeichen. Das macht der normale Prozessor.</td></tr>
+    <tr><td class="num">4</td><td>Laden in den GPU-Speicher</td><td>Die Stücke kommen zu den Spezialchips, die gleich rechnen.</td></tr>
+    <tr><td class="num">5</td><td>Vektorisierung (Embedding)</td><td>Jedes Stück wird zu einer Zahlenreihe, die seine Bedeutung abbildet.</td></tr>
+    <tr><td class="num">6</td><td>Rechnen auf GPUs/TPUs</td><td>Spezialchips rechnen sehr viele Rechnungen gleichzeitig und bilden so die Antwort.</td></tr>
+    <tr><td class="num">7</td><td>Token für Token</td><td>Die Antwort entsteht Stück für Stück und kommt sofort an – das nennt man Stream.</td></tr>
+    <tr><td class="num">8</td><td>Cache wird geleert</td><td>Der Zwischenspeicher wird freigemacht – für die Anfragen der nächsten Menschen.</td></tr>
+  </table>
+
+  <h4>Die Wörter des Tages</h4>
+  <div class="words">
+    <div><b>LLM</b>großes Sprachmodell, z. B. GPT-5.5 oder Opus 4.8</div>
+    <div><b>Request</b>das IT-Wort für „Anfrage“</div>
+    <div><b>Server</b>ein Rechner, der Aufgaben für andere erledigt</div>
+    <div><b>Token</b>ein kleines Textstück</div>
+    <div><b>Vektor / Embedding</b>Zahlen, die Bedeutung abbilden</div>
+    <div><b>GPU / TPU</b>Spezialchips für sehr viele Rechnungen auf einmal</div>
+    <div><b>Stream</b>die Antwort kommt live, Stück für Stück</div>
+    <div><b>Kontext</b>alles, was die KI für diese eine Frage bekommt</div>
+  </div>
+
+  <p class="tip" style="margin:3mm 0 3mm"><b>Videos der Lektion</b> (<span class="fref">Folie 8</span> <span class="fref">Folie 9</span>): englisch, deutsche Untertitel einschaltbar – online direkt auf der Seite von Tag 3.</p>
+  <div class="box merke full">{{I}}<div><b>Merke:</b> Die KI kennt nur, was im Kontext steht. Fehlt etwas, fragt sie meistens nicht nach – sie füllt die Lücke mit etwas, das gut klingt.</div></div>
+</section>
+
+<!-- ============ ABSCHNITT 1 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 1 <span class="chip">0:00–1:00</span></div>
+    <h2>Die Reise einer Anfrage zum Anfassen</h2>
+    <p>Man geht die Folien 2 bis 9 noch einmal durch – diesmal zum Ausprobieren. Erst aus dem Kopf, dann mit Langdock.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 1</span><h3>Die fünf Stationen</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die fünf Stationen in der richtigen Reihenfolge kennen und jede in einem Satz erklären. <span class="fref">Folien 2–7</span></p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Die Stationen ordnen</div>
+      <p>Die Stationen stehen hier durcheinander. Ohne auf „Wissen kompakt“ zu schauen: die richtige Nummer (1 bis 5) eintragen und in einem kurzen Satz sagen, was dort passiert.</p>
+      <table class="fill">
+        <tr><th style="width:40mm">Station</th><th style="width:16mm">Nr.</th><th>Was passiert dort? (ein kurzer Satz)</th></tr>
+        <tr><td class="case">Rechenzentrum</td><td></td><td></td></tr>
+        <tr><td class="case">Anfrage</td><td></td><td></td></tr>
+        <tr><td class="case">API</td><td></td><td></td></tr>
+        <tr><td class="case">Load Balancer</td><td></td><td></td></tr>
+        <tr><td class="case">Transport</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>1</b> Anfrage – man tippt in Langdock, die Nachricht verlässt das Gerät. <b>2</b> Transport – verschlüsselt über HTTPS/SSL zum Anbieter. <b>3</b> Load Balancer – verteilt die Anfragen auf freie Server. <b>4</b> API – bringt die Frage zum richtigen Modell und die Antwort zurück. <b>5</b> Rechenzentrum – dort rechnet das Sprachmodell die Antwort aus.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Langdock erklärt die Reise mit einem Vergleich</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Erkläre mir in einfachen Worten, was passiert, wenn ich in Langdock eine Frage abschicke. Gehe diese fünf Stationen durch: Anfrage, Transport, Load Balancer, API, Rechenzentrum. Vergleiche jede Station mit einem Paket, das verschickt wird. Höchstens 150 Wörter, als nummerierte Liste.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Passt jeder Vergleich? Bei welcher Station hinkt er – und welchen Vergleich würde man selbst wählen?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Den Stream mit eigenen Augen sehen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Erkläre jetzt genauer, was im Rechenzentrum passiert – in etwa 300 Wörtern.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Die Antwort erscheint nicht auf einmal, sondern Stück für Stück. Das ist der <b>Stream</b> aus Folie 7, Schritt 7: Die Antwort wird Token für Token berechnet und jedes Stück sofort geschickt.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Kurzes Quiz: richtig oder falsch?</div>
+      <table class="fill" data-kind="quiz">
+        <tr><th>Aussage</th><th style="width:18mm">richtig</th><th style="width:18mm">falsch</th></tr>
+        <tr><td>a) Die Frage reist verschlüsselt durchs Internet.</td><td></td><td></td></tr>
+        <tr><td>b) Der Load Balancer macht die Antwort inhaltlich besser.</td><td></td><td></td></tr>
+        <tr><td>c) Die API bringt die Frage zum richtigen Modell und die Antwort zurück.</td><td></td><td></td></tr>
+        <tr><td>d) Die KI rechnet die ganze Antwort auf einmal aus und schickt sie dann los.</td><td></td><td></td></tr>
+        <tr><td>e) Die „Intelligenz“ läuft auf dem eigenen Laptop.</td><td></td><td></td></tr>
+        <tr><td>f) Nach der Antwort wird der Zwischenspeicher für andere Anfragen geleert.</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>Richtig:</b> a, c, f. <b>Falsch:</b> b – der Load Balancer verteilt nur die Anfragen; d – die Antwort entsteht Token für Token und kommt live an; e – sie läuft im Rechenzentrum, das eigene Gerät zeigt nur die Oberfläche.</p></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 2</span><h3>Tokens und Vektoren zum Anfassen</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Sehen, dass die KI nicht mit ganzen Wörtern rechnet, sondern mit Textstücken und Zahlen. <span class="fref">Folien 7–9</span></p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Tokens sichtbar machen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Zerlege den Satz „Die Kaffeemaschinenreinigung dauert zehn Minuten.“ ungefähr so in Tokens, wie ein Sprachmodell es tun würde. Trenne die Stücke mit einem senkrechten Strich |. Erkläre in zwei Sätzen, warum lange Wörter in mehrere Stücke zerfallen.</p></div>
+      <p class="small">Gut zu wissen: Die KI kann ihre eigenen Stücke nicht genau sehen. Die Antwort ist eine gute Schätzung, keine exakte Messung.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Der Buchstaben-Test</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Wie oft kommt der Buchstabe „e“ im Wort „Kaffeemaschinenreinigung“ vor? Antworte nur mit der Zahl.</p></div>
+      <table class="fill">
+        <tr><th>Antwort von Langdock</th><th>Selbst gezählt</th><th>Stimmt es?</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>4-mal „e“:</b> Kaffee (2) + maschinen (1) + reinigung (1). Warum sich eine KI hier verzählen kann: Sie sieht Stücke wie „Kaffee“, „maschinen“, „reinigung“ – nicht einzelne Buchstaben. Zählen ist für sie überraschend schwer.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Vektoren: Wie nah liegen Bedeutungen beieinander?</div>
+      <p>Das Video auf Folie 9 fragt: Warum „weiß“ die KI, dass König näher an Königin liegt als an Apfel? Erst selbst schätzen (0 = nichts gemeinsam, 10 = fast dasselbe), dann Langdock fragen.</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Stell dir vor, jedes Wort ist ein Punkt auf einer Landkarte der Bedeutungen. Wie nah liegen diese Paare beieinander – von 0 (nichts gemeinsam) bis 10 (fast dasselbe)? König – Königin, König – Apfel, Auto – Wagen, Hund – Katze, Hund – Kühlschrank. Begründe jede Zahl in einem Satz.</p></div>
+      <table class="fill">
+        <tr><th>Wortpaar</th><th style="width:34mm">Eigene Schätzung</th><th style="width:34mm">Langdock</th></tr>
+        <tr><td class="case">König – Königin</td><td></td><td></td></tr>
+        <tr><td class="case">König – Apfel</td><td></td><td></td></tr>
+        <tr><td class="case">Auto – Wagen</td><td></td><td></td></tr>
+        <tr><td class="case">Hund – Katze</td><td></td><td></td></tr>
+        <tr><td class="case">Hund – Kühlschrank</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Das ist nur ein Gedankenspiel – echte Vektoren sind lange Zahlenreihen. Das Prinzip stimmt aber: Ähnliche Bedeutungen bekommen ähnliche Zahlen. Darum findet die KI zu „Auto“ auch einen Text, in dem nur „Wagen“ steht.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 3</span><h3>Was die KI wirklich sieht</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erleben, dass die KI nur den Kontext kennt – und Lücken lieber füllt als nachzufragen. <span class="fref">Folie 7, Schritt 2</span></p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Ohne Angaben</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Schreibe eine kurze Einladung zu unserem Teamfrühstück.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Welche Angaben denkt sich Langdock aus – Tag, Uhrzeit, Ort? Fragt es überhaupt nach?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Mit Angaben und einer Regel für Lücken</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Schreibe eine kurze Einladung zu unserem Teamfrühstück. Die Angaben (ausgedacht): Freitag, 9 Uhr, Besprechungsraum 2, jede Person bringt eine Kleinigkeit mit. Wer die Brötchen holt, steht noch nicht fest. Verwende nur diese Angaben. Wenn etwas fehlt, schreibe [fehlt].</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Steht bei den Brötchen wirklich [fehlt] – oder hat Langdock doch jemanden erfunden?</div>
+      <table class="fill">
+        <tr><th>Ohne Angaben hat Langdock erfunden …</th><th>Mit Angaben stand da …</th></tr>
+        <tr><td style="height:14mm"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Ein neuer Chat fängt bei null an</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Wann ist unser Teamfrühstück?</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Ein neuer Chat hat einen leeren Kontext – die KI weiß nichts vom anderen Chat. Weiß sie es trotzdem, hat Langdock es sich über die Funktion „Memory“ gemerkt, falls sie eingeschaltet ist.</div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Das ist Schritt 2 im Rechenzentrum: „Kontext zusammenbauen“. Die KI bekommt die Frage, den bisherigen Chat und die Anhänge – mehr nicht. Wer alles Nötige mitgibt und sagt, was bei Lücken passieren soll, bekommt weniger Erfundenes.</div></div>
+  </div>
+
+{{ZUSATZ:1}}
+</section>
+
+<!-- ============ ABSCHNITT 2 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 2 <span class="chip">1:00–2:00</span></div>
+    <h2>Erste Übungen im Prompt-Labor</h2>
+    <p>Jetzt geht es auf die Übungsseite <b>prompt.veluna-labs.de</b>. Zwei geführte Übungen – danach kennt man die wichtigsten Bereiche.</p>
+  </div>
+
+  <div class="keep">
+    <h4>So ist das Prompt-Labor aufgebaut</h4>
+    <p>Im Browser <b>prompt.veluna-labs.de</b> aufrufen – ohne Konto, ohne Anmeldung. Oben liegt eine Leiste mit diesen Bereichen:</p>
+    <div class="sitemap five">
+      <div><b>Dashboard</b>Startseite mit Fortschritt, Punkten (bis 880) und Abzeichen.</div>
+      <div><b>Prompting lernen</b>10 kurze Lernmodule mit Erklärung, Beispiel und kleinen Aufgaben.</div>
+      <div><b>Prompt Launch</b>Das Lernspiel: Man baut aus 8 Teilen eine Rakete – jedes Teil ist ein Baustein eines Prompts.</div>
+      <div><b>Prompt-Werkstatt</b>Einen eigenen Prompt prüfen und verbessern lassen.</div>
+      <div><b>Meine Prompts</b>Alles, was man gespeichert hat.</div>
+    </div>
+    <div class="box safe full"><span class="tag safe">Sicher</span>Fortschritt und gespeicherte Prompts liegen nur in diesem Browser. Ein anderes Gerät, ein privates Fenster oder das Löschen der Browserdaten setzt alles zurück.</div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 4</span><h3>Das erste Lernmodul</h3><span class="time">15 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Das Prompt-Labor kennenlernen – mit einem Modul, das genau das Thema der Lektion hat: „Was passiert bei einer KI-Anfrage?“</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Modul öffnen <span class="where lab">Prompt-Labor</span></div>
+      <ol>
+        <li>Oben in der Leiste <b>„Prompting lernen“</b> anklicken.</li>
+        <li><b>„Modul 01 – Was passiert bei einer KI-Anfrage?“</b> wählen.</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die vier Schritte durchklicken</div>
+      <ol>
+        <li><b>Erklärung</b> lesen, dann „Weiter“.</li>
+        <li><b>Vorher · Nachher:</b> erst „Vorher“, dann „Nachher“ ansehen. Was macht den zweiten Prompt besser?</li>
+        <li><b>Frage mit einer Antwort:</b> eine Antwort wählen. Danach erscheint „Richtig“ oder eine Erklärung.</li>
+        <li><b>Frage mit mehreren Antworten:</b> alle passenden Aussagen anklicken. Sie zählt erst, wenn genau die richtigen markiert sind.</li>
+        <li>Zum Schluss <b>„Modul abschließen“</b>.</li>
+      </ol>
+      <p class="lineslabel">Der wichtigste Satz aus dem Modul – in eigenen Worten:</p>
+      <div class="lines" style="--n:2"></div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Das Modul erzählt dieselbe Geschichte wie Aufgabe 3: Eine fehlende Angabe führt nicht zu einer Fehlermeldung, sondern zu einer Erfindung. Das Modul zählt auch dann als geschafft, wenn nicht alles richtig war.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 5</span><h3>Die erste Mission im Lernspiel „Prompt Launch“</h3><span class="time">35 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die 8 Bausteine eines guten Prompts spielerisch zusammensetzen – und sehen, was ein ungenauer Baustein anrichtet.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Mission einstellen <span class="where lab">Prompt-Labor</span></div>
+      <ol>
+        <li>Oben <b>„Prompt Launch“</b> anklicken.</li>
+        <li>Die Stufe <b>„Kadett“</b> wählen. Das ist die leichteste Stufe: Alle Teile sind beschriftet, und es gibt Hinweise.</li>
+        <li>Die Ansicht wählen: <b>„Reduziert (2D)“</b> ist einfacher und läuft auf jedem Rechner. Wer mag, nimmt den „3D-Hangar“.</li>
+        <li>Die Mission <b>„Follow-up-E-Mail“</b> anklicken.</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Den Auftrag lesen</div>
+      <p>Links steht der <b>Missionscomputer</b> mit drei Reitern: „Auftrag“, „Informationen“ und „Risiken“. Alle drei lesen – dort steht, was in die Rakete gehört.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Die Rakete bauen</div>
+      <p>Jedes Raketenteil steht für einen Baustein des Prompts:</p>
+      <table class="dec rakete">
+        <tr><th style="width:9mm"></th><th style="width:40mm">Raketenteil</th><th style="width:30mm">Baustein</th><th>Einfach gesagt</th></tr>
+        <tr><td class="num">1</td><td>Navigationscomputer</td><td><b>Ziel</b></td><td>Was soll am Ende herauskommen?</td></tr>
+        <tr><td class="num">2</td><td>Missionsdatenbank</td><td><b>Kontext</b></td><td>Was muss die KI über die Lage wissen?</td></tr>
+        <tr><td class="num">3</td><td>Nutzlast</td><td><b>Eingaben</b></td><td>Mit welchem Material soll sie arbeiten?</td></tr>
+        <tr><td class="num">4</td><td>Triebwerk</td><td><b>Aufgabe</b></td><td>Was genau soll sie tun?</td></tr>
+        <tr><td class="num">5</td><td>Steuerungssystem</td><td><b>Ausgabeformat</b></td><td>In welcher Form soll das Ergebnis kommen?</td></tr>
+        <tr><td class="num">6</td><td>Sensoren</td><td><b>Testkriterien</b></td><td>Woran erkennt man, dass es gut ist?</td></tr>
+        <tr><td class="num">7</td><td>Hitzeschild</td><td><b>Grenzen</b></td><td>Was darf auf keinen Fall passieren?</td></tr>
+        <tr><td class="num">8</td><td>Kommunikationsmodul</td><td><b>Rückfragen</b></td><td>Wann soll die KI lieber nachfragen?</td></tr>
+      </table>
+      <ol>
+        <li>Ein Raketenteil anklicken und die Frage dazu lesen.</li>
+        <li>Unter <b>„Bauteile im Hangar“</b> das passende Teil anklicken – es wird sofort eingebaut.</li>
+        <li>Daneben steht, ob das Teil <b>tragfähig</b> (gut) oder <b>zu unbestimmt</b> (zu ungenau) ist.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Experiment</span>Beim ersten Durchgang bei den <b>Sensoren</b> absichtlich ein ungenaues Teil wählen, alle anderen gut. Gibt es dort kein ungenaues Teil, unter „Eigene Formulierung“ schreiben: „Das Ergebnis soll gut sein.“</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Prüfen, starten, umbauen</div>
+      <ol>
+        <li><b>„Systemprüfung“</b> anklicken: Die Seite zeigt, welche Teile in Ordnung sind und wo es Probleme gibt.</li>
+        <li><b>„Start freigeben“</b> und den Flug ansehen. Danach kommt die Bewertung mit bis zu 100 Punkten.</li>
+        <li><b>„Umbauen“</b>, das ungenaue Teil durch ein gutes ersetzen und noch einmal starten.</li>
+      </ol>
+      <table class="fill">
+        <tr><th>Durchgang</th><th style="width:22mm">Punkte</th><th>Was ist beim Flug passiert?</th></tr>
+        <tr><td class="case">1 · mit ungenauem Teil</td><td></td><td></td></tr>
+        <tr><td class="case">2 · alles gut</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">5</span>Die echte E-Mail erzeugen – und prüfen</div>
+      <ol>
+        <li>Im Ergebnis auf <b>„Ergebnis erzeugen“</b> klicken. Nach 10 bis 20 Sekunden erscheint die fertige E-Mail.</li>
+        <li><b>„In Bibliothek speichern“</b> – der Prompt landet unter „Meine Prompts“. Man braucht ihn in Aufgabe 7 wieder.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Würde man diese E-Mail so verschicken? Das automatische Urteil darunter kommt von einer KI – das eigene Urteil zählt.</div>
+    </div>
+  </div>
+
+{{ZUSATZ:2}}
+</section>
+
+<!-- ============ ABSCHNITT 3 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 3 <span class="chip">2:00–3:00</span></div>
+    <h2>Selbst entdecken und mitnehmen</h2>
+    <p>Jetzt wählt man selbst, was man weiter ausprobiert. Zum Schluss wandert der beste Prompt des Tages in Langdock – damit man ihn morgen wiederfindet.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 6</span><h3>Selbst entdecken</h3><span class="time">35 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Mindestens einen Weg ausprobieren und notieren, was man dabei gelernt hat.</p>
+    <div class="routes three">
+      <div class="route"><span class="lvl">Lernpfad</span><h4>Weg A · Zwei weitere Module</h4>
+        <p>Unter „Prompting lernen“: <b>Modul 02 „Ziel und Aufgabe“</b> und <b>Modul 07 „Rückfragen“</b>. Beide dauern etwa 5 bis 10 Minuten.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Werkstatt</span><h4>Weg B · Einen eigenen Prompt prüfen</h4>
+        <p><b>„Prompt-Werkstatt“</b> → <b>„Schnell-Tuning“</b>. Einen Prompt vom ersten oder zweiten Kurstag einfügen (ohne echte Daten), <b>„Prompt analysieren“</b>, dann <b>„Verbesserte Fassung erzeugen“</b> und <b>„Speichern“</b>. Die Werkstatt setzt Platzhalter wie [ZIELGRUPPE], statt etwas zu erfinden.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Nachschlagen</span><h4>Weg C · Die Bausteine im Detail</h4>
+        <p>Unter „Prompting lernen“ ganz unten: <b>„Die Bestandteile eines Prompts“</b>. Zu jedem Baustein gibt es ein schwaches und ein gutes Beispiel.</p>
+        <div class="lines" style="--n:2"></div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 7</span><h3>Den besten Prompt in Langdock sichern</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Den besten Prompt des Tages in der Langdock-Prompt-Bibliothek speichern – und prüfen, dass kein Baustein fehlt.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Den besten Prompt auswählen und prüfen</div>
+      <p>Zum Beispiel den Prompt aus der Mission (unter „Meine Prompts“ → Kopieren). Welche der 8 Bausteine stecken darin? Je Spalte ✓ für vorhanden oder ✗ für fehlt.</p>
+      <table class="fill" data-kind="tick">
+        <tr><th>Ziel</th><th>Kontext</th><th>Eingaben</th><th>Aufgabe</th><th>Format</th><th>Test&shy;kriterien</th><th>Grenzen</th><th>Rück&shy;fragen</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>In der Prompt-Bibliothek speichern</div>
+      <ol>
+        <li>In Langdock die <b>Prompt-Bibliothek</b> öffnen und <b>„Prompt hinzufügen“</b> wählen. Alternativ im Chat mit der Maus über die eigene Nachricht fahren und auf das <b>Plus-Symbol</b> klicken.</li>
+        <li>Einen Namen geben, zum Beispiel „Follow-up-E-Mail (Prompt-Labor)“.</li>
+        <li>Stellen, die sich jedes Mal ändern, als Lücke schreiben: <b>&#123;&#123; thema &#125;&#125;</b> oder <b>&#123;&#123; empfänger &#125;&#125;</b>. Langdock fragt diese Lücken beim Einsetzen ab.</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Wieder abrufen und testen</div>
+      <ol>
+        <li>Einen <span class="where new">Neuer Chat</span> öffnen, im Eingabefeld <b>@</b> tippen und <b>„Prompts“</b> wählen.</li>
+        <li>Den gespeicherten Prompt anklicken, die Lücken ausfüllen (ausgedacht) und abschicken.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Mit einem vollständigen Prompt muss Langdock weniger raten. Genau das ist die Lehre aus Folie 7: Der Kontext entscheidet.</div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Prompt Launch trainiert den Aufbau, Langdock nutzt ihn jeden Tag. Ein Baustein, der fehlt, fehlt bei jeder einzelnen Anfrage.</div></div>
+  </div>
+
+{{ZUSATZ:3}}
+</section>
+
+<!-- ============ ABSCHLUSS ============ -->
+<section class="final">
+  <div class="sec-head">
+    <div class="sec-no">Abschluss</div>
+    <h2>Abgabe und eigene Bilanz</h2>
+    <p>Alles abhaken, was fertig ist. Offene Punkte greift man am nächsten Kurstag wieder auf.</p>
+  </div>
+  <h4>Abgabe-Checkliste</h4>
+  <ul class="check">
+    <li>Die fünf Stationen geordnet, erklären lassen und das Quiz gelöst (Aufgabe 1)</li>
+    <li>Token-, Buchstaben- und Vektor-Test gemacht (Aufgabe 2)</li>
+    <li>Einladung ohne und mit Angaben verglichen (Aufgabe 3)</li>
+    <li>Modul 01 im Prompt-Labor abgeschlossen (Aufgabe 4)</li>
+    <li>Mission „Follow-up-E-Mail“ zweimal gestartet und die E-Mail geprüft (Aufgabe 5)</li>
+    <li>Mindestens einen Weg selbst entdeckt (Aufgabe 6)</li>
+    <li>Den besten Prompt in Langdock gespeichert und getestet (Aufgabe 7)</li>
+    <li>Freiwillig: Zusatzaufgaben für {{P:fach_kurz}} (1, 2 oder 3)</li>
+  </ul>
+
+  <div class="keep" style="margin-top:5mm">
+    <h4>Mein Stand im Prompt-Labor</h4>
+    <p>Auf dem Dashboard ablesen – und am besten ein Bildschirmfoto machen ({{P:foto}}), denn der Stand liegt nur in diesem Browser.</p>
+    <table class="fill full">
+      <tr><th>Punkte (von 880)</th><th>Abzeichen (von 5)</th><th>Module (von 10)</th><th>Missionen (von 7)</th></tr>
+      <tr><td style="height:11mm"></td><td></td><td></td><td></td></tr>
+    </table>
+  </div>
+  <div class="keep" style="margin-top:5mm">
+    <h4>Das nehme ich mit</h4>
+    <div class="lines full" style="--n:3"></div>
+  </div>
+  <div class="keep" style="margin-top:5mm">
+    <h4>Das ist mir noch unklar</h4>
+    <p class="small">Online geht es schneller: bei der Stelle auf „Unklar?“ klicken – die Schulungsleitung sieht es sofort.</p>
+    <div class="lines full" style="--n:2"></div>
+  </div>
+</section>
+
+{{LEARNINGS}}
+</body>
+</html>

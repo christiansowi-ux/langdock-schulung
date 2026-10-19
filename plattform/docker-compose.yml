@@ -1,0 +1,35 @@
+# Arbeitshefte zum Ausfuellen – quint-games.de/hefte
+# Liegt unter /opt/stacks/langdock-hefte auf dem Quint-VPS, gemeinsamer Traefik (Netz "web", Resolver "le").
+# Eigener Router mit Prioritaet 115: vor dem Portal-Stack "quint-games" (faengt die ganze Domain), neben /stille (110).
+# Heft-Antworten liegen im Browser, PDFs entstehen nur im Arbeitsspeicher. Gespeichert werden nur die "Unklar?"-Fragen
+# (./data/fragen.json). Passwort der Schulungsleitung + Cookie-Schluessel stehen nur in ./.env auf dem Server.
+services:
+  langdock-hefte:
+    build: .
+    image: langdock-hefte:latest
+    container_name: langdock-hefte
+    restart: unless-stopped
+    mem_limit: 1g
+    env_file: .env
+    environment:
+      - TZ=Europe/Berlin
+      - DATA_DIR=/app/data
+    volumes:
+      - ./data:/app/data
+    networks:
+      - web
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=web
+      - traefik.http.routers.langdock-hefte.rule=(Host(`quint-games.de`) || Host(`www.quint-games.de`)) && PathPrefix(`/hefte`)
+      - traefik.http.routers.langdock-hefte.priority=115
+      - traefik.http.routers.langdock-hefte.entrypoints=websecure
+      - traefik.http.routers.langdock-hefte.tls.certresolver=le
+      - traefik.http.services.langdock-hefte.loadbalancer.server.port=8080
+      - traefik.http.middlewares.langdock-hefte-headers.headers.stsSeconds=31536000
+      - traefik.http.middlewares.langdock-hefte-compress.compress=true
+      - traefik.http.routers.langdock-hefte.middlewares=langdock-hefte-headers,langdock-hefte-compress
+
+networks:
+  web:
+    external: true

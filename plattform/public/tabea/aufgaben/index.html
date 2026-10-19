@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de" data-page="aufgaben" data-person="tabea">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aufgabengenerator – Tabea</title>
+
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<link rel="stylesheet" href="/hefte/assets/kurs.css">
+<link rel="stylesheet" href="/hefte/assets/lerntraining.css">
+<link rel="stylesheet" href="/hefte/assets/demos.css">
+
+<script src="/hefte/assets/app.js" defer></script><script src="/hefte/assets/kurs.js" defer></script><script src="/hefte/assets/aufgaben.js" defer></script>
+</head>
+<body class="kurs">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="top"><div class="top-in">
+  <a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a>
+  <nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/tabea/">Tabea</a><span class="sep">/</span><span aria-current="page">Aufgaben</span></nav>
+  <div class="top-right"><span id="dz-slot"></span><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div>
+</div></header>
+<main id="main">
+<section class="hero wrap slim">
+  <p class="kicker">Freiwillig · aus dem Stoff aller Kurstage</p>
+  <h1>Aufgabengenerator</h1>
+  <p class="lead">Praxisnahe Aufgaben für Langdock – jedes Mal neu gemischt, passend zum eigenen Bereich. Kurzaufgaben dauern 5–10 Minuten, Deep-Learn-Aufgaben eine Stunde mit fünf Etappen und einem fertigen Ergebnis. Es geht nicht um Fachbegriffe, sondern darum, wie ein guter Prompt aussieht und was er verändert.</p>
+</section>
+<section class="wrap">
+<div class="aufg" data-aufg data-src="/hefte/assets/aufgaben.json?v=ccc68af2d5">
+  <div class="aufg-mode" role="group" aria-label="Art der Aufgaben">
+    <button type="button" data-mode="kurz" aria-pressed="true"><b>Kurzaufgaben</b><span>5–10 Minuten, ein Gedanke</span></button>
+    <button type="button" data-mode="deep" aria-pressed="false"><b>Deep Learn</b><span>1 Stunde, 5 Etappen, alles in Langdock</span></button>
+  </div>
+  <div class="aufg-ctl">
+    <button class="btn primary aufg-roll" type="button">Neue Aufgabe würfeln</button>
+    <label class="sel">Bereich<select class="aufg-bereich"><option value="mein">Mein Bereich</option><option value="druck">Druck &amp; Vertrieb</option><option value="web">Business &amp; Website</option><option value="video">Video &amp; Design</option><option value="alle">Gemischt</option></select></label>
+    <label class="sel">Dauer<select class="aufg-dauer"><option value="">egal</option><option value="5">etwa 5 Minuten</option><option value="10">etwa 10 Minuten</option></select></label>
+    <fieldset class="aufg-days"><legend>Aus welchen Tagen?</legend><label><input type="checkbox" value="1" checked> Tag 1</label><label><input type="checkbox" value="2" checked> Tag 2</label><label><input type="checkbox" value="3" checked> Tag 3</label><label><input type="checkbox" value="4" checked> Tag 4</label><label><input type="checkbox" value="5" checked> Tag 5</label><label><input type="checkbox" value="6" checked> Tag 6</label><label><input type="checkbox" value="7" checked> Tag 7</label><label><input type="checkbox" value="8" checked> Tag 8</label><label><input type="checkbox" value="9" checked> Tag 9</label><label><input type="checkbox" value="10" checked> Tag 10</label><label><input type="checkbox" value="11" checked> Tag 11</label><label><input type="checkbox" value="12" checked> Tag 12</label><label><input type="checkbox" value="13" checked> Tag 13</label><label><input type="checkbox" value="14" checked> Tag 14</label><label><input type="checkbox" value="15" checked> Tag 15</label></fieldset>
+  </div>
+  <p class="aufg-stat" aria-live="polite"></p>
+  <article class="aufg-card" aria-live="polite"><noscript>Der Aufgabengenerator braucht JavaScript.</noscript></article>
+  <p class="aufg-note">Alle Firmen, Namen und Zahlen sind ausgedacht. Die Prompts in Langdock in einen neuen Chat kopieren – der Fortschritt bleibt nur in diesem Browser.</p>
+</div>
+</section>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <span>Futureway KI Institut · Kurs „KI Automations Spezialist“ · Praxisblock Langdock</span>
+  <span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span>
+</div></footer>
+</body>
+</html>

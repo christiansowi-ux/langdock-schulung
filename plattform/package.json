@@ -1,0 +1,17 @@
+{
+  "name": "langdock-hefte",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arbeitshefte zum Ausfüllen im Browser mit PDF-Export (quint-games.de/hefte)",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "puppeteer-core": "25.12.0"
+  }
+}

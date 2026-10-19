@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Lernheft Tag 7 – Prompting-Techniken (Teil 2)</title>
+{{HEAD}}
+</head>
+<body class="lh">
+{{BAR}}
+
+<!-- ============ TITEL ============ -->
+<section class="lp cover">
+  <img class="logo" src="{{LOGO}}" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Tag 7 · 06.10.2026 · Lektion 6, Teil 2</p>
+  <div class="big" style="font-size:84pt">Prompting-<br>Techniken</div>
+  <div class="big2">Von Few-Shot<br>bis zum Agenten.</div>
+  <p class="sub">Das Lernheft zu den Folien 27 bis 41: acht Techniken für bessere Antworten, drei Arten, Prompts zu gliedern – und der erste eigene Agent.</p>
+  <span class="note">{{ICON:book}} Zum Lesen und Merken – mit freiwilligen Übungen in Langdock am Ende.</span>
+  <div class="cvs">
+    <div class="x"><b>Ohne</b><span>„Wie viele Kunden sind es danach?“ – und hoffen, dass die Rechnung stimmt.</span></div>
+    <div class="o"><b>Mit</b><span>„Denke Schritt für Schritt.“ – jeder Rechenschritt steht da und lässt sich prüfen.</span></div>
+  </div>
+  <div class="band">
+    <div class="bl">Das Grundmuster moderner KI-Agenten · ReAct · Folie 33</div>
+    <div class="steps6" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="ic">{{ICON:brain}}</div><b>Denken</b><span>Was brauche ich?</span></div>
+      <div><div class="ic">{{ICON:plug}}</div><b>Handeln</b><span>Werkzeug nutzen</span></div>
+      <div><div class="ic">{{ICON:search}}</div><b>Beobachten</b><span>Was kam heraus?</span></div>
+      <div><div class="ic">{{ICON:check}}</div><b>Antworten</b><span>wenn das Ziel erreicht ist</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO GEHT DIESES HEFT ============ -->
+<section class="lp">
+  <div class="kh"><div><p class="kk">Bevor es losgeht</p><h2>So liest man dieses Heft</h2></div></div>
+  <div class="how3">
+    <div><div class="ic">{{ICON:layers}}</div><b>Eine Seite, eine Technik</b><p>Jede Technik mit Erklärung, „Wann sinnvoll?“ und dem Beispiel von der Folie.</p></div>
+    <div><div class="ic">{{ICON:star}}</div><b>Unten der Merksatz</b><p>Der schwarze Kasten am Ende jeder Seite ist das, was hängen bleiben soll.</p></div>
+    <div><div class="ic">{{ICON:flask}}</div><b>Freiwillig üben</b><p>Am Ende kurze Übungen für Langdock – zum Kopieren, ohne Schreiben im Heft.</p></div>
+  </div>
+  <h3 class="st">Inhalt</h3>
+  <ol class="toc">
+    <li><span class="n">01</span>Welche Technik wann?<span class="f">Folien 27–35</span></li>
+    <li><span class="n">02</span>Zero-Shot: ohne Beispiel<span class="f">Folie 28</span></li>
+    <li><span class="n">03</span>One-Shot und Few-Shot<span class="f">Folien 29–30</span></li>
+    <li><span class="n">04</span>Chain-of-Thought<span class="f">Folie 31</span></li>
+    <li><span class="n">05</span>Tree-of-Thought<span class="f">Folie 32</span></li>
+    <li><span class="n">06</span>ReAct<span class="f">Folie 33</span></li>
+    <li><span class="n">07</span>Self-Refine, Self-Consistency<span class="f">Folien 34–35</span></li>
+    <li><span class="n">08</span>System-Prompts<span class="f">Folie 36</span></li>
+    <li><span class="n">09</span>Markdown im Prompt<span class="f">Folie 37</span></li>
+    <li><span class="n">10</span>XML und JSON<span class="f">Folien 38–39</span></li>
+    <li><span class="n">11</span>Vom Prompt zum Agenten<span class="f">Folien 40–41</span></li>
+    <li><span class="n">+</span>Lektion, Übungen, Merkfragen, Wörter<span class="f"></span></li>
+  </ol>
+  <h3 class="st">Was von gestern bleibt</h3>
+  <div class="fq">
+    <span class="lab">Das 4-Elemente-Framework (Tag 6)</span>
+    <p>Rolle · Aufgabe · Kontext · Format</p>
+  </div>
+  <p style="font-size:10.4pt">Die Techniken von heute ersetzen das Framework nicht – sie kommen <b>dazu</b>. Ein Beispiel im Prompt, ein „Denke Schritt für Schritt“ oder eine klare Gliederung machen einen guten Prompt noch verlässlicher.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Framework = <em>was</em> in den Prompt gehört. Technik = <em>wie</em> die KI daran arbeitet.</p></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="lp" id="k1">
+  <div class="kh"><span class="kn">01</span><div><p class="kk">Kapitel 1 <span class="fref" data-folie="27">Folie 27</span></p><h2>Welche Technik wann?</h2></div>{{UX:1}}</div>
+  <p class="lead">Jede Technik passt zu einer bestimmten Art von Aufgabe. Diese Übersicht hilft beim Auswählen – die Kapitel danach erklären jede einzeln.</p>
+  <div class="techmap">
+    <div><span>Einfache, klare Standardaufgabe</span><b>Zero-Shot</b></div>
+    <div><span>Festes Muster, Format oder ein bestimmter Ton</span><b>One-Shot</b></div>
+    <div><span>Schwierigeres Muster mit Feinheiten</span><b>Few-Shot</b></div>
+    <div><span>Rechnen, Logik, Abwägen mehrerer Faktoren</span><b>Chain-of-Thought</b></div>
+    <div><span>Strategie mit mehreren möglichen Wegen</span><b>Tree-of-Thought</b></div>
+    <div><span>Zwischenschritte, Suchen, Werkzeuge</span><b>ReAct</b></div>
+    <div><span>Text soll richtig gut werden</span><b>Self-Refine</b></div>
+    <div><span>Fehleranfällige Rechnung oder wichtige Frage</span><b>Self-Consistency</b></div>
+    <div><span>Langer Prompt mit vielen Teilen</span><b>Markdown · XML</b></div>
+    <div><span>Ergebnis soll weiterverarbeitet werden</span><b>JSON</b></div>
+  </div>
+  <div class="ask"><span class="q">?</span><p>Faustregel: <b>Einfach anfangen.</b> Erst ohne Beispiel fragen. Passt das Ergebnis nicht, ein Beispiel dazugeben oder Schritt für Schritt denken lassen.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Nicht jede Technik für alles – <em>die Aufgabe bestimmt die Technik.</em></p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="lp" id="k2">
+  <div class="kh"><span class="kn">02</span><div><p class="kk">Kapitel 2 <span class="fref" data-folie="28">Folie 28</span></p><h2>Zero-Shot: ohne Beispiel</h2></div>{{UX:2}}</div>
+  <p class="lead">Die KI löst die Aufgabe ohne vorherige Beispiele – nur mit dem, was sie im Training gelernt hat. „Zero“ heißt null: null Beispiele.</p>
+  <div class="chat">
+    <div class="u"><span class="who">Prompt</span><span>Klassifiziere den folgenden Text als positiv, negativ oder neutral: „Das Produkt hat meine Erwartungen vollständig erfüllt.“</span></div>
+    <div class="a"><span class="who">KI</span><span>positiv</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card green"><h4>Wann sinnvoll?</h4><ul class="list yes"><li>einfache, klar definierte Aufgaben</li><li>schnelle Ergebnisse ohne Vorbereitung</li><li>allgemeine Fragen und Standardaufgaben</li><li>wenn keine Beispieldaten vorhanden sind</li></ul></div>
+    <div class="card red"><h4>Grenze</h4><p>Bei komplexen Aufgaben liefert Zero-Shot oft ungenauere Ergebnisse. Dann besser One-Shot oder Few-Shot verwenden (Kapitel 3).</p></div>
+  </div>
+  <div class="fall" style="margin-top:4mm"><span class="fl">Kennt man schon</span><p>Fast jeder Prompt aus dem Alltag ist Zero-Shot: „Fasse diesen Text zusammen“, „Übersetze ins Englische“. Das 4-Elemente-Framework macht ihn trotzdem genau.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Zero-Shot = <em>ohne Beispiel.</em> Schnell – aber nur für einfache Aufgaben.</p></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="lp" id="k3">
+  <div class="kh"><span class="kn">03</span><div><p class="kk">Kapitel 3 <span class="fref" data-folie="29">Folie 29</span> <span class="fref" data-folie="30">Folie 30</span></p><h2>One-Shot und Few-Shot</h2></div>{{UX:3}}</div>
+  <p class="lead">Ein Beispiel zeigt der KI, wie die Antwort aussehen soll. Sie lernt durch Nachahmen – oft besser als durch eine lange Erklärung.</p>
+  <h3 class="st" style="margin-top:0">One-Shot: genau ein Beispiel (Folie 29)</h3>
+  <div class="code">Klassifiziere Kundenfeedback als positiv oder negativ.
+<span class="k">Beispiel:</span> Eingabe: „Die Lieferung war super schnell!“  →  Ausgabe: positiv
+<span class="k">Jetzt du:</span> Eingabe: „Das Produkt war beschädigt und der Support hat nicht geholfen.“  →  Ausgabe:</div>
+  <h3 class="st">Few-Shot: zwei bis fünf Beispiele (Folie 30)</h3>
+  <div class="code">Klassifiziere den Ton von Kunden-E-Mails und schlage eine passende Antwort-Strategie vor.
+<span class="k">Beispiel 1:</span> „Ich warte seit 2 Wochen auf meine Bestellung …“ <span class="c">→ Ton: frustriert · Strategie: sofort entschuldigen, Lösungsweg, Kulanz</span>
+<span class="k">Beispiel 2:</span> „Könnten Sie mir erklären, wie ich das Produkt zurückgebe?“ <span class="c">→ Ton: sachlich · Strategie: freundlich informieren, Schritt für Schritt</span>
+<span class="k">Beispiel 3:</span> „Wow, der Support war unglaublich hilfreich!“ <span class="c">→ Ton: begeistert · Strategie: danken, Feedback weitergeben</span>
+<span class="k">Jetzt du:</span> „Ich habe das falsche Produkt erhalten und bin sehr enttäuscht.“ → Ton: … Strategie: …</div>
+  <div class="grid2">
+    <div class="card"><h4>One-Shot passt, wenn …</h4><p>ein festes Muster, ein einheitliches Format oder ein bestimmter Ton gewünscht ist – oder Zero-Shot zu ungenau war.</p></div>
+    <div class="card green"><h4>Few-Shot: Qualität vor Menge</h4><p>Für Aufgaben mit Feinheiten. Ab etwa fünf Beispielen bringt jedes weitere kaum noch etwas.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein gutes Beispiel ist oft <em>wirkungsvoller als eine lange Erklärung.</em></p></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="lp" id="k4">
+  <div class="kh"><span class="kn">04</span><div><p class="kk">Kapitel 4 <span class="fref" data-folie="31">Folie 31</span></p><h2>Chain-of-Thought: Schritt für Schritt</h2></div>{{UX:4}}</div>
+  <p class="lead">Die KI soll ihren Denkweg zeigen – wie eine Kette aus einzelnen Gedanken. Das verbessert komplexe, mehrstufige Aufgaben deutlich und macht das Ergebnis prüfbar.</p>
+  <div class="fq"><span class="lab">Das Beispiel von Folie 31</span><p>„Analysiere, ob wir den Preis erhöhen sollten. Denke Schritt für Schritt.“</p></div>
+  <div class="flow6 f4">
+    <div><span class="no">1</span><b>Marktlage</b><span>Wettbewerber haben ihre Preise um 10–15 % erhöht. Die Nachfrage ist stabil.</span></div>
+    <div><span class="no">2</span><b>Kosten</b><span>Die Produktionskosten sind um 8 % gestiegen. Die Marge ist unter Druck.</span></div>
+    <div><span class="no">3</span><b>Kunden</b><span>Laut Umfrage würden 70 % eine moderate Erhöhung akzeptieren.</span></div>
+    <div class="end"><span class="no">4</span><b>Empfehlung</b><span>Eine Erhöhung um 7–10 % ist vertretbar und marktkonform.</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><ul class="list"><li>Rechen- und Logikaufgaben</li><li>Entscheidungen in mehreren Schritten</li><li>Analysen mit mehreren Einflussfaktoren</li><li>wenn Nachvollziehbarkeit wichtig ist</li></ul></div>
+    <div class="card dark"><h4>Der Schlüsselsatz</h4><p style="color:#fff;font-size:17pt;font-weight:800;line-height:1.2;margin-top:2mm">„Denke Schritt für Schritt.“</p><p style="color:#cfd4d8;margin-top:2mm">Er bringt die KI dazu, zuerst zu denken und dann zu antworten.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Erst die Schritte, dann das Ergebnis – <em>so sieht man, ob die Rechnung stimmt.</em></p></div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="lp" id="k5">
+  <div class="kh"><span class="kn">05</span><div><p class="kk">Kapitel 5 <span class="fref" data-folie="32">Folie 32</span></p><h2>Tree-of-Thought: mehrere Wege</h2></div>{{UX:5}}</div>
+  <p class="lead">Statt einer Gedankenkette erkundet die KI mehrere Lösungswege – wie Äste eines Baums. Am Ende bewertet sie alle und wählt den besten.</p>
+  <div class="fq"><span class="lab">Das Beispiel von Folie 32</span><p>„Entwickle eine Go-to-Market-Strategie für unser neues Software-Produkt. Erkunde 3 verschiedene Ansätze.“</p></div>
+  <div class="three">
+    <div><span class="dn">{{ICON:briefcase}} Pfad A</span><p>Direktvertrieb</p><ul class="list" style="margin-top:2mm"><li>eigenes Vertriebsteam</li><li>hohe Kontrolle</li><li>langsames Wachstum, hohe Kosten</li></ul></div>
+    <div><span class="dn">{{ICON:plug}} Pfad B</span><p>Partner-Netzwerk</p><ul class="list" style="margin-top:2mm"><li>Wiederverkäufer und Integrationen</li><li>schnelle Reichweite</li><li>geringere Marge, Abhängigkeit</li></ul></div>
+    <div><span class="dn">{{ICON:star}} Pfad C</span><p>Kostenlos-Version zuerst</p><ul class="list" style="margin-top:2mm"><li>Freemium-Modell</li><li>Wachstum über Weiterempfehlung</li><li>langer Weg bis zum Kauf</li></ul></div>
+  </div>
+  <div class="card dark" style="margin-bottom:4mm"><h4>Der entscheidende Schluss</h4><p style="color:#e9ecef;font-size:11pt">„Bewerte jeden Pfad und empfehle den besten Ansatz für ein B2B-Startup mit begrenztem Budget.“</p></div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><p>Kreative Aufgaben mit vielen Optionen, strategische Entscheidungen, wenn der beste Ansatz unklar ist, Planungs- und Gestaltungsaufgaben.</p></div>
+    <div class="card green"><h4>Tipp von der Folie</h4><p>Besonders stark, wenn die KI die Pfade am Ende bewertet und einen Gewinner begründet.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Mehrere Wege prüfen, <em>einen begründet empfehlen.</em></p></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="lp" id="k6">
+  <div class="kh"><span class="kn">06</span><div><p class="kk">Kapitel 6 <span class="fref" data-folie="33">Folie 33</span></p><h2>ReAct: denken, handeln, beobachten</h2></div>{{UX:6}}</div>
+  <p class="lead">ReAct steht für Reasoning + Acting – Denken und Handeln. Die KI plant einen Schritt, führt ihn aus, schaut sich das Ergebnis an und plant den nächsten.</p>
+  <div class="loop">
+    <div class="s"><b>Denken</b><span>Was brauche ich als Nächstes?</span></div>
+    <div class="a">→</div>
+    <div class="s"><b>Handeln</b><span>Werkzeug nutzen, z. B. eine Suche</span></div>
+    <div class="a">→</div>
+    <div class="s"><b>Beobachten</b><span>Was kam heraus? Reicht das?</span></div>
+  </div>
+  <p class="loopback">↺ wiederholen, bis das Ziel erreicht ist – dann antworten</p>
+  <h3 class="st">Das Beispiel von Folie 33</h3>
+  <div class="code"><span class="k">Frage:</span>       Wie hoch ist der aktuelle Bitcoin-Kurs?
+<span class="k">Denke:</span>       Ich brauche aktuelle Daten.
+<span class="k">Handeln:</span>     search("Bitcoin Kurs aktuell")
+<span class="k">Beobachtung:</span> Bitcoin steht aktuell bei 97.430 USD.
+<span class="k">Denke:</span>       Ich habe die Information. Ich kann antworten.
+<span class="k">Antwort:</span>     Der aktuelle Bitcoin-Kurs beträgt 97.430 USD.</div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><p>Aufgaben mit Zwischenschritten, Abruf externer Informationen, Recherche und Analyse, Abläufe mit Agenten.</p></div>
+    <div class="card green"><h4>Kennt man schon</h4><p>Deep Research (Tag 5) arbeitet nach diesem Muster: suchen, lesen, nächste Suche planen.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>ReAct ist die <em>Grundlage moderner KI-Agenten.</em></p></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="lp" id="k7">
+  <div class="kh"><span class="kn">07</span><div><p class="kk">Kapitel 7 <span class="fref" data-folie="34">Folie 34</span> <span class="fref" data-folie="35">Folie 35</span></p><h2>Self-Refine und Self-Consistency</h2></div>{{UX:7}}</div>
+  <p class="lead">Zwei Techniken, bei denen die KI sich selbst kontrolliert: einmal durch Selbstkritik, einmal durch Wiederholung.</p>
+  <h3 class="st" style="margin-top:0">Self-Refine: die KI verbessert sich selbst (Folie 34)</h3>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Entwurf</b><span>„Schreib eine Stellenanzeige für eine Senior-Marketing-Managerin.“</span></div>
+    <div><span class="no">2</span><b>Selbstkritik</b><span>„Was fehlt? Was ist unklar? Was könnte die Zielgruppe abschrecken?“</span></div>
+    <div class="end"><span class="no">3</span><b>Überarbeitung</b><span>„Überarbeite die Anzeige anhand deiner Kritik.“</span></div>
+  </div>
+  <p class="small">Die Kritik auf der Folie: fehlende Vorteile, zu förmliche Sprache, keine Angabe zur Remote-Option. Mehrere Runden sind möglich: „Kritisiere und verbessere erneut.“</p>
+  <h3 class="st">Self-Consistency: Mehrheit durch Wiederholung (Folie 35)</h3>
+  <div class="fq"><span class="lab">Dreimal unabhängig lösen</span><p>Ein Unternehmen hat 240 Kunden. 20 % kündigen, 15 % kommen neu dazu. Wie viele Kunden hat es danach?</p></div>
+  <div class="code"><span class="k">Durchlauf 1:</span> 240 − 48 + 36 = 228  ✓
+<span class="k">Durchlauf 2:</span> 240 × 0,8 + 36 = 228  ✓
+<span class="k">Durchlauf 3:</span> 240 − 48 = 192, 192 + 36 = 228  ✓
+<span class="c">→ Alle drei ergeben 228. Finale Antwort: 228 Kunden.</span></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Self-Refine: <em>kritisieren und verbessern.</em> Self-Consistency: <em>mehrmals lösen, Mehrheit zählt.</em></p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="lp" id="k8">
+  <div class="kh"><span class="kn">08</span><div><p class="kk">Kapitel 8 <span class="fref" data-folie="36">Folie 36</span></p><h2>System-Prompts</h2></div>{{UX:8}}</div>
+  <p class="lead">Jedes KI-Werkzeug hat eine feste Grundanweisung, die vor jeder Unterhaltung steht: den System-Prompt. Man sieht ihn nicht – aber er prägt jede Antwort.</p>
+  <div class="chat">
+    <div class="u"><span class="who">System</span><span>Du bist der Support-Assistent eines Online-Shops. Antworte freundlich, in höchstens 5 Sätzen, und gib nie Rabatte ohne Rückfrage. <i style="color:var(--muted)">(steht fest – gilt für jede Unterhaltung)</i></span></div>
+    <div class="u" style="background:#fff"><span class="who">Nutzer</span><span>Meine Bestellung ist noch nicht da. <i style="color:var(--muted)">(wechselt jedes Mal)</i></span></div>
+    <div class="a"><span class="who">KI</span><span>Antwortet im Rahmen beider Anweisungen.</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Zum Anschauen (Folie 36)</h4><p>Eine öffentliche GitHub-Sammlung („system-prompts-and-models-of-ai-tools“) zeigt System-Prompts bekannter Werkzeuge, etwa von Cursor, Perplexity, Notion AI, Lovable oder Manus. Gut zum Lernen: So schreiben Profis Anweisungen.</p></div>
+    <div class="card green"><h4>In Langdock</h4><p>Die Anweisungen eines Agenten sind sein System-Prompt. Wer einen Agenten baut, schreibt also einen System-Prompt – am besten nach den vier Elementen.</p></div>
+  </div>
+  <div class="ask" style="margin-top:4mm"><span class="q">!</span><p>Der System-Prompt sagt, <b>wie</b> die KI immer arbeitet. Der Prompt im Chat sagt, <b>was</b> sie jetzt tun soll.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>System-Prompt = <em>die Daueranweisung</em> hinter jeder Antwort.</p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="lp" id="k9">
+  <div class="kh"><span class="kn">09</span><div><p class="kk">Kapitel 9 <span class="fref" data-folie="37">Folie 37</span></p><h2>Markdown im Prompt</h2></div>{{UX:9}}</div>
+  <p class="lead">Markdown ist eine einfache Schreibweise, die Text mit wenigen Zeichen gliedert. Im Prompt trennt sie die Teile sauber – und die Antwort kommt besser gegliedert zurück.</p>
+  <div class="map6">
+    <div class="a"><b># Überschrift</b></div><div class="arr">→</div><div class="b">große Überschrift (## = kleinere)</div>
+    <div class="a"><b>**fett**</b></div><div class="arr">→</div><div class="b"><b>fett</b></div>
+    <div class="a"><b>*kursiv*</b></div><div class="arr">→</div><div class="b"><i>kursiv</i></div>
+    <div class="a"><b>- Punkt</b></div><div class="arr">→</div><div class="b">Listenpunkt</div>
+    <div class="a"><b>&gt; Text</b></div><div class="arr">→</div><div class="b">Zitat (eingerückter Block)</div>
+  </div>
+  <h3 class="st">Das Beispiel von Folie 37</h3>
+  <div class="code"><span class="k">## Rolle</span>
+Du bist ein erfahrener Marketing-Experte mit Schwerpunkt Social Media.
+<span class="k">## Aufgabe</span>
+Erstelle eine kreative Kampagnenidee für ein neues nachhaltiges Produkt.
+<span class="k">## Kontext</span>
+- Zielgruppe: umweltbewusste Personen zwischen 20 und 40 Jahren
+- Plattformen: Instagram, TikTok · Budget: mittelgroßes Start-up
+<span class="k">## Format</span>
+- Kurze Kampagnenbeschreibung (max. 150 Wörter)
+- 3 Content-Ideen als Stichpunkte, 1 Beispiel-Post mit Hashtags</div>
+  <div class="merk"><span class="ml">Merksatz</span><p>## Rolle, ## Aufgabe, ## Kontext, ## Format – <em>die vier Elemente als Überschriften.</em></p></div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="lp" id="k10">
+  <div class="kh"><span class="kn">10</span><div><p class="kk">Kapitel 10 <span class="fref" data-folie="38">Folie 38</span> <span class="fref" data-folie="39">Folie 39</span></p><h2>XML und JSON</h2></div>{{UX:10}}</div>
+  <p class="lead">XML gliedert den Prompt mit Schildern (Tags). JSON macht die Antwort maschinenlesbar – damit ein anderes Programm sie weiterverarbeiten kann.</p>
+  <h3 class="st" style="margin-top:0">XML: jeder Teil in seinem Tag (Folie 38)</h3>
+  <div class="code"><span class="t">&lt;rolle&gt;</span>Du bist ein erfahrener Marketing-Experte.<span class="t">&lt;/rolle&gt;</span>
+<span class="t">&lt;aufgabe&gt;</span>Erstelle eine Kampagnenidee für ein nachhaltiges Produkt.<span class="t">&lt;/aufgabe&gt;</span>
+<span class="t">&lt;kontext&gt;</span>
+  <span class="t">&lt;zielgruppe&gt;</span>Umweltbewusste Personen, 20–40 Jahre<span class="t">&lt;/zielgruppe&gt;</span>
+  <span class="t">&lt;plattformen&gt;</span>Instagram, TikTok<span class="t">&lt;/plattformen&gt;</span>
+<span class="t">&lt;/kontext&gt;</span>
+<span class="t">&lt;format&gt;</span>Beschreibung (max. 150 Wörter), 3 Ideen, 1 Beispiel-Post<span class="t">&lt;/format&gt;</span></div>
+  <p class="small">Warum? Klare Trennung von Kontext, Aufgabe und Beispielen – die KI erkennt die Struktur zuverlässiger. Ideal für lange, mehrteilige Prompts.</p>
+  <h3 class="st">JSON: Antwort als Datensatz (Folie 39)</h3>
+  <div class="split2">
+    <div><span class="lab">Eingabe</span><div class="code">{ "name": "Anna Müller",
+  "branche": "E-Commerce",
+  "teamgröße": 12,
+  "ziel": "Prozesse automatisieren" }</div></div>
+    <div><span class="lab">Gewünschte Ausgabe</span><div class="code">{ "segment": "KMU",
+  "priorität": "hoch",
+  "empfehlung": "Workflow-Automatisierung",
+  "nächster_schritt": "Demo buchen" }</div></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>„Antworte ausschließlich im JSON-Format“ – <em>kein Fließtext, direkt weiterverarbeitbar.</em></p></div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="lp" id="k11">
+  <div class="kh"><span class="kn">11</span><div><p class="kk">Kapitel 11 <span class="fref" data-folie="40">Folie 40</span> <span class="fref" data-folie="41">Folie 41</span></p><h2>Vom Prompt zum Agenten</h2></div>{{UX:11}}</div>
+  <p class="lead">Die Aufgabe der Lektion: einen Agenten in Langdock bauen, der eine Aufgabe aus dem Alltag abnimmt – als Prototyp. Ideal: Nach einem Prompt liegt schon das gewünschte Ergebnis vor.</p>
+  <h3 class="st" style="margin-top:0">Sechs Überlegungen vorher</h3>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Kontext</b><span>Welche Informationen braucht der Agent?</span></div>
+    <div><span class="no">2</span><b>Schnittstellen</b><span>Was brauche ich – und was simuliere ich, z. B. per Datei-Upload?</span></div>
+    <div><span class="no">3</span><b>Ziel</b><span>Was soll der Agent erreichen?</span></div>
+    <div><span class="no">4</span><b>Erfolg</b><span>Woran messe ich, ob er gut arbeitet?</span></div>
+    <div><span class="no">5</span><b>Rolle</b><span>Wer ist der Agent?</span></div>
+    <div class="end"><span class="no">6</span><b>Format</b><span>Wie sieht das Endergebnis aus?</span></div>
+  </div>
+  <h3 class="st">Fünf Ideen von Folie 41 – und ihre Technik</h3>
+  <div class="techmap">
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Triage:</b> Anfrage rein → Kategorie, Dringlichkeit, Stimmung, Antwort-Entwurf</span><b>Zero- + Few-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Radar-Brief:</b> Meldung rein → Kernaussage, Betroffenheit, Fakt oder Gerücht, nächster Schritt</span><b>One-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Protokoll:</b> Notizen rein → Protokoll + Aufgabe · Verantwortlich · Frist</span><b>Zero- + Few-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Marken-Ton:</b> Entwurf rein → derselbe Text im Hausstil</span><b>One-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Prompt-Optimierer:</b> grober Prompt rein → Prompt nach den vier Elementen</span><b>4 Elemente</b></div>
+    <div><span>Tipps: Vorlagen für Dateien nutzen, Testdaten von der KI erzeugen lassen. Bonus: Testfälle zur Bewertung.</span><b>Prototyp</b></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Agent ist ein guter System-Prompt – <em>vier Elemente plus die passende Technik.</em></p></div>
+</section>
+
+<!-- ============ AUF EINER SEITE ============ -->
+<section class="lp" id="k12">
+  <div class="kh"><span class="kn">+</span><div><p class="kk">Zum Wiederholen</p><h2>Die Lektion auf einer Seite</h2></div>{{UX:12}}</div>
+  <div class="cheat">
+    <div class="wide"><h4>Die Formel</h4><p class="formula">Guter Prompt = <span>4 Elemente + die passende Technik + klare Gliederung.</span></p></div>
+    <div><h4>Zero-Shot</h4><p>Ohne Beispiel. Für einfache Standardaufgaben.</p></div>
+    <div><h4>One- und Few-Shot</h4><p>Ein bzw. zwei bis fünf Beispiele. Die KI ahmt das Muster nach.</p></div>
+    <div><h4>Chain-of-Thought</h4><p>„Denke Schritt für Schritt.“ Für Rechnen, Logik, Abwägen.</p></div>
+    <div><h4>Tree-of-Thought</h4><p>Mehrere Wege prüfen, bewerten, den besten begründen.</p></div>
+    <div><h4>ReAct</h4><p>Denken → Handeln → Beobachten. Grundlage von Agenten.</p></div>
+    <div><h4>Self-Refine · Self-Consistency</h4><p>Selbst kritisieren und verbessern · mehrmals lösen, Mehrheit zählt.</p></div>
+    <div><h4>System-Prompt</h4><p>Die Daueranweisung eines Werkzeugs – in Langdock die Anweisungen eines Agenten.</p></div>
+    <div><h4>Markdown · XML · JSON</h4><p>## Überschriften · &lt;tags&gt; · Antwort als Datensatz.</p></div>
+    <div class="wide" style="background:var(--head)"><h4 style="color:var(--mint)">Vor dem ersten Agenten</h4><p class="formula" style="color:#fff;font-size:12.5pt">Kontext · Schnittstellen · Ziel · Erfolg · Rolle · Format</p></div>
+  </div>
+</section>
+
+<!-- ============ UEBUNGEN 1 ============ -->
+<section class="lp" id="k13">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (1)</h2></div>{{UX:13}}</div>
+  <p class="lead">Prompt kopieren, in einen neuen Chat einfügen, Ergebnis ansehen. Nur ausgedachte Daten.</p>
+  <div class="ueb"><div class="uh"><span class="un">Übung 1</span><h4>Mit und ohne Beispiel</h4><span class="min">5 Min</span></div>
+    <p>Erst ohne Beispiel, dann in einem neuen Chat mit einem Beispiel für den gewünschten Stil.</p>
+    <div class="ucode">Schreibe einen Satz, der unser neues Kaffee-Abo vorstellt.</div>
+    <div class="ucode">Schreibe einen Satz, der unser neues Kaffee-Abo vorstellt. Beispiel für unseren Stil (übernimm nur den Stil): „Frisch geröstet, ehrlich gehandelt – und jeden Monat ein bisschen besser.“</div>
+    <p class="look"><b>Darauf achten:</b> Wie stark übernimmt die KI den Ton des Beispiels?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 2</span><h4>Schritt für Schritt – und dreimal</h4><span class="min">5 Min</span></div>
+    <p>Diese Frage in drei neuen Chats stellen. Kommt jedes Mal dasselbe heraus?</p>
+    <div class="ucode">Ein Unternehmen hat 240 Kunden. 20 % kündigen, 15 % kommen neu dazu. Wie viele Kunden hat es danach? Denke Schritt für Schritt.</div>
+    <p class="look"><b>Darauf achten:</b> Stimmen die Schritte? Die richtige Antwort ist 228.</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 3</span><h4>Drei Wege, ein Gewinner</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Wir wollen mehr Stammkunden gewinnen. Erkunde 3 verschiedene Wege (Pfad A, B, C) mit Vorteilen und Nachteilen. Bewerte dann jeden Pfad und empfehle den besten für ein kleines Team mit wenig Budget. Begründe die Wahl in 3 Sätzen.</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> „mehr Folgeaufträge von Bestandskunden“ · <b>Business &amp; Website:</b> „mehr Anfragen über die Website“ · <b>Video &amp; Design:</b> „mehr Aufrufe für unsere Kurzvideos“</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 4</span><h4>Die KI kritisiert sich selbst</h4><span class="min">5 Min</span></div>
+    <p>Erst einen kurzen Text schreiben lassen (z. B. eine Stellenanzeige), dann im selben Chat:</p>
+    <div class="ucode">Kritisiere nun deine eigene Antwort: Was fehlt? Was ist unklar oder zu allgemein? Was könnte die Zielgruppe abschrecken? Überarbeite den Text danach anhand deiner Kritik.</div>
+    <p class="look"><b>Darauf achten:</b> Ist die zweite Fassung wirklich besser? Noch eine Runde: „Kritisiere und verbessere erneut.“</p></div>
+</section>
+
+<!-- ============ UEBUNGEN 2 ============ -->
+<section class="lp" id="k14">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (2)</h2></div>{{UX:14}}</div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 5</span><h4>Ein Prompt mit Überschriften</h4><span class="min">5 Min</span></div>
+    <div class="ucode">## Rolle<br>Du bist [Rolle].<br>## Aufgabe<br>[Was soll entstehen?]<br>## Kontext<br>- Zielgruppe: [wer?]<br>- Rahmen: [Budget, Kanal, Zeit]<br>## Format<br>- [z. B. 3 Ideen als Stichpunkte, 1 Beispiel]</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> Vertriebsberater, Aktion für Firmenkunden zum Jahresende · <b>Business &amp; Website:</b> Webtexter, neue Startseite für eine Steuerkanzlei · <b>Video &amp; Design:</b> Creative Director, Reel-Serie für ein Café</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 6</span><h4>Antwort als JSON</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Analysiere diese Kundenanfrage und antworte ausschließlich im JSON-Format mit den Feldern "kategorie", "dringlichkeit" (niedrig/mittel/hoch), "stimmung" und "antwort_entwurf". Anfrage: „Hallo, unsere Bestellung 4711 fehlt seit Montag, wir brauchen sie bis Freitag für eine Messe!“</div>
+    <p class="look"><b>Darauf achten:</b> Kommt wirklich nur JSON zurück – ohne Text davor und danach?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Bonus</span><h4>Der erste Mini-Agent: Protokoll</h4><span class="min">10 Min</span></div>
+    <p>Diese Anweisung als Agent anlegen – oder ohne Agent als Prompt in der Prompt-Bibliothek speichern und am Chat-Anfang einsetzen. Dann ausgedachte Notizen einfügen.</p>
+    <div class="ucode">Du bist Protokoll-Assistent. Aus rohen Meeting-Notizen machst du ein sauberes Protokoll. Format: 1) Thema und Datum 2) Ergebnisse in Stichpunkten 3) Tabelle mit Aufgabe · Verantwortlich · Frist. Erfinde nichts: Fehlt eine Angabe, schreibe „offen“.</div>
+    <p class="look"><b>Darauf achten:</b> Kommt nach einem einzigen Prompt schon das fertige Ergebnis? Genau das ist das Ziel von Folie 40.</p></div>
+</section>
+
+<!-- ============ MERKFRAGEN ============ -->
+<section class="lp" id="k15">
+  <div class="kh"><span class="kn">?</span><div><p class="kk">Zum Selbst-Abfragen</p><h2>Zwölf Merkfragen – mit Antwort</h2></div>{{UX:15}}</div>
+  <p class="lead">Frage lesen, kurz selbst überlegen, dann die Antwort darunter lesen. Online gibt es dieselben Fragen als Lernkarten zum Umdrehen.</p>
+  <div class="qa">
+{{QA}}
+  </div>
+</section>
+
+<!-- ============ WOERTER ============ -->
+<section class="lp" id="k16">
+  <div class="kh"><span class="kn">Aa</span><div><p class="kk">Zum Nachschlagen</p><h2>Die Wörter des Tages</h2></div>{{UX:16}}</div>
+  <div class="gl">
+{{GLOSSAR}}
+  </div>
+  <div class="end">{{ICON:slides}}<div><b>Alles noch einmal online</b><p>quint-games.de/hefte → eigener Name → Tag 7: Folien, Lernkarten, Selbsttest und dieses Lernheft.</p></div></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>LLMs unter der Lupe – Video, Design &amp; Creative – Arbeitsheft Tag 3</title>
+{{HEAD}}
+</head>
+<body>
+
+<!-- ============ TITELSEITE ============ -->
+<section class="cover t2">
+  <img class="logo" src="{{LOGO}}" alt="Futureway KI Institut">
+  <div class="profile">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#1a6b5a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="17" width="28" height="21" rx="3"/><path d="M32 23.5l11-6v20l-11-6z"/><circle cx="12" cy="10.5" r="4.5"/><circle cx="24" cy="10.5" r="4.5"/></svg>
+    <div class="kicker">KI Automations Spezialist · Tag 3 · LLMs unter der Lupe · 3 Stunden</div>
+  </div>
+  <h1>LLMs unter der Lupe – für Video, Design &amp; Creative</h1>
+  <div class="sub">Verstehen, was bei einer KI-Anfrage passiert – und im Prompt-Labor üben, wie ein Prompt gebaut sein muss.</div>
+  <p class="lead">Erst die Aufgaben im Heft: Lektion 3 zum Anfassen, direkt in Langdock. Dann erste geführte Übungen auf prompt.veluna-labs.de – und zum Schluss freies Entdecken mit Plan.</p>
+
+  <div class="outcome"><div class="bar"></div><div><span class="lbl">Ergebnis am Ende</span>Die Reise einer Anfrage sicher erklären, die erste Mission in „Prompt Launch“ geflogen – und ein <b>eigenes Kreativ-Projekt in Langdock</b> mit geprüfter Prompt-Vorlage.</div></div>
+
+  <h4>Ablauf</h4>
+  <table class="plan">
+    <tr><th>Abschnitt</th><th>Zeit</th><th>Aufgaben</th><th>Ergebnis</th></tr>
+    <tr><td>1 · Aufgaben im Heft</td><td>0:00–1:00</td><td>1 Die Reise einer Anfrage<br>2 Tokens und Vektoren<br>3 Was das Modell wirklich sieht</td><td>Lektion 3 verstanden und in Langdock getestet</td></tr>
+    <tr><td>2 · Erste Übungen im Prompt-Labor</td><td>1:00–2:00</td><td>4 Lernmodul 01<br>5 Erste Mission: Prompt Launch<br>6 Eigener Prompt in der Werkstatt</td><td>Modul, Mission und verbesserter Prompt</td></tr>
+    <tr><td>3 · Selbst entdecken</td><td>2:00–3:00</td><td>7 Entdecker-Routen<br>8 Transfer: Kreativ-Projekt in Langdock</td><td>Entdeckungen, Projekt und Prompt-Vorlage</td></tr>
+  </table>
+
+  <h4>So liest man dieses Heft</h4>
+  {{LEGEND}}
+
+  <div class="namefields"><div>Name</div><div>Datum</div></div>
+</section>
+
+{{GRUNDLAGEN}}
+
+<!-- ============ ABSCHNITT 1 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 1 <span class="chip">0:00–1:00</span></div>
+    <h2>Aufgaben im Heft: LLMs zum Anfassen</h2>
+    <p>Die Theorie aus Lektion 3 wird greifbar: erst aus dem Gedächtnis, dann mit Langdock – immer mit Beispielen aus Video und Design.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 1</span><h3>Die Reise einer Anfrage</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die fünf Stationen aus Lektion 3 sicher erklären können – in der Sprache der eigenen Branche.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Aus dem Gedächtnis</div>
+      <p>Ohne auf die Seite „Wissen kompakt“ zu schauen: Welche fünf Stationen durchläuft eine Anfrage – und was passiert dort? Danach vergleichen.</p>
+      <table class="fill">
+        <tr><th style="width:9mm">Nr.</th><th style="width:44mm">Station</th><th>Was passiert dort?</th></tr>
+        <tr><td class="nr">1</td><td></td><td></td></tr>
+        <tr><td class="nr">2</td><td></td><td></td></tr>
+        <tr><td class="nr">3</td><td></td><td></td></tr>
+        <tr><td class="nr">4</td><td></td><td></td></tr>
+        <tr><td class="nr">5</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die Reise als Videoproduktion erklären lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Erkläre mir in fünf Stationen, was technisch passiert, wenn ich in Langdock eine Anfrage abschicke: Anfrage, Transport, Load Balancer, API, Rechenzentrum. Nutze für jede Station einen Vergleich aus einer Videoproduktion – vom Kundenbriefing über den Schnittplatz bis zur Render-Farm. Höchstens 200 Wörter, als nummerierte Liste.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Passt jeder Vergleich? Wo hinkt er? Übrigens: GPUs kennt man vom Rendern – dieselbe Art Chip rechnet auch die KI.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Den Stream sehen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Erkläre jetzt ausführlich in etwa 400 Wörtern, was im Rechenzentrum passiert – von der Tokenisierung bis zur fertigen Antwort.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Die Antwort erscheint Stück für Stück. Das ist der Stream aus Station 5: Die Antwort wird Token für Token berechnet und sofort übertragen.</div>
+    </div>
+
+{{FRAG:quiz}}
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 2</span><h3>Tokens und Vektoren zum Anfassen</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Verstehen, dass ein Modell nicht in Wörtern, sondern in Tokens und Zahlen rechnet – und was daraus im Alltag folgt.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Tokens sichtbar machen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Zerlege den Satz „Die Postproduktionsplanung sieht zwölf Reels bis Donnerstag vor.“ ungefähr so in Tokens, wie ein Sprachmodell es tun würde. Markiere die Grenzen mit einem senkrechten Strich. Erkläre kurz, warum lange Fachwörter oft in mehrere Tokens zerfallen.</p></div>
+      <p class="small">Hinweis: Ein Modell sieht seine eigenen Token-Grenzen nicht direkt. Die Antwort ist eine gute Annäherung, keine exakte Messung.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Der Buchstaben-Test</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – erst <span class="where thinkoff">Thinking aus</span>, dann <span class="where think">Thinking an</span></div>
+        <p>Wie oft kommt der Buchstabe „o“ im Wort „Postproduktionsplanung“ vor? Antworte nur mit der Zahl.</p></div>
+      <table class="fill">
+        <tr><th>Durchgang</th><th style="width:40mm">Antwort von Langdock</th><th style="width:40mm">Selbst nachgezählt</th></tr>
+        <tr><td>Thinking aus</td><td></td><td></td></tr>
+        <tr><td>Thinking an</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>3-mal „o“:</b> „Post“ (1) + „produktions“ (2). Warum Modelle sich hier verzählen können: Sie sehen Token-Stücke wie „Post“, „produktions“, „planung“, nicht einzelne Buchstaben. Mit Thinking zählt ein Modell Schritt für Schritt – deshalb klappt es dann oft.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Vektoren: Wie nah liegen Bedeutungen beieinander?</div>
+      <p>Erst selbst schätzen (0 = nichts gemeinsam, 10 = fast dasselbe), dann Langdock fragen.</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Stell dir vor, jedes Wort wäre ein Punkt in einem Bedeutungsraum, wie bei Embeddings. Wie nah liegen diese Paare beieinander, auf einer Skala von 0 (nichts gemeinsam) bis 10 (fast dasselbe)? Reel – Kurzvideo, Reel – Spielfilm, Reel – Steuerberatung, Storyboard – Shotlist. Begründe jede Zahl in einem Satz.</p></div>
+      <table class="fill">
+        <tr><th>Wortpaar</th><th style="width:34mm">Eigene Schätzung</th><th style="width:34mm">Langdock</th></tr>
+        <tr><td>Reel – Kurzvideo</td><td></td><td></td></tr>
+        <tr><td>Reel – Spielfilm</td><td></td><td></td></tr>
+        <tr><td>Reel – Steuerberatung</td><td></td><td></td></tr>
+        <tr><td>Storyboard – Shotlist</td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Das ist ein Gedankenexperiment – echte Embeddings sind Zahlenreihen mit Hunderten bis Tausenden Stellen. Das Prinzip stimmt aber: Weil „Reel“ und „Kurzvideo“ nah beieinander liegen, findet ein Modell die passende Stelle im Dokument auch dann, wenn dort das andere Wort steht.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 3</span><h3>Was das Modell wirklich sieht</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erleben, dass Kontext alles ist – und dass fehlender Kontext nicht nachgefragt, sondern erfunden wird.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Ohne Kontext</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Erstelle eine Preisübersicht für unsere drei Videopakete.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Welche Pakete und Preise erfindet Langdock? Wird überhaupt nachgefragt?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Mit Kontext und Lückenregel</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Erstelle eine Preisübersicht für unsere drei Videopakete als Tabelle. Hier sind die Angaben (ausgedacht): Paket Social – 1 Reel bis 30 Sekunden, 490 €. Paket Kampagne – 3 Reels und 1 Imagefilm bis 90 Sekunden, 2.400 €. Paket Premium – wie Kampagne, zusätzlich ein Drehtag mit Crew, Preis steht noch nicht fest. Verwende ausschließlich diese Angaben. Wenn etwas fehlt, schreibe [fehlt] statt zu schätzen.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Steht beim Paket Premium wirklich [fehlt] – oder hat Langdock doch einen Preis geschätzt?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Wie weit reicht der Kontext? Der Bild-Test</div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where new">Neuer Chat</span> <span class="where img">Bild-Schaltfläche</span></div>
+        <p>Key Visual für eine ausgedachte Premium-Kaffeemarke: eine Tasse Espresso auf dunklem Naturstein, seitliches Morgenlicht, feiner Dampf. Hochformat 4:5, kein Text, keine Logos, keine Personen.</p></div>
+      <p>Das Bild herunterladen. Dann einen <b>neuen Chat</b> öffnen – ohne Bild:</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Wie wirkt das Bild, das ich gerade erzeugt habe? Beschreibe Licht, Komposition und Stimmung.</p></div>
+      <p>Danach das heruntergeladene Bild in genau diesen Chat hochladen (Upload-Symbol oder ins Fenster ziehen) und die Frage noch einmal stellen.</p>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Ohne Bild weiß Langdock nichts davon – oder beschreibt ein erfundenes Bild. Mit Upload stimmt die Beschreibung: Ein Anhang ist Teil des Kontexts, ein anderer Chat nicht. Weiß Langdock doch etwas, liegt es meist an der Memory-Funktion.</div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Station 5, Schritt 1 „Kontext zusammenbauen“: Das Modell bekommt den Prompt, den bisherigen Verlauf, Anhänge, Anhänge wie Bilder, Anweisungen (z. B. eines Projekts) und gegebenenfalls Memory – mehr nicht. Genau darum geht es im ersten Modul des Prompt-Labors.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 2 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 2 <span class="chip">1:00–2:00</span></div>
+    <h2>Erste Übungen im Prompt-Labor</h2>
+    <p>Jetzt geht es auf <b>prompt.veluna-labs.de</b>. Drei geführte Übungen – danach kennt man alle wichtigen Bereiche der Seite.</p>
+  </div>
+
+{{FRAG:labor}}
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 4</span><h3>Das erste Lernmodul: „Was passiert bei einer KI-Anfrage?“</h3><span class="time">15 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Das Prompt-Labor kennenlernen und die Lehre aus Aufgabe 3 in einer interaktiven Übung festigen.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Modul öffnen <span class="where lab">Prompt-Labor</span></div>
+      <ol>
+        <li>Oben in der Leiste <b>„Prompting lernen“</b> anklicken.</li>
+        <li>In der Liste <b>„Modul 01 – Was passiert bei einer KI-Anfrage?“</b> wählen (oder oben auf „Weiterlernen“).</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die vier Schritte durcharbeiten</div>
+      <ol>
+        <li><b>Erklärung</b> lesen, dann „Weiter“.</li>
+        <li><b>Vorher · Nachher:</b> erst den Reiter „Vorher“, dann „Nachher“ ansehen – was macht den zweiten Prompt besser?</li>
+        <li><b>Aufgabe mit einer Antwort:</b> auswählen. Danach erscheint „Richtig“ oder eine Erklärung, dazu ein „Warum“.</li>
+        <li><b>Aufgabe mit mehreren Antworten:</b> alle zutreffenden Aussagen markieren – sie zählt erst, wenn genau die richtigen markiert sind.</li>
+        <li>Zum Schluss <b>„Modul abschließen“</b>.</li>
+      </ol>
+      <p class="lineslabel">Der Merksatz aus der ersten Aufgabe – in eigenen Worten:</p>
+      <div class="lines" style="--n:2"></div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Das Modul erzählt dieselbe Geschichte wie Aufgabe 3: Eine fehlende Angabe erzeugt keine Fehlermeldung, sondern eine Erfindung. Das Modul zählt auch dann als abgeschlossen, wenn nicht alles richtig war – wiederholen geht jederzeit.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 5</span><h3>Erste Mission im Lernspiel „Prompt Launch“</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die acht Bestandteile eines Prompts spielerisch zusammensetzen – und am Flug sehen, was ein vages Teil anrichtet.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Mission einstellen <span class="where lab">Prompt-Labor</span></div>
+      <ol>
+        <li>Oben <b>„Prompt Launch“</b> anklicken.</li>
+        <li>Schwierigkeitsstufe <b>„Kadett“</b> wählen: Bauteile beschriftet, Bauphasen sichtbar, direkte Hinweise.</li>
+        <li>Darstellung: <b>„3D-Hangar“</b> oder <b>„Reduziert (2D)“</b>. Die 2D-Ansicht zeigt dasselbe als Text und ist auf langsamen Rechnern die bessere Wahl. Im 3D-Hangar: Ziehen dreht die Ansicht, Scrollen zoomt.</li>
+        <li>Mission <b>„Social-Media-Beitrag“</b> (Marketing) anklicken.</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Den Auftrag lesen</div>
+      <p>Links der <b>Missionscomputer</b> mit den Reitern „Auftrag“, „Informationen“ und „Risiken“ sowie den <b>Erfolgskriterien</b>. Alle drei Reiter lesen – dort steht, was in die Bauteile gehört.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Die Rakete bauen – so hängen Raketenteile und Prompt zusammen</div>
+{{FRAG:rakete}}
+      <ol>
+        <li>Ein Bauteil anklicken – oder „Empfohlene Bauphasen anzeigen“ und mit „Nächstes“ der Reihe nach durchgehen.</li>
+        <li>Die Frage lesen. Unter <b>„Bauteile im Hangar“</b> ein passendes Teil anklicken – es wird sofort eingebaut, mit kurzer Begründung. Alternativ unter „Eigene Formulierung“ selbst schreiben und „Einbauen“.</li>
+        <li>Status je Teil: <b>tragfähig</b>, <b>zu unbestimmt</b> oder <b>nicht eingebaut</b>. „Ausbauen“ nimmt ein Teil wieder heraus.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Experiment</span>Beim ersten Durchgang bei den <b>Sensoren</b> (Testkriterien) absichtlich das allgemein klingende Teil wählen – alle anderen tragfähig. Liegt dort kein vages Teil, unter „Eigene Formulierung“ etwas wie „Das Ergebnis soll gut sein.“ einbauen.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Prüfen, starten, auswerten</div>
+      <ol>
+        <li><b>„Systemprüfung“</b> (Prüfkonsole) – jeder Befund ist begründet: in Ordnung, Hinweis oder kritisch. Probleme verhindern den Start nicht.</li>
+        <li><b>„Start freigeben“</b> und den Flug beobachten. Danach folgt das Missionsergebnis: Bewertung bis 100 Punkte in mehreren Dimensionen und der fertig zusammengesetzte Prompt.</li>
+        <li><b>„Umbauen“</b>, das vage Teil durch ein tragfähiges ersetzen, erneut prüfen und starten.</li>
+      </ol>
+      <table class="fill">
+        <tr><th>Durchgang</th><th style="width:22mm">Punkte</th><th>Was ist beim Flug passiert?</th></tr>
+        <tr><td>1 · mit vagem Teil</td><td></td><td></td></tr>
+        <tr><td>2 · alles tragfähig</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">5</span>Das echte Ergebnis erzeugen – und prüfen</div>
+      <ol>
+        <li>Im Missionsergebnis <b>„Ergebnis erzeugen“</b> anklicken. Nach etwa 10 bis 20 Sekunden erscheint der Beitrag, darunter ein Urteil je Erfolgskriterium.</li>
+        <li><b>„Kopieren“</b> beim zusammengesetzten Prompt, in Langdock in einem neuen Chat einfügen und das Ergebnis vergleichen.</li>
+        <li><b>„In Bibliothek speichern“</b> – der Prompt landet unter „Meine Prompts“.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Stimmt das automatische Urteil? Würde man den Beitrag als Fachperson so veröffentlichen – Ton, Länge, Bildidee? Das eigene Urteil entscheidet.</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 6</span><h3>Der eigene Prompt in der Werkstatt</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Einen Prompt, den man schon benutzt hat, systematisch prüfen und verbessern lassen.</p>
+    <div class="box safe full"><span class="tag safe">Sicher</span>Die Werkstatt schickt den Text an eine KI. Nur Prompts ohne echte Namen, Kundendaten oder Preise einfügen.</div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Einen Prompt auswählen</div>
+      <p>Entweder einen absichtlich schwachen Prompt wie <b>„Schreib ein Konzept für ein Imagevideo.“</b> – oder einen eigenen Prompt aus einem früheren Langdock-Chat, z. B. den Briefing-Prompt vom ersten Tag oder den Voiceover-Prompt vom zweiten Tag (im Chat markieren und kopieren).</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Analysieren lassen <span class="where lab">Prompt-Labor</span></div>
+      <ol>
+        <li>Oben <b>„Prompt-Werkstatt“</b>, Modus <b>„Schnell-Tuning“</b>.</li>
+        <li>Den Prompt in das Feld <b>„Bestehender Prompt“</b> einfügen. Optional über „Weitere Angaben ergänzen“: Anwendungsfall, gewünschtes Ergebnis, Zielgruppe, vorhandene Informationen, Ausgabeformat, besondere Grenzen.</li>
+        <li><b>„Prompt analysieren“</b>: Befund über 10 Kategorien (erfüllt, teilweise, fehlt, kritisch), die wichtigste Schwachstelle und die fehlenden Informationen als Fragen.</li>
+      </ol>
+      <table class="fill">
+        <tr><th>erfüllt</th><th>teilweise</th><th>fehlt</th><th>kritisch</th><th style="width:74mm">Wichtigste Schwachstelle</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Verbessern und speichern</div>
+      <ol>
+        <li><b>„Verbesserte Fassung erzeugen“</b>. Fehlende Angaben erscheinen als Platzhalter wie [ZIELGRUPPE] – die Werkstatt erfindet keinen Unternehmenskontext.</li>
+        <li>Die Reiter <b>„Unterschiede“</b> und <b>„Begründungen“</b> lesen.</li>
+        <li><b>„Speichern“</b> – der Prompt erscheint unter „Meine Prompts“.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Die verbesserte Fassung selbst kritisch lesen: Ist die Anrede einheitlich? Fehlt noch etwas, das man als Fachperson ergänzen würde?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 3 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 3 <span class="chip">2:00–3:00</span></div>
+    <h2>Selbst entdecken – mit Plan</h2>
+    <p>Jetzt ist freies Erkunden dran. Die Routen helfen, gezielt Neues zu finden statt nur herumzuklicken. Zum Schluss wandert das Gelernte zurück in Langdock.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 7</span><h3>Entdecker-Routen im Prompt-Labor</h3><span class="time">35 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Mindestens zwei Routen wählen und zu jeder eine Entdeckung notieren.</p>
+    <div class="routes">
+      <div class="route"><span class="lvl">Prompt Launch</span><h4>Route A · Stufe Ingenieur</h4>
+        <p>Mission <b>„Produktbeschreibung“</b> (E-Commerce) auf Stufe <b>Ingenieur</b>: Im Hangar liegen jetzt auch irrelevante und vage Teile, die Testkriterien schreibt man selbst unter „Eigene Formulierung“. Ziel: mindestens 80 Punkte.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Werkstatt</span><h4>Route B · Der faire A/B-Test</h4>
+        <p>Nach der verbesserten Fassung den Reiter <b>„A/B-Test“</b> öffnen: Prüfkriterien vorher festlegen, in Fassung B <b>genau einen</b> Bestandteil ändern, „Beide Fassungen testen“. Hält der Unterschied – oder schwanken die Ausgaben nur?</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Lernpfad</span><h4>Route C · Zwei weitere Module</h4>
+        <p>Für Video und Design besonders nützlich: <b>Modul 05 „Ausgabeformat“</b> und <b>Modul 08 „Beispiele und Referenzen“</b> – ein gutes Beispiel ersetzt drei Absätze Stilbeschreibung.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Nachschlagen</span><h4>Route D · Bestandteile &amp; Bibliothek</h4>
+        <p>Unter „Prompting lernen“ ganz unten: <b>„Die Bestandteile eines Prompts“</b> – je Bestandteil ein schwaches und ein überprüfbares Beispiel. Danach „Meine Prompts“: filtern, Favoriten setzen.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Für Mutige</span><h4>Route E · Commander</h4>
+        <p>Widersprüchliche Anforderungen, Faktenrisiken, Datenschutzprobleme: Kriterien und Grenzen schreibt man selbst, das erzeugte Ergebnis wird bewertet. Wer besteht, bekommt das Abzeichen „Commander-Freigabe“.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Ausblick</span><h4>Route F · Deep Research</h4>
+        <p>Nur anschauen: Welche sieben Angaben fragt der Generator für einen Rechercheauftrag ab? Passt zu Tag 2 – Websuche und Quellenprüfung.</p>
+        <div class="lines" style="--n:2"></div></div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Verbindung zu Lektion 3:</b> Dass zwei Läufe mit demselben Prompt nie wortgleich sind, liegt an Station 5: Die Antwort entsteht Token für Token, und bei jedem Token gibt es mehrere wahrscheinliche Fortsetzungen. Deshalb verlangt der A/B-Test Kriterien vor dem Lauf.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 8</span><h3>Transfer: ein Kreativ-Projekt in Langdock</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Das Gelernte direkt in Langdock verankern – mit einem Projekt, das den Kontext bei jeder Anfrage mitliefert, und einer geprüften Vorlage in der Prompt-Bibliothek.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Einen eigenen Kreativ-Prompt prüfen</div>
+      <p>Zum Beispiel den Briefing-Prompt vom ersten Tag oder die verbesserte Fassung aus Aufgabe 6. Welche Bestandteile hat er?</p>
+      <table class="fill" data-kind="tick">
+        <tr><th>Ziel</th><th>Kontext</th><th>Eingaben</th><th>Aufgabe</th><th>Format</th><th>Testkriterien</th><th>Grenzen</th><th>Rückfragen</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <p class="small">Je Spalte ✓ für vorhanden oder ✗ für fehlt.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Fehlende Bestandteile ergänzen lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Hier ist ein Prompt, den ich für Kreativprojekte nutze: <span class="ph">[Prompt]</span>. Ergänze die fehlenden Bestandteile <span class="ph">[z. B. Testkriterien und eine Rückfragenregel]</span>. Erfinde keinen Kontext – setze Platzhalter in eckigen Klammern, wo Angaben fehlen. Zeige mir am Ende, welche Stellen du geändert hast.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Ein Projekt als dauerhafter Kontext</div>
+      <ol>
+        <li>In Langdock ein neues <b>Projekt</b> anlegen, z. B. „Kaffeemarke – Kampagne“ (ausgedacht).</li>
+        <li>In die <b>Projekt-Anweisungen</b> schreiben, was für jeden Chat im Projekt gelten soll – zum Beispiel so:</li>
+      </ol>
+      <div class="prompt"><div class="lbl">Projekt-Anweisungen – Beispiel</div>
+        <p>Wir arbeiten für eine ausgedachte Premium-Kaffeemarke, Zielgruppe 20 bis 35 Jahre. Ton: ruhig, hochwertig, keine Superlative. Referenzen nur über Stilmittel, nie über Namen realer Personen, Filme oder Marken. Fehlen wichtige Angaben, stelle höchstens zwei Rückfragen, sonst kennzeichne Annahmen mit [Annahme].</p></div>
+      <p>Optional eine <b>Datei</b> hinzufügen, z. B. das ausgedachte Creative Briefing vom ersten Tag – sie steht dann in allen Chats des Projekts bereit.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Der Kontext-Test: im Projekt und außerhalb</div>
+      <div class="prompt"><div class="lbl">Prompt – einmal im <span class="where new">Neuer Chat</span> im Projekt, einmal außerhalb</div>
+        <p>Schreibe drei Hook-Ideen für ein 15-Sekunden-Reel.</p></div>
+      <table class="fill">
+        <tr><th>Kriterium</th><th style="width:34mm">im Projekt</th><th style="width:34mm">außerhalb</th></tr>
+        <tr><td>Passt zur Marke und Zielgruppe?</td><td></td><td></td></tr>
+        <tr><td>Ton eingehalten (ruhig, keine Superlative)?</td><td></td><td></td></tr>
+        <tr><td>Grenzen eingehalten (keine realen Namen)?</td><td></td><td></td></tr>
+      </table>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Im Projekt kennt Langdock Marke, Ton und Grenzen, ohne dass man sie wiederholt – außerhalb nicht. Das ist Station 5 „Kontext zusammenbauen“: Projekt-Anweisungen und Projekt-Dateien kommen automatisch zu jeder Anfrage dazu.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">5</span>Als Vorlage in der Prompt-Bibliothek sichern</div>
+      <ol>
+        <li>Die ergänzte Fassung aus Schritt 2 speichern: in der Prompt-Bibliothek „Prompt hinzufügen“ – oder im Chat mit der Maus über die eigene Nachricht fahren und auf das Plus-Symbol klicken.</li>
+        <li>Veränderliche Stellen als Variablen schreiben, z. B. <b>&#123;&#123; projekt &#125;&#125;</b>, <b>&#123;&#123; zielgruppe &#125;&#125;</b>, <b>&#123;&#123; format &#125;&#125;</b> – Langdock fragt sie beim Einsetzen ab.</li>
+        <li>Optional einen Ordner „Creative“ anlegen.</li>
+        <li>Später in jedem Chat mit <b>@</b> → „Prompts“ abrufen.</li>
+      </ol>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Prompt Launch trainiert den Aufbau, die Werkstatt prüft ihn – und in Langdock arbeitet er jeden Tag: als Projekt-Anweisung, die jede Anfrage mitbekommt, und als Vorlage in der Prompt-Bibliothek. Ein Bestandteil, der fehlt, fehlt bei jeder einzelnen Anfrage.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABGABE ============ -->
+<section class="final">
+  <div class="sec-head">
+    <div class="sec-no">Abschluss</div>
+    <h2>Abgabe &amp; eigene Bilanz</h2>
+    <p>Alles abhaken, was fertig ist. Offene Punkte greift man am nächsten Schulungstag wieder auf.</p>
+  </div>
+  <h4>Abgabe-Checkliste</h4>
+  <ul class="check">
+    <li>Reise einer Anfrage aus dem Gedächtnis, als Videoproduktion erklärt und Quiz gelöst (Aufgabe 1)</li>
+    <li>Token-, Buchstaben- und Vektor-Test gemacht (Aufgabe 2)</li>
+    <li>Paket-Übersicht ohne und mit Kontext verglichen (Aufgabe 3)</li>
+    <li>Modul 01 im Prompt-Labor abgeschlossen (Aufgabe 4)</li>
+    <li>Mission „Social-Media-Beitrag“ zweimal gestartet, Ergebnis erzeugt und geprüft (Aufgabe 5)</li>
+    <li>Eigenen Prompt in der Werkstatt analysiert, verbessert und gespeichert (Aufgabe 6)</li>
+    <li>Mindestens zwei Entdecker-Routen mit Notizen (Aufgabe 7)</li>
+    <li>Kreativ-Prompt ergänzt, Langdock-Projekt angelegt und getestet, Vorlage gespeichert (Aufgabe 8)</li>
+  </ul>
+  {{BILANZ}}
+</section>
+
+</body>
+</html>

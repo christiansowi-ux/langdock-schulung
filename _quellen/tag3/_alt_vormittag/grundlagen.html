@@ -1,0 +1,66 @@
+<section class="section">
+  <h2 class="plain">Bevor es losgeht</h2>
+
+  <h4>So läuft der Tag</h4>
+  <table class="how">
+    <tr><th>Abschnitt</th><th>Was passiert</th></tr>
+    <tr><td>1 · Aufgaben im Heft</td><td>Lektion 3 „LLMs unter der Lupe“ zum Anfassen: die Reise einer Anfrage, Tokens und Vektoren, Kontext – direkt in Langdock ausprobiert.</td></tr>
+    <tr><td>2 · Erste Übungen im Prompt-Labor</td><td>Geführt Schritt für Schritt auf <b>prompt.veluna-labs.de</b>: ein Lernmodul, eine Mission im Lernspiel „Prompt Launch“ und der erste eigene Prompt in der Werkstatt.</td></tr>
+    <tr><td>3 · Selbst entdecken</td><td>Freie Erkundung auf der Seite mit Entdecker-Routen – und zum Schluss das Gelernte zurück in die eigene Arbeit mit Langdock tragen.</td></tr>
+  </table>
+
+  <h4 style="margin-top:6mm">Sicher arbeiten – diese 6 Regeln gelten den ganzen Tag</h4>
+  <div class="rules">
+    <div class="rule"><div class="num">1</div><div><b>Nur ausgedachte Daten</b>In Langdock wie im Prompt-Labor: keine echten Namen, Kundendaten, Personaldaten oder Vertragsdetails – auch nicht „nur zum Testen“.</div></div>
+    <div class="rule"><div class="num">2</div><div><b>Das Prompt-Labor fragt eine KI</b>Beim Analysieren, Verbessern und „Ergebnis erzeugen“ wird der Text an ein Sprachmodell geschickt. Deshalb gilt dort dasselbe wie in Langdock: nur ausgedachte Inhalte.</div></div>
+    <div class="rule"><div class="num">3</div><div><b>Auch Bewertungen prüfen</b>Punkte und „erfüllt“-Häkchen stammen teils von einer KI. Sie können sich irren – das eigene Urteil entscheidet.</div></div>
+    <div class="rule"><div class="num">4</div><div><b>Fortschritt liegt im Browser</b>Das Prompt-Labor hat kein Konto. Punkte und gespeicherte Prompts liegen nur in diesem Browser: kein privates Fenster, immer denselben Browser nutzen, Wichtiges zusätzlich kopieren.</div></div>
+    <div class="rule"><div class="num">5</div><div><b>Nichts verschicken, nichts veröffentlichen</b>Mails bleiben Entwürfe, Ergebnisse bleiben im Kurs.</div></div>
+    <div class="rule"><div class="num">6</div><div><b>Im Zweifel erst fragen</b>Bei Unsicherheit zuerst die Schulungsleitung fragen, dann eingeben.</div></div>
+  </div>
+
+  <div class="bridge">
+    <div class="q">„</div>
+    <div><b>Brücke zu Lektion 3 – „LLMs unter der Lupe“</b><br>
+    In der Lektion ging es darum, was im Hintergrund passiert, wenn man in Langdock eine Anfrage stellt: vom Browser über Verschlüsselung, Load Balancer und API bis ins Rechenzentrum, wo die Antwort Token für Token entsteht. Heute macht man das sichtbar – und lernt, warum ein guter Prompt genau hier ansetzt.</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="plain">Wissen kompakt: Die Reise einer KI-Anfrage</h2>
+  <p class="tip"><b>Die Frage aus der Lektion:</b> Was passiert eigentlich im Hintergrund, wenn man in Langdock eine Anfrage abschickt? Fünf Stationen, in Sekundenbruchteilen.</p>
+
+  <div class="flow">
+    <div><span class="no">1</span><b>Die Anfrage</b>Man tippt in einer Web-App oder App, z. B. Langdock. Sichtbar ist nur die Oberfläche – die „Intelligenz“ läuft woanders. Die Nachricht verlässt das Gerät.</div>
+    <div><span class="no">2</span><b>Transport</b>Das Gerät schickt die Anfrage (<i>Request</i>) ins Internet – verschlüsselt über HTTPS/SSL – zum Modellanbieter.</div>
+    <div><span class="no">3</span><b>Load Balancer</b>Verteilt alle eingehenden Anfragen auf freie Server – wie ein Weichenstellwerk am Bahnhof. Sonst wäre alles bei Millionen Anfragen überlastet.</div>
+    <div><span class="no">4</span><b>API</b>Die Schnittstelle: leitet die Anfrage an das richtige Modell, übersetzt sie in ein passendes Format und bringt die Antwort zurück.</div>
+    <div><span class="no">5</span><b>Rechenzentrum</b>
+      <ol>
+        <li>Kontext zusammenbauen</li>
+        <li>Tokenisierung (CPU)</li>
+        <li>Laden in den GPU-Speicher</li>
+        <li>Embedding: Bedeutung als Vektoren</li>
+        <li>Rechnen auf GPUs/TPUs</li>
+        <li>Token für Token, oft als Stream</li>
+        <li>Cache wird geleert</li>
+      </ol></div>
+  </div>
+
+  <h4>Die Begriffe in einem Satz</h4>
+  <table class="dec">
+    <tr><th>Begriff</th><th>Kurz erklärt</th></tr>
+    <tr><td>Request</td><td>Fachbegriff für eine Anfrage an einen Server („IT-Sprech“).</td></tr>
+    <tr><td>HTTPS / SSL</td><td>Verschlüsselte, sichere Datenübertragung im Internet – geschützt vor fremdem Zugriff.</td></tr>
+    <tr><td>Load Balancer</td><td>Verteilt Anfragen auf freie Server, damit nichts überlastet.</td></tr>
+    <tr><td>API</td><td>Schnittstelle, über die Programme miteinander sprechen – hier: das Gerät mit der KI.</td></tr>
+    <tr><td>Token</td><td>Textbaustein – ein Wort, ein Wortteil oder ein Zeichen. Das Modell liest und schreibt in Tokens.</td></tr>
+    <tr><td>Embedding / Vektor</td><td>Eine lange Zahlenreihe, die Bedeutung abbildet: Ähnliche Bedeutungen liegen nah beieinander.</td></tr>
+    <tr><td>GPU / TPU</td><td>Spezialchips, die sehr viele Rechnungen gleichzeitig ausführen.</td></tr>
+    <tr><td>Stream</td><td>Die Antwort wird Stück für Stück live übertragen, während sie entsteht.</td></tr>
+    <tr><td>Kontext</td><td>Alles, was das Modell für diese eine Anfrage bekommt: Prompt, bisheriger Chatverlauf, Anhänge, Anweisungen.</td></tr>
+  </table>
+
+  <p class="tip" style="margin:3mm 0 3mm"><b>Zum Nachschauen (aus der Lektion):</b> „Large Language Models explained briefly“ (7:58 Min) und „How AI Turns Words Into Vectors: Embeddings“ (3:35 Min) – beide auf YouTube, englisch; die Untertitel lassen sich auf Deutsch umstellen.</p>
+  <div class="box merke full">{{I}}<div><b>Merke:</b> Das Modell sieht nur, was im Kontext steht. Alles andere – interne Daten, Absprachen, der Tonfall des Hauses – existiert für das Modell nicht. Fehlt etwas, wird es nicht nachgefragt, sondern plausibel ergänzt.</div></div>
+</section>

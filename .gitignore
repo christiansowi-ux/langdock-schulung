@@ -1,0 +1,30 @@
+# Zugangsdaten und Laufzeitdaten bleiben lokal bzw. auf dem Server.
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+plattform/data/
+**/node_modules/
+**/__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
+
+# Reproduzierbare Zwischenstände und Prüf-Screenshots.
+_quellen/build/
+_quellen/**/build/
+.venv/
+venv/
+playwright-report/
+test-results/
+
+# Private Schlüssel und lokale Sicherungen.
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.bak
+*.tmp

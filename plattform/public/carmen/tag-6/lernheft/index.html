@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="de" data-person="carmen" data-tag="6" data-page="lernheft">
+<head>
+<meta charset="utf-8">
+<title>Lernheft Tag 6 – Prompt Engineering (Teil 1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/app.css"><link rel="stylesheet" href="/hefte/assets/lernheft.css"><script src="/hefte/assets/app.js" defer></script>
+</head>
+<body class="lh">
+<header class="lhbar"><a href="/hefte/carmen/tag-6/">&larr; Tag 6</a><div class="t"><b>Lernheft Tag 6 · Prompt Engineering</b><span>Carmen · zum Lesen und Merken</span></div><span id="dz-slot"></span><a class="btn" href="/hefte/pdf/Lernheft_Tag6_Prompt-Engineering-1.pdf" download>Als PDF</a></header>
+
+<!-- ============ TITEL ============ -->
+<section class="lp cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Tag 6 · 05.10.2026 · Lektion 6, Teil 1</p>
+  <div class="big" style="font-size:84pt">Prompt<br>Engineering</div>
+  <div class="big2">Gute Prompts<br>schreiben.</div>
+  <p class="sub">Das Lernheft zu den Folien 1 bis 26: was ein Prompt ist, die zehn häufigsten Fehler, zwei Frameworks und die eigene Prompt-Bibliothek in Langdock.</p>
+  <span class="note"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg> Zum Lesen und Merken – mit freiwilligen Übungen in Langdock am Ende.</span>
+  <div class="cvs">
+    <div class="x"><b>Vorher</b><span>„Antworte auf die Beschwerde.“</span></div>
+    <div class="o"><b>Nachher</b><span>Rolle + Aufgabe + Kontext + Format – eine Antwort, die man direkt verschicken kann.</span></div>
+  </div>
+  <div class="band">
+    <div class="bl">Das 4-Elemente-Framework für wichtige Aufgaben · Folie 21</div>
+    <div class="steps6" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><b>Rolle</b><span>Wer ist die KI?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4l5 5-9.5 9.5H5.5v-5z"/><path d="M4 21h16"/></svg></div><b>Aufgabe</b><span>Was soll sie tun?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Kontext</b><span>Was muss sie wissen?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 15h7M9 18h4M15 3v4h4"/></svg></div><b>Format</b><span>Wie sieht es aus?</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO GEHT DIESES HEFT ============ -->
+<section class="lp">
+  <div class="kh"><div><p class="kk">Bevor es losgeht</p><h2>So liest man dieses Heft</h2></div></div>
+  <div class="how3">
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Eine Seite, ein Gedanke</b><p>Jedes Kapitel passt auf eine Seite – mit Beispiel statt langem Text.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><b>Unten der Merksatz</b><p>Der schwarze Kasten am Ende jeder Seite ist das, was hängen bleiben soll.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 14h9"/></svg></div><b>Freiwillig üben</b><p>Am Ende kurze Übungen für Langdock – zum Kopieren, ohne Schreiben im Heft.</p></div>
+  </div>
+  <h3 class="st">Inhalt</h3>
+  <ol class="toc">
+    <li><span class="n">01</span>Was ist ein Prompt?<span class="f">Folien 2–4</span></li>
+    <li><span class="n">02</span>Warum Prompts so wichtig sind<span class="f">Folien 5–7</span></li>
+    <li><span class="n">03</span>Die zehn Fehler (1–5)<span class="f">Folien 8–13</span></li>
+    <li><span class="n">04</span>Die zehn Fehler (6–10)<span class="f">Folien 14–18</span></li>
+    <li><span class="n">05</span>Schnell: das RTF-Framework<span class="f">Folie 20</span></li>
+    <li><span class="n">06</span>Wichtig: die vier Elemente<span class="f">Folien 21–22</span></li>
+    <li><span class="n">07</span>Unser Fall – gerettet<span class="f">Folie 23</span></li>
+    <li><span class="n">08</span>Einen Prompt verbessern<span class="f">Folie 24</span></li>
+    <li><span class="n">09</span>Die Prompt-Bibliothek in Langdock<span class="f">Folien 25–26</span></li>
+    <li><span class="n">+</span>Lektion auf einer Seite, Übungen, Merkfragen, Wörter<span class="f"></span></li>
+  </ol>
+  <h3 class="st">Unser Fall durch das Heft</h3>
+  <div class="fq">
+    <span class="lab">Eine Kundenbeschwerde (ausgedacht, wie auf Folie 23)</span>
+    <p>„Meine Lieferung kam drei Tage zu spät. Ich bin verärgert und schreibe eine schlechte Bewertung!“</p>
+  </div>
+  <p style="font-size:10.4pt">Der erste Versuch in Langdock lautet nur: <b>„Antworte auf die Beschwerde.“</b> Kapitel für Kapitel sieht man, was daran fehlt – in Kapitel 7 steht der fertige, gute Prompt.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Die KI ist so gut wie <em>die Anweisung, die sie bekommt.</em></p></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="lp" id="k1">
+  <div class="kh"><span class="kn">01</span><div><p class="kk">Kapitel 1 <span class="fref" data-folie="3">Folie 3</span> <span class="fref" data-folie="4">Folie 4</span></p><h2>Was ist ein Prompt?</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k1" data-unklar-hash="#k1" data-unklar-label="Lernheft · Was ist ein Prompt?">Unklar?</button></div>
+  <p class="lead">Das Wort kommt aus der Computer-Welt: Der „Prompt“ war das blinkende Zeichen, an dem man früher Befehle eintippte. Heute ist es das Eingabefeld der KI.</p>
+  <div class="term">Starting MS-DOS...<br><br>C:\&gt;<span class="cur"></span></div>
+  <div class="quote"><p>„Prompts sind präzise Arbeitsanweisungen, die das Verhalten und die Ausgaben einer KI steuern.“</p><span>Folie 4</span></div>
+  <div class="quote"><p>„Sie sind die Schnittstelle zwischen menschlicher Intention und maschineller Ausführung.“</p><span>Folie 4</span></div>
+  <div class="grid2">
+    <div class="card"><h4>Einfach gesagt</h4><p>Was man will, steckt im Kopf. Was die KI tut, steckt im Prompt. Alles, was nicht im Prompt steht, muss die KI erraten.</p></div>
+    <div class="card green"><h4>Verbindung zu Tag 3</h4><p>Der Prompt ist Teil des Kontexts – des Materials, das die KI für genau diese Antwort bekommt.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein Prompt ist eine <em>Arbeitsanweisung</em> – keine bloße Frage.</p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="lp" id="k2">
+  <div class="kh"><span class="kn">02</span><div><p class="kk">Kapitel 2 <span class="fref" data-folie="5">Folie 5</span> <span class="fref" data-folie="6">Folie 6</span> <span class="fref" data-folie="7">Folie 7</span></p><h2>Warum Prompts so wichtig sind</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k2" data-unklar-hash="#k2" data-unklar-label="Lernheft · Warum Prompts so wichtig sind">Unklar?</button></div>
+  <p class="lead">Folie 5 zeigt es mit einem Bild: links die bestellte Torte, rechts die gelieferte. Genau so fühlt sich ein schwacher Prompt an – man bekommt etwas, aber nicht das Gewünschte.</p>
+  <div class="vs">
+    <div class="bad"><span class="lab">Schlechte Prompts</span><div class="txt">verschwenden Ressourcen</div><p>falsche Antworten, mehrfache Nachbesserungen, höherer Zeitaufwand</p></div>
+    <div class="good"><span class="lab">Gute Prompts</span><div class="txt">schaffen Verlässlichkeit</div><p>wiederholbare, klare und direkt verwertbare Ergebnisse</p></div>
+  </div>
+  <div class="card dark" style="margin-bottom:4mm"><h4>Unternehmen brauchen Qualitätsstandards</h4><p style="color:#e9ecef;font-size:11pt">Professionelles Prompting ist eine Kernkompetenz (Folie 6).</p></div>
+  <div class="card"><h4>Diskussion in der Lektion: Ist Prompt Engineering 2026 noch relevant? (Folie 7)</h4><p>Zwei Videos mit der zugespitzten These „Prompt Engineering is dead“: „Prompt Engineering Is Dead. This Replaced It.“ (12:39 Min) und „Prompt Engineering is Dead – Nir Gazit, Traceloop“ (14:19 Min). Beide sind online auf der Seite von Tag 6 verlinkt.</p></div>
+  <div class="fall" style="margin-top:4mm"><span class="fl">Unser Fall</span><p>„Antworte auf die Beschwerde.“ liefert irgendeine Antwort – oft zu lang, zu förmlich oder ohne echte Lösung. Dann wird nachgebessert, wieder und wieder.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Prompt spart <em>die drei Nachbesserungen danach.</em></p></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="lp" id="k3">
+  <div class="kh"><span class="kn">03</span><div><p class="kk">Kapitel 3 <span class="fref" data-folie="8">Folien 8–13</span></p><h2>Die zehn Fehler beim Prompten (1–5)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k3" data-unklar-hash="#k3" data-unklar-label="Lernheft · Die zehn Fehler (1–5)">Unklar?</button></div>
+  <div class="err10">
+    <div><span class="en">1</span><b>Zu vage Formulierung</b><span class="bad">Schreib mir was über KI.</span><span class="good">Erkläre in einfachen Worten Chancen und Risiken von generativer KI für kleine Dienstleister in Deutschland. Max. 300 Wörter, gegliedert.</span></div>
+    <div><span class="en">2</span><b>Kein Kontext</b><span class="bad">Formuliere eine E-Mail zur Preiserhöhung.</span><span class="good">Du bist mein Kommunikationsberater. Ich habe einen kleinen Handwerksbetrieb in Bayern und muss Stammkunden eine moderate Preiserhöhung ankündigen … wertschätzend, max. 200 Wörter.</span></div>
+    <div><span class="en">3</span><b>Zu viele Aufgaben auf einmal</b><span class="bad">Zusammenfassen, übersetzen, Bulletpoints und LinkedIn-Post – alles in einem Satz.</span><span class="good">Schritt 1: zusammenfassen. Schritt 2: übersetzen. Schritt 3: daraus einen LinkedIn-Post mit Hook, Hauptteil und Aufruf.</span></div>
+    <div><span class="en">4</span><b>Kein Ausgabeformat</b><span class="bad">Gib mir Tipps zum Umgang mit schwierigen Kunden.</span><span class="good">7 konkrete Tipps für den B2B-Vertrieb, als nummerierte Liste mit je 1–2 Sätzen.</span></div>
+    <div><span class="en">5</span><b>Keine Zielgruppe</b><span class="bad">Erkläre Machine Learning.</span><span class="good">Erkläre einem 16-jährigen Schüler ohne IT-Vorkenntnisse Machine Learning mit einem Alltagsbeispiel. Max. 150 Wörter.</span></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Konkret sein, Kontext geben, <em>Schritt für Schritt</em> – mit Format und Zielgruppe.</p></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="lp" id="k4">
+  <div class="kh"><span class="kn">04</span><div><p class="kk">Kapitel 4 <span class="fref" data-folie="14">Folien 14–18</span></p><h2>Die zehn Fehler beim Prompten (6–10)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k4" data-unklar-hash="#k4" data-unklar-label="Lernheft · Die zehn Fehler (6–10)">Unklar?</button></div>
+  <div class="err10">
+    <div><span class="en">6</span><b>Keine Einschränkungen</b><span class="bad">Schreib einen Blogartikel über Nachhaltigkeit.</span><span class="good">600–800 Wörter über Nachhaltigkeit im Büroalltag, ohne Fachjargon und Buzzwords, mit konkreten Beispielen, keine unrealistischen Versprechen.</span></div>
+    <div><span class="en">7</span><b>Keine Beispiele</b><span class="bad">Schreib mir eine Produktbeschreibung für meinen Online-Shop.</span><span class="good">… für Outdoor-Ausrüstung. Hier ein Beispiel (übernimm nur den Stil): „Dieses leichte Wanderset begleitet dich auf deinen ersten Touren …“</span></div>
+    <div><span class="en">8</span><b>Keine Nachfragen</b><span class="bad">Hilf mir bei meiner Social-Media-Strategie.</span><span class="good">Du bist mein Social-Media-Berater … Stelle mir zuerst maximal 5 gezielte Fragen. Nutze meine Antworten für eine Strategie in 5 Schritten.</span></div>
+    <div><span class="en">9</span><b>Themen mischen (Context Pollution)</b><span class="bad">Vertrag zusammenfassen, Ernährungsprogramm, Steuerrecht – alles in einem Chat.</span><span class="good">Jedes Thema in einem eigenen Chat.</span></div>
+    <div><span class="en">10</span><b>Lange Chat-Verläufe (Context Drift)</b><span class="bad">„Oh, vergiss Anthropic. Ich meinte OpenAI.“ – im selben, langen Chat.</span><span class="good">Für das neue Thema ein neues Chat-Fenster öffnen.</span></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Grenzen setzen, Beispiel zeigen, <em>nachfragen lassen</em> – und ein Thema pro Chat.</p></div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="lp" id="k5">
+  <div class="kh"><span class="kn">05</span><div><p class="kk">Kapitel 5 <span class="fref" data-folie="20">Folie 20</span></p><h2>Schnell: das RTF-Framework</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k5" data-unklar-hash="#k5" data-unklar-label="Lernheft · Schnell: das RTF-Framework">Unklar?</button></div>
+  <p class="lead">Für schnelle Prompts zwischendurch reichen drei Bausteine. RTF steht für Rolle, Task (Aufgabe) und Format.</p>
+  <div class="fw c3">
+    <div class="c1"><span class="L">R</span><b>Rolle</b><span class="q">Wer ist die KI?</span><span>Zuweisung einer bestimmten Rolle.</span><span class="ex">„Du bist Social-Media-Manager.“</span></div>
+    <div class="c3"><span class="L">T</span><b>Task</b><span class="q">Was soll sie tun?</span><span>Beschreibung der konkreten Aufgabe.</span><span class="ex">„Generiere mehrere Slogans für den Fitnesstracker in einem lockeren Tonfall …“</span></div>
+    <div class="c5"><span class="L">F</span><b>Format</b><span class="q">Wie sieht es aus?</span><span>Festlegung des Ausgabeformats.</span><span class="ex">„… eine Tabelle mit 20 Anwendungsbeispielen, Spalten Use Cases, Rollen, Tools, Komplexität.“</span></div>
+  </div>
+  <h3 class="st">Ein RTF-Prompt am Stück</h3>
+  <div class="code"><span class="k">Rolle:</span> Du bist Social-Media-Manager.
+<span class="k">Task:</span>  Schreibe 5 Slogans für einen Fitnesstracker – locker, für gesundheitsbewusste Menschen.
+<span class="k">Format:</span> Nummerierte Liste, je höchstens 8 Wörter.</div>
+  <div class="fall"><span class="fl">Unser Fall</span><p>Schon mit RTF wird die Beschwerde-Antwort besser: „Du bist Support-Mitarbeiter. Antworte freundlich auf diese Beschwerde. Höchstens 6 Sätze.“ – aber der Kontext fehlt noch.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Schnell und gut: <em>Rolle, Task, Format.</em></p></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="lp" id="k6">
+  <div class="kh"><span class="kn">06</span><div><p class="kk">Kapitel 6 <span class="fref" data-folie="21">Folie 21</span> <span class="fref" data-folie="22">Folie 22</span></p><h2>Wichtig: die vier Elemente</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k6" data-unklar-hash="#k6" data-unklar-label="Lernheft · Wichtig: die vier Elemente">Unklar?</button></div>
+  <p class="lead">Für wichtige Aufgaben im Unternehmen kommt der Kontext dazu – und die Aufgabe wird genauer: mit Erfolgsmaßstab, Tonfall, Länge und Stil.</p>
+  <div class="fw c4">
+    <div class="c1"><span class="L">1</span><b>Rolle</b><span class="q">Wer ist die KI?</span><span>Expertise und Perspektive.</span></div>
+    <div class="c2"><span class="L">2</span><b>Aufgabe</b><span class="q">Was soll die KI konkret tun?</span><span>Klare Handlungsanweisungen, Erfolgsmaßstäbe, Tonfall, Länge, Stil.</span></div>
+    <div class="c3"><span class="L">3</span><b>Kontext</b><span class="q">Welche Infos sind relevant?</span><span>Hintergrund und Rahmenbedingungen.</span></div>
+    <div class="c5"><span class="L">4</span><b>Format</b><span class="q">Wie soll die Ausgabe aussehen?</span><span>Layout und Gliederung.</span></div>
+  </div>
+  <h3 class="st">Früher waren es sechs Elemente (Folie 22)</h3>
+  <div class="map6">
+    <div class="a"><b>Rolle</b></div><div class="arr">→</div><div class="b">Rolle</div>
+    <div class="a"><b>Aufgabe</b></div><div class="arr">→</div><div class="b">Aufgabe</div>
+    <div class="a"><b>Kontext</b></div><div class="arr">→</div><div class="b">Kontext</div>
+    <div class="a"><b>Ziel</b> – Woran erkennt man ein gutes Ergebnis?</div><div class="arr">→</div><div class="b">steckt jetzt in der Aufgabe (Erfolgsmaßstab)</div>
+    <div class="a"><b>Format</b></div><div class="arr">→</div><div class="b">Format</div>
+    <div class="a"><b>Qualität</b> – Tonfall, Länge, Stil</div><div class="arr">→</div><div class="b">steckt jetzt in der Aufgabe</div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Für Wichtiges: <em>Rolle, Aufgabe, Kontext, Format</em> – Ziel und Qualität gehören zur Aufgabe.</p></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="lp" id="k7">
+  <div class="kh"><span class="kn">07</span><div><p class="kk">Kapitel 7 <span class="fref" data-folie="23">Folie 23</span></p><h2>Unser Fall – gerettet</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k7" data-unklar-hash="#k7" data-unklar-label="Lernheft · Unser Fall – gerettet">Unklar?</button></div>
+  <div class="fq"><span class="lab">Vorher</span><p>„Antworte auf die Beschwerde.“</p></div>
+  <h3 class="st" style="margin-top:0">Nachher – mit den vier Elementen (Folie 23)</h3>
+  <div class="auftrag">
+    <div class="top">Prompt · Antwort auf eine Kundenbeschwerde</div>
+    <div class="sec c1"><span class="sn">1</span><div><span class="st2">Rolle</span><p>Du bist ein Support-Mitarbeiter in einem E-Commerce-Unternehmen mit 5 Jahren Erfahrung.</p></div></div>
+    <div class="sec c2"><span class="sn">2</span><div><span class="st2">Aufgabe</span><p>Formuliere eine professionelle, empathische Antwort auf eine Kundenbeschwerde. Sachlich entschuldigen, Verständnis zeigen und 2 konkrete Lösungsmöglichkeiten anbieten.</p></div></div>
+    <div class="sec c3"><span class="sn">3</span><div><span class="st2">Kontext</span><p>Die Lieferung kam 3 Tage zu spät. Der Kunde ist verärgert und hat bereits eine negative Bewertung angekündigt. Dazu: die E-Mail des Kunden.</p></div></div>
+    <div class="sec c5"><span class="sn">4</span><div><span class="st2">Format</span><p>1) Einleitung 2) Erklärung 3) Lösungsvorschläge 4) Abschluss. Maximal 6 Sätze, neutraler, aber freundlicher Tonfall, keine Floskeln.</p></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Was jetzt anders ist</h4><p>Die KI weiß, wer sie ist, was genau passiert ist, was sie anbieten soll – und wie lang und in welchem Ton die Antwort sein darf.</p></div>
+    <div class="card green"><h4>Sicher arbeiten</h4><p>Echte Kunden-E-Mails nur einfügen, wenn der eigene Workspace das erlaubt. Im Kurs: ausgedachte Fälle.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Aus einem Satz werden vier Elemente – <em>und aus einer Antwort eine Lösung.</em></p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="lp" id="k8">
+  <div class="kh"><span class="kn">08</span><div><p class="kk">Kapitel 8 <span class="fref" data-folie="24">Folie 24</span></p><h2>Einen Prompt verbessern</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k8" data-unklar-hash="#k8" data-unklar-label="Lernheft · Einen Prompt verbessern">Unklar?</button></div>
+  <p class="lead">Die Aufgabe aus der Lektion: Einen Prompt nehmen, der bisher nicht gut funktioniert hat – und ihn gezielt besser machen.</p>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Schwachen Prompt finden</b><span>Aus einer früheren Aufgabe oder dem eigenen Chatverlauf.</span></div>
+    <div><span class="no">2</span><b>Ursache suchen</b><span>Welcher der zehn Fehler steckt drin? Oft sind es zwei oder drei.</span></div>
+    <div><span class="no">3</span><b>Neu schreiben</b><span>Nach dem Framework: Rolle, Aufgabe, Kontext, Format.</span></div>
+    <div><span class="no">4</span><b>Neu erzeugen</b><span>Den verbesserten Prompt in einem neuen Chat abschicken.</span></div>
+    <div><span class="no">5</span><b>Vergleichen</b><span>Vorher und nachher nebeneinander: Was ist besser geworden?</span></div>
+    <div class="end"><span class="no">6</span><b>Speichern</b><span>Den guten Prompt in die Prompt-Bibliothek legen (Kapitel 9).</span></div>
+  </div>
+  <div class="ask"><span class="q">?</span><p>Die Frage der Lektion: <b>Hat die Überarbeitung etwas gebracht?</b> Meistens ja – und wenn nicht, fehlt fast immer noch Kontext.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Nicht raten, warum es schlecht war – <em>Fehler finden, Framework anwenden, vergleichen.</em></p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="lp" id="k9">
+  <div class="kh"><span class="kn">09</span><div><p class="kk">Kapitel 9 <span class="fref" data-folie="25">Folie 25</span> <span class="fref" data-folie="26">Folie 26</span></p><h2>Die Prompt-Bibliothek in Langdock</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k9" data-unklar-hash="#k9" data-unklar-label="Lernheft · Die Prompt-Bibliothek in Langdock">Unklar?</button></div>
+  <p class="lead">Wer einen guten Prompt gebaut hat, sollte ihn nicht jedes Mal neu tippen. Die Aufgabe der Lektion: eine eigene Bibliothek mit drei Prompts, die Variablen enthalten.</p>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Öffnen</b><span>In Langdock die Prompt-Bibliothek aufrufen.</span></div>
+    <div><span class="no">2</span><b>Hinzufügen</b><span>„Prompt hinzufügen“ – oder im Chat an der eigenen Nachricht auf das Plus klicken.</span></div>
+    <div><span class="no">3</span><b>Variablen</b><span>Was sich ändert, in doppelte Klammern: <span class="vtag">&#123;&#123; thema &#125;&#125;</span>, <span class="vtag">&#123;&#123; zielgruppe &#125;&#125;</span>.</span></div>
+    <div><span class="no">4</span><b>Ordnen</b><span>Optional Ordner anlegen, z. B. „Vertrieb“ oder „Social Media“.</span></div>
+    <div><span class="no">5</span><b>Abrufen</b><span>Im Chat @ tippen → „Prompts“ → Prompt wählen.</span></div>
+    <div class="end"><span class="no">6</span><b>Ausfüllen</b><span>Langdock fragt die Variablen ab – fertig.</span></div>
+  </div>
+  <h3 class="st">So sieht ein Bibliotheks-Prompt mit Variablen aus</h3>
+  <div class="code"><span class="k">Rolle:</span>   Du bist Support-Mitarbeiter mit 5 Jahren Erfahrung.
+<span class="k">Aufgabe:</span> Antworte empathisch auf diese Beschwerde und biete 2 Lösungen an: <span class="t"><span class="vtag">&#123;&#123; beschwerde &#125;&#125;</span></span>
+<span class="k">Kontext:</span> Problem: <span class="t"><span class="vtag">&#123;&#123; problem &#125;&#125;</span></span>, Stimmung des Kunden: <span class="t"><span class="vtag">&#123;&#123; stimmung &#125;&#125;</span></span>
+<span class="k">Format:</span>  Höchstens 6 Sätze, freundlich, keine Floskeln.</div>
+  <p class="small">Vorlagen zum Weiterbauen nennt Folie 26: startbrain.ai (Blog „KI Prompt Engineering Kurs“).</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Gute Prompts nicht neu tippen – <em>speichern, mit Variablen, abrufen mit @.</em></p></div>
+</section>
+
+<!-- ============ AUF EINER SEITE ============ -->
+<section class="lp" id="k10">
+  <div class="kh"><span class="kn">+</span><div><p class="kk">Zum Wiederholen</p><h2>Die Lektion auf einer Seite</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k10" data-unklar-hash="#k10" data-unklar-label="Lernheft · Die Lektion auf einer Seite">Unklar?</button></div>
+  <div class="cheat">
+    <div class="wide"><h4>Die Formel</h4><p class="formula">Guter Prompt = <span>Rolle + Aufgabe + Kontext + Format.</span></p></div>
+    <div><h4>Was ist ein Prompt?</h4><p>Eine präzise Arbeitsanweisung, die Verhalten und Ausgabe der KI steuert.</p></div>
+    <div><h4>Warum wichtig?</h4><p>Schlechte Prompts kosten Zeit. Gute schaffen wiederholbare, direkt verwertbare Ergebnisse.</p></div>
+    <div><h4>Fehler 1–5</h4><p>zu vage · kein Kontext · zu viel auf einmal · kein Format · keine Zielgruppe</p></div>
+    <div><h4>Fehler 6–10</h4><p>keine Grenzen · keine Beispiele · keine Nachfragen · Themen mischen · lange Chats</p></div>
+    <div><h4>Schnell: RTF</h4><p>Rolle · Task · Format</p></div>
+    <div><h4>Wichtig: 4 Elemente</h4><p>Rolle · Aufgabe (mit Ziel, Ton, Länge) · Kontext · Format</p></div>
+    <div><h4>Verbessern</h4><p>Fehler finden → Framework anwenden → neu erzeugen → vergleichen → speichern</p></div>
+    <div><h4>Bibliothek</h4><p>„Prompt hinzufügen“ · Variablen <span class="vtag">&#123;&#123; x &#125;&#125;</span> · abrufen mit @ → Prompts</p></div>
+    <div class="wide" style="background:var(--head)"><h4 style="color:var(--mint)">Die eine Regel</h4><p class="formula" style="color:#fff">Was nicht im Prompt steht, muss die KI erraten.</p></div>
+  </div>
+</section>
+
+<!-- ============ UEBUNGEN 1 ============ -->
+<section class="lp" id="k11">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (1)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k11" data-unklar-hash="#k11" data-unklar-label="Lernheft · Üben in Langdock (1)">Unklar?</button></div>
+  <p class="lead">Kurze Übungen zum Ausprobieren – Prompt kopieren, in einen neuen Chat einfügen, Ergebnis ansehen. Nur ausgedachte Daten.</p>
+  <div class="ueb"><div class="uh"><span class="un">Übung 1</span><h4>Vorher – nachher</h4><span class="min">5 Min</span></div>
+    <p>Erst den schwachen, dann den guten Prompt aus Folie 9 – jeweils in einem neuen Chat.</p>
+    <div class="ucode">Schreib mir was über KI.</div>
+    <div class="ucode">Erkläre in einfachen Worten die wichtigsten Chancen und Risiken von generativer KI für kleine Dienstleistungsunternehmen in Deutschland. Max. 300 Wörter, gegliedert in Chancen und Risiken.</div>
+    <p class="look"><b>Darauf achten:</b> Welche Antwort könnte man direkt weitergeben?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 2</span><h4>Der Fehler-Detektiv</h4><span class="min">5 Min</span></div>
+    <p>Einen eigenen, alten Prompt (ohne echte Daten) prüfen lassen.</p>
+    <div class="ucode">Prüfe meinen Prompt auf diese zehn Fehler: zu vage, kein Kontext, zu viele Aufgaben auf einmal, kein Ausgabeformat, keine Zielgruppe, keine Einschränkungen, keine Beispiele, keine Nachfragen, Themen gemischt, zu langer Chat. Nenne nur die Fehler, die wirklich vorkommen, und schlage eine bessere Fassung vor. Mein Prompt: [Prompt einfügen]</div>
+    <p class="look"><b>Darauf achten:</b> Stimmt die Diagnose? Ist die neue Fassung wirklich besser?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 3</span><h4>RTF in zwei Minuten</h4><span class="min">5 Min</span></div>
+    <p>Einen schnellen Prompt mit Rolle, Task und Format bauen – für den eigenen Bereich.</p>
+    <div class="ucode">Du bist [Rolle]. [Aufgabe in einem Satz]. Format: [z. B. Liste mit 5 Punkten, je ein Satz].</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> Vertriebsberater, 5 Einstiegssätze für Kaltakquise bei Druckaufträgen · <b>Business &amp; Website:</b> Webtexter, 5 Überschriften für eine Leistungsseite · <b>Video &amp; Design:</b> Creative Director, 5 Ideen für ein 15-Sekunden-Reel</p></div>
+</section>
+
+<!-- ============ UEBUNGEN 2 ============ -->
+<section class="lp" id="k12">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (2)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k12" data-unklar-hash="#k12" data-unklar-label="Lernheft · Üben in Langdock (2)">Unklar?</button></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 4</span><h4>Erst fragen lassen</h4><span class="min">5 Min</span></div>
+    <p>Fehler 8 umdrehen: Die KI soll zuerst nachfragen.</p>
+    <div class="ucode">Du bist mein Berater für [Thema, z. B. Social Media]. Bevor du etwas vorschlägst, stelle mir zuerst maximal 5 gezielte Fragen. Warte auf meine Antworten.</div>
+    <p class="look"><b>Darauf achten:</b> Wie viel genauer wird der Vorschlag nach den Antworten?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 5</span><h4>Ein Thema pro Chat</h4><span class="min">5 Min</span></div>
+    <p>Context Drift selbst erleben: Im selben Chat erst um einen Text über Kaffee bitten, dann schreiben: „Vergiss Kaffee, ich meinte Tee.“ Danach dasselbe in einem neuen Chat nur mit „Tee“.</p>
+    <p class="look"><b>Darauf achten:</b> Bleiben im langen Chat Reste vom Kaffee hängen?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 6</span><h4>Der erste Bibliotheks-Prompt</h4><span class="min">5 Min</span></div>
+    <p>Diesen Prompt in der Prompt-Bibliothek speichern („Prompt hinzufügen“), dann im neuen Chat mit @ → „Prompts“ abrufen.</p>
+    <div class="ucode">Fasse diesen Text für <span class="vtag">&#123;&#123; zielgruppe &#125;&#125;</span> in höchstens <span class="vtag">&#123;&#123; anzahl &#125;&#125;</span> Stichpunkten zusammen. Einfache Sprache, keine Fachbegriffe. Text: <span class="vtag">&#123;&#123; text &#125;&#125;</span></div>
+    <p class="look"><b>Darauf achten:</b> Fragt Langdock die drei Variablen ab?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Bonus</span><h4>Der Prompt-Verbesserer</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Verbessere meinen Prompt nach dem 4-Elemente-Framework (Rolle, Aufgabe mit Erfolgsmaßstab, Ton und Länge, Kontext, Format). Wenn Informationen fehlen, frage zuerst nach. Mein Prompt: [Prompt einfügen]</div>
+    <p class="look"><b>Tipp:</b> Den Prompt selbst gleich in die Bibliothek legen – er hilft bei jedem neuen Prompt.</p></div>
+</section>
+
+<!-- ============ MERKFRAGEN ============ -->
+<section class="lp" id="k13">
+  <div class="kh"><span class="kn">?</span><div><p class="kk">Zum Selbst-Abfragen</p><h2>Zwölf Merkfragen – mit Antwort</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k13" data-unklar-hash="#k13" data-unklar-label="Lernheft · Zwölf Merkfragen">Unklar?</button></div>
+  <p class="lead">Frage lesen, kurz selbst überlegen, dann die Antwort darunter lesen. Online gibt es dieselben Fragen als Lernkarten zum Umdrehen.</p>
+  <div class="qa">
+    <div><span class="qn">FRAGE 01</span><b>Was ist ein Prompt?</b><p>Eine präzise Arbeitsanweisung, die Verhalten und Ausgaben einer KI steuert.</p></div>
+    <div><span class="qn">FRAGE 02</span><b>Was bringen gute Prompts?</b><p>Wiederholbare, klare und direkt verwertbare Ergebnisse – weniger Nachbessern.</p></div>
+    <div><span class="qn">FRAGE 03</span><b>Was ist an „Schreib mir was über KI“ falsch?</b><p>Zu vage: kein Thema im Detail, keine Zielgruppe, kein Umfang, kein Format.</p></div>
+    <div><span class="qn">FRAGE 04</span><b>Wie löst man „zu viele Aufgaben auf einmal“?</b><p>In Schritte teilen: Schritt 1, Schritt 2, Schritt 3.</p></div>
+    <div><span class="qn">FRAGE 05</span><b>Wie bringt man der KI einen Stil bei?</b><p>Mit einem kurzen Beispiel – „übernimm nur den Stil“.</p></div>
+    <div><span class="qn">FRAGE 06</span><b>Was hilft, wenn man selbst noch nicht alles weiß?</b><p>Die KI zuerst Fragen stellen lassen: „Stelle mir zuerst maximal 5 gezielte Fragen.“</p></div>
+    <div><span class="qn">FRAGE 07</span><b>Was ist Context Pollution?</b><p>Verschiedene Themen in einem Chat – lieber ein Thema pro Chat.</p></div>
+    <div><span class="qn">FRAGE 08</span><b>Was ist Context Drift?</b><p>Das Thema verschiebt sich im langen Chat – dann ein neues Chat-Fenster öffnen.</p></div>
+    <div><span class="qn">FRAGE 09</span><b>Wofür steht RTF?</b><p>Rolle, Task, Format – für schnelle Prompts zwischendurch.</p></div>
+    <div><span class="qn">FRAGE 10</span><b>Die vier Elemente für wichtige Aufgaben?</b><p>Rolle, Aufgabe, Kontext, Format.</p></div>
+    <div><span class="qn">FRAGE 11</span><b>Wo sind „Ziel“ und „Qualität“ geblieben?</b><p>Sie gehören im 4-Elemente-Framework zur Aufgabe: Erfolgsmaßstab, Tonfall, Länge, Stil.</p></div>
+    <div><span class="qn">FRAGE 12</span><b>Wie speichert man einen Prompt mit Variable in Langdock?</b><p>Prompt-Bibliothek → „Prompt hinzufügen“, Variablen wie &#123;&#123; thema &#125;&#125; schreiben, später mit @ → Prompts abrufen.</p></div>
+  </div>
+</section>
+
+<!-- ============ WOERTER ============ -->
+<section class="lp" id="k14">
+  <div class="kh"><span class="kn">Aa</span><div><p class="kk">Zum Nachschlagen</p><h2>Die Wörter des Tages</h2></div><button class="unklar ux" type="button" data-unklar-ref="t6:lernheft:k14" data-unklar-hash="#k14" data-unklar-label="Lernheft · Die Wörter des Tages">Unklar?</button></div>
+  <div class="gl">
+    <div><b>Prompt</b><span>Die Arbeitsanweisung an die KI – Frage, Auftrag, Vorgaben.</span></div>
+    <div><b>Prompt Engineering</b><span>Das bewusste Gestalten von Prompts, damit die Ergebnisse verlässlich gut werden.</span></div>
+    <div><b>Kontext</b><span>Alles, was die KI für die Aufgabe wissen muss: wer, was, warum, für wen.</span></div>
+    <div><b>Ausgabeformat</b><span>Wie die Antwort aussehen soll: Liste, Tabelle, Länge, Gliederung.</span></div>
+    <div><b>Context Pollution</b><span>Verschiedene Themen in einem Chat vermischen – die KI wird ungenau.</span></div>
+    <div><b>Context Drift</b><span>In langen Chats verschiebt sich das Thema – besser neuer Chat.</span></div>
+    <div><b>RTF-Framework</b><span>Rolle, Task, Format – für schnelle Prompts.</span></div>
+    <div><b>4-Elemente-Framework</b><span>Rolle, Aufgabe, Kontext, Format – für wichtige Aufgaben.</span></div>
+    <div><b>Prompt-Bibliothek</b><span>Sammlung gespeicherter Prompts in Langdock, abrufbar mit @.</span></div>
+    <div><b>Variable</b><span>Platzhalter im gespeicherten Prompt, z. B. &#123;&#123; thema &#125;&#125; – wird beim Einsetzen ausgefüllt.</span></div>
+  </div>
+  <div class="end"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg><div><b>Alles noch einmal online</b><p>quint-games.de/hefte → eigener Name → Tag 6: Folien, Videos, Lernkarten, Selbsttest und dieses Lernheft.</p></div></div>
+</section>
+
+</body>
+</html>

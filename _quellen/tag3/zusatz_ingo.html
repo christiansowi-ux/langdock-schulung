@@ -1,0 +1,47 @@
+<!-- Z1 -->
+<h3>Die Preis-Probe</h3><span class="time">10 Min</span>
+<p class="goal"><b>Ziel:</b> Sehen, wie schnell die KI im Verkauf Preise erfindet – und wie ein einziger Satz das verhindert. Wie Aufgabe 3, nur mit Druckpaketen.</p>
+<div class="step"><div class="step-t"><span class="n">1</span>Ohne Angaben</div>
+  <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+    <p>Erstelle eine Preisübersicht für unsere drei Flyer-Pakete.</p></div>
+  <div class="box watch"><span class="tag watch">Beobachten</span>Welche Pakete und Preise denkt sich Langdock aus? Würde jemand aus der Kundschaft das für echt halten?</div>
+</div>
+<div class="step"><div class="step-t"><span class="n">2</span>Mit Angaben und der Regel für Lücken</div>
+  <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+    <p>Erstelle eine Preisübersicht für unsere drei Flyer-Pakete als Tabelle. Die Angaben (ausgedacht): Paket Start – 500 Flyer A6, einseitig, 49 €. Paket Standard – 1.000 Flyer A5, beidseitig, 89 €. Paket Profi – 2.500 Flyer A5, beidseitig, der Preis steht noch nicht fest. Verwende nur diese Angaben. Wenn etwas fehlt, schreibe [fehlt].</p></div>
+  <div class="box watch"><span class="tag watch">Beobachten</span>Steht beim Paket Profi wirklich [fehlt] – oder hat Langdock doch einen Preis geschätzt?</div>
+</div>
+<div class="box merke full">{{I}}<div><b>Merke:</b> Im Verkauf ist ein erfundener Preis ein echtes Risiko. Der Satz „Wenn etwas fehlt, schreibe [fehlt]“ gehört in jeden Prompt für Angebote.</div></div>
+
+<!-- Z2 -->
+<h3>Eine zweite Mission: Lead-Qualifizierung</h3><span class="time">15 Min</span>
+<p class="goal"><b>Ziel:</b> Die 8 Bausteine an einer echten Vertriebsaufgabe üben.</p>
+<p class="small"><b>Kurz erklärt:</b> Ein „Lead“ ist eine mögliche neue Kundschaft, die Interesse gezeigt hat. „Qualifizieren“ heißt: prüfen, ob sich ein Angebot lohnt.</p>
+<div class="step"><div class="step-t"><span class="n">1</span>Mission fliegen <span class="where lab">Prompt-Labor</span></div>
+  <ol>
+    <li>„Prompt Launch“ → Stufe <b>„Kadett“</b> → Mission <b>„Lead-Qualifizierung“</b>.</li>
+    <li>Wie in Aufgabe 5: Auftrag lesen, Rakete bauen, „Systemprüfung“, „Start freigeben“.</li>
+  </ol>
+  <table class="fill">
+    <tr><th style="width:26mm">Punkte</th><th>Welcher Baustein war am schwierigsten – und warum?</th></tr>
+    <tr><td></td><td></td></tr>
+  </table>
+</div>
+
+<!-- Z3 -->
+<h3>Den „Druck &amp; Sales Copilot“ nachschärfen</h3><span class="time">15 Min</span>
+<p class="goal"><b>Ziel:</b> Dem eigenen Agenten vom ersten Kurstag eine Regel geben: erst nachfragen, nie Preise erfinden.</p>
+<div class="step"><div class="step-t"><span class="n">1</span>Die Regel einbauen</div>
+  <ol>
+    <li>In Langdock links <b>„Agents“</b> → <b>„Druck &amp; Sales Copilot“</b> → bearbeiten.</li>
+    <li>Ganz ans Ende des Feldes <b>„Anweisungen“</b> diesen Absatz setzen und speichern:</li>
+  </ol>
+  <div class="prompt"><div class="lbl">Absatz für die Anweisungen</div>
+    <p>Wenn Angaben wie Auflage, Format, Papier oder Liefertermin fehlen, stelle zuerst höchstens drei kurze Rückfragen. Erfinde nie Preise oder Liefertermine – schreibe stattdessen [fehlt].</p></div>
+</div>
+<div class="step"><div class="step-t"><span class="n">2</span>Testen</div>
+  <div class="prompt"><div class="lbl">Test – im Chat mit dem Copilot</div>
+    <p>Neue Anfrage: Ein Weingut (ausgedacht) möchte Etiketten und zwei Roll-ups für eine Messe. Was brauchst du von mir?</p></div>
+  <div class="box watch"><span class="tag watch">Beobachten</span>Fragt der Copilot jetzt nach, statt Zahlen zu erfinden? Das ist Baustein 8 „Rückfragen“ aus der Rakete.</div>
+  <p class="small">Kein Agent vom ersten Tag vorhanden? Dann den Absatz einfach an den Anfang eines normalen Chats schreiben und den Test dort machen.</p>
+</div>

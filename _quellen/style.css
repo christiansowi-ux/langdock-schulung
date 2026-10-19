@@ -1,0 +1,313 @@
+/* Praxisblock Langdock - Arbeitshefte im Look der Futureway-Folien (Archivo, Gruen #1a6b5a, Info-Blau #b6d6fc) */
+:root {
+  --head: #111111;
+  --ink: #333333;
+  --muted: #6b6f73;
+  --line: #e2e2e2;
+  --card: #fafafa;
+  --green: #1a6b5a;
+  --green-soft: #e8f1ee;
+  --info: #b6d6fc;
+  --info-ink: #006ed6;
+  --red: #c8231a;
+  --red-soft: #fdecea;
+  --gold: #f2c200;
+  --ph: #fff0b3;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 10pt; }
+body {
+  margin: 0;
+  font-family: "Archivo", "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.52;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #fff;
+}
+h1, h2, h3, h4 { color: var(--head); font-weight: 700; letter-spacing: -.012em; }
+p { margin: 0 0 2mm; }
+b, strong { font-weight: 700; color: var(--head); }
+ul, ol { margin: 0 0 2mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+
+/* ---------- Titelseite ---------- */
+.cover { break-after: page; }
+.cover .logo { width: 50mm; height: auto; margin-left: -2mm; }
+.cover .profile { margin-top: 9mm; display: flex; align-items: center; gap: 4mm; }
+.cover .profile svg { width: 15mm; height: 15mm; }
+.kicker { font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-weight: 700; }
+.cover h1 { font-size: 30pt; line-height: 1.04; margin: 3.5mm 0 3mm; font-weight: 800; letter-spacing: -.02em; }
+.cover .sub { font-size: 12.5pt; font-weight: 700; color: var(--head); margin-bottom: 3mm; line-height: 1.3; }
+.cover .lead { font-size: 10.2pt; max-width: 170mm; margin-bottom: 5mm; }
+.outcome { display: flex; gap: 3.5mm; align-items: flex-start; background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 3mm 4.5mm; margin-bottom: 5mm; font-size: 10.4pt; }
+.outcome .bar { flex: 0 0 .8mm; align-self: stretch; background: var(--green); border-radius: .4mm; }
+.outcome .lbl { display: block; font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: .6mm; }
+h4 { font-size: 8.6pt; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 2mm; font-weight: 700; }
+.cover .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; font-size: 10pt; }
+.cover .foot b { font-size: 11pt; }
+
+table { border-collapse: collapse; width: 100%; }
+table.plan { margin-bottom: 5mm; font-size: 9.2pt; }
+table.plan th { text-align: left; font-weight: 700; font-size: 8.2pt; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; padding: 1.6mm 2mm; border-bottom: .5mm solid var(--head); }
+table.plan td { padding: 1.5mm 2mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+table.plan td:first-child { font-weight: 700; color: var(--head); width: 42mm; }
+table.plan td:nth-child(2) { white-space: nowrap; color: var(--green); font-weight: 700; width: 22mm; }
+
+.legend { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 6mm; font-size: 9pt; }
+.legend div { display: flex; gap: 2.5mm; align-items: baseline; }
+.legend .where, .legend .tag { flex: 0 0 31mm; text-align: center; }
+
+.namefields { display: grid; grid-template-columns: 2fr 1fr; gap: 8mm; margin: 3mm 0 5mm; }
+.namefields div { border-bottom: .3mm solid var(--head); padding-top: 7mm; font-size: 8pt; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+
+/* ---------- Abschnitte ---------- */
+.section { break-before: page; }
+.sec-head { margin-bottom: 6mm; padding-left: 5mm; border-left: .8mm solid var(--green); }
+.sec-no { font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-weight: 700; display: flex; gap: 3mm; align-items: center; }
+.chip { background: var(--head); color: #fff; font-size: 8pt; letter-spacing: .06em; padding: .5mm 2.4mm; border-radius: 1mm; font-weight: 700; }
+.sec-head h2 { font-size: 23pt; line-height: 1.08; margin: 1.5mm 0 2mm; font-weight: 800; letter-spacing: -.02em; }
+.sec-head p { font-size: 10.6pt; margin: 0; max-width: 160mm; }
+
+h2.plain { font-size: 21pt; margin: 0 0 5mm; font-weight: 800; letter-spacing: -.02em; }
+
+/* ---------- Aufgaben ---------- */
+.task { margin-bottom: 8mm; }
+.task-top { break-inside: avoid; padding-bottom: 48mm; margin-bottom: -48mm; }
+.task + .task > .task-top { border-top: .3mm solid var(--line); padding-top: 6mm; }
+.task-head { display: flex; align-items: center; gap: 3mm; margin-bottom: 1.8mm; break-after: avoid; }
+.task-no { font-size: 8.6pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--green); padding: .6mm 2.4mm; border-radius: 1mm; white-space: nowrap; }
+.task-head h3 { font-size: 15pt; margin: 0; flex: 1; line-height: 1.18; font-weight: 700; }
+.time { font-size: 9pt; color: var(--head); font-weight: 700; white-space: nowrap; border: .3mm solid var(--line); padding: .3mm 2.2mm; border-radius: 1mm; }
+.goal { font-size: 10.3pt; margin-bottom: 4mm; break-after: avoid; }
+.goal b { color: var(--green); }
+
+.step { margin: 0 0 4.2mm; break-inside: avoid; }
+.step-t { font-weight: 700; color: var(--head); font-size: 10.8pt; display: flex; gap: 2.6mm; align-items: center; margin-bottom: -20.4mm; padding-bottom: 22mm; break-inside: avoid; }
+.step-t .n {
+  flex: 0 0 5.8mm; height: 5.8mm; border-radius: 50%; background: var(--green); color: #fff;
+  font-size: 8.6pt; display: inline-flex; align-items: center; justify-content: center; font-weight: 700;
+}
+.step > p, .step > ul, .step > ol { margin-left: 8.4mm; }
+
+/* Prompt-Karten (wie die Zitat-Karten der Folien) */
+.prompt {
+  margin: 1.6mm 0 2.6mm 8.4mm; background: var(--card); border: .3mm solid var(--line); border-radius: 2mm;
+  padding: 2.8mm 4.2mm 3mm 5.4mm; break-inside: avoid; font-size: 10.3pt; line-height: 1.5; position: relative; color: var(--head);
+}
+.prompt::before { content: ""; position: absolute; left: 2.2mm; top: 3mm; bottom: 3mm; width: .6mm; background: var(--green); border-radius: .3mm; }
+.prompt.img { background: var(--green-soft); border-color: #cfe2dc; }
+.prompt .lbl { display: flex; gap: 2mm; align-items: center; font-size: 7.8pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 1.4mm; }
+.prompt p { margin: 0 0 1.3mm; }
+.prompt p:last-child { margin-bottom: 0; }
+.prompt ul { margin: .5mm 0 1.3mm; padding-left: 4.5mm; }
+.prompt li { margin-bottom: .3mm; }
+.prompt.list p { position: relative; padding-left: 4mm; }
+.prompt.list p::before { content: "\2013"; position: absolute; left: 0; color: var(--muted); }
+
+.where, .tag {
+  display: inline-block; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; font-weight: 700;
+  padding: .35mm 1.9mm; border-radius: .8mm; line-height: 1.5; white-space: nowrap;
+}
+.where.new  { background: var(--head); color: #fff; }
+.where.same { background: #fff; color: var(--head); border: .3mm solid var(--head); }
+.where.img  { background: var(--green); color: #fff; }
+.tag.watch  { background: #fff; color: var(--green); border: .3mm solid var(--green); }
+.tag.merke  { background: var(--info-ink); color: #fff; }
+.tag.safe   { background: var(--red); color: #fff; }
+.tag.ph     { background: var(--ph); color: var(--head); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 8.6pt; }
+/* Tag 2: Modell-Einstellungen */
+.where.model    { background: var(--green-soft); color: var(--green); border: .3mm solid var(--green); }
+.where.think    { background: var(--info-ink); color: #fff; }
+.where.thinkoff { background: #fff; color: var(--info-ink); border: .3mm solid var(--info-ink); }
+.where.web      { background: var(--gold); color: var(--head); }
+.where.weboff   { background: #fff; color: #8a6d00; border: .3mm solid #c9a200; }
+.tag.sol        { background: var(--card); color: var(--muted); border: .3mm dashed #b9bcc0; }
+
+.ph { background: var(--ph); padding: 0 .8mm; border-radius: .6mm; }
+
+/* Hinweis-Kaesten */
+.box { margin: 2mm 0 3.2mm 8.4mm; padding: 2.8mm 4mm; break-inside: avoid; font-size: 9.9pt; border-radius: 2mm; }
+.box .tag { margin-right: 1.8mm; position: relative; top: -.2mm; }
+.box.watch { border: .3mm solid var(--line); background: #fff; }
+.box.merke { background: var(--info); color: #1d2733; display: flex; gap: 3mm; align-items: flex-start; }
+.box.merke .i { flex: 0 0 4.6mm; height: 4.6mm; margin-top: .4mm; }
+.box.merke b { color: #0f1a26; }
+.box.safe  { background: var(--red-soft); border: .3mm solid #f4c7c2; }
+.box.full { margin-left: 0; }
+.box p { margin: 0 0 1mm; }
+.box p:last-child { margin: 0; }
+
+/* Ausfuellen */
+.lines { height: calc(var(--n, 3) * 7.5mm); margin: 1mm 0 3mm 8.4mm;
+  background: repeating-linear-gradient(to bottom, transparent 0 7.2mm, #c9cccf 7.2mm 7.5mm); }
+.lines.full { margin-left: 0; }
+.lineslabel { margin: 2mm 0 0 8.4mm; font-size: 9pt; color: var(--muted); }
+table.fill { margin: 1.5mm 0 3mm 8.4mm; width: calc(100% - 8.4mm); break-inside: avoid; font-size: 9pt; }
+table.fill.full { margin-left: 0; width: 100%; }
+table.fill th { text-align: left; font-weight: 700; color: var(--head); background: var(--card); padding: 1.6mm 2.4mm; border: .3mm solid var(--line); font-size: 8.8pt; }
+table.fill td { border: .3mm solid var(--line); height: 12mm; padding: 1.5mm 2.4mm; vertical-align: top; color: var(--muted); }
+table.fill.tall td { height: 17mm; }
+table.fill.compact td { height: 8.5mm; }
+table.fill td.nr { width: 9mm; text-align: center; font-weight: 700; color: var(--head); }
+table.fill td.case { color: var(--ink); font-size: 8.9pt; line-height: 1.4; }
+table.fill th .where { font-size: 6.8pt; margin-right: 1mm; }
+
+ul.check { list-style: none; padding: 0; margin: 0 0 3mm; }
+ul.check li { position: relative; padding-left: 8mm; margin-bottom: 2.4mm; break-inside: avoid; }
+ul.check li::before { content: ""; position: absolute; left: 0; top: .6mm; width: 3.9mm; height: 3.9mm; border: .35mm solid var(--head); border-radius: .7mm; }
+ul.check.indent { margin-left: 8.4mm; }
+
+/* Grundlagen */
+.rules { display: grid; grid-template-columns: 1fr 1fr; gap: 3.4mm 6mm; margin-bottom: 7mm; }
+.rule { display: flex; gap: 3mm; break-inside: avoid; font-size: 9.6pt; }
+.rule .num { flex: 0 0 7mm; height: 7mm; border-radius: 50%; background: var(--head); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10pt; }
+.rule b { display: block; font-size: 10.3pt; margin-bottom: .4mm; }
+table.how { font-size: 9.4pt; margin-bottom: 1.5mm; }
+table.how th { text-align: left; font-size: 8.2pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: .5mm solid var(--head); padding: 1.4mm 2mm; }
+table.how td { padding: 2mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+table.how td:first-child { font-weight: 700; color: var(--head); width: 40mm; }
+.small { font-size: 8.4pt; color: var(--muted); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 6mm 0; }
+.card { background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 4mm 4.5mm; break-inside: avoid; font-size: 9.5pt; }
+.card h4 { color: var(--green); }
+.card ol { padding-left: 4.5mm; margin: 0 0 1.5mm; }
+.card li { margin-bottom: 1.1mm; }
+.card .hint { font-size: 9pt; border-top: .3mm solid var(--line); padding-top: 2mm; margin-top: 2mm; }
+.fix { font-size: 9.3pt; }
+.fix td { padding: 1.9mm 2mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+.fix td:first-child { width: 60mm; font-weight: 700; color: var(--head); }
+.keep { break-inside: avoid; }
+.bridge { display: flex; gap: 4mm; align-items: flex-start; border-top: .3mm solid var(--line); border-bottom: .3mm solid var(--line); padding: 4mm 0; margin: 6mm 0 0; font-size: 9.8pt; break-inside: avoid; }
+.bridge .q { font-size: 30pt; line-height: .8; color: var(--green); font-weight: 800; }
+
+.cover.t2 .profile { margin-top: 6mm; }
+.cover.t2 h1 { font-size: 28pt; }
+.cover.t2 .lead { margin-bottom: 4mm; }
+.prompt.full { margin-left: 0; }
+
+/* Abgabe */
+.final { break-before: page; }
+
+/* ---------- Tag 2: Theorie-Bausteine ---------- */
+.grid9 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; margin: 0 0 3mm; }
+.grid9 > div { background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 2.4mm 3mm; font-size: 9pt; line-height: 1.35; break-inside: avoid; }
+.grid9 .n { display: block; font-size: 8pt; font-weight: 800; color: var(--green); letter-spacing: .06em; }
+.grid9 b { display: block; font-size: 10.2pt; margin: .2mm 0 .4mm; }
+.tip { font-size: 9.6pt; border-left: .8mm solid var(--green); padding: .6mm 0 .6mm 3.4mm; margin: 0 0 5mm; break-inside: avoid; }
+table.dec { font-size: 9.2pt; margin: 0 0 2mm; }
+table.dec th { text-align: left; font-size: 8.2pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: .5mm solid var(--head); padding: 1.3mm 2mm; }
+table.dec td { padding: 1.7mm 2mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+table.dec td:first-child { font-weight: 700; color: var(--head); width: 44mm; }
+table.dec td.num { width: 7mm; color: var(--green); font-weight: 800; }
+.cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 0 0 5mm; }
+.yesno { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm; font-size: 9.2pt; margin: 1mm 0 2mm; }
+.yesno div { border-radius: 1.6mm; padding: 2mm 3mm; }
+.yesno .y { background: var(--green-soft); }
+.yesno .n2 { background: var(--red-soft); }
+.yesno b { display: block; font-size: 8.2pt; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4mm; }
+
+/* Mac-Ausgabe: Tasten, Vorbereitung, Kuerzel (Mac-Symbole aus Segoe UI Symbol, etwas groesser) */
+@font-face { font-family: "MacKeys"; src: local("Segoe UI Symbol"); unicode-range: U+2318, U+2325, U+21E7, U+21A9, U+2193; size-adjust: 128%; }
+kbd {
+  font-family: "MacKeys", "Archivo", "Segoe UI", "Segoe UI Symbol", sans-serif; display: inline-block; min-width: 4.4mm; text-align: center;
+  padding: 0 1.1mm; margin: 0 .25mm; border: .3mm solid #c3c6ca; border-bottom-width: .7mm; border-radius: 1mm;
+  background: #fff; font-size: 8.2pt; line-height: 1.45; color: var(--head); font-weight: 600; white-space: nowrap;
+}
+.macchip { margin-left: auto; background: var(--green); font-size: 8.4pt; padding: .8mm 3mm; }
+.macgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 0 0 5mm; }
+.macgrid .card { font-size: 9pt; padding: 3.4mm 4mm; }
+.macgrid ul.check { margin: 0; }
+.macgrid ul.check li { margin-bottom: 1.8mm; line-height: 1.42; }
+table.keys { font-size: 9.1pt; margin: 0 0 2mm; }
+table.keys td { padding: 1.5mm 2mm; border-bottom: .25mm solid var(--line); vertical-align: middle; }
+table.keys td:nth-child(odd) { white-space: nowrap; width: 27mm; }
+table.keys td:nth-child(even) { padding-right: 3mm; }
+.cols2 > .box { margin: 0; }
+.box.watch.keep .tag { display: inline-block; margin-bottom: 1.2mm; }
+.step > ol li { margin-bottom: 1.2mm; }
+
+/* Kontrollloesung: steht auf dem Kopf, damit man nicht versehentlich spickt */
+.solution { margin: 2mm 0 3.2mm 8.4mm; border: .3mm dashed #b9bcc0; border-radius: 2mm; padding: 2.4mm 4mm; background: #fff; break-inside: avoid; }
+.solution .tag { margin-bottom: 1.4mm; }
+.solution .flip { transform: rotate(180deg); font-size: 9.2pt; color: var(--ink); }
+.solution .flip p { margin: 0 0 .8mm; }
+.solution.full { margin-left: 0; }
+
+/* ---------- Tag 3: Reise einer Anfrage, Prompt-Labor, Entdecker-Routen ---------- */
+.where.lab { background: #1d2733; color: #b6d6fc; }
+.flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 1mm 0 4mm; counter-reset: st; }
+.flow > div { position: relative; background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 2.6mm 2.6mm 2.8mm; margin-right: 4.2mm; font-size: 8.5pt; line-height: 1.38; break-inside: avoid; }
+.flow > div:last-child { margin-right: 0; background: var(--green-soft); border-color: #cfe2dc; }
+.flow > div:not(:last-child)::after { content: "\2192"; position: absolute; right: -4.1mm; top: 42%; width: 4mm; text-align: center; color: var(--green); font-weight: 800; font-size: 11pt; }
+.flow .no { display: inline-flex; width: 5mm; height: 5mm; border-radius: 50%; background: var(--green); color: #fff; font-weight: 700; font-size: 8pt; align-items: center; justify-content: center; margin-bottom: 1.2mm; }
+.flow b { display: block; font-size: 9.6pt; margin-bottom: .6mm; }
+.flow ol { margin: .6mm 0 0; padding-left: 3.6mm; }
+.flow ol li { margin-bottom: .2mm; }
+.routes { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 0 0 4mm; }
+.route { background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 3.4mm 4mm; font-size: 9.2pt; break-inside: avoid; }
+.route h4 { color: var(--green); margin-bottom: 1.4mm; }
+.route .lvl { float: right; font-size: 7.6pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.route p { margin: 0 0 1.4mm; }
+.route .lines { margin-left: 0; }
+.sitemap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin: 0 0 4mm; }
+.sitemap > div { background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 2.8mm 3.2mm; font-size: 8.9pt; line-height: 1.4; break-inside: avoid; }
+.sitemap b { display: block; font-size: 10pt; margin-bottom: .6mm; }
+
+/* ---------- Tag 3 (neu, 30.09. nachmittags): ein Kern fuer alle + Zusatzaufgaben je Bereich ---------- */
+.cover .forwhom { font-size: 11pt; margin: 0 0 3mm; color: var(--ink); }
+.cover .forwhom b { color: var(--green); }
+.plan-note { margin: -3mm 0 5mm; }
+.fref { display: inline-block; font-size: 7.4pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--info-ink);
+  border: .3mm solid #9cc3ef; border-radius: .8mm; padding: 0 1.5mm; line-height: 1.55; white-space: nowrap; vertical-align: .2mm; text-decoration: none; }
+.flow .fref { display: table; margin-top: 1.2mm; }
+.words { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 6mm; margin: 0 0 4mm; font-size: 9.2pt; }
+.words > div { border-bottom: .25mm solid var(--line); padding: 0 0 1.4mm; }
+.words b { display: inline; margin-right: 1.6mm; }
+.routes.three { grid-template-columns: 1fr 1fr 1fr; gap: 3mm; }
+.sitemap.five { grid-template-columns: repeat(5, 1fr); gap: 2.4mm; }
+.sitemap.five > div { font-size: 8.4pt; padding: 2.4mm 2.6mm; }
+.legend .zl { flex: 0 0 31mm; text-align: center; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--green);
+  border: .5mm solid var(--green); border-radius: .8mm; padding: .1mm 1.9mm; line-height: 1.5; }
+.legend .fref { flex: 0 0 31mm; text-align: center; }
+
+/* Zusatzaufgabe (freiwillig, je Bereich) */
+.zusatz { border: .5mm solid var(--green); border-radius: 2.6mm; padding: 4mm 5mm 1.5mm; margin: 7mm 0 2mm; background: #fbfdfc; }
+.zusatz-top { break-inside: avoid; padding-bottom: 40mm; margin-bottom: -40mm; }
+.zusatz-head { display: flex; align-items: center; gap: 3mm; margin-bottom: 1.8mm; break-after: avoid; }
+.zlabel { font-size: 8.2pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); background: var(--green-soft);
+  border: .3mm solid #cfe2dc; padding: .5mm 2.4mm; border-radius: 1mm; white-space: nowrap; }
+.zusatz .task-head h3 { font-size: 13.5pt; }
+.zusatz .goal { font-size: 10pt; }
+.zusatz > .small { margin-bottom: 3mm; }
+
+/* Learnings am Heftende und im Lernblatt */
+.lrn-section .sec-head { margin-bottom: 5mm; }
+ol.lrn { list-style: none; padding: 0; margin: 0 0 5mm; counter-reset: l; }
+ol.lrn > li { display: grid; grid-template-columns: 8mm 1fr; gap: 0 3mm; padding: 2.6mm 0 2.8mm; border-bottom: .25mm solid var(--line); break-inside: avoid; margin: 0; }
+ol.lrn > li:first-child { border-top: .5mm solid var(--head); }
+.lrn-no { font-size: 13pt; font-weight: 800; color: var(--green); line-height: 1.15; }
+.lrn-satz { display: block; font-size: 10.8pt; color: var(--head); line-height: 1.32; margin-bottom: .8mm; }
+.lrn-body p { margin: 0 0 1mm; font-size: 9.5pt; line-height: 1.48; }
+.lrn-body .fref { margin-top: .4mm; }
+.lrn-words { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4mm 6mm; margin: 0; font-size: 9pt; }
+.lrn-words > div { border-bottom: .25mm solid var(--line); padding: 0 0 1.2mm; break-inside: avoid; }
+.lrn-words b { margin-right: 1.4mm; }
+.lrn-thumb { width: 100%; border-radius: 1.2mm; border: .3mm solid var(--line); display: block; }
+ol.lrn.thumbs > li { grid-template-columns: 8mm 1fr 44mm; }
+
+/* ---------- Tag 4: RAG ---------- */
+.five { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm; margin: 0 0 4mm; }
+.five > div { background: var(--card); border: .3mm solid var(--line); border-radius: 2mm; padding: 2.4mm 2.6mm; font-size: 8.5pt; line-height: 1.38; break-inside: avoid; }
+.five > div:nth-child(3) { background: var(--green-soft); border-color: #cfe2dc; }
+.five .no { display: inline-flex; width: 5mm; height: 5mm; border-radius: 50%; background: var(--green); color: #fff; font-weight: 700; font-size: 8pt; align-items: center; justify-content: center; margin-bottom: 1mm; }
+.five b { display: block; font-size: 9.4pt; margin-bottom: .4mm; }
+.flow.six { grid-template-columns: repeat(6, 1fr); }
+.flow.six > div { margin-right: 3.6mm; font-size: 8.3pt; }
+.flow.six > div:not(:last-child)::after { right: -3.6mm; }
+table.dec.urteile td:first-child { width: 36mm; }
+table.dec.docs td:nth-child(2) { font-weight: 700; color: var(--head); }
+table.dec.docs td:first-child { width: 10mm; }
+table.dec.docs td:last-child { color: var(--muted); }
+table.dec.roles td:nth-child(2), table.dec.roles td:nth-child(3) { font-weight: 700; color: var(--head); }

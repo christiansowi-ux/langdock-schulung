@@ -1,0 +1,1701 @@
+{
+ "1": {
+  "pdf": "KIAutomSpez_1_1_HypeOderRealitat.pdf",
+  "n": 14,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": [
+     "https://www.deutschlandfunk.de/kuenstliche-intelligenz-ki-jobs-arbeitsmarkt-100.html",
+     "https://www.heise.de/news/KI-Einsatz-Warum-menschliche-Expertise-wichtiger-ist-als-Automatisierung-11336805.html",
+     "https://www.heise.de/ratgeber/KI-im-Job-Studien-widerlegen-Mythos-vom-Job-Killer-11280789.html"
+    ]
+   },
+   {
+    "n": 3,
+    "links": [
+     "https://www.bitkom.org/Bitkom/Publikationen/Kuenstliche-Intelligenz-in-Deutschland"
+    ]
+   },
+   {
+    "n": 4,
+    "links": [
+     "https://www.bitkom.org/Bitkom/Publikationen/Kuenstliche-Intelligenz-in-Deutschland"
+    ]
+   },
+   {
+    "n": 5,
+    "links": [
+     "https://www.bitkom.org/Bitkom/Publikationen/Kuenstliche-Intelligenz-in-Deutschland"
+    ]
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": [
+     "https://ourworldindata.org/brief-history-of-ai"
+    ]
+   },
+   {
+    "n": 10,
+    "links": [
+     "https://ourworldindata.org/brief-history-of-ai",
+     "https://ai.meta.com/learn/ai-creativity/prompts-for-ai-images-10-examples-and-tips-for-better-results/"
+    ]
+   },
+   {
+    "n": 11,
+    "links": [
+     "https://upload.wikimedia.org/wikipedia/commons/6/65/Will_Smith_Eating_Spaghetti_Original.webm",
+     "https://upload.wikimedia.org/wikipedia/commons/0/04/Will_Smith_eating_spaghetti_Google_Veo_3.webm",
+     "https://www.reddit.com/r/StableDiffusion/comments/1244h2c/will_smith_eating_spaghetti/",
+     "https://x.com/javilopen/status/1925495026903380358"
+    ]
+   },
+   {
+    "n": 12,
+    "links": [
+     "https://www.fr.de/verbraucher/ki-knackt-80-jahre-raetsel-und-zeigt-der-mathematik-wo-langgeht-erdos-zr-94317916.html"
+    ]
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   }
+  ],
+  "ratio": 1.7778
+ },
+ "2": {
+  "pdf": "Tag-2-Modellauswahl.pdf",
+  "n": 25,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": [
+     "https://openai.com/index/accelerating-the-next-phase-ai/",
+     "https://www.cnbc.com/2025/10/28/open-ai-for-profit-microsoft.html"
+    ]
+   },
+   {
+    "n": 5,
+    "links": [
+     "https://blog.google/innovation-and-ai/products/nano-banana-pro/",
+     "https://techcrunch.com/2026/02/26/google-launches-nano-banana-2-model-with-faster-image-generation/"
+    ]
+   },
+   {
+    "n": 6,
+    "links": [
+     "https://www.aljazeera.com/economy/2026/5/29/anthropic-soars-to-965bn-valuation-leapfrogging-openai",
+     "https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html"
+    ]
+   },
+   {
+    "n": 7,
+    "links": [
+     "https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/",
+     "https://www.anthropic.com/news/fable-mythos-access"
+    ]
+   },
+   {
+    "n": 8,
+    "links": [
+     "https://www.euronews.com/next/2026/02/25/why-ai-company-anthropic-and-the-us-are-at-a-standoff-over-a-military-contract",
+     "https://www.cnbc.com/2026/03/04/pentagon-blacklist-anthropic-defense-tech-claude.html"
+    ]
+   },
+   {
+    "n": 9,
+    "links": [
+     "https://mistral.ai/about/",
+     "https://techcrunch.com/2026/06/12/mistral-is-rumored-to-be-raising-e3b-at-e20-valuation/"
+    ]
+   },
+   {
+    "n": 10,
+    "links": [
+     "https://aleph-alpha.com/phariaai/",
+     "https://innfactory.ai/en/ai-models/aleph-alpha-luminous/"
+    ]
+   },
+   {
+    "n": 11,
+    "links": [
+     "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    ]
+   },
+   {
+    "n": 12,
+    "links": [
+     "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+     "https://www.bentoml.com/blog/the-complete-guide-to-deepseek-models-from-v3-to-r1-and-beyond"
+    ]
+   },
+   {
+    "n": 13,
+    "links": [
+     "https://www.buildfastwithai.com/blogs/qwen-3-6-plus-vs-glm-5-1-vs-kimi-2-5-coding-2026",
+     "https://www.remoteopenclaw.com/blog/best-chinese-models-2026"
+    ]
+   },
+   {
+    "n": 14,
+    "links": [
+     "https://www.mind-verse.de/news/chinesische-open-source-ki-modelle-auswirkungen-globaler-markt"
+    ]
+   },
+   {
+    "n": 15,
+    "links": [
+     "https://www.cnbc.com/2026/02/03/musk-xai-spacex-biggest-merger-ever.html",
+     "https://intellectia.ai/blog/spacex-ipo-2026-investment-analysis",
+     "https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content"
+    ]
+   },
+   {
+    "n": 16,
+    "links": [
+     "https://ai-frontiers.org/articles/exporting-nvidia-chipa-is-bad-for-us",
+     "https://tradersunion.com/news/financial-news/show/2472247-nvidia-china-chip-export-controls/"
+    ]
+   },
+   {
+    "n": 17,
+    "links": [
+     "https://techcrunch.com/2026/02/04/elevenlabs-raises-500m-from-sequioia-at-a-11-billion-valuation/",
+     "https://techcrunch.com/2026/02/10/ai-video-startup-runway-raises-315m-at-5-3b-valuation-eyes-more-capable-world-models/",
+     "https://techcrunch.com/2025/12/01/black-forest-labs-raises-300m-at-3-25b-valuation/"
+    ]
+   },
+   {
+    "n": 18,
+    "links": [
+     "https://www.gradually.ai/perplexity-statistiken/",
+     "https://www.getpanto.ai/blog/perplexity-ai-statistics"
+    ]
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": [
+     "https://medium.com/@mayadakhatib/the-era-of-reasoning-models-moving-beyond-chain-of-thought-prompting-fa24ce25c106"
+    ]
+   },
+   {
+    "n": 21,
+    "links": [
+     "http://arena.ai/",
+     "https://artificialanalysis.ai/",
+     "https://kili-technology.com/blog/ai-benchmarks-guide-the-top-evaluations-in-2026-and-why-theyre-not-enough",
+     "https://nanonets.com/blog/ai-benchmarks-explained-gpqa-swe-bench-chatbot-arena/",
+     "https://www.ibm.com/de-de/think/topics/llm-benchmarks"
+    ]
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": [
+     "https://cdn.gamma.app/ouy285qcem6o2ww/16209d9926c14403a0ab15a920b7d003/file/contoso_bike_shop_bestellungen.csv",
+     "https://www.shopify.com/de/blog/abc-analyse-berechnen"
+    ]
+   }
+  ],
+  "ratio": 1.7778
+ },
+ "3": {
+  "pdf": "LLMs-unter-der-Lupe.pdf",
+  "n": 9,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": [
+     "https://www.youtube.com/watch?v=LPZh9BOjkQs"
+    ]
+   },
+   {
+    "n": 9,
+    "links": [
+     "https://www.youtube.com/watch?v=lPTcTh5sRug"
+    ]
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "4": {
+  "pdf": "RAG.pdf",
+  "n": 21,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "6": {
+  "pdf": "Prompt-Engineering.pdf",
+  "n": 41,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": [
+     "https://www.youtube.com/watch?v=NZFbJEiHDZ4",
+     "https://www.youtube.com/watch?v=jvKf6zXrNO4"
+    ]
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": [
+     "https://startbrain.ai/de/blog/ki-prompt-engineering-kurs/"
+    ]
+   },
+   {
+    "n": 27,
+    "links": []
+   },
+   {
+    "n": 28,
+    "links": []
+   },
+   {
+    "n": 29,
+    "links": []
+   },
+   {
+    "n": 30,
+    "links": []
+   },
+   {
+    "n": 31,
+    "links": []
+   },
+   {
+    "n": 32,
+    "links": []
+   },
+   {
+    "n": 33,
+    "links": []
+   },
+   {
+    "n": 34,
+    "links": []
+   },
+   {
+    "n": 35,
+    "links": []
+   },
+   {
+    "n": 36,
+    "links": [
+     "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"
+    ]
+   },
+   {
+    "n": 37,
+    "links": []
+   },
+   {
+    "n": 38,
+    "links": []
+   },
+   {
+    "n": 39,
+    "links": []
+   },
+   {
+    "n": 40,
+    "links": []
+   },
+   {
+    "n": 41,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "7": {
+  "pdf": "Prompt-Engineering.pdf",
+  "n": 41,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": [
+     "https://www.youtube.com/watch?v=NZFbJEiHDZ4",
+     "https://www.youtube.com/watch?v=jvKf6zXrNO4"
+    ]
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": [
+     "https://startbrain.ai/de/blog/ki-prompt-engineering-kurs/"
+    ]
+   },
+   {
+    "n": 27,
+    "links": []
+   },
+   {
+    "n": 28,
+    "links": []
+   },
+   {
+    "n": 29,
+    "links": []
+   },
+   {
+    "n": 30,
+    "links": []
+   },
+   {
+    "n": 31,
+    "links": []
+   },
+   {
+    "n": 32,
+    "links": []
+   },
+   {
+    "n": 33,
+    "links": []
+   },
+   {
+    "n": 34,
+    "links": []
+   },
+   {
+    "n": 35,
+    "links": []
+   },
+   {
+    "n": 36,
+    "links": [
+     "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"
+    ]
+   },
+   {
+    "n": 37,
+    "links": []
+   },
+   {
+    "n": 38,
+    "links": []
+   },
+   {
+    "n": 39,
+    "links": []
+   },
+   {
+    "n": 40,
+    "links": []
+   },
+   {
+    "n": 41,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "8": {
+  "pdf": "Skills.pdf",
+  "n": 14,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": [
+     "https://mcpservers.org/de/agent-skills",
+     "https://github.com/anthropics/skills",
+     "https://github.com/borghei/Claude-Skills"
+    ]
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": [
+     "https://mcpservers.org/agent-skills/sentry/skills/skill-scanner"
+    ]
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "9": {
+  "pdf": "Agenten.pdf",
+  "n": 19,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "10": {
+  "pdf": "APIs-and-MCP.pdf",
+  "n": 33,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": [
+     "https://www.youtube.com/watch?v=cGuyrANVi4A"
+    ]
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": [
+     "https://www.youtube.com/watch?v=185XGEMefgc"
+    ]
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": []
+   },
+   {
+    "n": 27,
+    "links": []
+   },
+   {
+    "n": 28,
+    "links": []
+   },
+   {
+    "n": 29,
+    "links": []
+   },
+   {
+    "n": 30,
+    "links": []
+   },
+   {
+    "n": 31,
+    "links": []
+   },
+   {
+    "n": 32,
+    "links": []
+   },
+   {
+    "n": 33,
+    "links": [
+     "https://handelsregister.ai/",
+     "http://handelsregister.ai/",
+     "http://postman.co/",
+     "https://mcp.handelsregister.ai/mcp"
+    ]
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "11": {
+  "pdf": "KI-Infrastruktur.pdf",
+  "n": 19,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "12": {
+  "pdf": "EU-AI-Act.pdf",
+  "n": 23,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   }
+  ],
+  "ratio": 1.6945
+ },
+ "13": {
+  "pdf": "DSGVO.pdf",
+  "n": 74,
+  "ratio": 1.7747,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": []
+   },
+   {
+    "n": 27,
+    "links": []
+   },
+   {
+    "n": 28,
+    "links": []
+   },
+   {
+    "n": 29,
+    "links": []
+   },
+   {
+    "n": 30,
+    "links": []
+   },
+   {
+    "n": 31,
+    "links": []
+   },
+   {
+    "n": 32,
+    "links": []
+   },
+   {
+    "n": 33,
+    "links": []
+   },
+   {
+    "n": 34,
+    "links": []
+   },
+   {
+    "n": 35,
+    "links": []
+   },
+   {
+    "n": 36,
+    "links": []
+   },
+   {
+    "n": 37,
+    "links": []
+   },
+   {
+    "n": 38,
+    "links": []
+   },
+   {
+    "n": 39,
+    "links": []
+   },
+   {
+    "n": 40,
+    "links": []
+   },
+   {
+    "n": 41,
+    "links": []
+   },
+   {
+    "n": 42,
+    "links": []
+   },
+   {
+    "n": 43,
+    "links": []
+   },
+   {
+    "n": 44,
+    "links": []
+   },
+   {
+    "n": 45,
+    "links": []
+   },
+   {
+    "n": 46,
+    "links": []
+   },
+   {
+    "n": 47,
+    "links": []
+   },
+   {
+    "n": 48,
+    "links": []
+   },
+   {
+    "n": 49,
+    "links": []
+   },
+   {
+    "n": 50,
+    "links": []
+   },
+   {
+    "n": 51,
+    "links": []
+   },
+   {
+    "n": 52,
+    "links": []
+   },
+   {
+    "n": 53,
+    "links": []
+   },
+   {
+    "n": 54,
+    "links": []
+   },
+   {
+    "n": 55,
+    "links": []
+   },
+   {
+    "n": 56,
+    "links": []
+   },
+   {
+    "n": 57,
+    "links": []
+   },
+   {
+    "n": 58,
+    "links": []
+   },
+   {
+    "n": 59,
+    "links": []
+   },
+   {
+    "n": 60,
+    "links": []
+   },
+   {
+    "n": 61,
+    "links": []
+   },
+   {
+    "n": 62,
+    "links": []
+   },
+   {
+    "n": 63,
+    "links": []
+   },
+   {
+    "n": 64,
+    "links": []
+   },
+   {
+    "n": 65,
+    "links": []
+   },
+   {
+    "n": 66,
+    "links": []
+   },
+   {
+    "n": 67,
+    "links": []
+   },
+   {
+    "n": 68,
+    "links": []
+   },
+   {
+    "n": 69,
+    "links": []
+   },
+   {
+    "n": 70,
+    "links": []
+   },
+   {
+    "n": 71,
+    "links": []
+   },
+   {
+    "n": 72,
+    "links": []
+   },
+   {
+    "n": 73,
+    "links": []
+   },
+   {
+    "n": 74,
+    "links": []
+   }
+  ]
+ },
+ "14": {
+  "pdf": "Agent-Observability.pdf",
+  "n": 8,
+  "ratio": 1.7747,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": [
+     "https://langfuse.com/integrations/no-code/langdock"
+    ]
+   },
+   {
+    "n": 8,
+    "links": []
+   }
+  ]
+ },
+ "15": {
+  "pdf": "Einfuhrung-Claude.pdf",
+  "n": 28,
+  "ratio": 1.6945,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": []
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": [
+     "https://www.skills.sh/"
+    ]
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": []
+   },
+   {
+    "n": 27,
+    "links": [
+     "https://www.linkedin.com/posts/jafarnajafov_claude-can-write-a-killer-resume-in-seconds-activity-7394439348248739840-Y6WU",
+     "https://www.linkedin.com/posts/jafarnajafov_claude-can-write-a-killer-resume-in-seconds-activity-7394439348248739840-Y6WU"
+    ]
+   },
+   {
+    "n": 28,
+    "links": [
+     "https://suprmind.ai/hub/claude/features/",
+     "https://platform.claude.com/docs/de/about-claude/models/overview",
+     "https://claude.com/blog/best-practices-for-prompt-engineering",
+     "https://platform.claude.com/docs/de/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+     "https://support.claude.com/de/articles/8664678-modell-aufwands-und-denkeinstellungen-andern",
+     "https://ki-creators-club-hub.vercel.app/ressourcen/claude-einsteiger-guide"
+    ]
+   }
+  ]
+ }
+}

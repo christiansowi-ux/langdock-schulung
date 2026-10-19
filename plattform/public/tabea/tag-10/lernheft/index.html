@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="de" data-person="tabea" data-tag="10" data-page="lernheft">
+<head>
+<meta charset="utf-8">
+<title>Lernheft Tag 10 – APIs und MCP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/app.css"><link rel="stylesheet" href="/hefte/assets/lernheft.css"><script src="/hefte/assets/app.js" defer></script>
+</head>
+<body class="lh">
+<header class="lhbar"><a href="/hefte/tabea/tag-10/">&larr; Tag 10</a><div class="t"><b>Lernheft Tag 10 · APIs & MCP</b><span>Tabea · zum Lesen und Merken</span></div><span id="dz-slot"></span><a class="btn" href="/hefte/pdf/Lernheft_Tag10_APIs-und-MCP.pdf" download>Als PDF</a></header>
+
+<!-- ============ TITEL ============ -->
+<section class="lp cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Tag 10 · 09.10.2026 · Lektion 9</p>
+  <div class="big" style="font-size:112pt">APIs &amp;<br>MCP</div>
+  <div class="big2">Wie Software<br>miteinander spricht.</div>
+  <p class="sub">Das Lernheft zur Lektion: was eine API ist, wie Anfrage, Antwort und Statuscode zusammenspielen, wie man sich ausweist – und wie MCP KI-Agenten mit Werkzeugen und Daten verbindet.</p>
+  <span class="note"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg> Zum Lesen und Merken – mit freiwilligen Übungen in Langdock am Ende.</span>
+  <div class="band">
+    <div class="bl">Eine API wie ein Kellner im Restaurant · Folie 4</div>
+    <div class="steps6" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><b>App</b><span>der Gast bestellt</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg></div><b>API</b><span>der Kellner vermittelt</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><path d="M10 14l1-4h2l1 4M10.5 12.5h3"/></svg></div><b>Server</b><span>die Küche kocht</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg></div><b>Antwort</b><span>das Essen kommt</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO GEHT DIESES HEFT ============ -->
+<section class="lp">
+  <div class="kh"><div><p class="kk">Bevor es losgeht</p><h2>So liest man dieses Heft</h2></div></div>
+  <div class="how3">
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Eine Seite, ein Gedanke</b><p>Jedes Kapitel passt auf eine Seite – mit Beispiel statt langem Text.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><b>Unten der Merksatz</b><p>Der schwarze Kasten am Ende jeder Seite ist das, was hängen bleiben soll.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 14h9"/></svg></div><b>Freiwillig üben</b><p>Am Ende kurze Übungen für Langdock – ganz ohne eigenes Konto bei einem Dienst.</p></div>
+  </div>
+  <h3 class="st">Inhalt</h3>
+  <ol class="toc">
+    <li><span class="n">01</span>APIs im Alltag<span class="f">Folien 2–4</span></li>
+    <li><span class="n">02</span>Anfrage und Antwort<span class="f">Folien 5–6</span></li>
+    <li><span class="n">03</span>Hat's geklappt?<span class="f">Folien 7, 32</span></li>
+    <li><span class="n">04</span>Grenzen und Schlüssel<span class="f">Folien 8–9</span></li>
+    <li><span class="n">05</span>MCP – der USB-C-Anschluss<span class="f">Folien 11–12</span></li>
+    <li><span class="n">06</span>So funktioniert MCP<span class="f">Folien 13–15</span></li>
+    <li><span class="n">07</span>MCP oder API?<span class="f">Folien 16–18</span></li>
+    <li><span class="n">08</span>REST verstehen<span class="f">Folien 19–24</span></li>
+    <li><span class="n">09</span>Fünf Methoden, vier Grundaufgaben<span class="f">Folien 21–25</span></li>
+    <li><span class="n">10</span>Der Buchladen: lesen und anlegen<span class="f">Folien 26–28</span></li>
+    <li><span class="n">11</span>Ändern und löschen<span class="f">Folien 29–31</span></li>
+    <li><span class="n">12</span>Unser Fall: Firmenrecherche mit MCP<span class="f">Folie 33</span></li>
+  </ol>
+  <h3 class="st">Unser Fall durch das Heft</h3>
+  <div class="fq">
+    <span class="lab">Vor jedem Kundentermin (ausgedacht)</span>
+    <p>„Was macht die Firma, wie groß ist sie, was gibt es Neues?“ – Bisher sucht der Vertrieb das jedes Mal von Hand zusammen.</p>
+  </div>
+  <p style="font-size:10.4pt">Die Daten gibt es längst – in Registern, auf Websites, in Nachrichten. Dieses Heft zeigt, wie ein Agent per API und MCP an sie herankommt. In Kapitel 12 steht die Aufgabe von Folie 33.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Wer APIs versteht, <em>kann Systeme verbinden.</em></p></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="lp" id="k1">
+  <div class="kh"><span class="kn">01</span><div><p class="kk">Kapitel 1 <span class="fref" data-folie="2">Folie 2</span> <span class="fref" data-folie="4">Folie 4</span></p><h2>APIs im Alltag</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k1" data-unklar-hash="#k1" data-unklar-label="Lernheft · APIs im Alltag">Unklar?</button></div>
+  <p class="lead">API steht für „Application Programming Interface“ – eine Schnittstelle, über die zwei Programme miteinander sprechen. Man nutzt sie ständig, ohne es zu merken.</p>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg> Wetter</h4><p>Die App holt Echtzeitdaten vom Server aufs Display.</p></div>
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> „Mit Google anmelden“</h4><p>Im Hintergrund prüft eine API, wer man ist.</p></div>
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4h6v3M3 13h18"/></svg> Bezahlen</h4><p>Stripe, PayPal und Co. sind nichts anderes als APIs.</p></div>
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg> Navigation</h4><p>Google Maps liefert die Route per API.</p></div>
+  </div>
+  <h3 class="st">Das Bild dazu: der Kellner (Folie 4)</h3>
+  <div class="loop">
+    <div class="s"><b>App</b><span>der Gast am Tisch – stellt Anfragen</span></div>
+    <div class="a">⇄</div>
+    <div class="s"><b>API</b><span>der Kellner – übersetzt und vermittelt</span></div>
+    <div class="a">⇄</div>
+    <div class="s"><b>Server</b><span>die Küche – verarbeitet und liefert</span></div>
+  </div>
+  <p class="loopback">Man bestellt – die Küche kocht – man muss nicht wissen, wie.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Eine API ist <em>der Kellner</em> zwischen zwei Programmen.</p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="lp" id="k2">
+  <div class="kh"><span class="kn">02</span><div><p class="kk">Kapitel 2 <span class="fref" data-folie="5">Folie 5</span> <span class="fref" data-folie="6">Folie 6</span></p><h2>Anfrage und Antwort</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k2" data-unklar-hash="#k2" data-unklar-label="Lernheft · Anfrage und Antwort">Unklar?</button></div>
+  <p class="lead">Jedes Gespräch über eine API hat zwei Teile: die Frage (Request) und die Antwort (Response). Die Antwort kommt meist als JSON – Daten in geschweiften Klammern.</p>
+  <div class="split2">
+    <div><span class="lab">Die Frage (Request)</span><div class="code">„Gib mir das Wetter in Berlin.“</div></div>
+    <div><span class="lab">Die Antwort (Response)</span><div class="code">{ <span class="t">"stadt"</span>: "Berlin",
+  <span class="t">"temp"</span>: 25,
+  <span class="t">"wetter"</span>: "sonnig" }</div></div>
+  </div>
+  <h3 class="st">Verschiedene Standards (Folie 5)</h3>
+  <div class="techmap">
+    <div><span>XML, schwergewichtig, eher veraltet – z. B. ELSTER</span><b>SOAP</b></div>
+    <div><span>Standard im Web, HTTP + JSON – z. B. Stripe, GitHub</span><b>REST ⭐</b></div>
+    <div><span>Der Client bestimmt die Daten – z. B. Shopify</span><b>GraphQL</b></div>
+    <div><span>Der Server meldet sich bei Ereignissen – z. B. neue Bestellung</span><b>Webhook</b></div>
+    <div><span>Sehr schnell, für viele kleine Dienste – z. B. Netflix</span><b>gRPC</b></div>
+    <div><span>Dauerhafte Live-Verbindung – z. B. Live-Chat</span><b>WebSocket</b></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Frage rein, <em>JSON raus</em> – und im Web meist über REST.</p></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="lp" id="k3">
+  <div class="kh"><span class="kn">03</span><div><p class="kk">Kapitel 3 <span class="fref" data-folie="7">Folie 7</span> <span class="fref" data-folie="32">Folie 32</span></p><h2>Hat's geklappt?</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k3" data-unklar-hash="#k3" data-unklar-label="Lernheft · Hat’s geklappt?">Unklar?</button></div>
+  <p class="lead">Jede Antwort enthält einen Statuscode – eine Zahl, die wie eine Ampel sofort zeigt, wie die Anfrage ausgegangen ist. Die erste Ziffer verrät die Gruppe.</p>
+  <div class="fw c3">
+    <div class="c2"><span class="L">2xx</span><b>Erfolg</b><span class="q">alles gut</span><span>200 OK – Daten kommen zurück<br>201 Created – neu angelegt<br>204 No Content – gelöscht, nichts zurück</span></div>
+    <div class="c5"><span class="L">4xx</span><b>Fehler beim Client</b><span class="q">die Anfrage war falsch</span><span>404 Not Found – gibt es nicht<br>401 Unauthorized – Schlüssel fehlt oder ungültig<br>429 – zu viele Anfragen</span></div>
+    <div class="c4"><span class="L">5xx</span><b>Fehler beim Server</b><span class="q">drüben ist was kaputt</span><span>500 Internal Server Error – auf dem Server ist etwas schiefgelaufen</span></div>
+  </div>
+  <div class="card dark" style="margin-bottom:4mm"><h4>Faustregel von Folie 32</h4><p style="color:#e9ecef;font-size:11.4pt">4xx-Fehler liegen an der Anfrage des Clients, 5xx-Fehler am Server.</p></div>
+  <div class="fall"><span class="fl">Unser Fall</span><p>Die Firmensuche liefert 404? Dann gibt es den Eintrag so nicht – Schreibweise prüfen. 401? Der Schlüssel fehlt. 500? Später noch einmal versuchen.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>2xx = <em>gut.</em> 4xx = <em>meine Anfrage.</em> 5xx = <em>der Server.</em></p></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="lp" id="k4">
+  <div class="kh"><span class="kn">04</span><div><p class="kk">Kapitel 4 <span class="fref" data-folie="8">Folie 8</span> <span class="fref" data-folie="9">Folie 9</span></p><h2>Grenzen und Schlüssel</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k4" data-unklar-hash="#k4" data-unklar-label="Lernheft · Grenzen und Schlüssel">Unklar?</button></div>
+  <p class="lead">APIs sind nicht grenzenlos und nicht für jeden offen. Zwei Dinge muss man im Blick haben: wie viel man fragen darf – und wie man sich ausweist.</p>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Rate Limit</h4><p>Nur eine bestimmte Zahl an Anfragen pro Minute. Wer zu viel fragt, bekommt Fehler <b>429</b>.</p></div>
+    <div class="card"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 15h7M9 18h4M15 3v4h4"/></svg> Kosten pro Anfrage</h4><p>Viele APIs – besonders KI-APIs – rechnen jeden Aufruf ab. Nur abfragen, was man braucht.</p></div>
+  </div>
+  <h3 class="st">Wer darf rein? (Folie 9)</h3>
+  <div class="vs">
+    <div class="good" style="background:var(--card)"><span class="lab" style="color:var(--head)">API-Key</span><div class="txt">ein persönlicher Zugangscode</div><p>Einfach einzurichten – aber <b>niemals teilen</b>: nicht in E-Mails, nicht in Chats, nicht in Dokumente.</p></div>
+    <div class="good"><span class="lab">OAuth 2.0</span><div class="txt">Zugriff ohne Passwort</div><p>Man erlaubt einem Dienst den Zugriff, ohne das Passwort weiterzugeben – das Prinzip hinter „Mit Google anmelden“.</p></div>
+  </div>
+  <div class="card red"><h4>Wenn ein Schlüssel doch einmal rausgeht</h4><p>Beim Anbieter sofort sperren und einen neuen erzeugen. Ein geteilter Schlüssel ist wie ein verlorener Hausschlüssel – man tauscht das Schloss.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein API-Key ist <em>wie ein Passwort</em> – er bleibt bei einem selbst.</p></div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="lp" id="k5">
+  <div class="kh"><span class="kn">05</span><div><p class="kk">Kapitel 5 <span class="fref" data-folie="12">Folie 12</span></p><h2>MCP – der USB-C-Anschluss für KI</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k5" data-unklar-hash="#k5" data-unklar-label="Lernheft · MCP – der USB-C-Anschluss für KI">Unklar?</button></div>
+  <p class="lead">Früher brauchte jedes Gerät sein eigenes Kabel. USB-C hat das vereinheitlicht. Das Model Context Protocol (MCP) macht dasselbe für KI: ein Anschluss für viele Werkzeuge.</p>
+  <div class="err10">
+    <div><span class="en">1</span><b>APIs verbinden Software mit Software</b><span class="good">Grundlage für den Datenaustausch zwischen Anwendungen.</span></div>
+    <div><span class="en">2</span><b>MCP verbindet KI mit Werkzeugen, Daten und APIs</b><span class="good">Eine einheitliche Schnittstelle für KI-Modelle und Agenten.</span></div>
+    <div><span class="en">3</span><b>Ein Standard statt tausender Einzel-Anbindungen</b><span class="good">Macht es viel einfacher, KI-Anwendungen zu bauen und zu erweitern.</span></div>
+  </div>
+  <div class="vs">
+    <div class="bad"><span class="lab">Ohne MCP</span><div class="txt">jede Verbindung einzeln</div><p>Für jedes Werkzeug und jede KI eine eigene Anbindung – viel Arbeit, viele Fehlerquellen.</p></div>
+    <div class="good"><span class="lab">Mit MCP</span><div class="txt">ein Stecker für alles</div><p>Ein Werkzeug bietet seinen MCP-Server an – jede passende KI kann ihn nutzen.</p></div>
+  </div>
+  <div class="ask"><span class="q">!</span><p>Kennt man von Tag 8 und 9: Agenten und Skills werden erst mit Werkzeugen zu „Machern“. <b>MCP ist der Weg, wie diese Werkzeuge angeschlossen werden.</b></p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>MCP = <em>ein Anschluss</em> für alle Werkzeuge der KI.</p></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="lp" id="k6">
+  <div class="kh"><span class="kn">06</span><div><p class="kk">Kapitel 6 <span class="fref" data-folie="13">Folie 13</span> <span class="fref" data-folie="14">Folie 14</span> <span class="fref" data-folie="15">Folie 15</span></p><h2>So funktioniert MCP</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k6" data-unklar-hash="#k6" data-unklar-label="Lernheft · So funktioniert MCP">Unklar?</button></div>
+  <p class="lead">Zwei Seiten sprechen miteinander: der Agent (MCP-Client) und der MCP-Server, der die Werkzeuge anbietet.</p>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Agent (MCP-Client)</b><span>Hat Modell, Anweisungen und den Anschluss für Werkzeuge.</span></div>
+    <div><span class="no">2</span><b>„Was hast du?“</b><span>Er holt sich vom MCP-Server die Liste der Werkzeuge und Daten.</span></div>
+    <div class="end"><span class="no">3</span><b>Werkzeug aufrufen</b><span>Passt eines zur Aufgabe, ruft er es auf – der Server erledigt den Rest.</span></div>
+  </div>
+  <h3 class="st">Was MCP austauscht (Folie 15)</h3>
+  <div class="fw c4">
+    <div class="c1"><b>Werkzeuge (Tools)</b><span class="q">Aktionen</span><span>Datenbank durchsuchen, E-Mail senden, Datei auswerten</span></div>
+    <div class="c3"><b>Ressourcen</b><span class="q">Daten</span><span>ein Textdokument, ein Datensatz, ein Bild</span></div>
+    <div class="c2"><b>Prompts</b><span class="q">Vorlagen</span><span>wiederverwendbare Vorlagen für bestimmte Aufgaben</span></div>
+    <div class="c5"><b>Kontext</b><span class="q">Zusatzwissen</span><span>nützliche Informationen von außen</span></div>
+  </div>
+  <div class="card"><h4>Zum Anschauen (Folie 13)</h4><p>Video „How Model Context Protocol (MCP) actually works“ (7:58 Min, englisch) – online auf der Seite von Tag 10 verlinkt.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Der Agent fragt <em>„Was kannst du?“</em> – und nutzt dann das passende Werkzeug.</p></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="lp" id="k7">
+  <div class="kh"><span class="kn">07</span><div><p class="kk">Kapitel 7 <span class="fref" data-folie="16">Folie 16</span> <span class="fref" data-folie="17">Folie 17</span> <span class="fref" data-folie="18">Folie 18</span></p><h2>MCP oder API?</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k7" data-unklar-hash="#k7" data-unklar-label="Lernheft · MCP oder API?">Unklar?</button></div>
+  <p class="lead">Ein MCP-Server beschreibt sich selbst. Fragt das Modell „Was kannst du?“, bekommt es eine Liste – samt dem, was jedes Werkzeug braucht und liefert.</p>
+  <h3 class="st" style="margin-top:0">Beispiel: ein Google-Maps-MCP (Folie 16)</h3>
+  <div class="code"><span class="k">search_places</span>   rein: Suchbegriff, Ort, Umkreis   →  raus: Ort, Koordinaten, Kurzinfo, Kartenlink
+<span class="k">lookup_weather</span>  rein: Ort, Zeitraum               →  raus: Temperatur, Bedingungen, Vorhersage
+<span class="k">compute_routes</span>  rein: Start, Ziel, Fortbewegung     →  raus: Entfernung, Dauer, Wegschritte
+<span class="c">automatisch entdeckt · selbstbeschreibend · einheitlich</span></div>
+  <div class="vs">
+    <div class="bad" style="background:var(--card)"><span class="lab" style="color:var(--blue)">APIs</span><div class="txt">für Programme</div><p>gemacht für Programme, die Menschen geschrieben haben.</p></div>
+    <div class="good"><span class="lab">MCP</span><div class="txt">für Modelle</div><p>gemacht für Modelle, die wie Menschen überlegen.</p></div>
+  </div>
+  <div class="ask"><span class="q">!</span><p>Wichtig (Folie 17): <b>Im Hintergrund laufen weiter ganz normale API-Anfragen.</b> Der MCP-Server ist eine Zwischenschicht, die APIs für Agenten nutzbar macht. Mehr dazu im Video „MCP vs API“ (12:25 Min, Folie 18).</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>MCP ersetzt keine APIs – <em>es macht sie für Agenten nutzbar.</em></p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="lp" id="k8">
+  <div class="kh"><span class="kn">08</span><div><p class="kk">Kapitel 8 <span class="fref" data-folie="20">Folie 20</span> <span class="fref" data-folie="24">Folie 24</span></p><h2>REST verstehen</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k8" data-unklar-hash="#k8" data-unklar-label="Lernheft · REST verstehen">Unklar?</button></div>
+  <p class="lead">REST ist der Bauplan der meisten Web-APIs. Er legt fest, wie Programme über HTTP miteinander sprechen – drei Eigenschaften machen ihn aus.</p>
+  <div class="three">
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Zustandslos</span><p>Jede Anfrage enthält alles Nötige – der Server merkt sich dazwischen nichts.</p></div>
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg> Ressourcen</span><p>Dinge wie „Bücher“ stehen im Mittelpunkt und haben eindeutige Adressen.</p></div>
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg> JSON</span><p>Antworten meist im JSON-Format – lesbar für Maschinen und Menschen.</p></div>
+  </div>
+  <h3 class="st">Ressourcen sind die „Nomen“ der API (Folie 24)</h3>
+  <p class="small" style="margin-bottom:2mm">Beispiel: der Online-Buchladen unter https://api.buchladen.de/v1 (ausgedacht, von Folie 23)</p>
+  <div class="map6">
+    <div class="a"><b>GET /buecher</b></div><div class="arr">→</div><div class="b">alle Bücher abrufen</div>
+    <div class="a"><b>GET /buecher/42</b></div><div class="arr">→</div><div class="b">genau ein Buch (Nummer 42)</div>
+    <div class="a"><b>POST /buecher</b></div><div class="arr">→</div><div class="b">ein neues Buch anlegen</div>
+    <div class="a"><b>GET /kunden/123</b></div><div class="arr">→</div><div class="b">eine bestimmte Kundin oder einen Kunden abrufen</div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Jedes Ding hat <em>seine Adresse</em> – und jede Anfrage bringt alles mit.</p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="lp" id="k9">
+  <div class="kh"><span class="kn">09</span><div><p class="kk">Kapitel 9 <span class="fref" data-folie="21">Folie 21</span> <span class="fref" data-folie="22">Folie 22</span> <span class="fref" data-folie="25">Folie 25</span></p><h2>Fünf Methoden, vier Grundaufgaben</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k9" data-unklar-hash="#k9" data-unklar-label="Lernheft · Fünf Methoden, vier Grundaufgaben">Unklar?</button></div>
+  <p class="lead">Die HTTP-Methode sagt, was mit einer Ressource passieren soll. Dahinter steckt ein einfaches Muster: CRUD – die vier Grundaufgaben jeder Datenverwaltung.</p>
+  <div class="cmp3">
+    <div></div><div class="h">Methode</div><div class="h dr dr2">CRUD</div><div class="h">Beispiel im Buchladen</div>
+    <div class="r">Lesen</div><div><b>GET</b></div><div class="dr2">Read</div><div>GET /buecher – Bücher abrufen</div>
+    <div class="r">Anlegen</div><div><b>POST</b></div><div class="dr2">Create</div><div>POST /buecher – neues Buch</div>
+    <div class="r">Ersetzen</div><div><b>PUT</b></div><div class="dr2">Update</div><div>PUT /buecher/42 – Buch komplett ersetzen</div>
+    <div class="r">Teilweise ändern</div><div><b>PATCH</b></div><div class="dr2">Update</div><div>PATCH /buecher/42 – nur einzelne Felder</div>
+    <div class="r">Löschen</div><div><b>DELETE</b></div><div class="dr2">Delete</div><div>DELETE /buecher/42 – Buch entfernen</div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Merkhilfe</h4><p>GET <b>holt</b>, POST <b>legt an</b>, PUT <b>ersetzt</b>, PATCH <b>flickt</b>, DELETE <b>entfernt</b>.</p></div>
+    <div class="card green"><h4>Unser Fall</h4><p>Die Firmenrecherche braucht fast nur GET – sie liest Daten. Anlegen oder löschen soll ein Recherche-Agent nicht.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Erstellen, Lesen, Ändern, Löschen = <em>POST, GET, PUT/PATCH, DELETE.</em></p></div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="lp" id="k10">
+  <div class="kh"><span class="kn">10</span><div><p class="kk">Kapitel 10 <span class="fref" data-folie="26">Folien 26–28</span></p><h2>Der Buchladen: lesen und anlegen</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k10" data-unklar-hash="#k10" data-unklar-label="Lernheft · Der Buchladen: lesen und anlegen">Unklar?</button></div>
+  <p class="lead">Eine Anfrage hat bis zu vier Teile: Methode, Adresse (URL, ggf. mit Filtern), Ausweis (Authorization) und Inhalt (Body). Zurück kommen Statuscode und JSON.</p>
+  <h3 class="st" style="margin-top:0">GET – Bücher mit Filter abrufen (Folie 26)</h3>
+  <div class="split2">
+    <div><span class="lab">Anfrage</span><div class="code"><span class="k">GET</span> https://api.buchladen.de/v1/buecher
+    ?autor=Goethe&amp;jahr=1808
+<span class="k">Authorization:</span> Bearer bl-55eb…
+<span class="c">Body: – (leer)</span></div></div>
+    <div><span class="lab">Antwort – 200 OK</span><div class="code">[ { <span class="t">"id"</span>: 42,
+    <span class="t">"titel"</span>: "Faust",
+    <span class="t">"autor"</span>: "Johann Wolfgang von Goethe",
+    <span class="t">"jahr"</span>: 1808 } ]</div></div>
+  </div>
+  <h3 class="st">POST – ein Buch anlegen (Folie 28)</h3>
+  <div class="split2">
+    <div><span class="lab">Anfrage mit Body</span><div class="code"><span class="k">POST</span> …/v1/buecher
+{ <span class="t">"titel"</span>: "Die Leiden des jungen Werthers",
+  <span class="t">"autor"</span>: "J. W. von Goethe",
+  <span class="t">"jahr"</span>: 1774, <span class="t">"preis"</span>: 8.00 }</div></div>
+    <div><span class="lab">Antwort – 201 Created</span><div class="code">{ <span class="t">"id"</span>: 43, <span class="c">← vergibt der Server</span>
+  <span class="t">"titel"</span>: "Die Leiden des jungen Werthers",
+  … }</div></div>
+  </div>
+  <p class="small">Der Ausweis „Bearer …“ ist ein Zugangsschlüssel (Token). Auf den Folien ist er ausgedacht – echte Schlüssel gehören nie auf Folien oder in Chats.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Methode + Adresse + Ausweis (+ Inhalt) = <em>eine Anfrage.</em></p></div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="lp" id="k11">
+  <div class="kh"><span class="kn">11</span><div><p class="kk">Kapitel 11 <span class="fref" data-folie="29">Folien 29–31</span></p><h2>Ändern und löschen</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k11" data-unklar-hash="#k11" data-unklar-label="Lernheft · Ändern und löschen">Unklar?</button></div>
+  <p class="lead">Zum Ändern gibt es zwei Methoden – und der Unterschied ist wichtig, weil man sonst aus Versehen Daten löscht.</p>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card"><h4>PUT – komplett ersetzen</h4><p>Ersetzt das ganze Objekt. Es müssen <b>alle</b> Felder mitgeschickt werden – was fehlt, wird überschrieben.</p></div>
+    <div class="card green"><h4>PATCH – einzelne Felder ändern</h4><p>Ändert nur das, was mitgeschickt wird. Der Rest bleibt. Ideal für kleine Anpassungen wie einen neuen Preis.</p></div>
+  </div>
+  <div class="split2">
+    <div><span class="lab">PATCH /buecher/42</span><div class="code">{ <span class="t">"preis"</span>: 9.99 }</div></div>
+    <div><span class="lab">Antwort – 200 OK, nur der Preis ist neu</span><div class="code">{ <span class="t">"id"</span>: 42, <span class="t">"titel"</span>: "Faust. Eine Tragödie",
+  <span class="t">"jahr"</span>: 1808, <span class="t">"preis"</span>: 9.99 }</div></div>
+  </div>
+  <div class="card red" style="margin-bottom:4mm"><h4>Die Falle bei PUT</h4><p>Wer mit PUT nur { "preis": 9.99 } schickt, ersetzt das Buch durch ein Objekt, das nur noch einen Preis hat – Titel, Autor und Jahr wären weg.</p></div>
+  <div class="split2">
+    <div><span class="lab">DELETE /buecher/43</span><div class="code"><span class="c">Body: – (leer)</span></div></div>
+    <div><span class="lab">Antwort</span><div class="code">204 No Content <span class="c">← gelöscht, nichts zurück</span></div></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Nur den Preis ändern? <em>PATCH.</em> Alles neu? <em>PUT.</em></p></div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section class="lp" id="k12">
+  <div class="kh"><span class="kn">12</span><div><p class="kk">Kapitel 12 <span class="fref" data-folie="33">Folie 33</span></p><h2>Unser Fall: Firmenrecherche mit MCP</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k12" data-unklar-hash="#k12" data-unklar-label="Lernheft · Unser Fall: Firmenrecherche mit MCP">Unklar?</button></div>
+  <p class="lead">Die Aufgabe der Lektion: einen Recherche-Agenten in Langdock mit einem MCP-Server für Firmendaten (handelsregister.ai) erweitern – damit vor jedem Termin ein Firmenprofil entsteht.</p>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Vorlage nutzen</b><span>Agent-Vorlage „Unternehmensrecherche“ in Langdock duplizieren, ausführen, anpassen.</span></div>
+    <div><span class="no">2</span><b>Integration verbinden</b><span>Eigenen API-Key beim Dienst holen, in Langdock unter Integrationen eintragen und testen.</span></div>
+    <div><span class="no">3</span><b>Werkzeuge kennenlernen</b><span>Die Werkzeuge des MCP-Servers ansehen (im Kurs mit Postman).</span></div>
+    <div><span class="no">4</span><b>Werkzeuge auswählen</b><span>Im Agenten unter „Aktionen“ nur die nötigen Werkzeuge wählen – Credits sparen.</span></div>
+    <div><span class="no">5</span><b>Anweisungen anpassen</b><span>Werkzeug-Namen und Parameter ausdrücklich in den System-Prompt schreiben.</span></div>
+    <div class="end"><span class="no">6</span><b>Testen und schärfen</b><span>Mit einer bekannten Firma prüfen, nachbessern, Tokens und Credits im Blick.</span></div>
+  </div>
+  <div class="code"><span class="c">Ausschnitt aus den Anweisungen – Werkzeuge mit Namen nennen:</span>
+Nutze für jedes Firmenprofil diese Werkzeuge:
+- <span class="k">get_company_overview</span> (ai_search: false) für die Grunddaten
+- <span class="k">get_financials</span> für Kennzahlen, <span class="k">get_news</span> für aktuelle Meldungen
+- <span class="k">get_website_content</span> für das Angebot der Firma</div>
+  <div class="grid2">
+    <div class="card"><h4>Bonus von Folie 33</h4><p>Eine Word-Vorlage für das Firmenprofil (immer gleicher Aufbau) – und Versand per Outlook-Integration.</p></div>
+    <div class="card green"><h4>So geht es in Langdock (Langdock-Hilfe)</h4><p>Integrationen → Integration hinzufügen → MCP, Adresse und Schlüssel eintragen. Im Agenten unter „Aktionen“ auswählen.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Nur die nötigen Werkzeuge – <em>mit Namen in den Anweisungen.</em></p></div>
+</section>
+
+<!-- ============ AUF EINER SEITE ============ -->
+<section class="lp" id="k13">
+  <div class="kh"><span class="kn">+</span><div><p class="kk">Zum Wiederholen</p><h2>Die Lektion auf einer Seite</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k13" data-unklar-hash="#k13" data-unklar-label="Lernheft · Die Lektion auf einer Seite">Unklar?</button></div>
+  <div class="cheat">
+    <div class="wide"><h4>Die Formel</h4><p class="formula">Anfrage = <span>Methode + Adresse + Ausweis (+ Inhalt)</span> → Statuscode + JSON</p></div>
+    <div><h4>API</h4><p>der Kellner zwischen App (Gast) und Server (Küche)</p></div>
+    <div><h4>Standards</h4><p>REST ist der Web-Standard · dazu SOAP, GraphQL, Webhook, gRPC, WebSocket</p></div>
+    <div><h4>Statuscodes</h4><p>2xx Erfolg · 4xx meine Anfrage (404, 401, 429) · 5xx der Server</p></div>
+    <div><h4>Grenzen und Schlüssel</h4><p>Rate Limit, Kosten pro Aufruf · API-Key nie teilen · OAuth ohne Passwort</p></div>
+    <div><h4>MCP</h4><p>der USB-C-Anschluss für KI: ein Standard für Werkzeuge, Daten und APIs</p></div>
+    <div><h4>MCP tauscht aus</h4><p>Werkzeuge · Ressourcen · Prompts · Kontext – der Server beschreibt sich selbst</p></div>
+    <div><h4>REST</h4><p>zustandslos · Ressourcen mit Adressen (/buecher/42) · JSON</p></div>
+    <div><h4>Methoden</h4><p>GET holt · POST legt an · PUT ersetzt · PATCH flickt · DELETE entfernt</p></div>
+    <div class="wide" style="background:var(--head)"><h4 style="color:var(--mint)">Die eine Regel</h4><p class="formula" style="color:#fff">MCP ersetzt keine APIs – es macht sie für Agenten nutzbar.</p></div>
+  </div>
+</section>
+
+<!-- ============ UEBUNGEN 1 ============ -->
+<section class="lp" id="k14">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5–10 Minuten</p><h2>Üben in Langdock (1)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k14" data-unklar-hash="#k14" data-unklar-label="Lernheft · Üben in Langdock (1)">Unklar?</button></div>
+  <p class="lead">Alle Übungen gehen im normalen Chat – ohne Konto bei einem fremden Dienst. Niemals echte API-Keys in einen Chat kopieren.</p>
+  <div class="ueb"><div class="uh"><span class="un">Übung 1</span><h4>Der Kellner aus dem eigenen Alltag</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Erkläre mir in 5 Sätzen, was eine API ist – mit einem Vergleich aus meinem Arbeitsalltag statt dem Kellner. Mein Bereich: [Bereich]. Nenne danach 3 APIs, die in meinem Bereich wahrscheinlich schon im Hintergrund laufen.</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> Auftragsannahme in der Druckerei · <b>Business &amp; Website:</b> Kontaktformular der Website · <b>Video &amp; Design:</b> Upload auf eine Videoplattform</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 2</span><h4>JSON lesen</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Erkläre mir diese API-Antwort Zeile für Zeile in einfachen Worten und sag, was der Statuscode bedeutet:<br>Statuscode: 201<br>{ "id": 43, "titel": "Die Leiden des jungen Werthers", "autor": "Johann Wolfgang von Goethe", "jahr": 1774, "preis": 8.00 }</div>
+    <p class="look"><b>Darauf achten:</b> Erkennt die KI, dass 201 „neu angelegt“ heißt – und dass die id vom Server kommt?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 3</span><h4>Eine Anfrage bauen</h4><span class="min">10 Min</span></div>
+    <div class="ucode">Der ausgedachte Buchladen hat die API https://api.buchladen.de/v1 mit den Ressourcen /buecher und /kunden. Schreibe mir die passenden Anfragen (Methode, Adresse, Body) für: 1) alle Bücher von Schiller, 2) den Preis von Buch 42 auf 10,50 Euro setzen, 3) einen neuen Kunden anlegen, 4) Buch 43 löschen. Nenne zu jeder den erwarteten Statuscode.</div>
+    <p class="look"><b>Darauf achten:</b> Nimmt die KI für den Preis PATCH – und nicht PUT?</p></div>
+</section>
+
+<!-- ============ UEBUNGEN 2 ============ -->
+<section class="lp" id="k15">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5–10 Minuten</p><h2>Üben in Langdock (2)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k15" data-unklar-hash="#k15" data-unklar-label="Lernheft · Üben in Langdock (2)">Unklar?</button></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 4</span><h4>Welche Werkzeuge braucht der Agent?</h4><span class="min">10 Min</span></div>
+    <div class="ucode">Ich baue einen Agenten, der vor Kundenterminen ein Firmenprofil erstellt. Ein MCP-Server bietet diese Werkzeuge: get_company_overview, get_financials, get_news, get_website_content. Schreibe einen Abschnitt für die Agenten-Anweisungen, der jedes Werkzeug mit Namen nennt, sagt, wann es genutzt wird, und Credits spart (z. B. get_company_overview mit ai_search: false). Lege auch das feste Format des Firmenprofils fest.</div>
+    <p class="look"><b>Darauf achten:</b> Steht für jedes Werkzeug, wofür es da ist? Ist das Format jedes Mal gleich?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 5</span><h4>Ein Schlüssel ist kein Passwort zum Teilen</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Prüfe diese (ausgedachte) Teamnachricht: „Hi, hier unser Zugang zum Firmendaten-Dienst, damit ihr nicht extra einen braucht: X-API-Key: demo-123-nicht-echt. Einfach in eure Agenten kopieren!“ Was ist daran riskant? Was sollte das Team stattdessen tun – und was, wenn der Schlüssel schon geteilt wurde?</div>
+    <p class="look"><b>Darauf achten:</b> Nennt die KI „sperren und neu erzeugen“ und „jede Person einen eigenen Schlüssel“?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Bonus</span><h4>Fragen oder benachrichtigt werden?</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Erkläre den Unterschied zwischen „alle 5 Minuten bei der API nachfragen, ob eine neue Bestellung da ist“ und einem Webhook. Was ist günstiger, was ist schneller – und was hat das mit Rate Limits zu tun?</div>
+    <p class="look"><b>Tipp:</b> Ein Webhook ist wie eine Türklingel – man muss nicht ständig nachsehen, ob jemand vor der Tür steht.</p></div>
+</section>
+
+<!-- ============ MERKFRAGEN ============ -->
+<section class="lp" id="k16">
+  <div class="kh"><span class="kn">?</span><div><p class="kk">Zum Selbst-Abfragen</p><h2>Zwölf Merkfragen – mit Antwort</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k16" data-unklar-hash="#k16" data-unklar-label="Lernheft · Zwölf Merkfragen">Unklar?</button></div>
+  <p class="lead">Frage lesen, kurz selbst überlegen, dann die Antwort darunter lesen. Online gibt es dieselben Fragen als Lernkarten zum Umdrehen.</p>
+  <div class="qa">
+    <div><span class="qn">FRAGE 01</span><b>Wofür steht der Kellner im API-Vergleich?</b><p>Für die API: Sie nimmt die Anfrage vom Gast (App) auf und bringt das Ergebnis aus der Küche (Server).</p></div>
+    <div><span class="qn">FRAGE 02</span><b>Welcher API-Standard ist im Web am verbreitetsten?</b><p>REST – über HTTP, mit Antworten in JSON.</p></div>
+    <div><span class="qn">FRAGE 03</span><b>In welchem Format kommen die meisten Antworten?</b><p>In JSON – strukturierte Daten in geschweiften Klammern.</p></div>
+    <div><span class="qn">FRAGE 04</span><b>Was bedeuten 2xx, 4xx und 5xx?</b><p>2xx Erfolg, 4xx Fehler in der Anfrage (Client), 5xx Fehler auf dem Server.</p></div>
+    <div><span class="qn">FRAGE 05</span><b>Was bedeutet Fehler 429?</b><p>Zu viele Anfragen – das Rate Limit ist überschritten.</p></div>
+    <div><span class="qn">FRAGE 06</span><b>API-Key oder OAuth: Wo teilt man kein Passwort?</b><p>Bei OAuth 2.0 – Zugriff erlauben, ohne ein Passwort weiterzugeben.</p></div>
+    <div><span class="qn">FRAGE 07</span><b>Warum nennt man MCP den „USB-C-Anschluss“ für KI?</b><p>Ein einheitlicher Standard verbindet KI mit vielen Werkzeugen – statt tausender Einzel-Anbindungen.</p></div>
+    <div><span class="qn">FRAGE 08</span><b>Welche vier Dinge tauscht MCP aus?</b><p>Werkzeuge, Ressourcen, Prompts und Kontext.</p></div>
+    <div><span class="qn">FRAGE 09</span><b>Ersetzt MCP die APIs?</b><p>Nein. Der MCP-Server schickt im Hintergrund weiter API-Anfragen – er macht sie für Agenten nutzbar.</p></div>
+    <div><span class="qn">FRAGE 10</span><b>Welche Methode für welche Aufgabe?</b><p>GET lesen, POST anlegen, PUT komplett ersetzen, PATCH einzelne Felder ändern, DELETE löschen.</p></div>
+    <div><span class="qn">FRAGE 11</span><b>PUT oder PATCH, um nur den Preis zu ändern?</b><p>PATCH – PUT würde alle nicht mitgeschickten Felder überschreiben.</p></div>
+    <div><span class="qn">FRAGE 12</span><b>Wie bindet man in Langdock einen MCP-Server an?</b><p>Integrationen → Integration hinzufügen → MCP, Adresse und Schlüssel eintragen; im Agenten unter „Aktionen“ auswählen.</p></div>
+  </div>
+</section>
+
+<!-- ============ WOERTER ============ -->
+<section class="lp" id="k17">
+  <div class="kh"><span class="kn">Aa</span><div><p class="kk">Zum Nachschlagen</p><h2>Die Wörter des Tages</h2></div><button class="unklar ux" type="button" data-unklar-ref="t10:lernheft:k17" data-unklar-hash="#k17" data-unklar-label="Lernheft · Die Wörter des Tages">Unklar?</button></div>
+  <div class="gl">
+    <div><b>API</b><span>Schnittstelle, über die zwei Programme miteinander sprechen – wie ein Kellner zwischen Gast und Küche.</span></div>
+    <div><b>Request / Response</b><span>Anfrage und Antwort: Was man will – und was zurückkommt.</span></div>
+    <div><b>JSON</b><span>Ein einfaches Textformat für Daten in geschweiften Klammern, lesbar für Menschen und Maschinen.</span></div>
+    <div><b>Statuscode</b><span>Die Zahl in der Antwort, die zeigt, ob es geklappt hat (2xx), an der Anfrage lag (4xx) oder am Server (5xx).</span></div>
+    <div><b>Rate Limit</b><span>Höchstzahl an Anfragen pro Zeit – darüber gibt es Fehler 429.</span></div>
+    <div><b>API-Key</b><span>Persönlicher Zugangscode für eine API – nie weitergeben.</span></div>
+    <div><b>OAuth 2.0</b><span>Zugriff erlauben, ohne ein Passwort zu teilen – wie „Mit Google anmelden“.</span></div>
+    <div><b>REST</b><span>Der Standard für Web-APIs: zustandslos, Ressourcen mit eigenen Adressen, Antworten in JSON.</span></div>
+    <div><b>CRUD</b><span>Erstellen, Lesen, Ändern, Löschen – umgesetzt mit POST, GET, PUT/PATCH, DELETE.</span></div>
+    <div><b>Webhook</b><span>Der Server meldet sich von selbst, wenn etwas passiert – statt dass man ständig nachfragt.</span></div>
+    <div><b>MCP</b><span>Model Context Protocol: einheitlicher Anschluss, über den KI-Agenten Werkzeuge und Daten nutzen.</span></div>
+    <div><b>MCP-Server</b><span>Stellt Werkzeuge bereit, beschreibt sich selbst und spricht im Hintergrund mit APIs.</span></div>
+  </div>
+  <div class="end"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg><div><b>Alles noch einmal online</b><p>quint-games.de/hefte → eigener Name → Tag 10: Folien, Videos, Lernkarten, Selbsttest, Aufgaben und dieses Lernheft.</p></div></div>
+</section>
+
+</body>
+</html>

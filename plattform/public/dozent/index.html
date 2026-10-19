@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de" data-page="dozent">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Schulungsleitung – Fragen</title>
+
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<link rel="stylesheet" href="/hefte/assets/kurs.css">
+<link rel="stylesheet" href="/hefte/assets/lerntraining.css">
+<link rel="stylesheet" href="/hefte/assets/demos.css">
+
+<script src="/hefte/assets/app.js" defer></script><script src="/hefte/assets/dozent.js" defer></script>
+</head>
+<body class="kurs">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="top"><div class="top-in">
+  <a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a>
+  <nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><span aria-current="page">Schulungsleitung</span></nav>
+  <div class="top-right"><span id="dz-slot"></span></div>
+</div></header>
+<main id="main">
+<section class="hero wrap slim">
+  <p class="kicker">Nur für die Schulungsleitung</p>
+  <h1>Fragen aus dem Kurs</h1>
+  <p class="lead">Alles, was Carmen, Ingo und Tabea als „unklar“ markiert haben – mit Stelle, Zeit und eigenem Text. Antworten erscheinen bei der Person direkt auf der Seite.</p>
+</section>
+<section class="wrap" id="dz-app">
+  <form class="dz-login panel-card" id="dz-login" hidden>
+    <h2 class="h-sec">Anmelden</h2>
+    <label for="dz-pw">Passwort</label>
+    <input id="dz-pw" type="password" autocomplete="current-password" required>
+    <button class="btn primary" type="submit">Anmelden</button>
+    <p class="dz-err" role="alert" hidden></p>
+  </form>
+  <div id="dz-board" hidden>
+    <div class="dz-bar">
+      <div class="seg" role="group" aria-label="Filter Status">
+        <button type="button" data-f="offen" aria-pressed="true">Offen <b data-c="offen">0</b></button>
+        <button type="button" data-f="beantwortet" aria-pressed="false">Beantwortet <b data-c="beantwortet">0</b></button>
+        <button type="button" data-f="alle" aria-pressed="false">Alle <b data-c="alle">0</b></button>
+      </div>
+      <div class="seg" role="group" aria-label="Filter Person">
+        <button type="button" data-p="" aria-pressed="true">Alle</button>
+        <button type="button" data-p="carmen" aria-pressed="false">Carmen</button>
+        <button type="button" data-p="ingo" aria-pressed="false">Ingo</button>
+        <button type="button" data-p="tabea" aria-pressed="false">Tabea</button>
+      </div>
+      <div class="dz-right"><button class="btn ghost" type="button" id="dz-notify">Browser-Benachrichtigungen an</button><button class="btn ghost" type="button" id="dz-logout">Abmelden</button></div>
+    </div>
+    <p class="muted small" id="dz-updated"></p>
+    <ul class="dz-list" id="dz-list"></ul>
+    <p class="dz-empty muted" id="dz-empty" hidden>Keine Fragen in dieser Ansicht.</p>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <span>Futureway KI Institut · Kurs „KI Automations Spezialist“ · Praxisblock Langdock</span>
+  <span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span>
+</div></footer>
+</body>
+</html>

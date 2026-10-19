@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Modellauswahl für Druck &amp; Vertrieb – Arbeitsheft Tag 2</title>
+{{HEAD}}
+</head>
+<body>
+
+<!-- ============ TITELSEITE ============ -->
+<section class="cover t2">
+  <img class="logo" src="{{LOGO}}" alt="Futureway KI Institut">
+  <div class="profile">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#1a6b5a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M14 18V6h20v12"/><rect x="6" y="18" width="36" height="16" rx="3"/><path d="M14 28h20v14H14z"/><path d="M18 33h12M18 37h8"/><circle cx="36" cy="23" r="1.2" fill="#1a6b5a"/></svg>
+    <div class="kicker">KI Automations Spezialist · Tag 2 · Modellauswahl · 3 Stunden</div>
+  </div>
+  <h1>Das richtige Modell<br>für Druck &amp; Vertrieb</h1>
+  <div class="sub">Modelle vergleichen, Reasoning gezielt einsetzen, Bildmodelle testen – und den eigenen Copilot mit dem passenden Modell ausstatten.</div>
+  <p class="lead">Theorie aus Lektion 2 trifft Praxis in Langdock: dieselbe Aufgabe mit mehreren Modellen testen, Tempo und Qualität messen, eine Druckbogen-Rechnung prüfen – und selbst entscheiden, welches Modell wohin passt.</p>
+
+  <div class="outcome"><div class="bar"></div><div><span class="lbl">Ergebnis am Ende</span>Der <b>„Druck &amp; Sales Copilot“</b> läuft mit einem bewusst gewählten Modell – dazu eine persönliche Modell-Landkarte für den eigenen Alltag.</div></div>
+
+  <h4>Ablauf</h4>
+  <table class="plan">
+    <tr><th>Abschnitt</th><th>Zeit</th><th>Aufgaben</th><th>Ergebnis</th></tr>
+    <tr><td>1 · Die Modelle kennenlernen</td><td>0:00–1:00</td><td>1 Modell-Inventur<br>2 Ein Prompt – drei Modelle</td><td>Modellliste, Vergleichstabelle</td></tr>
+    <tr><td>2 · Kriterien im Praxistest</td><td>1:00–2:00</td><td>3 Reasoning: Druckbogen-Rechnung<br>4 Aktuell oder veraltet?<br>5 Bildmodelle: Text im Bild</td><td>Befunde zu Reasoning, Aktualität und Output</td></tr>
+    <tr><td>3 · Entscheiden &amp; aufrüsten</td><td>2:00–3:00</td><td>6 Modellwahl im Vertriebsalltag<br>7 Copilot mit dem richtigen Modell</td><td>begründete Modellwahl, aufgerüsteter Agent</td></tr>
+  </table>
+
+  <h4>So liest man dieses Heft</h4>
+  {{LEGEND}}
+
+  <div class="namefields"><div>Name</div><div>Datum</div></div>
+</section>
+
+{{GRUNDLAGEN}}
+
+<!-- ============ ABSCHNITT 1 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 1 <span class="chip">0:00–1:00</span></div>
+    <h2>Die Modelle kennenlernen</h2>
+    <p>Erst schauen, was der eigene Workspace anbietet – dann dieselbe Vertriebsaufgabe mit drei Modellen lösen und selbst messen, was der Unterschied ist.</p>
+  </div>
+
+{{FRAG:inventur}}
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 2</span><h3>Ein Prompt – drei Modelle</h3><span class="time">40 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Selbst erleben, dass das „beste“ Modell von der Aufgabe abhängt – mit Stoppuhr und Blindtest.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Drei Modelle festlegen</div>
+      <p>Aus der Inventur drei Modelle wählen: ein großes Spitzenmodell, ein kleines schnelles (mini, flash, lite oder Haiku-Stufe) und ein europäisches Modell, z. B. von Mistral. Gibt es kein europäisches, ein großes Modell eines anderen Anbieters nehmen.</p>
+      <table class="fill">
+        <tr><th><span class="where model">Modell 1</span> groß</th><th><span class="where model">Modell 2</span> klein &amp; schnell</th><th><span class="where model">Modell 3</span> europäisch / anderer Anbieter</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Denselben Prompt dreimal senden – mit Stoppuhr</div>
+      <p>Für jedes Modell einen <b>neuen Chat</b> öffnen, Modell wählen, Thinking aus, Handy-Stoppuhr starten und diesen Prompt senden. Gestoppt wird, wenn die Antwort vollständig da ist.</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where model">Modell 1, 2, 3</span> <span class="where thinkoff">Thinking aus</span></div>
+        <p>Du bist die Vertriebsassistenz einer Druckerei. Eine Physiotherapie-Praxis (ausgedacht) hat per Mail nach 500 Terminkarten und 1.000 Flyern gefragt und möchte bis Freitag ein Angebot. Schreibe eine freundliche Antwortmail auf Deutsch, per Sie, höchstens 150 Wörter. Stelle darin die drei wichtigsten Rückfragen, ohne die kein seriöses Angebot möglich ist. Erfinde keine Preise.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Selbst bewerten</div>
+      <table class="fill">
+        <tr><th>Kriterium</th><th style="width:30mm">Modell 1</th><th style="width:30mm">Modell 2</th><th style="width:30mm">Modell 3</th></tr>
+        <tr><td>Deutsch &amp; Ton (1–5)</td><td></td><td></td><td></td></tr>
+        <tr><td>Rückfragen fachlich sinnvoll (1–5)</td><td></td><td></td><td></td></tr>
+        <tr><td>Regeln eingehalten? (keine Preise, max. 150 Wörter)</td><td></td><td></td><td></td></tr>
+        <tr><td>Tempo in Sekunden</td><td></td><td></td><td></td></tr>
+        <tr><td>Gesamteindruck (1–5)</td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Blindtest: eine KI als Jury</div>
+      <p>Die drei Antworten kopieren – <b>ohne</b> Modellnamen, nur als A, B und C.</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where model">Modell 1</span></div>
+        <p>Hier sind drei Antworten auf dieselbe Kundenanfrage an eine Druckerei. Antwort A: <span class="ph">[Text]</span> Antwort B: <span class="ph">[Text]</span> Antwort C: <span class="ph">[Text]</span>. Bewerte sie als erfahrene Vertriebsleitung nach Ton, Klarheit, Qualität der Rückfragen und Regeltreue (keine Preise, höchstens 150 Wörter). Vergib je 1 bis 10 Punkte und begründe kurz.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Stimmt das KI-Urteil mit der eigenen Tabelle überein? Bevorzugt die Jury vielleicht die Antwort des eigenen Modells?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">5</span>Extra: Was wählt „Auto“?</div>
+      <p>Denselben Prompt ein viertes Mal mit dem Auto-Modus senden. Zeigt Langdock an, welches Modell gewählt wurde? Passt die Wahl zur eigenen Tabelle?</p>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Für Mails reicht oft ein mittleres oder kleines Modell. Die eigene Tabelle zeigt, ob sich das teurere Modell wirklich lohnt – die kleinste Option, die den Job zuverlässig erledigt.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 2 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 2 <span class="chip">1:00–2:00</span></div>
+    <h2>Kriterien im Praxistest</h2>
+    <p>Drei der neun Auswahlfragen werden handfest: Braucht es Reasoning? Muss das Wissen aktuell sein? Und welches Modell kann den gewünschten Output – hier: Bilder mit lesbarem Text?</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 3</span><h3>Reasoning-Test: die Druckbogen-Rechnung</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erleben, wann Thinking hilft – und wann es nur Zeit kostet.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Rechenaufgabe ohne Thinking</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where model">Modell 2</span> <span class="where thinkoff">Thinking aus</span></div>
+        <p>Rechne Schritt für Schritt: Wir drucken 5.000 Flyer im Format DIN A5 (148 × 210 mm) mit 3 mm Beschnitt an jeder Seite. Gedruckt wird auf Bögen im Format SRA3 (320 × 450 mm); Greiferrand und Abstände zwischen den Flyern ignorieren wir.</p>
+        <p>1. Wie viele Flyer passen auf einen Bogen?<br>2. Wie viele Bögen brauchen wir inklusive 3&nbsp;% Zuschuss, aufgerundet auf ganze Bögen?</p>
+        <p>Nenne am Ende nur die beiden Zahlen.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Dieselbe Aufgabe mit Thinking</div>
+      <p>Neuer Chat, <span class="where model">Modell 1</span> mit <span class="where think">Thinking an</span> (oder ein Modell, das immer denkt) – gleicher Prompt. Beides mit Stoppuhr.</p>
+      <table class="fill">
+        <tr><th>Modell</th><th style="width:22mm">Thinking</th><th style="width:26mm">Flyer pro Bogen</th><th style="width:26mm">Bögen</th><th style="width:22mm">Sekunden</th><th style="width:18mm">richtig?</th></tr>
+        <tr><td></td><td>aus</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td>an</td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Gegenprobe mit einer leichten Aufgabe</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – einmal mit, einmal ohne Thinking</div>
+        <p>Formuliere diese Betreffzeile freundlicher: „Ihr Angebot Flyer“.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Ist das Ergebnis mit Thinking wirklich besser – oder nur langsamer?</div>
+    </div>
+
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>4 Flyer pro Bogen:</b> Mit Beschnitt misst ein Flyer 154 × 216 mm. Hochkant passen 2 × 2 = 4 auf den Bogen (320 ÷ 154 = 2, 450 ÷ 216 = 2); quer nur 2. Mehr als 4 geht auch rechnerisch nicht (Flächenverhältnis 4,3).</p>
+      <p><b>1.288 Bögen:</b> 5.000 ÷ 4 = 1.250 Bögen, plus 3&nbsp;% = 1.287,5 – aufgerundet 1.288.</p></div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Harte Denkaufgabe → Thinking. Einfache Aufgabe → schnelles Modell. Und: Die echte Kalkulation gehört weiter in die Kalkulationssoftware – die KI hilft beim Verstehen und Gegenprüfen („nicht für alles ein Sprachmodell“).</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 4</span><h3>Aktuell oder veraltet? Der Websuche-Test</h3><span class="time">15 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erkennen, wo das Wissen eines Modells endet – und wann Websuche Pflicht ist.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Ohne Websuche fragen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where weboff">Websuche aus</span></div>
+        <p>Was sind die aktuellen Entwicklungen bei Papierpreisen und bei Nachhaltigkeit in der Druckbranche in Deutschland? Nenne zu jeder Aussage, aus welchem Jahr deine Information stammt.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Dieselbe Frage mit Websuche</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where web">Websuche an</span></div>
+        <p>Was sind die aktuellen Entwicklungen bei Papierpreisen und bei Nachhaltigkeit in der Druckbranche in Deutschland? Nenne zu jeder Aussage die Quelle mit Datum.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Welche Antwort ist aktueller? Mindestens zwei Quellen anklicken: Steht dort wirklich, was Langdock behauptet?</div>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Modellwissen hat ein Ablaufdatum. Für News, Preise, Messetermine und Lead-Recherchen braucht es Websuche – und einen Blick in die Quellen.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 5</span><h3>Bildmodelle im Vergleich: Text im Bild</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Herausfinden, welches Bildmodell lesbaren deutschen Text am besten darstellt – eine typische Schwachstelle.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Verfügbare Bildmodelle ansehen</div>
+      <p>An der Bild-Schaltfläche die Auswahl öffnen und zwei bis drei Bildmodelle notieren.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Denselben Bild-Prompt mit jedem Bildmodell</div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where img">Bild-Schaltfläche</span> – je Bildmodell ein neuer Chat</div>
+        <p>Quadratisches Social-Media-Motiv für eine Druckerei: ein Stapel frisch gedruckter Flyer auf einem hellen Holztisch, weiches Tageslicht von links. Oben steht gut lesbar in großer, fetter Schrift genau dieser Text: „Schöne Flyer. Schnell gedruckt.“ Keine weiteren Texte, keine Logos.</p></div>
+      <table class="fill">
+        <tr><th>Bildmodell</th><th style="width:34mm">Text korrekt? (auch „ö“)</th><th style="width:30mm">Bildqualität (1–5)</th><th style="width:22mm">Sekunden</th><th style="width:24mm">Favorit?</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Text im Bild ist eine Spezialaufgabe – das Bildmodell macht den Unterschied (laut Lektion z. B. Nano Banana Pro; für Datensouveränität FLUX.2 selbst gehostet). Druckdaten entstehen trotzdem weiter im Layoutprogramm.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 3 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 3 <span class="chip">2:00–3:00</span></div>
+    <h2>Entscheiden &amp; aufrüsten</h2>
+    <p>Wie im Arbeitsblatt Modellauswahl – aber mit Fällen aus Druck und Vertrieb. Danach bekommt der eigene Copilot das passende Modell.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 6</span><h3>Modellwahl im Vertriebsalltag</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die neun Auswahlfragen auf echte Situationen aus dem eigenen Berufsfeld anwenden – und die Wahl gegen Langdock verteidigen.</p>
+    <div class="box safe full"><span class="tag safe">Sicher</span>Hier wird nur entschieden, nicht ausprobiert: Keine echten Mails, Visitenkarten oder Umsatzdaten hochladen.</div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Selbst entscheiden</div>
+      <table class="fill tall">
+        <tr><th style="width:64mm">Fall</th><th>Modellvorschlag</th><th>Begründung – welche der 9 Fragen entscheidet?</th></tr>
+        <tr><td class="case"><b>1 · Angebots-Postfach:</b> Täglich rund 80 Anfragen per Mail nach Produkt und Dringlichkeit sortieren und an das richtige Team weiterleiten.</td><td></td><td></td></tr>
+        <tr><td class="case"><b>2 · Druckdaten-Vorabcheck:</b> PDFs der Kundschaft auf offensichtliche Probleme prüfen – fehlender Beschnitt, zu kleine Schrift, RGB-Bilder.</td><td></td><td></td></tr>
+        <tr><td class="case"><b>3 · Messe-Nachbereitung:</b> 40 fotografierte Visitenkarten plus Gesprächsnotizen sollen zu CRM-Einträgen und Follow-up-Mails werden.</td><td></td><td></td></tr>
+        <tr><td class="case"><b>4 · Jahresauswertung:</b> Umsatzdaten aus einer Excel-Datei (3 Jahre, 12.000 Zeilen): Welche Kundengruppen wachsen, welche schrumpfen?</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die eigene Wahl prüfen lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> <span class="where think">Thinking an</span></div>
+        <p>Ich habe für diesen Fall aus dem Vertrieb einer Druckerei folgende Modellwahl getroffen: <span class="ph">[Fall, Modell und Begründung]</span>. Prüfe meine Wahl anhand dieser neun Fragen: Reasoning, Input, Output, Kontextfenster, Kosten, Tempo, Datenschutz, Lizenz, Deutsch. Wo stimmst du zu, wo würdest du anders entscheiden – und ist ein Sprachmodell hier überhaupt das richtige Werkzeug?</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Bei welchem Fall hat Langdock die eigene Meinung geändert – und bei welchem hätte man widersprechen müssen?</div>
+    </div>
+
+    <div class="solution"><span class="tag sol">Lösungsideen – Heft drehen</span>
+      <div class="flip">
+        <p><b>1</b> Kleines, schnelles Modell (mini, flash, Haiku-Stufe) im Workflow; kein Reasoning. Kosten und Tempo entscheiden. Kontaktdaten → nur freigegebene Modelle, nur nötige Daten übergeben.</p>
+        <p><b>2</b> Kein reines Sprachmodell: Die echte Prüfung macht Preflight-Software. Ein multimodales Modell kann höchstens grob sichten und Befunde verständlich für die Kundschaft formulieren.</p>
+        <p><b>3</b> Input sind Fotos → multimodales Modell bzw. OCR (laut Lektion z. B. Mistral OCR, EU). Personenbezug → EU-Modell, Datensparsamkeit. Die Mails danach mit einem guten Textmodell.</p>
+        <p><b>4</b> Datenanalyse-Funktion (rechnet mit Code) plus starkes Modell mit Thinking. Zahlen immer gegenprüfen – wie bei der ABC-Analyse aus der Lektion.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-no">Aufgabe 7</span><h3>Der Copilot bekommt das richtige Modell</h3><span class="time">35 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Den „Druck &amp; Sales Copilot“ vom letzten Mal bewusst mit Modell und Kreativität ausstatten und testen.</p>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Den Agenten öffnen</div>
+      <p>Bereich <b>Agents</b> → „Druck &amp; Sales Copilot“ → bearbeiten. Noch keiner vorhanden? Neuen Agenten anlegen und den Masterprompt aus der Prompt-Bibliothek als Anweisungen einfügen.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Zwei Modelle im Agenten testen</div>
+      <p>In den Modell-Einstellungen des Agenten erst <span class="where model">Modell 1</span> einstellen und testen, dann <span class="where model">Modell 2</span> mit derselben Anfrage.</p>
+      <div class="prompt"><div class="lbl">Test-Prompt – im Agenten-Chat</div>
+        <p>Neue Anfrage: Ein Weingut (ausgedacht) möchte 300 Weinetiketten und zwei Roll-ups für eine Messe in drei Wochen. Was brauchst du von mir, und welche Produkte schlägst du vor?</p></div>
+      <table class="fill">
+        <tr><th>Modell im Agenten</th><th>Rückfragen fachlich gut?</th><th>Hält es sich an „keine Preise erfinden“?</th><th style="width:22mm">Sekunden</th></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Modell und Kreativität festlegen</div>
+      <ul class="check indent">
+        <li><b>Modell:</b> das Modell aus dem Test, das zuverlässig genug und nicht unnötig groß ist</li>
+        <li><b>Kreativität:</b> eher niedrig – Angebote und Reklamationen sollen gleichbleibend und sachlich sein</li>
+        <li><b>Beschreibung ergänzen:</b> „Läuft mit <span class="ph">[Modell]</span>, weil <span class="ph">[Begründung]</span>.“</li>
+        <li><b>Gesprächseinstiege</b> (Conversation Starters): „Neue Kundenanfrage bearbeiten“, „Reklamation beantworten“, „Follow-up schreiben“</li>
+      </ul>
+    </div>
+    <div class="box merke full">{{I}}<div><b>Merke:</b> Ein Agent mit bewusst gewähltem Modell liefert gleichbleibende Qualität zu planbaren Kosten. Die Entscheidung trifft man selbst – nach eigenem Test, nicht nach Bauchgefühl oder Benchmark.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABGABE ============ -->
+<section class="final">
+  <div class="sec-head">
+    <div class="sec-no">Abschluss</div>
+    <h2>Abgabe &amp; Modell-Landkarte</h2>
+    <p>Alles abhaken, was fertig ist. Offene Punkte greift man am nächsten Schulungstag wieder auf.</p>
+  </div>
+  <h4>Abgabe-Checkliste</h4>
+  <ul class="check">
+    <li>Modell-Inventur mit mindestens sechs Modellen und Preisvergleich (Aufgabe 1)</li>
+    <li>Vergleichstabelle für drei Modelle und Blindtest (Aufgabe 2)</li>
+    <li>Druckbogen-Rechnung mit und ohne Thinking, mit Kontrolllösung verglichen (Aufgabe 3)</li>
+    <li>Websuche-Test mit zwei geprüften Quellen (Aufgabe 4)</li>
+    <li>Bildmodell-Vergleich „Text im Bild“ (Aufgabe 5)</li>
+    <li>Vier Fälle aus dem Vertriebsalltag entschieden und geprüft (Aufgabe 6)</li>
+    <li>Copilot mit festem Modell, Kreativität und Gesprächseinstiegen (Aufgabe 7)</li>
+    <li>Modellwahl-Check in der Prompt-Bibliothek gespeichert (Abschluss)</li>
+  </ul>
+  {{BILANZ}}
+</section>
+
+</body>
+</html>
