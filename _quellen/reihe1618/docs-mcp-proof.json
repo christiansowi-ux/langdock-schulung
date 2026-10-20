@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-20",
+  "endpoint": "https://developers.openai.com/mcp",
+  "transport": "Streamable HTTP",
+  "initialize": true,
+  "tools_list": true,
+  "search_tool": true,
+  "fetch_tool": true,
+  "url": "https://learn.chatgpt.com/docs/extend/mcp",
+  "note": "Isolierte öffentliche HTTP-Leseprobe; keine Konfiguration eines Teilnehmer-Clients"
+}

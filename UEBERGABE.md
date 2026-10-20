@@ -360,3 +360,35 @@ Chris hat mit „mach alles live“ ausdrücklich die Veröffentlichung beauftra
 - Backup `/opt/stacks/langdock-hefte/releases/20261019-ki-werkzeuge/public-before.tar.gz`; vorheriges Image `langdock-hefte:pre-20261019-ki-werkzeuge`, neues Image `langdock-hefte:release-20261019-ki-werkzeuge`. Nur Dienst langdock-hefte neu gestartet.
 - Paket und Protokolle im Chat-Arbeitsverzeichnis `work/toolvergleich/release/`: release-manifest.json, tag15-public.tar.gz, deploy_remote.py, live-verification.json, server-verification.json, live-browser.json sowie Screenshots.
 - Live: https://quint-games.de/hefte/tabea/tag-15/lernheft/#k17 ; ebenso ingo und carmen. PDF, Originalfolien und alle Branchen-Missionen sind erreichbar. Es wurden keine externen Plugin-Dienste eingerichtet oder Konten verbunden.
+
+
+## Werkstattreihe Tag 16–18 · 20.–22.10.2026 · lokal fertig
+
+Auftrag: Aus KIAutomSpez_1_15_Claude_Cowork.pdf eine fortlaufende Lernreihe bis Donnerstag erstellen, mit aktueller eigener Recherche zu Claude Code, Codex und Antigravity, MCP-Praxis, Tipps und Branchen-Missionen. Noch nicht veröffentlicht oder zu GitHub gepusht. Bisheriger Live-Stand bleibt Tag 15 (`20261019-ki-werkzeuge`).
+
+- Dienstag 20.10., Tag 16: Werkstattstart, 22 Seiten. Mittwoch 21.10., Tag 17: MCP-Praxis, 22 Seiten. Donnerstag 22.10., Tag 18: effiziente wiederholbare Workflows, 23 Seiten. Drei gemeinsame PDFs mit allen Branchenvarianten, neun personalisierte Web-Fassungen. Tagesübersicht zur Eintragung jeweils auf der letzten Seite.
+- Alle 27 Originalseiten textlich und visuell geprüft, über drei Tage vollständig einzeln begleitet; jeder Viewer enthält die unveränderte volle PDF. Lokale Datei ist keine Offline-Garantie; selbstlernende Markdown-Dateien und universelle AGENTS-Rechtepläne präzisiert. Optionale Videovorschauen nicht als gesichtete aktuelle Produktnachweise ausgegeben.
+- 26 offizielle Herstellerquellen vom 20.10.2026. Aktuelle MCP-Einrichtung je Client, Claude-Code-AGENTS-Unterstützung/Prioritäten, Memory-Ladewege sowie Antigravity-Skills/Regeln und Workflow-Migration berücksichtigt.
+- Öffentlichen OpenAI-Docs-MCP isoliert erfolgreich per Streamable HTTP initialisiert, Werkzeuge aufgelistet, Suche und Seitenabruf ausgeführt. Beleg in _quellen/reihe1618/docs-mcp-proof.json. Keine Teilnehmer-App eingerichtet oder fremde Konten verbunden.
+- Starter-ZIP Nordlicht-Werkstatt mit erfundenen CSV-Daten, absichtlich fehlendem Wert/Dublette/widersprüchlicher Notiz, Prüfreferenzen, Branchenalternativen, Skill-/Übergabevorlagen und neuem Fall. Klar bezeichnete CSV-Alternative, weil die Original-XLSX-Dateien nicht beilagen. Keine echten Kunden- oder Zugangsdaten.
+- Neun Branchen-Missionen mit Chat-Alternative, 18 Quizfragen, 26 kopierbare Blöcke pro drei Tage/Person (78 über alle Profile), drei vorbereitete Lernsimulationen ohne KI-/Dienstaufrufe. Notizen nur lokal je Person und Tag; TXT-Mitnahme.
+- Aufbau und Quellen: _quellen/reihe1618/README.md. Daten content.py, gemeinsamer ReportLab-/Web-Builder build.py und validate.py. Registrierung in kurs.py, lernheft.py und plattform.py. Wiederholung nutzt deduplizierte Tageskarten; zukünftige Tage bleiben in früheren Runden ausgeschlossen.
+- Verifikation: 67 PDF-Seiten gerendert und Textgrenzen geprüft, Kontaktübersichten vollständig visuell sowie dichte Seiten groß geprüft; keine Schriftverkleinerung nötig. 18 neue Tages-/Heftseiten, 1.896 lokale Links, neun Browserkombinationen mit 162 Quizpfaden, 78 Kopierprüfungen und 72 Simulationszuständen. Notizdateiinhalt, Personen-/Tagtrennung und Speicher-Ausfall geprüft. 320/390/1280px ohne Seitenüberlauf, keine beobachteten JS-/Konsolenfehler. 25 vorhandene Tests bestanden. 45 vorherige Tagesseiten inhaltlich bewahrt (Aufgaben-Cachekennung/Leerzeilen normalisiert). Kein vollständiger Screenreader-Test.
+- PDFs in Tag 16 - Werkstattstart/, Tag 17 - MCP-Praxis/ und Tag 18 - Effiziente Workflows/. Zusätzliche Ausgabekopien im Chat unter output/pdf/; Starter-ZIP unter output/Nordlicht-Werkstatt.zip.
+- Lokale Vorschau läuft auf http://localhost:5387/hefte/tabea/tag-16/lernheft/ (auch ingo/carmen sowie Tag 17/18). Vor einer späteren Veröffentlichung Ausgangsstand erneut prüfen und sichern.
+
+
+## Veröffentlichung 20.10.2026 · Lernreihe Tag 16–18
+
+Auf ausdrücklichen Auftrag alle neuen Lernhefte und Materialien für den 20.–22.10.2026
+veröffentlicht (Release `20261020-werkstattreihe`) und für das öffentliche GitHub-Repository
+https://github.com/christiansowi-ux/langdock-schulung übernommen.
+
+269 öffentliche Dateien aktualisiert; 268 per HTTPS bytegenau geprüft, internes Manifest
+auf Host und im Container geprüft. Alle neun Kombinationen aus Person und Tag bestehen den
+Live-Browsertest (Quiz, Kopieren, Simulation, 390px und Lernkarten), ohne beobachtete JS-Fehler.
+Container gesund; bestehende Serverdateien, Zugangsdaten und Laufzeitdaten unverändert.
+Vorherige Dateien und Docker-Image sind unter dem Release auf dem Server gesichert.
+
+Die frühere Angabe „nur lokal“ zur Reihe ist damit überholt. Details zu Inhalten und
+vorherigen vollständigen lokalen Prüfungen: `_quellen/reihe1618/README.md`.

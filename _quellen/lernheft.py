@@ -150,10 +150,19 @@ HEFTE[15] = {'src': 'tag15/lernheft.html', 'out': 'Tag 15 - KI-Werkzeuge im Verg
              'label': 'Lernheft · Vom Chat zur kleinen Werkstatt', 'uebungen': (11,12,13,14,15,16),
              'titles': {i:p['title'] for i,p in enumerate(TAG15_PAGES,1)}}
 
+from reihe1618.content import BOOKS as WORKSHOP_BOOKS
+for workshop_day, workshop_book in WORKSHOP_BOOKS.items():
+    HEFTE[workshop_day] = {'src': f'reihe1618/lernheft-{workshop_day}.html',
+        'out': workshop_book['out'], 'pdf': workshop_book['pdf'], 'kurz': workshop_book['slug'],
+        'label': workshop_book['title'], 'full_toc': True,
+        'titles': {i:p['title'] for i,p in enumerate(workshop_book['pages'],1)}}
+
 def toc_titles(tag):
     """Kapitel fuer das Inhaltsverzeichnis der Plattform: alles vor 'Lektion auf einer Seite' + die Uebungsseite."""
     cfg = HEFTE[tag]
     items = sorted(cfg['titles'].items())
+    if cfg.get('full_toc'):
+        return items
     if 'uebungen' in cfg:
         first = cfg['uebungen'][0]
         return [(k, v) for k, v in items if k < first - 1] + [(first, 'Freiwillige Übungen in Langdock')]
@@ -199,6 +208,9 @@ def compose(head, logo, bar='', ux=False, zooms=None, tag=4):
 
 def web_page(pid, tag=4):
     """Web-Fassung je Person (wegen "Unklar?" und Zurueck-Link)."""
+    if tag in (16, 17, 18):
+        from reihe1618.build import render_web
+        return render_web(pid, tag)
     if tag == 15:
         from tag15.build_material import render_web
         return render_web(pid)
@@ -218,6 +230,9 @@ def web_page(pid, tag=4):
 
 def main():
     arg = sys.argv[sys.argv.index('--tag') + 1] if '--tag' in sys.argv else '4'
+    if arg in ('16','17','18'):
+        from reihe1618.build import main as build_workshop
+        return build_workshop(int(arg))
     if arg == '15':
         from tag15.build_material import main as build_tag15
         return build_tag15()

@@ -1,0 +1,145 @@
+{
+  "date": "20.10.2026",
+  "sources": {
+    "O1": {
+      "title": "OpenAI: offizieller Docs-MCP",
+      "url": "https://learn.chatgpt.com/learn/docs-mcp"
+    },
+    "O2": {
+      "title": "OpenAI: MCP einrichten",
+      "url": "https://learn.chatgpt.com/docs/extend/mcp"
+    },
+    "O3": {
+      "title": "OpenAI: Entwickler-Einstellungen",
+      "url": "https://learn.chatgpt.com/docs/developer-settings"
+    },
+    "O4": {
+      "title": "OpenAI: Skills erstellen",
+      "url": "https://learn.chatgpt.com/docs/build-skills"
+    },
+    "O5": {
+      "title": "OpenAI: Entwicklerbefehle",
+      "url": "https://learn.chatgpt.com/docs/developer-commands"
+    },
+    "O6": {
+      "title": "OpenAI: Worktrees",
+      "url": "https://learn.chatgpt.com/docs/environments/git-worktrees"
+    },
+    "O7": {
+      "title": "OpenAI: geplante Aufgaben",
+      "url": "https://learn.chatgpt.com/docs/automations"
+    },
+    "O8": {
+      "title": "OpenAI: AGENTS.md",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md"
+    },
+    "O9": {
+      "title": "OpenAI: App-Kurzbefehle",
+      "url": "https://learn.chatgpt.com/docs/reference/slash-commands"
+    },
+    "C1": {
+      "title": "Anthropic: Cowork-Einstieg",
+      "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork"
+    },
+    "C2": {
+      "title": "Anthropic: Claude Code effizient einsetzen",
+      "url": "https://code.claude.com/docs/en/best-practices"
+    },
+    "C3": {
+      "title": "Anthropic: Projektanweisungen und Memory",
+      "url": "https://code.claude.com/docs/en/memory"
+    },
+    "C4": {
+      "title": "Anthropic: MCP in Claude Code",
+      "url": "https://code.claude.com/docs/en/mcp"
+    },
+    "C5": {
+      "title": "Anthropic: Skills",
+      "url": "https://code.claude.com/docs/en/skills"
+    },
+    "C6": {
+      "title": "Anthropic: Plugins",
+      "url": "https://code.claude.com/docs/en/plugins"
+    },
+    "C7": {
+      "title": "Anthropic: lokale und entfernte Verbindungen",
+      "url": "https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors"
+    },
+    "G1": {
+      "title": "Google: Antigravity MCP",
+      "url": "https://www.antigravity.google/docs/mcp"
+    },
+    "G2": {
+      "title": "Google: Antigravity Skills",
+      "url": "https://www.antigravity.google/docs/skills"
+    },
+    "G3": {
+      "title": "Google: Regeln",
+      "url": "https://www.antigravity.google/docs/rules"
+    },
+    "G4": {
+      "title": "Google: bisherige IDE-Workflows",
+      "url": "https://www.antigravity.google/docs/ide/workflows/"
+    },
+    "G5": {
+      "title": "Google: Berechtigungen",
+      "url": "https://antigravity.google/docs/agent-permissions"
+    },
+    "P1": {
+      "title": "HubSpot: offizieller MCP",
+      "url": "https://developers.hubspot.com/ai-tools/mcp"
+    },
+    "P2": {
+      "title": "Canva: Design-MCP",
+      "url": "https://www.canva.dev/docs/apps/mcp/"
+    },
+    "P3": {
+      "title": "Canva: Zugang und Tarife",
+      "url": "https://www.canva.dev/docs/apps/mcp/access/"
+    },
+    "P4": {
+      "title": "Figma: Client-Katalog",
+      "url": "https://www.figma.com/mcp-catalog/"
+    },
+    "P5": {
+      "title": "Microsoft: Playwright MCP",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    }
+  },
+  "original_sha256": "e6e9617f00632fa23a2374625c099f05e9970cc4fb4cc9d385103a4689a1a9b2",
+  "slide_assignment": {
+    "16": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "17": [
+      12,
+      14,
+      15,
+      16,
+      17
+    ],
+    "18": [
+      10,
+      11,
+      13,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  }
+}

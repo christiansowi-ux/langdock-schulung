@@ -1,0 +1,11 @@
+beleg_id;region;produktgruppe;umsatz_eur
+A001;Nord;Flyer;60000,00
+A002; nord ;Broschueren;60000,00
+A003;Süd;Flyer;80000,00
+A004;Süd;Broschueren;
+A005;Ost;Flyer;55000,00
+A006;Ost;Broschueren;50000,00
+A007;West;Flyer;70000,00
+A008;West;Broschueren;30000,00
+A001;Nord;Flyer;60000,00
+

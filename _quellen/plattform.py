@@ -29,6 +29,7 @@ import einfach_tag13
 import datenschutzwerkstatt
 import einfach_tag14
 import einfach_tag15
+from reihe1618.build import render_simple as workshop_simple
 import observabilitywerkstatt
 import demowerkstatt
 
@@ -290,7 +291,7 @@ def day_page(pid, n):
   <div class="lc-main">
     <h3 class="lc-satz">{esc(l["satz"])}</h3>
     <details class="lc-more"><summary>Nochmal erklärt</summary><p>{esc(l["erklaert"])}</p></details>
-    {f'<p class="small"><a href="#einfach-{l["folie"]}">Mit Alltagsbeispiel verstehen →</a></p>' if n in (12,13,14,15) and l['folie'] else ''}
+    {f'<p class="small"><a href="#einfach-{l["folie"]}">Mit Alltagsbeispiel verstehen →</a></p>' if n in (12,13,14,15,16,17,18) and l['folie'] else ''}
     <div class="lc-actions">
       <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
       {fol_btn}
@@ -371,7 +372,7 @@ def day_page(pid, n):
     <div class="hc-main">
       <p class="kicker">Lernheft Tag {n} · zum Lesen und Merken</p>
       <h2>{esc(t["titel"])}</h2>
-      <p>{'28 Originalfolien, ein aktueller Vergleich von Antigravity, Codex und Claude Code sowie sechs Branchen-Missionen. Dazu Plugins, MCP, Selbstchecks und Originalfolien zum Nachsehen.' if n == 15 else 'Alle 74 Folien als kurze Begleitung mit vollständigen Einzelheiten, Beispielen und je einer Merkfrage. Man kann direkt zum gewünschten Gedanken springen.' if n == 13 else 'Alle acht Folien verständlich begleitet, mit Beispielen, Merkfragen und einer praktischen Anleitung zur Spurensuche. Ergänzungen und Voraussetzungen sind markiert.' if n == 14 else f'Die ganze Lektion in {len(lh_titles) - lh_ueb} kurzen Kapiteln – eine Seite pro Gedanke, mit Bildern, Merksätzen, der Lektion auf einer Seite und zwölf Merkfragen.'} Kein Stift nötig: Geübt wird gemeinsam im Kurs.{' Dazu freiwillige Übungen für Langdock – Prompt kopieren, ausprobieren, vergleichen.' if lh_ueb else ''}</p>
+      <p>{'Teil der fortlaufenden Werkstattreihe vom 20. bis 22. Oktober. Mit aktuellen Anleitungen, Branchen-Missionen, Mitmach-Simulation, Starterpaket und zugeordneten Originalfolien.' if n in (16,17,18) else '28 Originalfolien, ein aktueller Vergleich von Antigravity, Codex und Claude Code sowie sechs Branchen-Missionen. Dazu Plugins, MCP, Selbstchecks und Originalfolien zum Nachsehen.' if n == 15 else 'Alle 74 Folien als kurze Begleitung mit vollständigen Einzelheiten, Beispielen und je einer Merkfrage. Man kann direkt zum gewünschten Gedanken springen.' if n == 13 else 'Alle acht Folien verständlich begleitet, mit Beispielen, Merkfragen und einer praktischen Anleitung zur Spurensuche. Ergänzungen und Voraussetzungen sind markiert.' if n == 14 else f'Die ganze Lektion in {len(lh_titles) - lh_ueb} kurzen Kapiteln – eine Seite pro Gedanke, mit Bildern, Merksätzen, der Lektion auf einer Seite und zwölf Merkfragen.'} Kein Stift nötig: Geübt wird gemeinsam im Kurs.{' Dazu freiwillige Übungen für Langdock – Prompt kopieren, ausprobieren, vergleichen.' if lh_ueb else ''}</p>
       <ol class="lhtoc">{''.join(f'<li><a href="{BASE}/{pid}/tag-{n}/lernheft/#k{k}">{esc(tt)}</a></li>' for k, tt in lh_titles)}</ol>
       <div class="btnrow"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/lernheft/">Lernheft lesen</a><a class="btn" href="{BASE}/pdf/{t["lernheft"]}" download>Als PDF herunterladen</a></div>
       {uebung}
@@ -395,12 +396,12 @@ def day_page(pid, n):
   <p class="kicker">Tag {n} · {esc(t["datum"])} · {esc(t["unter"])}</p>
   <h1>{nowrap(t["titel"])}</h1>
   <p class="lead">{esc(t["kurz"])}</p>
-  <div class="hero-btns"><a class="btn primary" href="#demos" data-tab-go="demos">In der Demo ausprobieren</a>{'<a class="btn" href="#einfach" data-tab-go="einfach">Einfach erklärt</a>' if n in (12,13,14,15) else '<a class="btn" href="#learnings" data-tab-go="learnings">Die Learnings lesen</a>'}<a class="btn" href="#training" data-tab-go="training">5 Minuten trainieren</a>{hero_heft}</div>
+  <div class="hero-btns"><a class="btn primary" href="#demos" data-tab-go="demos">In der Demo ausprobieren</a>{'<a class="btn" href="#einfach" data-tab-go="einfach">Einfach erklärt</a>' if n in (12,13,14,15,16,17,18) else '<a class="btn" href="#learnings" data-tab-go="learnings">Die Learnings lesen</a>'}<a class="btn" href="#training" data-tab-go="training">5 Minuten trainieren</a>{hero_heft}</div>
   <p class="progress-line" aria-live="polite"><span data-v="sitzt">0 von {len(t["learnings"])}</span> Learnings sitzen · Selbsttest <span data-v="test">noch offen</span>{' · Heft <span data-v="heft">noch nicht begonnen</span>' if bt else ''}</p>
 </section>
 <div class="tabs-wrap"><nav class="tabs wrap" role="tablist" aria-label="Bereiche von Tag {n}">
   <a role="tab" href="#demos" data-tab="demos">Demos</a>
-  {'<a role="tab" href="#einfach" data-tab="einfach">Einfach erklärt</a>' if n in (12,13,14,15) else ''}
+  {'<a role="tab" href="#einfach" data-tab="einfach">Einfach erklärt</a>' if n in (12,13,14,15,16,17,18) else ''}
   <a role="tab" href="#training" data-tab="training">Trainieren</a>
   <a role="tab" href="#learnings" data-tab="learnings">Learnings</a>
   <a role="tab" href="#karten" data-tab="karten">Lernkarten</a>
@@ -411,7 +412,7 @@ def day_page(pid, n):
   <a role="tab" href="#heft" data-tab="heft">{("Lernheft + Praxis" if t.get("praxisheft") else "Lernheft") if t.get("lernheft") else "Arbeitsheft"}</a>
 </nav></div>
 
-{einfach_tag12.render() if n == 12 else einfach_tag13.render() if n == 13 else einfach_tag14.render() if n == 14 else einfach_tag15.render() if n == 15 else ''}
+{einfach_tag12.render() if n == 12 else einfach_tag13.render() if n == 13 else einfach_tag14.render() if n == 14 else einfach_tag15.render() if n == 15 else workshop_simple(n) if n in (16,17,18) else ''}
 {lerntraining.panel(pid, n, kurs.TAGE)}
 {datenschutzwerkstatt.panel(pid,n) if n == 13 else observabilitywerkstatt.panel(pid,n) if n == 14 else demowerkstatt.panel(pid, n)}
 <section class="tpanel wrap" id="learnings" role="tabpanel" aria-label="Learnings">

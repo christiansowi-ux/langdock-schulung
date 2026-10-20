@@ -1,7 +1,7 @@
 # Langdock-Schulung · interaktive Lernplattform
 
 Schulungsmaterial und Quellcode der Lernplattform unter **https://quint-games.de/hefte/**.
-Stand: 19.10.2026, einschließlich Tag 15 „KI-Werkzeuge im Vergleich“.
+Stand: 20.10.2026, einschließlich der veröffentlichten Lernreihe Tag 16–18 für den 20.–22.10.2026.
 
 Die Plattform bietet Lernhefte, Originalfolien, einfache Erklärungen, Lernkarten, Selbsttests,
 Erinnerungsübungen und interaktive Demos für Druck/Vertrieb, Team/Business/Website und Video/Design.
@@ -16,7 +16,9 @@ Die Übungen verwenden erfundene Angaben. Quellen und fachliche Präzisierungen 
 - `UEBERGABE.md`: Projektverlauf, Betriebs- und Veröffentlichungsprotokoll.
 
 Originalfolien und benötigte öffentliche Materialien liegen in `plattform/public/` und sind mit versioniert.
-Der aktuelle Stand enthält 15 Kurstage. Fertige öffentliche Dateien erlauben einen Start ohne vorherigen PDF-Build.
+Der aktuelle Stand enthält 18 Kurstage. Fertige öffentliche Dateien erlauben einen Start ohne vorherigen PDF-Build.
+
+Die neue Werkstattreihe verbindet Claude Code, Codex und Antigravity: Werkstattstart, MCP-Praxis und effiziente Abläufe. Aufbau und Quellen: [`_quellen/reihe1618/README.md`](_quellen/reihe1618/README.md).
 
 ## Lokal starten
 

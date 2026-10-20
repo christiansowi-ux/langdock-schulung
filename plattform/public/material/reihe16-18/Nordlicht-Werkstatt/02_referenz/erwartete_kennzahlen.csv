@@ -1,0 +1,5 @@
+region;bekanntes_ist;plan;vorjahr;plan_delta;plan_delta_prozent;vorjahr_delta;vorjahr_delta_prozent;vollstaendig
+Nord;120000;100000;110000;20000;20;10000;9,090909;ja
+Süd;80000;100000;90000;-20000;-20;-10000;-11,111111;nein
+Ost;105000;100000;100000;5000;5;5000;5;ja
+West;100000;100000;0;0;0;100000;nicht definiert;ja

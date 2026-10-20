@@ -70,3 +70,23 @@ Drei kurze Missionen verbinden Erkennen, Ausprobieren und Entscheiden. Fehlversu
 
 ### Tag 14: Agenten-Cockpit
 Acht Folien vollständig begleitet. Spurensuche trennt frühe Ursache, spätere Folge und längsten Schritt. Vergleichslabor hält Qualitätskriterien vor dem Versuch fest; eine schnellere falsche Antwort kann nicht gewinnen. Signal-Check erklärt jede Zuordnung und erlaubt neue Versuche. Alle drei Missionen nutzen vorbereitete Daten, auch ohne Agent-Zugang. Manuelle Selbsterklärung und acht Erinnerungsfragen ergänzen die Simulation.
+
+
+### Tag 16–18: Fortlaufende Werkstattreihe
+20.–22.10.2026: Erst einen prüfbaren Dateiauftrag bearbeiten, dann eine begrenzte MCP-Leseprobe, zuletzt einen wiederverwendbaren Ablauf am neuen Fall prüfen. Jede Person erhält eine eigene Branchen-Mission; ohne zusätzlichen Zugang bleibt eine ausdrücklich als Datei-/Chatübung bezeichnete Alternative. Anfänger lernen Quelle, Annahme, tatsächliche Aktion und Ergebnis auseinanderzuhalten. Alle 27 Folien einschließlich optionaler Verweise sind über die Reihe begleitet. Die drei Browser-Labore bleiben ausdrücklich vorbereitete Simulationen; ein Haken bestätigt keine echte Produktanbindung. Materialien sind lokal vorbereitet; noch nicht live.
+
+
+## Veröffentlichung 20.10.2026 · Lernreihe Tag 16–18
+
+Auf ausdrücklichen Auftrag alle neuen Lernhefte und Materialien für den 20.–22.10.2026
+veröffentlicht (Release `20261020-werkstattreihe`) und für das öffentliche GitHub-Repository
+https://github.com/christiansowi-ux/langdock-schulung übernommen.
+
+269 öffentliche Dateien aktualisiert; 268 per HTTPS bytegenau geprüft, internes Manifest
+auf Host und im Container geprüft. Alle neun Kombinationen aus Person und Tag bestehen den
+Live-Browsertest (Quiz, Kopieren, Simulation, 390px und Lernkarten), ohne beobachtete JS-Fehler.
+Container gesund; bestehende Serverdateien, Zugangsdaten und Laufzeitdaten unverändert.
+Vorherige Dateien und Docker-Image sind unter dem Release auf dem Server gesichert.
+
+Die frühere Angabe „nur lokal“ zur Reihe ist damit überholt. Details zu Inhalten und
+vorherigen vollständigen lokalen Prüfungen: `_quellen/reihe1618/README.md`.

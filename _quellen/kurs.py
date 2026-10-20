@@ -291,3 +291,7 @@ TAGE[14] = TAG14
 
 from kurs_tag15 import TAG15
 TAGE[15] = TAG15
+
+from reihe1618.content import course as workshop_course
+for workshop_day in (16, 17, 18):
+    TAGE[workshop_day] = workshop_course(workshop_day)
