@@ -90,3 +90,25 @@ Vorherige Dateien und Docker-Image sind unter dem Release auf dem Server gesiche
 
 Die frühere Angabe „nur lokal“ zur Reihe ist damit überholt. Details zu Inhalten und
 vorherigen vollständigen lokalen Prüfungen: `_quellen/reihe1618/README.md`.
+
+
+## Tag 19 live · 23.10.2026
+
+Auf ausdrücklichen Auftrag Freitagsheft und Bonusheft veröffentlicht: Release `20261023-freitag-design`. Alle drei Teilnehmerzugänge, Originalfolien und PDF-Downloads sind erreichbar. 121 öffentliche Dateien per HTTPS bytegenau geprüft; internes Manifest im Container und alle 122 Zieldateien auf dem Host geprüft. Neun Seiten im Live-Browser geprüft, sechs Kopieraktionen erfolgreich, keine beobachteten JS-Fehler. Make bleibt reine Vorbereitung ohne Übungen. Container gesund; Serverkonfiguration und Laufzeitdaten beibehalten. Vorheriger Stand gesichert. Frühere Angabe „nur lokal“ für Tag 19 ist damit überholt.
+
+
+## Modul 2 · KI-Automation · Lektion 1 · live am 26.10.2026
+
+Neues Modul separat in Start- und Teilnehmerübersichten angelegt; bisherige 19 Tage bleiben unter Modul 1. Kanonischer Pfad `/hefte/{person}/modul-2/tag-1/`, interne Kompatibilitätskennung Tag 20. 41-seitiges Lernheft, vier kleine manuelle Make-Free-Workflows, Testmaterial und 30 Ausbauideen. Make mit 1.000 Credits verständlich erklärt; KI-/Microsoft-/CRM-Voraussetzungen aus den Folien getrennt eingeordnet. Keine KI-API erforderlich für die ersten Übungen; Creditwerte sind Planwerte und keine gemessenen Kontoläufe. Details in `_quellen/modul2/tag1/README.md`.
+
+Release `20261026-modul2-start`: 192 öffentliche Dateien per HTTPS bytegenau geprüft, internes Manifest im Container und alle 193 Zieldateien auf dem Host geprüft. Zehn Live-Seiten für Ingo, Carmen und Tabea einschließlich Modulübersichten, Lernheft, Kopieren, Quiz, Budget und JSON-Lernhilfe geprüft; keine beobachteten JS-/Konsolenfehler. Container gesund, Serverdateien unverändert, vorheriger Stand und Image gesichert. Alle Arbeiten ohne Subagents.
+
+
+## Korrektur Modul 2 · 26.–29.10.2026 · vier Tage
+
+Die frühere Zusammenfassung aller 34 Folien und vier Workflows in einem 41-seitigen Montag-Heft ist ersetzt. Eine gemeinsame Folienlektion läuft jetzt Montag bis Donnerstag mit vier eigenen Heften (19/15/17/15 Seiten), je einem Hauptworkflow, vier Quizfragen und passenden Testpaketen. 30 Ideen verteilt: 8/8/7/7. Alle 34 Folien genau einmal zugeordnet. Tagesnotizen sind getrennt; Montag behält den bisherigen Speicherschlüssel. Tag 2–4 sind als Vorschau verfügbar. 50 Credits Unterrichtsbudget gelten für die gesamte Reihe. Vollständige Verteilung und Grenzen: `_quellen/modul2/tag1/README.md`. Lokale QA: 51 Seiten, 2.058 Links, 33 Kopieraktionen, 144 Quizpfade, 15 JSON-Fälle, zwölf Teilnehmer-/Tageskombinationen ohne beobachtete JS-Fehler.
+
+
+## Regel ab 30.10.2026: jedes Modul ist ein Learning Hub
+
+Chris: „Die Lernkarten bitte auch immer einbauen in das neue Modul, alle Funktionen von davor wieder rein, wie ein Learning Hub.“ Neue Module und Wochen bekommen deshalb immer: Learnings mit Sitzt/Unklar, Lernkarten, Selbsttest, Trainieren (1/3/7 Tage), Aufgabengenerator, Folien-Viewer, Wörter und Lernheft – technisch über einen regulären `kurs.TAGE`-Eintrag (Vorbild: Tag 24, `_quellen/modul2/woche1/`). Vereinfachen heißt Bedienung vereinfachen, nie Funktionen weglassen.

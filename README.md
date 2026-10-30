@@ -1,7 +1,7 @@
 # Langdock-Schulung · interaktive Lernplattform
 
 Schulungsmaterial und Quellcode der Lernplattform unter **https://quint-games.de/hefte/**.
-Stand: 20.10.2026, einschließlich der veröffentlichten Lernreihe Tag 16–18 für den 20.–22.10.2026.
+Stand: 30.10.2026. Modul 1 mit 19 Tagen sowie Modul 2 „KI-Automation“: Lektion 1 über vier Tage (26.–29.10.2026: Make-Einstieg, Daten/Mapping, Filter/KI, API/Zeit) und Tag 5 (30.10.) „Use Cases identifizieren“ als Learning Hub der Woche mit Wochenheft, 9 Make-Vorlagen (JSON), Lernkarten, Selbsttest und Training. Aufbau: [`_quellen/modul2/woche1/README.md`](_quellen/modul2/woche1/README.md).
 
 Die Plattform bietet Lernhefte, Originalfolien, einfache Erklärungen, Lernkarten, Selbsttests,
 Erinnerungsübungen und interaktive Demos für Druck/Vertrieb, Team/Business/Website und Video/Design.
@@ -16,9 +16,13 @@ Die Übungen verwenden erfundene Angaben. Quellen und fachliche Präzisierungen 
 - `UEBERGABE.md`: Projektverlauf, Betriebs- und Veröffentlichungsprotokoll.
 
 Originalfolien und benötigte öffentliche Materialien liegen in `plattform/public/` und sind mit versioniert.
-Der aktuelle Stand enthält 18 Kurstage. Fertige öffentliche Dateien erlauben einen Start ohne vorherigen PDF-Build.
+Der aktuelle Stand enthält 23 Kurstage in zwei getrennten Modulen. Fertige öffentliche Dateien erlauben einen Start ohne vorherigen PDF-Build.
 
 Die neue Werkstattreihe verbindet Claude Code, Codex und Antigravity: Werkstattstart, MCP-Praxis und effiziente Abläufe. Aufbau und Quellen: [`_quellen/reihe1618/README.md`](_quellen/reihe1618/README.md).
+
+## Struktur der Plattform (seit 30.10.2026)
+
+`/hefte/` Personenwahl · `/hefte/<person>/` Kursübersicht · `/hefte/<person>/modul-1/tag-N/` und `/modul-2/tag-N/` Tagesseiten (Learning Hub je Tag) mit `lernheft/`, `heft/`, `praxis/`, `bonus/` · `/hefte/<person>/aufgaben/`. Alte `/tag-N/`-Adressen leiten weiter. Einheitliches Design: `plattform/public/assets/ui.css`, angewendet durch `_quellen/einheit.py` am Ende von `build.py --web`. Gesamtprüfung: `python -X utf8 _quellen/qa_einheit.py`. Veröffentlichung: `python -X utf8 plattform/ops/release_safe.py <release-name>`.
 
 ## Lokal starten
 

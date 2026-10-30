@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="de" data-heft="ingo/tag-4" data-person="ingo" data-tag="4" data-page="heft">
+<head>
+<meta charset="utf-8">
+<title>RAG – Arbeitsheft Tag 4 – Ingo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="heft-id" content="ingo/tag-4"><meta name="heft-file" content="Tag4_Ingo"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/style.css"><link rel="stylesheet" href="/hefte/assets/web.css"><link rel="stylesheet" href="/hefte/assets/app.css"><style>@page { size: A4; margin: 14mm 16mm 17mm 16mm; @bottom-left { content: "KI Automations Spezialist  ·  Praxisblock Langdock  ·  RAG  ·  Ingo  ·  Druck & Vertrieb"; font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } @bottom-right { content: "Seite " counter(page) " von " counter(pages); font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } } @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }</style><script src="/hefte/assets/hefte.js" defer></script><script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="web ui ui-web">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/ingo/">Ingo</a><span class="sep">/</span><a href="/hefte/ingo/#modul-1">Modul 1 · KI-Grundlagen</a><span class="sep">/</span><a href="/hefte/ingo/modul-1/tag-4/">Tag 4 · RAG – erst suchen, dann antworten</a><span class="sep">/</span><span aria-current="page">Arbeitsheft</span></nav><div class="top-right"><div aria-live="polite" class="wb-status" id="wb-status">Noch nichts eingetragen</div><div class="wb-actions"><span id="dz-slot"></span><button class="wb-primary" id="wb-pdf" type="button">PDF herunterladen</button><details class="wb-more"><summary>Mehr</summary><div class="wb-menu"><a href="#lrn-anchor" id="wb-lrn">Zu den Learnings</a><button id="wb-export" type="button">Antworten als Datei sichern</button><label class="wb-file">Antworten aus Datei laden<input accept=".json,application/json" id="wb-import" type="file"/></label><a download="" href="/hefte/pdf/Langdock_Tag4_RAG_Ingo.pdf">Leeres Heft als PDF (zum Ausdrucken)</a><button id="wb-print" type="button">Drucken</button><button class="wb-danger" id="wb-reset" type="button">Alle Eingaben löschen</button></div></details></div><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header><p class="wb-hint">In Felder und Linien tippen, Kästchen anklicken – alles wird automatisch in diesem Browser gespeichert. Etwas unklar? Bei jedem Schritt gibt es den Knopf „Unklar?“ – die Schulungsleitung sieht es sofort.</p>
+
+<!-- ============ TITELSEITE ============ -->
+<section class="cover t2 t3">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <div class="profile">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#1a6b5a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M14 18V6h20v12"/><rect x="6" y="18" width="36" height="16" rx="3"/><path d="M14 28h20v14H14z"/><path d="M18 33h12M18 37h8"/></svg>
+    <div class="kicker">KI Automations Spezialist · Tag 4 · 01.10.2026 · 3 Stunden</div>
+  </div>
+  <h1>RAG – erst suchen, dann antworten</h1>
+  <div class="sub">Wie kommt die KI an die richtige Antwort aus den eigenen Dokumenten?</div>
+  <p class="forwhom">Arbeitsheft für <b>Ingo</b> · Druck &amp; Vertrieb</p>
+  <p class="lead">Erst verstehen, dann ausprobieren: Man geht die Folien der Lektion Schritt für Schritt durch, baut in Langdock eine kleine Wissensbasis und prüft jede Aussage. Danach rettet man im Lernspiel „RAG Rescue“ eine Kundenantwort. Jeder Schritt ist erklärt.</p>
+
+  <div class="outcome"><div class="bar"></div><div><span class="lbl">Ergebnis am Ende</span>Eine eigene Wissensbasis in Langdock, eine gerettete Kundenantwort in RAG Rescue – und der sichere Blick dafür, ob eine Aussage wirklich belegt ist.</div></div>
+
+  <h4>Ablauf</h4>
+  <table class="plan">
+    <tr><th>Abschnitt</th><th>Zeit</th><th>Aufgaben</th><th>Folien</th></tr>
+    <tr><td>1 · Woher kommt die Antwort?</td><td>0:00–1:00</td><td>1 Woher kennt die KI die Antwort?<br>2 Die erste eigene Wissensbasis<br>3 Die Wissensbasis entscheidet</td><td>2–13, 16</td></tr>
+    <tr><td>2 · RAG Rescue</td><td>1:00–2:00</td><td>4 Das Spiel kennenlernen<br>5 Der erste Fall: SalesFlow</td><td>14, 19, 20</td></tr>
+    <tr><td>3 · Selbst entdecken und mitnehmen</td><td>2:00–3:00</td><td>6 Selbst entdecken<br>7 Von der Frage zur belegten Antwort</td><td>15–18, 21</td></tr>
+  </table>
+  <p class="small plan-note">Am Ende jedes Abschnitts wartet eine <b>Zusatzaufgabe für Druck &amp; Vertrieb</b> – freiwillig, für alle, die schneller fertig sind.</p>
+
+  <h4>So liest man dieses Heft</h4>
+  <div class="legend">
+  <div><span class="where new">Neuer Chat</span><span>Langdock: neuen Chat öffnen</span></div>
+  <div><span class="where same">Im selben Chat</span><span>Langdock: im Chat weiterschreiben</span></div>
+  <div><span class="where lab">RAG Rescue</span><span>Schritt auf rag.veluna-labs.de</span></div>
+  <div><span class="fref">Folie 5</span><span>passende Folie aus der Lektion</span></div>
+  <div><span class="tag watch">Beobachten</span><span>darauf beim Ergebnis achten</span></div>
+  <div><span class="tag sol">Kontrolllösung</span><span>steht Kopf – erst danach drehen</span></div>
+  <div><span class="zl">Zusatz</span><span>freiwillig, für den eigenen Bereich</span></div>
+  <div><span style="display:inline-block;flex:0 0 31mm;text-align:center"><span style="display:inline-block;width:3.9mm;height:3.9mm;border:.35mm solid #111;border-radius:.7mm;vertical-align:-.6mm"></span></span><span>erledigt? abhaken</span></div>
+</div>
+
+  <div class="namefields"><div>Name</div><div>Datum</div></div>
+</section>
+
+<!-- ============ BEVOR ES LOSGEHT ============ -->
+<section class="section">
+  <h2 class="plain">Bevor es losgeht</h2>
+
+  <h4>So läuft der Tag</h4>
+  <table class="how">
+    <tr><th>Abschnitt</th><th>Was passiert</th></tr>
+    <tr><td>1 · Woher kommt die Antwort?</td><td>Die Folien zum Anfassen: Man ordnet Wissensquellen zu, baut in Langdock eine kleine Wissensbasis mit ausgedachten Dokumenten und sieht, was eine alte Preisliste anrichtet.</td></tr>
+    <tr><td>2 · RAG Rescue</td><td>Auf <b>rag.veluna-labs.de</b> durchläuft man die RAG-Schritte aus Folie 19 als Spiel – von der Kundenfrage bis zur geprüften Antwort. Jeder Klick ist beschrieben.</td></tr>
+    <tr><td>3 · Selbst entdecken und mitnehmen</td><td>Weitere Fälle und Experimente – und zum Schluss die Aufgabe aus Folie 15: eine eigene Frage, bis zu drei Quellen, eine belegte Antwort.</td></tr>
+  </table>
+
+  <h4 style="margin-top:6mm">Sicher arbeiten – diese 5 Regeln gelten den ganzen Tag</h4>
+  <div class="rules">
+    <div class="rule"><div class="num">1</div><div><b>Nur ausgedachte oder öffentliche Dokumente</b>In die Wissensbasis kommen die Übungsdokumente oder frei im Internet verfügbare PDFs – keine internen Unterlagen, keine Kundendaten.</div></div>
+    <div class="rule"><div class="num">2</div><div><b>Die Wissensbasis bleibt privat</b>Nicht mit dem ganzen Workspace teilen. Nach dem Kurs kann man sie wieder löschen.</div></div>
+    <div class="rule"><div class="num">3</div><div><b>RAG Rescue läuft nur im Browser</b>Alle Firmen dort sind erfunden, die „KI“ im Spiel arbeitet nach festen Regeln im Browser. Spielstände liegen nur in diesem Browser.</div></div>
+    <div class="rule"><div class="num">4</div><div><b>Lehrkraftmodus erst danach</b>Der Knopf „Lehrkraftmodus“ im Spiel zeigt die Lösungen. Erst nach der eigenen Runde öffnen.</div></div>
+    <div class="rule"><div class="num">5</div><div><b>Unklar? Sofort melden</b>In der Online-Fassung hat jeder Schritt einen Knopf „Unklar?“ – die Schulungsleitung sieht die Frage sofort. Auf Papier: ein Fragezeichen an den Rand.</div></div>
+  </div>
+
+  <div class="bridge">
+    <div class="q">„</div>
+    <div><b>Die Frage der Lektion (Folie 2)</b><br>
+    „Woher kennt eine KI die richtige Antwort?“ – An Tag 3 hieß es: Die KI kennt nur, was im Kontext steht. Heute lernt man, wie die richtigen Informationen automatisch in den Kontext kommen: Das ist RAG.</div>
+  </div>
+</section>
+
+<!-- ============ WISSEN KOMPAKT ============ -->
+<section class="section">
+  <h2 class="plain">Wissen kompakt: RAG <span class="fref">Folien 2–21</span></h2>
+
+  <h4>Fünf Quellen, aus denen eine KI ihr Wissen hat (Folie 2)</h4>
+  <div class="five">
+    <div><span class="no">1</span><b>Modelltraining</b>Grundwissen und Muster, gelernt im Training.</div>
+    <div><span class="no">2</span><b>Aktuelles Gespräch</b>Was man selbst in den Chat schreibt.</div>
+    <div><span class="no">3</span><b>Bereitgestellte Dokumente</b>Texte, die man der KI gibt – das ist RAG.</div>
+    <div><span class="no">4</span><b>Websuche</b>Aktuelles, live im Internet gesucht.</div>
+    <div><span class="no">5</span><b>Verbundene Systeme</b>Daten aus anderen Programmen, z. B. Lager.</div>
+  </div>
+
+  <h4>RAG in drei Wörtern (Folie 7)</h4>
+  <table class="dec">
+    <tr><th style="width:42mm">Auf der Folie</th><th>Einfach gesagt</th></tr>
+    <tr><td>Retrieval</td><td>Suchen: Die KI sucht in einer Wissensbasis nach passenden Textstellen.</td></tr>
+    <tr><td>Augmented</td><td>Erweitern: Die gefundenen Stellen kommen zur Frage dazu – in den Kontext.</td></tr>
+    <tr><td>Generation</td><td>Antworten: Das Sprachmodell schreibt die Antwort aus Frage und Fundstellen.</td></tr>
+  </table>
+
+  <h4>Die sechs Schritte einer RAG-Anfrage (Folie 8)</h4>
+  <div class="flow six">
+    <div><span class="no">1</span><b>Frage</b>Was genau will man wissen?</div>
+    <div><span class="no">2</span><b>Suche</b>Passende Dokumente finden.</div>
+    <div><span class="no">3</span><b>Textstellen</b>Die passenden Abschnitte (Chunks).</div>
+    <div><span class="no">4</span><b>Kontext</b>Nur das Beste kommt hinein.</div>
+    <div><span class="no">5</span><b>Antwort</b>Die KI formuliert.</div>
+    <div><span class="no">6</span><b>Prüfung</b>Ein Mensch kontrolliert.</div>
+  </div>
+
+  <h4>Die Wörter des Tages</h4>
+  <div class="words">
+    <div><b>RAG</b>erst suchen, dann antworten</div>
+    <div><b>Wissensbasis</b>die Sammlung von Dokumenten, in der gesucht wird</div>
+    <div><b>Chunk</b>ein kleiner Abschnitt aus einem Dokument (Folie 9)</div>
+    <div><b>Embedding</b>Zahlen, die Bedeutung abbilden (Folie 10, wie an Tag 3)</div>
+    <div><b>Semantische Suche</b>Suche nach Bedeutung statt nach Stichwort (Folie 11)</div>
+    <div><b>Kontextfenster</b>der begrenzte Platz, in dem die KI arbeitet</div>
+    <div><b>Halluzination</b>eine Aussage, die gut klingt, aber nicht belegt ist</div>
+    <div><b>Beleg</b>die Textstelle, aus der eine Aussage stammt</div>
+  </div>
+
+  <h4 style="margin-top:3mm">Die fünf Urteile beim Prüfen (Folie 16)</h4>
+  <table class="dec urteile">
+    <tr><td>Belegt</td><td>Eine aktuelle Quelle sagt genau das.</td></tr>
+    <tr><td>Nicht belegt</td><td>Keine Quelle sagt das – es klingt nur gut.</td></tr>
+    <tr><td>Widersprüchlich</td><td>Die Quellen sagen Verschiedenes.</td></tr>
+    <tr><td>Falsch</td><td>Eine Quelle sagt etwas anderes.</td></tr>
+    <tr><td>Veraltet</td><td>Stammt aus einer alten, ersetzten Quelle.</td></tr>
+  </table>
+  <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke (Folie 4):</b> Plausibel formuliert ist nicht dasselbe wie durch Quellen belegt.</div></div>
+</section>
+
+<!-- ============ ABSCHNITT 1 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 1 <span class="chip">0:00–1:00</span></div>
+    <h2>Woher kommt die Antwort?</h2>
+    <p>Man geht die Folien 2 bis 13 noch einmal durch – diesmal zum Ausprobieren. Erst aus dem Kopf, dann in Langdock mit einer eigenen kleinen Wissensbasis.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 1</span><h3>Woher kennt die KI die Antwort?</h3><span class="time">15 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die fünf Wissensquellen unterscheiden – und erleben, dass die KI das eigene Unternehmen nicht kennt. <span class="fref">Folien 2–6</span></p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Zuordnen</div>
+      <p>Woher kann eine KI diese Sätze wissen? Die Nummer der Quelle eintragen: <b>1</b> Modelltraining · <b>2</b> aktuelles Gespräch · <b>3</b> bereitgestellte Dokumente · <b>4</b> Websuche · <b>5</b> verbundene Systeme.</p>
+      <table class="fill compact">
+        <tr><th>Satz</th><th style="width:22mm">Quelle</th></tr>
+        <tr><td class="case">a) „Berlin ist die Hauptstadt Deutschlands.“</td><td></td></tr>
+        <tr><td class="case">b) „Unser Professional-Tarif kostet 89 Euro.“</td><td></td></tr>
+        <tr><td class="case">c) „Der aktuelle Lagerbestand beträgt 42 Stück.“</td><td></td></tr>
+        <tr><td class="case">d) „Die Kundschaft braucht die Lieferung bis Freitag“ – das hat man eben selbst in den Chat geschrieben.</td><td></td></tr>
+        <tr><td class="case">e) „Die Messe in Hamburg wurde heute Morgen verschoben.“</td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>a</b> 1 Modelltraining · <b>b</b> 3 bereitgestellte Dokumente (z. B. die Preisliste) · <b>c</b> 5 verbundene Systeme (z. B. das Lagerprogramm) · <b>d</b> 2 aktuelles Gespräch · <b>e</b> 4 Websuche. Die Beispiele a bis c stehen so auf Folie 2.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Ohne Dokument</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Was kostet der Tarif SalesFlow Professional, und welche Vorteile bietet er?</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>SalesFlow ist ausgedacht – es gibt keine echten Preise. Nennt Langdock trotzdem einen Preis oder Vorteile? Dann ist das genau die Antwort aus Folie 4: überzeugend, aber nicht belegt.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Mit einem Dokument im Chat</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Hier ist ein Auszug aus unserer Preisliste (ausgedacht): „SalesFlow Professional kostet 89,00 Euro pro aktivem Nutzer und Monat.“ Beantworte nur mit diesem Auszug: Was kostet unser Professional-Tarif? Wenn etwas nicht im Auszug steht, sag das.</p></div>
+      <table class="fill compact">
+        <tr><th>Ohne Dokument sagte Langdock …</th><th>Mit Dokument sagte Langdock …</th></tr>
+        <tr><td style="height:13mm"></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke (Folien 5 und 6):</b> Mit dem richtigen Dokument wird die Antwort präzise. Einen Auszug einfügen klappt bei einem Dokument – bei 100 oder 10.000 Dokumenten nicht mehr. Dafür gibt es RAG.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 2</span><h3>Die erste eigene Wissensbasis</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> In Langdock eine kleine Wissensbasis bauen und sehen, wie RAG die passenden Stellen findet. <span class="fref">Folien 7–11</span> <span class="fref">Folie 13</span></p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Die Übungsdokumente holen</div>
+      <ol>
+        <li>Im Browser <b>quint-games.de/hefte/material/tag-4</b> öffnen (oder auf der Lernplattform bei Tag 4 → „Arbeitsheft“ → „Übungsdokumente“).</li>
+        <li><b>„Alle SalesFlow-Dokumente (ZIP)“</b> herunterladen und entpacken: im Ordner „Downloads“ mit der rechten Maustaste auf die ZIP-Datei klicken → „Alle extrahieren …“.</li>
+      </ol>
+      <p>Darin liegen fünf ausgedachte Dokumente der erfundenen Firma SalesFlow – dieselbe Firma wie auf den Folien. Für diese Aufgabe braucht man nur die ersten drei:</p>
+      <table class="dec docs">
+        <tr><td class="num">01</td><td>Preisliste Juli 2026</td><td>aktuell, freigegeben</td></tr>
+        <tr><td class="num">02</td><td>Rabattregeln für Geschäftskunden</td><td>aktuell, freigegeben</td></tr>
+        <tr><td class="num">03</td><td>Vertragsbedingungen Professional</td><td>aktuell, freigegeben</td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die Wissensbasis anlegen</div>
+      <ol>
+        <li>In Langdock links die <b>Bibliothek</b> (engl. Library) öffnen.</li>
+        <li>Neben „Ordner erstellen“ (Create folder) auf den kleinen Pfeil klicken und <b>„Wissensbasis erstellen“</b> (Create knowledge base) wählen.</li>
+        <li>Name: <b>RAG-Übung SalesFlow</b>. Dann <b>„Dateien hochladen“</b> (Upload files) – oder die drei PDFs einfach hineinziehen.</li>
+        <li>Warten, bis alle Dateien fertig verarbeitet sind.</li>
+      </ol>
+      <div class="box watch"><span class="tag watch">Was jetzt im Hintergrund passiert</span>Langdock zerlegt die Dokumente in kleine Abschnitte (Chunks, Folie 9) und macht aus jedem Abschnitt Zahlen, die seine Bedeutung abbilden (Embeddings, Folie 10).</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Die Frage aus Folie 13 stellen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – zuerst <b>@</b> tippen und „RAG-Übung SalesFlow“ wählen</div>
+        <p>Was kosten zwölf Professional-Lizenzen pro Monat, und können wir monatlich kündigen? Nutze nur die Wissensbasis. Rechne die Summe Schritt für Schritt und nenne zu jeder Aussage das Dokument, aus dem sie stammt.</p></div>
+      <table class="fill compact">
+        <tr><th>Aussage von Langdock</th><th style="width:52mm">Aus welchem Dokument?</th></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p>12 × 89,00 Euro = 1.068,00 Euro (Preisliste Juli 2026). Abzüglich 15 Prozent Mengenrabatt ab zehn Lizenzen = 160,20 Euro, also <b>907,80 Euro netto im Monat</b> (Rabattregeln). Kündigen: erst nach zwölf Monaten Mindestlaufzeit, danach monatlich (Vertragsbedingungen). Genau so steht es auf Folie 13 – drei Quellen ergeben eine Antwort.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Andere Wörter, gleiche Bedeutung</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – wieder mit <b>@</b> „RAG-Übung SalesFlow“</div>
+        <p>Kann ich den Vertrag jeden Monat beenden?</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Im Dokument steht nicht „beenden“, sondern „mit monatlicher Wirkung gekündigt“. Findet Langdock die Stelle trotzdem? Das ist die semantische Suche aus Folie 11: Sie sucht nach Bedeutung, nicht nur nach Stichwörtern.</div>
+    </div>
+    <div class="box safe full"><span class="tag safe">Wenn es hakt</span>Gibt es im eigenen Workspace keine Wissensbasis, die drei PDFs direkt im Chat anhängen (Büroklammer). Dann liest Langdock die Dateien komplett – wie Copy-and-paste aus Folie 6. Bei wenigen kurzen Dateien klappt das gut, bei vielen nicht mehr.</div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 3</span><h3>Die Wissensbasis entscheidet</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erleben, dass RAG schlechte Dokumente nicht verbessert – und jede Aussage mit den fünf Urteilen prüfen. <span class="fref">Folie 12</span> <span class="fref">Folie 16</span></p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Zwei „schlechte“ Dokumente dazulegen</div>
+      <p>In die Wissensbasis „RAG-Übung SalesFlow“ zusätzlich hochladen:</p>
+      <table class="dec docs">
+        <tr><td class="num">04</td><td>Preisliste Dezember 2025</td><td>alt – durch Juli 2026 ersetzt</td></tr>
+        <tr><td class="num">05</td><td>Broschüre „Für jede Systemlandschaft“</td><td>Werbung, kein Nachweis</td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Noch einmal fragen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – mit <b>@</b> „RAG-Übung SalesFlow“</div>
+        <p>Was kostet SalesFlow Professional, ist er monatlich kündbar, und ist eine SAP-Integration enthalten? Nutze nur die Wissensbasis und nenne zu jeder Aussage das Dokument.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Nimmt Langdock den alten Preis? Wird aus der Werbung eine Zusage? Steht dort „monatlich kündbar“, obwohl das für Professional erst nach zwölf Monaten gilt?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Jede Aussage prüfen</div>
+      <p>Mit Blick in die fünf Dokumente: Welches Urteil aus Folie 16 passt? Je Zeile ein Kästchen anklicken.</p>
+      <table class="fill compact" data-kind="quiz">
+        <tr><th>Aussage</th><th style="width:15mm">belegt</th><th style="width:15mm">nicht belegt</th><th style="width:17mm">wider&shy;sprüch&shy;lich</th><th style="width:14mm">falsch</th><th style="width:15mm">veraltet</th></tr>
+        <tr><td>a) Professional kostet 89 Euro pro Nutzer und Monat.</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>b) Professional kostet 79 Euro pro Nutzer und Monat.</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>c) Professional ist von Anfang an monatlich kündbar.</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>d) Eine SAP-Integration ist im Tarif enthalten.</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>e) Professional kostet laut Unterlagen 79 oder 89 Euro.</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+      <div class="flip"><p><b>a</b> belegt (Preisliste Juli 2026) · <b>b</b> veraltet (Preisliste Dezember 2025, ersetzt) · <b>c</b> falsch (maßgeblich sind die Vertragsbedingungen: erst nach zwölf Monaten – „monatlich kündbar einsteigen“ in der Werbung gilt nicht für Professional) · <b>d</b> nicht belegt (nur die Werbung nennt SAP – „passt in jede Systemlandschaft“ ist kein Nachweis) · <b>e</b> widersprüchlich (zwei Preislisten mit verschiedenen Preisen).</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Aufräumen und gegenprüfen</div>
+      <p>Die alte Preisliste (04) wieder aus der Wissensbasis löschen und die Frage aus Schritt 2 noch einmal stellen. Was hat sich geändert?</p>
+      <div class="lines" style="--n:2"></div>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke (Folie 12):</b> RAG kann schlechte oder widersprüchliche Dokumente nicht automatisch korrigieren. Eine gute Wissensbasis ist aktuell, eindeutig, strukturiert, freigegeben und versioniert.</div></div>
+  </div>
+
+<div class="zusatz" data-zusatz="1"><div class="zusatz-top"><div class="zusatz-head"><span class="zlabel">Zusatzaufgabe 1 · freiwillig · Druck &amp; Vertrieb</span></div><div class="task-head z"><h3>Einen Einwand mit Belegen beantworten</h3><span class="time">10 Min</span></div><p class="goal"><b>Ziel:</b> Im Verkaufsgespräch nur sagen, was die Unterlagen wirklich hergeben. Folie 17 nennt genau das: Einwände bearbeiten.</p></div>
+<div class="step"><div class="step-t"><span class="n">1</span>Den Einwand beantworten lassen</div>
+  <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – mit <b>@</b> „RAG-Übung SalesFlow“</div>
+    <p>Eine Kundin sagt: „Zwölf Lizenzen sind uns zu teuer, und wir wollen uns nicht lange binden.“ Schreibe eine kurze, freundliche Antwort für das Verkaufsgespräch. Verwende nur Aussagen aus der Wissensbasis und nenne je Aussage das Dokument. Versprich nichts, was nicht belegt ist.</p></div>
+  <div class="box watch"><span class="tag watch">Beobachten</span>Kommt der Mengenrabatt vor? Wird die Mindestlaufzeit ehrlich genannt – oder verspricht Langdock „jederzeit kündbar“ aus der Werbung?</div>
+</div>
+<div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke:</b> Ein Verkaufsargument ohne Beleg fällt spätestens beim Vertrag auf. Mit RAG hat man die Belege sofort zur Hand.</div></div></div>
+</section>
+
+<!-- ============ ABSCHNITT 2 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 2 <span class="chip">1:00–2:00</span></div>
+    <h2>RAG Rescue: Rettet die Kundenantwort</h2>
+    <p>Jetzt geht es auf die Übungsseite <b>rag.veluna-labs.de</b>. Man durchläuft die Schritte aus Folie 19 – von der Kundenfrage bis zur geprüften Antwort.</p>
+  </div>
+
+  <div class="keep">
+    <h4>So ist RAG Rescue aufgebaut</h4>
+    <p>Im Browser <b>rag.veluna-labs.de</b> aufrufen – ohne Konto. Auf der Startseite:</p>
+    <div class="sitemap five">
+      <div><b>Einführung</b>Vier kurze Karten mit „Weiter“ – oder „Überspringen“.</div>
+      <div><b>RAG-Begriffe</b>Ein kleines Glossar: Retrieval, Chunk, Kontextfenster, Halluzination.</div>
+      <div><b>Lehrkraftmodus</b>Zeigt die Lösungen. Erst nach der eigenen Runde!</div>
+      <div><b>Spiel einrichten</b>Einzel- oder Teammodus, Spielname und einer von vier Fällen.</div>
+      <div><b>Bestenliste</b>Ergebnisse und Rangliste – nur auf diesem Gerät.</div>
+    </div>
+    <h4>Die fünf Rollen im Spiel – wie in der menschlichen RAG-Pipeline (Folie 14)</h4>
+    <table class="dec roles">
+      <tr><th style="width:9mm"></th><th style="width:40mm">Rolle im Spiel</th><th style="width:40mm">Rolle auf Folie 14</th><th>Was man tut</th></tr>
+      <tr><td class="num">1</td><td>Fragesteller</td><td>Fragesteller</td><td>Die Kundenfrage in einzelne Informationen zerlegen.</td></tr>
+      <tr><td class="num">2</td><td>Retriever</td><td>Dokumenten-Rechercheur</td><td>Höchstens vier passende Dokumente auswählen.</td></tr>
+      <tr><td class="num">3</td><td>Wissensmanager</td><td>Wissensmanager</td><td>Die besten Abschnitte ins Kontextfenster legen.</td></tr>
+      <tr><td class="num">4</td><td>Antwortredakteur</td><td>Antwortgeber</td><td>Den KI-Entwurf lesen und später reparieren.</td></tr>
+      <tr><td class="num">5</td><td>Auditor</td><td>Prüfer</td><td>Jede Aussage gegen die Quelle prüfen.</td></tr>
+    </table>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 4</span><h3>Das Spiel kennenlernen</h3><span class="time">10 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die Seite kennenlernen und die vier Begriffe des Spiels mit den Folien verbinden. <span class="fref">Folie 19</span> <span class="fref">Folie 20</span></p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Die Einführung lesen <span class="where lab">RAG Rescue</span></div>
+      <p>Beim ersten Besuch öffnet sich die Einführung mit vier Karten. Mit <b>„Weiter“</b> durchklicken, auf der letzten Karte <b>„Spiel einrichten“</b>.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die RAG-Begriffe</div>
+      <p>Oben <b>„RAG-Begriffe“</b> öffnen und jeden Begriff in eigenen Worten notieren.</p>
+      <table class="fill compact">
+        <tr><th style="width:36mm">Begriff</th><th style="width:22mm">Folie</th><th>In eigenen Worten</th></tr>
+        <tr><td class="case">Retrieval</td><td class="case">7</td><td></td></tr>
+        <tr><td class="case">Chunk</td><td class="case">9</td><td></td></tr>
+        <tr><td class="case">Kontextfenster</td><td class="case">11</td><td></td></tr>
+        <tr><td class="case">Halluzination</td><td class="case">4</td><td></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 5</span><h3>Der erste Fall: SalesFlow</h3><span class="time">45 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Eine Kundenantwort retten – mit genau der Frage aus Folie 13 und Aufgabe 2.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Die Runde einrichten <span class="where lab">RAG Rescue</span></div>
+      <ol>
+        <li>Spielmodus <b>„Einzelmodus“</b> – man übernimmt alle fünf Rollen nacheinander.</li>
+        <li>Einen <b>Spielnamen</b> eingeben, zum Beispiel den Vornamen.</li>
+        <li>Fall <b>01 „Vertriebsanfrage zu SalesFlow Professional“</b> (leicht) wählen, dann <b>„Runde starten“</b>.</li>
+        <li>Das Einsatzbriefing lesen: Wer fragt was? Dann <b>„Einsatz starten“</b>. Die Zeit läuft mit, zählt aber nicht für die Punkte.</li>
+      </ol>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Fragesteller: Was muss man wissen?</div>
+      <p>Nur die Informationen anklicken, die für die Kundenfrage wirklich nötig sind. Dann <b>„Auswahl bestätigen“</b> – danach ist sie gesperrt.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Retriever: Dokumente suchen</div>
+      <p>Höchstens <b>vier</b> Dokumente <b>„Auswählen“</b>. Oben helfen Filter nach Aktualität, Dokumenttyp, Herausgeber und Status, „Vorschau“ zeigt einen kurzen Blick hinein. Dann <b>„Dokumente bestätigen“</b>.</p>
+      <div class="box watch"><span class="tag watch">Tipp</span>Datum, Status und Herausgeber prüfen – nicht nur den Titel. Genau das fragt Folie 16 „vor dem Upload“.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Wissensmanager: Den Kontext bauen</div>
+      <p>Das Kontextfenster hat Platz für <b>600 Tokens</b>. Bei jedem Dokument unter „Abschnitte“ die passenden Stellen mit <b>„Zum Kontext hinzufügen“</b> hineinlegen. Die Reihenfolge zählt. Dann <b>„Kontext bestätigen“</b>.</p>
+      <div class="box watch"><span class="tag watch">Tipp</span>Mehr ist nicht besser (Folie 11): Unnötige Abschnitte verdrängen die wichtigen.</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">5</span>Antwortredakteur: Den KI-Entwurf lesen</div>
+      <p>Die simulierte KI schreibt einen Entwurf aus Frage und Kontext. Er kann absichtlich Fehler enthalten. Lesen, dann <b>„Quellenprüfung starten“</b>.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">6</span>Auditor: Jede Aussage prüfen</div>
+      <p>Für jede Aussage ein Urteil wählen – dieselben fünf wie auf Folie 16: <b>Belegt, Nicht belegt, Widersprüchlich, Falsch, Veraltet</b>. Dazu den Abschnitt anklicken, der die Aussage belegt, oder „Kein Beleg vorhanden“. Dann <b>„Audit abgeben“</b> und die Rückmeldung lesen.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">7</span>Die Antwort reparieren und auswerten</div>
+      <ol>
+        <li><b>„Antwort reparieren“</b>: die richtigen Bausteine wählen, falsche weglassen, in eine sinnvolle Reihenfolge bringen. Dann <b>„Reparatur abschließen“</b>.</li>
+        <li>Die Auswertung lesen: Punkte je Bereich, die eigene Antwort neben der Musterlösung, die wichtigsten Lernpunkte.</li>
+      </ol>
+      <table class="fill compact">
+        <tr><th>Informations&shy;bedarf (10)</th><th>Retrieval (20)</th><th>Kontext (25)</th><th>Aussagen&shy;prüfung (30)</th><th>Antwort (15)</th><th>Gesamt (100)</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <p class="lineslabel">Der wichtigste Lernpunkt aus der Auswertung:</p>
+      <div class="lines" style="--n:2"></div>
+    </div>
+  </div>
+
+<div class="zusatz" data-zusatz="2"><div class="zusatz-top"><div class="zusatz-head"><span class="zlabel">Zusatzaufgabe 2 · freiwillig · Druck &amp; Vertrieb</span></div><div class="task-head z"><h3>Ein zweiter Fall: Unbelegtes Marketingversprechen</h3><span class="time">15 Min</span></div><p class="goal"><b>Ziel:</b> Erkennen, wann eine starke Zahl nicht belegt ist – bevor man sie der Kundschaft nennt.</p></div>
+<p class="small"><b>Kurz erklärt:</b> Die ausgedachte Firma Nordwerk will mit einer beeindruckenden Kennzahl werben. In der Wissensbasis liegen Befragungen, eine Fallstudie, ein nicht freigegebener Entwurf und Markenregeln.</p>
+<div class="step"><div class="step-t"><span class="n">1</span>Fall spielen <span class="where lab">RAG Rescue</span></div>
+  <ol>
+    <li>„Weiteren Fall wählen“ (oder „Zum Startbildschirm“) → Fall <b>02 „Unbelegtes Marketingversprechen“</b> → „Runde starten“.</li>
+    <li>Wie in Aufgabe 5: fragen, suchen, Kontext bauen, prüfen, reparieren.</li>
+  </ol>
+  <table class="fill compact">
+    <tr><th style="width:26mm">Punkte</th><th>Welche Zahl war nicht belegt – und warum?</th></tr>
+    <tr><td></td><td></td></tr>
+  </table>
+</div></div>
+</section>
+
+<!-- ============ ABSCHNITT 3 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 3 <span class="chip">2:00–3:00</span></div>
+    <h2>Selbst entdecken und mitnehmen</h2>
+    <p>Erst wählt man selbst, was man in RAG Rescue weiter ausprobiert. Dann kommt die Aufgabe aus Folie 15: eine eigene Frage, eigene Quellen, eine belegte Antwort.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 6</span><h3>Selbst entdecken</h3><span class="time">20 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Mindestens einen Weg ausprobieren und notieren, was man dabei gelernt hat.</p></div>
+    <div class="routes">
+      <div class="route"><span class="lvl">Experiment</span><h4>Weg A · Die alte Preisliste</h4>
+        <p>In der Auswertung <b>„Fall neu starten“</b>. Diesmal absichtlich die <b>Preisliste Dezember 2025</b> statt Juli 2026 nehmen. Was schreibt die KI jetzt – und was sagt die Prüfung dazu?</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Zu zweit</span><h4>Weg B · Der Teammodus</h4>
+        <p>Mit einer Person aus dem Kurs an einen Bildschirm: <b>„Teammodus“</b> wählen und die Rollen aufteilen – wie in der menschlichen RAG-Pipeline auf Folie 14.</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Weiterer Fall</span><h4>Weg C · Ein neuer Fall</h4>
+        <p><b>„Weiteren Fall wählen“</b>: 02 Unbelegtes Marketingversprechen, 03 Zielgruppenanalyse für Social Media oder 04 Newsletter an Bestandskunden (schwer).</p>
+        <div class="lines" style="--n:2"></div></div>
+      <div class="route"><span class="lvl">Nachschlagen</span><h4>Weg D · Die Lösung vergleichen</h4>
+        <p>Erst jetzt den <b>„Lehrkraftmodus“</b> öffnen: Welche Dokumente und Abschnitte waren nötig, welche Urteile erwartet? Wo lag man daneben?</p>
+        <div class="lines" style="--n:2"></div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 7</span><h3>Von der Frage zur belegten Antwort</h3><span class="time">40 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die Aufgabe aus Folie 15 allein durchspielen – mit der Regel: Was nicht belegt ist, darf nicht als Tatsache erscheinen. <span class="fref">Folie 15</span> <span class="fref">Folie 16</span></p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Frage formulieren</div>
+      <p>Eine klare Frage aus Vertrieb, Marketing oder dem eigenen Bereich – so, dass man sie mit Dokumenten beantworten kann. Beispiel: „Wie viele Menschen in Deutschland kaufen Kleidung online?“</p>
+      <div class="lines" style="--n:1"></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Bis zu drei PDFs suchen – und vorher prüfen</div>
+      <p>Frei im Internet verfügbare PDFs suchen, zum Beispiel Studien von Verbänden oder Ämtern. Keine internen Unterlagen. Vor dem Hochladen prüfen (Folie 16):</p>
+      <table class="fill compact">
+        <tr><th>Dokument</th><th style="width:30mm">Herausgeber</th><th style="width:22mm">Wie aktuell?</th><th style="width:26mm">Studie oder Werbung?</th><th style="width:22mm">Passt zur Frage?</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Wissensbasis bauen und fragen</div>
+      <p>Eine neue Wissensbasis anlegen (wie in Aufgabe 2), die PDFs hochladen und in einem neuen Chat mit <b>@</b> auswählen.</p>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – mit <b>@</b> die neue Wissensbasis</div>
+        <p>Beantworte diese Frage ausschließlich mit der Wissensbasis: <span class="ph">[Frage]</span>. Nenne zu jeder Aussage das Dokument und die Stelle. Wenn etwas nicht in den Dokumenten steht, schreibe „nicht belegt“ dazu, statt es als Tatsache darzustellen.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Nach der Antwort prüfen</div>
+      <p>Jede Aussage im Dokument nachschlagen: Stimmt sie, stimmen die Zahlen, fehlt etwas, widersprechen sich die Quellen?</p>
+      <table class="fill compact">
+        <tr><th>Aussage</th><th style="width:44mm">Beleg (Dokument, Stelle)</th><th style="width:30mm">Urteil</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke (Folie 21):</b> Eine gute RAG-Antwort ist ein Prozess: eine klare Frage, geeignete Quellen, passende Abschnitte, ein passender Kontext, klare Anweisungen an die KI – und zum Schluss die Prüfung durch einen Menschen.</div></div>
+  </div>
+
+<div class="zusatz" data-zusatz="3"><div class="zusatz-top"><div class="zusatz-head"><span class="zlabel">Zusatzaufgabe 3 · freiwillig · Druck &amp; Vertrieb</span></div><div class="task-head z"><h3>Der „Druck &amp; Sales Copilot“ bekommt eine Wissensbasis</h3><span class="time">15 Min</span></div><p class="goal"><b>Ziel:</b> Dem eigenen Agenten vom ersten Kurstag echte Preise zum Nachschlagen geben – dann muss er nichts mehr erfinden.</p></div>
+<div class="step"><div class="step-t"><span class="n">1</span>Wissensbasis mit der Druckerei-Preisliste</div>
+  <ol>
+    <li>Auf quint-games.de/hefte/material/tag-4 die ausgedachte <b>„Preisliste Druckhaus Lindner 2026“</b> herunterladen.</li>
+    <li>In der Bibliothek eine neue Wissensbasis <b>„Druckhaus Lindner (Übung)“</b> anlegen und die Datei hochladen.</li>
+  </ol>
+</div>
+<div class="step"><div class="step-t"><span class="n">2</span>An den Copilot hängen</div>
+  <ol>
+    <li>„Agents“ → <b>„Druck &amp; Sales Copilot“</b> → bearbeiten.</li>
+    <li>Bei <b>„Ordner“</b> (Folders) auf „Ordner hinzufügen“ (Add folders) klicken und die Wissensbasis wählen.</li>
+    <li>Ans Ende der Anweisungen schreiben und speichern:</li>
+  </ol>
+  <div class="prompt"><div class="lbl">Satz für die Anweisungen</div>
+    <p>Nenne Preise und Lieferzeiten nur aus der Wissensbasis und sage, aus welchem Dokument sie stammen. Steht etwas nicht darin, sag das offen.</p></div>
+</div>
+<div class="step"><div class="step-t"><span class="n">3</span>Testen</div>
+  <div class="prompt"><div class="lbl">Test – im Chat mit dem Copilot</div>
+    <p>Was kosten 1.000 Flyer A5 beidseitig mit Express-Lieferung?</p></div>
+</div>
+<div class="solution"><span class="tag sol">Kontrolllösung – Heft drehen</span>
+  <div class="flip"><p>89,00 Euro plus 40 Prozent Express-Aufschlag = <b>124,60 Euro</b>. Der Rabatt ab 500 Euro Auftragswert greift hier nicht.</p></div>
+</div></div>
+</section>
+
+<!-- ============ ABSCHLUSS ============ -->
+<section class="final">
+  <div class="sec-head">
+    <div class="sec-no">Abschluss</div>
+    <h2>Abgabe und eigene Bilanz</h2>
+    <p>Alles abhaken, was fertig ist. Offene Punkte greift man am nächsten Kurstag wieder auf.</p>
+  </div>
+  <h4>Abgabe-Checkliste</h4>
+  <ul class="check">
+    <li>Wissensquellen zugeordnet, ohne und mit Dokument gefragt (Aufgabe 1)</li>
+    <li>Wissensbasis „RAG-Übung SalesFlow“ gebaut und die Frage aus Folie 13 gestellt (Aufgabe 2)</li>
+    <li>Alte Preisliste und Werbung getestet, fünf Aussagen geprüft (Aufgabe 3)</li>
+    <li>RAG Rescue kennengelernt und die Begriffe notiert (Aufgabe 4)</li>
+    <li>Fall 01 „SalesFlow“ gerettet und ausgewertet (Aufgabe 5)</li>
+    <li>Mindestens einen Weg selbst entdeckt (Aufgabe 6)</li>
+    <li>Eigene Frage mit bis zu drei Quellen belegt beantwortet (Aufgabe 7)</li>
+    <li>Freiwillig: Zusatzaufgaben für Druck &amp; Vertrieb (1, 2 oder 3)</li>
+  </ul>
+
+  <div class="keep" style="margin-top:5mm">
+    <h4>Die Abschlussfrage der Lektion (Folie 21)</h4>
+    <p>Wo könnte RAG im eigenen Arbeitsalltag helfen – und welche Dokumente wären dafür nötig? Und wo nicht (Folie 18: z. B. Live-Lagerbestände, offene Rechnungen, freie Termine)?</p>
+    <table class="fill full">
+      <tr><th>Hier würde RAG helfen</th><th>Diese Dokumente bräuchte man</th></tr>
+      <tr><td style="height:16mm"></td><td></td></tr>
+    </table>
+  </div>
+  <div class="keep" style="margin-top:5mm">
+    <h4>Das nehme ich mit</h4>
+    <div class="lines full" style="--n:3"></div>
+  </div>
+  <div class="keep" style="margin-top:5mm">
+    <h4>Das ist mir noch unklar</h4>
+    <p class="small">Online geht es schneller: bei der Stelle auf „Unklar?“ klicken – die Schulungsleitung sieht es sofort.</p>
+    <div class="lines full" style="--n:2"></div>
+  </div>
+</section>
+
+<span id="lrn-anchor"></span><section class="section lrn-section" data-lrn-tag="4"><div class="sec-head"><div class="sec-no">Zum Nachlernen</div><h2>Die Learnings von Tag 4</h2><p>RAG – erst suchen, dann antworten – das Wichtigste in kurzen Sätzen, jeweils einfach erklärt und mit der passenden Folie.</p></div><div class="lrn-tools"></div><ol class="lrn"><li data-lrn="l1"><div class="lrn-no">1</div><div class="lrn-body"><b class="lrn-satz">Eine KI hat fünf mögliche Wissensquellen.</b><p>Modelltraining (Grundwissen, z. B. „Berlin ist die Hauptstadt“), das aktuelle Gespräch (was man selbst schreibt), bereitgestellte Dokumente (z. B. „Unser Professional-Tarif kostet 89 Euro“), Websuche (Aktuelles aus dem Internet) und verbundene Systeme (z. B. „Der Lagerbestand beträgt 42 Stück“).</p><span class="fref" data-folie="2">Folie 2</span></div></li><li data-lrn="l2"><div class="lrn-no">2</div><div class="lrn-body"><b class="lrn-satz">Ein Sprachmodell kennt das eigene Unternehmen nicht.</b><p>Es kennt allgemeine Vertriebsbegriffe, typische Marketingmethoden und öffentlich bekannte Informationen. Es kennt nicht automatisch die aktuellen Preise, interne Rabattregeln, neue Produktfunktionen, Vertragsbedingungen, Kundendaten und Abläufe.</p><span class="fref" data-folie="3">Folie 3</span></div></li><li data-lrn="l3"><div class="lrn-no">3</div><div class="lrn-body"><b class="lrn-satz">Überzeugend heißt nicht richtig.</b><p>Im Beispiel nennt die KI für SalesFlow Professional 79 Euro (veralteter Preis), „jederzeit kündbar“ (anderer Tarif), eine SAP-Integration (nicht belegt) und eine „garantierte Umsatzsteigerung“ (erfunden). Alles klingt professionell – nichts davon wurde geprüft. Plausibel formuliert ist nicht dasselbe wie belegt.</p><span class="fref" data-folie="4">Folie 4</span></div></li><li data-lrn="l4"><div class="lrn-no">4</div><div class="lrn-body"><b class="lrn-satz">Mit dem richtigen Dokument wird die Antwort präzise.</b><p>Ohne Kontext weicht die KI aus oder rät. Mit der Preisliste im Kontext antwortet sie genau: „Professional kostet 89 Euro pro Nutzer und Monat.“</p><span class="fref" data-folie="5">Folie 5</span></div></li><li data-lrn="l5"><div class="lrn-no">5</div><div class="lrn-body"><b class="lrn-satz">Copy-and-paste stößt schnell an Grenzen.</b><p>Texte in den Chat kopieren geht bei wenigen Dokumenten. Bei 10 Dokumenten ist es noch machbar, bei 100 zeitaufwendig und fehleranfällig, bei 10.000 praktisch unmöglich.</p><span class="fref" data-folie="6">Folie 6</span></div></li><li data-lrn="l6"><div class="lrn-no">6</div><div class="lrn-body"><b class="lrn-satz">RAG heißt: erst suchen, dann antworten.</b><p>Retrieval: Die KI sucht in einer Wissensbasis nach passenden Informationen. Augmented: Das Gefundene kommt zur Frage dazu – in den Kontext. Generation: Das Sprachmodell schreibt die Antwort aus seinem Wissen und den gefundenen Stellen.</p><span class="fref" data-folie="7">Folie 7</span></div></li><li data-lrn="l7"><div class="lrn-no">7</div><div class="lrn-body"><b class="lrn-satz">Eine RAG-Anfrage läuft in sechs Schritten.</b><p>Frage → Suche → Textstellen → Kontext → Antwort → Prüfung. So beruht die Antwort auf überprüfbaren und aktuellen Informationen.</p><span class="fref" data-folie="8">Folie 8</span></div></li><li data-lrn="l8"><div class="lrn-no">8</div><div class="lrn-body"><b class="lrn-satz">Dokumente werden in kleine Abschnitte zerlegt: Chunks.</b><p>Ein Produktkatalog wird zum Beispiel in Funktionen, Preise, Rabatte, Vertragsbedingungen und FAQ aufgeteilt. So findet die Suche genau den Abschnitt, der zur Frage passt – statt eines ganzen Dokuments.</p><span class="fref" data-folie="9">Folie 9</span></div></li><li data-lrn="l9"><div class="lrn-no">9</div><div class="lrn-body"><b class="lrn-satz">Embeddings machen Bedeutung vergleichbar.</b><p>Jeder Abschnitt wird zu Zahlen, die seine Bedeutung abbilden – wie die Vektoren an Tag 3. „Was kostet der Tarif?“, „Wie hoch ist der Preis?“ und „Welche monatlichen Kosten entstehen?“ liegen dadurch nah beieinander.</p><span class="fref" data-folie="10">Folie 10</span></div></li><li data-lrn="l10"><div class="lrn-no">10</div><div class="lrn-body"><b class="lrn-satz">Die Suche geht nach Bedeutung – und nur das Beste kommt in den Kontext.</b><p>Auf die Frage „Kann ich den Vertrag jeden Monat beenden?“ findet RAG den Satz „Nach Ablauf der Mindestlaufzeit ist der Tarif monatlich kündbar“, obwohl die Wörter anders sind. Das Kontextfenster ist begrenzt: Mehr Kontext ist nicht automatisch besser, es zählt die Genauigkeit.</p><span class="fref" data-folie="11">Folie 11</span></div></li><li data-lrn="l11"><div class="lrn-no">11</div><div class="lrn-body"><b class="lrn-satz">Die Wissensbasis entscheidet über die Qualität.</b><p>Gut ist sie, wenn sie aktuell, eindeutig, strukturiert, freigegeben und versioniert ist. Typische Probleme: alte Preislisten, widersprüchliche Bedingungen, unklare Dokumenttitel, ungeprüfte Notizen, fehlende Informationen. RAG kann schlechte Unterlagen nicht automatisch korrigieren.</p><span class="fref" data-folie="12">Folie 12</span></div></li><li data-lrn="l12"><div class="lrn-no">12</div><div class="lrn-body"><b class="lrn-satz">Eine gute Antwort braucht oft mehrere Quellen.</b><p>„Was kosten zwölf Professional-Lizenzen, und können wir monatlich kündigen?“ braucht Preisliste, Rabattregeln und Vertragsbedingungen: 12 × 89 Euro = 1.068 Euro, minus 15 Prozent = 907,80 Euro. Dazu: zwölf Monate Mindestlaufzeit, danach monatlich kündbar.</p><span class="fref" data-folie="13">Folie 13</span></div></li><li data-lrn="l13"><div class="lrn-no">13</div><div class="lrn-body"><b class="lrn-satz">Die menschliche RAG-Pipeline hat fünf Rollen.</b><p>Fragesteller (klärt die Frage), Dokumenten-Rechercheur (sucht die Abschnitte), Wissensmanager (prüft, was relevant und richtig ist), Antwortgeber (formuliert) und Prüfer (kontrolliert das Ergebnis). Ein Fehler in einer Rolle verdirbt die ganze Antwort.</p><span class="fref" data-folie="14">Folie 14</span></div></li><li data-lrn="l14"><div class="lrn-no">14</div><div class="lrn-body"><b class="lrn-satz">Was nicht belegt ist, darf nicht als Tatsache erscheinen.</b><p>Die Regel der Aufgabe aus der Lektion: eine Frage aus Vertrieb oder Marketing, höchstens drei passende PDFs, eine Antwort nur aus diesen Quellen. Ablauf: Frage formulieren, PDFs suchen, Quellen prüfen, Wissensbasis bauen, Antwort erzeugen und kontrollieren.</p><span class="fref" data-folie="15">Folie 15</span></div></li><li data-lrn="l15"><div class="lrn-no">15</div><div class="lrn-body"><b class="lrn-satz">Quellen vorher prüfen, Antworten nachher prüfen.</b><p>Vor dem Hochladen: Wer ist der Herausgeber? Wie aktuell? Studie oder Werbung? Passt die Quelle zur Frage? Nach der Antwort: Ist jede Aussage belegt, sind die Zahlen richtig übernommen, fehlt etwas, widersprechen sich die Quellen? Die fünf Urteile: belegt, nicht belegt, widersprüchlich, falsch, veraltet.</p><span class="fref" data-folie="16">Folie 16</span></div></li><li data-lrn="l16"><div class="lrn-no">16</div><div class="lrn-body"><b class="lrn-satz">RAG hilft in Vertrieb und Marketing.</b><p>Vertrieb: Produktfragen beantworten, Verkaufsgespräche vorbereiten, Angebote unterstützen, Einwände bearbeiten. Marketing: Produkttexte erstellen, Studien auswerten, Markenrichtlinien anwenden, Fallstudien nutzen. RAG macht vorhandenes Wissen schneller auffindbar.</p><span class="fref" data-folie="17">Folie 17</span></div></li><li data-lrn="l17"><div class="lrn-no">17</div><div class="lrn-body"><b class="lrn-satz">RAG hat klare Grenzen.</b><p>Nicht geeignet für Live-Lagerbestände, den aktuellen Stand im CRM, offene Rechnungen, freie Termine und rechtliche Freigaben. Immer beachten: Datenschutz, Zugriffsrechte, Pflege der Dokumente und menschliche Kontrolle.</p><span class="fref" data-folie="18">Folie 18</span></div></li><li data-lrn="l18"><div class="lrn-no">18</div><div class="lrn-body"><b class="lrn-satz">Eine gute RAG-Antwort ist ein Prozess.</b><p>Eine klare Frage, geeignete Quellen, passende Textabschnitte, ein passender Kontext, klare Anweisungen an die KI – und zum Schluss die Prüfung durch einen Menschen.</p><span class="fref" data-folie="21">Folie 21</span></div></li><li data-lrn="l19"><div class="lrn-no">19</div><div class="lrn-body"><b class="lrn-satz">In Langdock ist die Wissensbasis RAG zum Anfassen.</b><p>Dateien direkt im Chat anhängen heißt: Langdock liest sie komplett – gut für wenige, kurze Dateien. Eine Wissensbasis (Bibliothek → „Wissensbasis erstellen“) zerlegt die Dokumente in Abschnitte und sucht die passenden heraus – gut für viele oder lange Dokumente. Im Chat holt man sie mit @ dazu.</p><span class="fref aus">Aus dem Arbeitsheft</span></div></li></ol><div class="keep lrn-wordbox"><h4>Die Wörter des Tages</h4><div class="lrn-words"><div><b>RAG</b>„Retrieval Augmented Generation“ – erst passende Informationen suchen, dann damit antworten.</div><div><b>Retrieval</b>Das Suchen und Finden passender Quellen.</div><div><b>Wissensbasis</b>Die Sammlung von Dokumenten, in der gesucht wird. In Langdock: Bibliothek → Wissensbasis.</div><div><b>Chunk</b>Ein kleiner Abschnitt aus einem Dokument.</div><div><b>Embedding</b>Zahlen, die die Bedeutung eines Abschnitts abbilden.</div><div><b>Semantische Suche</b>Suche nach Bedeutung – nicht nur nach gleichen Wörtern.</div><div><b>Kontextfenster</b>Der begrenzte Platz, in dem die KI für eine Antwort arbeitet.</div><div><b>Halluzination</b>Eine Aussage, die überzeugend klingt, aber nicht belegt ist.</div><div><b>Beleg</b>Die Textstelle in einer Quelle, aus der eine Aussage stammt.</div><div><b>Veraltet</b>Stammt aus einer alten Quelle, die ersetzt wurde.</div></div></div></section>
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

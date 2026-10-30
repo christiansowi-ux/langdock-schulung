@@ -1,0 +1,8 @@
+{
+  "checked_date": "2026-10-27",
+  "url": "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml",
+  "status": 200,
+  "sha256": "53c59ceeb7646e3c9ef332a20ce38bfcd32c68ef2808eaaa4f85af65771714be",
+  "item_count": 40,
+  "method": "Direct public HTTP GET, not a Make module execution"
+}

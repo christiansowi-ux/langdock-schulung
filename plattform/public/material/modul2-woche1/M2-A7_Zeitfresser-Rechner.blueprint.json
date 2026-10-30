@@ -1,0 +1,206 @@
+{
+  "name": "M2 · A7 Zeitfresser-Rechner",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "taetigkeit",
+            "value": "Rechnungsdaten abtippen"
+          },
+          {
+            "name": "pro_monat",
+            "value": "60"
+          },
+          {
+            "name": "minuten",
+            "value": "12"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Tätigkeit eintragen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "taetigkeit",
+            "label": "taetigkeit",
+            "type": "any"
+          },
+          {
+            "name": "pro_monat",
+            "label": "pro_monat",
+            "type": "any"
+          },
+          {
+            "name": "minuten",
+            "label": "minuten",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Wie groß ist der Posten?"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "TOP-KANDIDAT: {{1.taetigkeit}}\n{{1.pro_monat}} × {{1.minuten}} Min. = {{1.pro_monat * 1.minuten}} Minuten pro Monat (rund {{round(1.pro_monat * 1.minuten / 60)}} Stunden).\nLohnt einen Use-Case-Steckbrief."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -100,
+                  "name": "3a · Top-Kandidat"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Ab 600 Minuten im Monat",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.pro_monat * 1.minuten}}",
+                      "o": "number:greaterorequal",
+                      "b": "600"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "KLEINER POSTEN: {{1.taetigkeit}}\n{{1.pro_monat}} × {{1.minuten}} Min. = {{1.pro_monat * 1.minuten}} Minuten pro Monat.\nVielleicht nervig, aber eher kein Start-Kandidat."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 100,
+                  "name": "3b · Kleiner Posten"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Unter 600 Minuten im Monat",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.pro_monat * 1.minuten}}",
+                      "o": "number:less",
+                      "b": "600"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

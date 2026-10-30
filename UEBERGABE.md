@@ -392,3 +392,101 @@ Vorherige Dateien und Docker-Image sind unter dem Release auf dem Server gesiche
 
 Die frühere Angabe „nur lokal“ zur Reihe ist damit überholt. Details zu Inhalten und
 vorherigen vollständigen lokalen Prüfungen: `_quellen/reihe1618/README.md`.
+
+
+## Freitag 23.10.2026 · Tag 19 und Bonus · lokal erstellt
+
+Auftrag: halb Design anhand der neuen Folien mit Alternativen wie Google Stitch, halb sehr einfacher Make-Ausblick. Nach ausdrücklicher Korrektur keine Subagents weiter eingesetzt; Make ausschließlich Vorbereitung auf Montag, ohne Übungen, Quiz oder Einrichtung. 26-seitiges Freitagsheft mit 10+10 Lernstationen und Folien-/Quellenanhang; separates 28-seitiges Bonusheft mit fünf Fällen und exakt zwanzig zusätzlichen Prompts. Klassenbuchvorlage 19.–23.10. thematisch auf Claude, Claude Code, Cowork und Freitag Design bezogen. Details und Prüfungen in `_quellen/tag19/README.md`. Neue Materialien lokal und in Vorschau verfügbar; keine neue Veröffentlichung und kein GitHub-Push beauftragt oder ausgeführt.
+
+
+## Tag 19 live · 23.10.2026
+
+Auf ausdrücklichen Auftrag Freitagsheft und Bonusheft veröffentlicht: Release `20261023-freitag-design`. Alle drei Teilnehmerzugänge, Originalfolien und PDF-Downloads sind erreichbar. 121 öffentliche Dateien per HTTPS bytegenau geprüft; internes Manifest im Container und alle 122 Zieldateien auf dem Host geprüft. Neun Seiten im Live-Browser geprüft, sechs Kopieraktionen erfolgreich, keine beobachteten JS-Fehler. Make bleibt reine Vorbereitung ohne Übungen. Container gesund; Serverkonfiguration und Laufzeitdaten beibehalten. Vorheriger Stand gesichert. Frühere Angabe „nur lokal“ für Tag 19 ist damit überholt.
+
+
+## Modul 2 · KI-Automation · Lektion 1 · live am 26.10.2026
+
+Neues Modul separat in Start- und Teilnehmerübersichten angelegt; bisherige 19 Tage bleiben unter Modul 1. Kanonischer Pfad `/hefte/{person}/modul-2/tag-1/`, interne Kompatibilitätskennung Tag 20. 41-seitiges Lernheft, vier kleine manuelle Make-Free-Workflows, Testmaterial und 30 Ausbauideen. Make mit 1.000 Credits verständlich erklärt; KI-/Microsoft-/CRM-Voraussetzungen aus den Folien getrennt eingeordnet. Keine KI-API erforderlich für die ersten Übungen; Creditwerte sind Planwerte und keine gemessenen Kontoläufe. Details in `_quellen/modul2/tag1/README.md`.
+
+Release `20261026-modul2-start`: 192 öffentliche Dateien per HTTPS bytegenau geprüft, internes Manifest im Container und alle 193 Zieldateien auf dem Host geprüft. Zehn Live-Seiten für Ingo, Carmen und Tabea einschließlich Modulübersichten, Lernheft, Kopieren, Quiz, Budget und JSON-Lernhilfe geprüft; keine beobachteten JS-/Konsolenfehler. Container gesund, Serverdateien unverändert, vorheriger Stand und Image gesichert. Alle Arbeiten ohne Subagents.
+
+
+## Korrektur Modul 2 · 26.–29.10.2026 · vier Tage
+
+Die frühere Zusammenfassung aller 34 Folien und vier Workflows in einem 41-seitigen Montag-Heft ist ersetzt. Eine gemeinsame Folienlektion läuft jetzt Montag bis Donnerstag mit vier eigenen Heften (19/15/17/15 Seiten), je einem Hauptworkflow, vier Quizfragen und passenden Testpaketen. 30 Ideen verteilt: 8/8/7/7. Alle 34 Folien genau einmal zugeordnet. Tagesnotizen sind getrennt; Montag behält den bisherigen Speicherschlüssel. Tag 2–4 sind als Vorschau verfügbar. 50 Credits Unterrichtsbudget gelten für die gesamte Reihe. Vollständige Verteilung und Grenzen: `_quellen/modul2/tag1/README.md`. Lokale QA: 51 Seiten, 2.058 Links, 33 Kopieraktionen, 144 Quizpfade, 15 JSON-Fälle, zwölf Teilnehmer-/Tageskombinationen ohne beobachtete JS-Fehler.
+
+
+Live am 26.10.2026: Release `20261026-modul2-vier-tage`. 28 Live-Seiten inklusive aller zwölf Teilnehmer-/Tageskombinationen erfolgreich geprüft. 136 öffentliche Dateien per HTTPS bytegenau verglichen, internes Manifest und 137 Host-Zieldateien geprüft. Container gesund, Serverdateien unverändert; vorherige Public-Dateien und Docker-Image gesichert. 25 bestehende Node-Tests bestanden. 54 ältere Tagesseiten nach Normalisierung von Leerzeichen und Aufgaben-Cacheparameter inhaltlich unverändert. Live: https://quint-games.de/hefte/tabea/modul-2/tag-1/ bis `/tag-4/`.
+
+
+## Darstellungsfehler Carmen · 26.10.2026
+
+Screenshot zeigte ein vollständig ungestaltetes Modul-2-Lernheft. Bei eigenen Live-Aufrufen lieferten die drei CSS-Dateien HTTP 200 und wurden auch in WebKit angewendet; die konkrete Ursache auf Carmens Gerät war nicht reproduzierbar. Der komplette Lesestil steht jetzt direkt im HTML, statt von drei separaten CSS-Abrufen abzuhängen. Gilt für alle zwölf Teilnehmer-/Tageskombinationen, jeweils Tagesseite und Lernheft, einschließlich der bisherigen Tag-20–23-Adressen. PDF-Inhalte und Notizschlüssel unverändert.
+
+Regression `modul2/tag1/validate_layout.py`: externe CSS-Anfragen blockiert; pro lokalem und Live-Lauf 48 Browseransichten in WebKit/Chrome, vier Breiten (320/390/834/1280), 96 Quizantworten und Budgetrechner erfolgreich. Keine externen Layout-Anfragen mehr nötig, keine beobachteten JavaScript-Fehler. Dies ist ein Engine-Test, kein direkter Zugriff auf Carmens Mac.
+
+Live-Release `20261026-carmen-layout`: 48 öffentliche HTML-Dateien per HTTPS bytegenau verglichen, 49 Host-Dateien inklusive Manifest geprüft. Container gesund, Serverdateien unverändert, vorherige Dateien und Docker-Image gesichert.
+
+
+## Heute einfacher erklärt und Quiz gespeichert · 26.10.2026
+
+Nur Modul 2, Tag 1 überarbeitet. Das Lernheft führt mit einem Beispiel durch Verstehen, Nachbauen, Prüfen: Luna bereitstellen, Begrüßung bauen, mit Mira testen. Fünf getrennte Bauschritte erklären jeweils Klickweg, Soll-Ergebnis und Fehlerhilfe. Begriffe werden am Beispiel erklärt. Wichtige Hinweise sind beschriftet und farblich hervorgehoben; englische Bedienwörter fett, Handlungen nummeriert. Agentenwissen, acht Ideen und die Einordnung der elf Originalfolien stehen im freiwilligen, im Web zugeklappten Anhang. Keine JSON-Aufgaben oder Zusatzkonten am ersten Tag. Das Starterpaket enthält einfache Merkzettel und Testnamen. Die neue PDF umfasst 25 Seiten ohne verkleinerte Schrift (Skalierung 1,0); alle Seiten gerendert, Gesamtansichten und Bauschritt groß geprüft.
+
+Ursache des Quiz-Speicherproblems: Der frühere Handler prüfte Antworten lediglich im Arbeitsspeicher und schrieb keinen Quizstand in localStorage. Heute werden Auswahl und Prüfstatus automatisch pro Teilnehmer gespeichert, mit sichtbarem Status, zusätzlichem Speichern-Knopf und Textexport. Speicherung gilt für diesen Browser auf diesem Gerät; keine Synchronisierung zwischen Geräten. Fehlerhafter oder gesperrter Speicher ergibt einen Hinweis statt falscher Erfolgsmeldung. Notizschlüssel bleiben unverändert. Logik und Stile für die neue Oberfläche werden nur bei Tag 1 aktiv.
+
+Lokale und Live-Prüfung jeweils in WebKit und Chrome für Carmen, Ingo und Tabea: sechs Ansichten, jeweils echte Browser-Neustarts mit gleichem Profil (zwei Engines), Auswahl und Feedback nach Neuladen, zwei Fälle mit blockiertem Speicher, sechs beschädigte Speicherstände und acht Textdownloads. Kein beobachteter JavaScript-Fehler. Vier Breiten (320/390/834/1280), vergrößerte Schrift, blockierte externe CSS-Dateien sowie Antwortprüfung/Speichern per Tastatur kontrolliert. Keine vollständige Screenreader-Abnahme und keine Szenarioausführung in Teilnehmerkonten.
+
+Release `20261026-tag1-einfach` live: 27 öffentliche Dateien per HTTPS bytegenau geprüft, 28 Host-Dateien einschließlich Manifest. 1.191 lokale Verweise geprüft. Vollständige öffentliche Dateiliste vor/nach verglichen: außerhalb der Release-Ziele alles unverändert, insbesondere die späteren Tagesseiten. 54 nur durch den globalen Aufgaben-Cachetoken abweichende alte Tagesseiten ausdrücklich nicht veröffentlicht. Im gemeinsamen Aufgabendatensatz änderte sich nur Eintrag 20 (heute). Container gesund, Serverdateien unverändert, Sicherung vor Veröffentlichung vorhanden.
+
+
+## Tag 2 im einfachen Leselayout · 27.10.2026
+
+Dienstag (Modul 2, Lektion 1, Tag 2) für Carmen, Ingo und Tabea überarbeitet. Wie Tag 1: Verstehen → Nachbauen → Prüfen, beschriftete wichtige Hinweise, nummerierte Handlungen, Soll-Ergebnis und Fehlerhilfe. Sechs kleine Bauschritte: eigenes Szenario, vier JSON-Testangaben einfügen, ersten Baustein allein prüfen, vier Felder in Compose a string auswählen, Ausgabe lesen, zweites Beispiel mit Nordlicht prüfen. Vorbereitungszettel ohne KI-, Microsoft- oder Social-Verbindung. Outlook/Excel, weitere Datentypen, Datenfluss, Ideen 9–16 und alle neun zugeordneten Originalfolien bleiben im freiwilligen Anhang erklärt. Muster sind ausdrücklich JSON-Eingaben und keine importierbaren Szenario-Blueprints.
+
+Die aktuelle Make-Dokumentation zu JSON, Mapping, Operations und Blueprints am 27.10.2026 erneut gelesen; Nachweis in `sources-day2.json`. Keine Szenarien in Teilnehmerkonten ausgeführt. Budgetangaben sind Planwerte. Tages-PDF: 28 Seiten, alle gerendert und visuell geprüft, Schrift-Skalierung durchgehend 1,0. Testpaket mit erstem/zweitem JSON-Muster, einfacher Anleitung und Merkzettel. PDF und Plattform wurden gemeinsam aktualisiert.
+
+Quiz mit automatischer Speicherung von Auswahl und Prüfstatus, zusätzlichem Speichern-Knopf, sichtbarer Fehlermeldung und Textexport. Eigener Schlüssel `kurs:modul2:lektion1:{person}:tag2:quiz:v2`; Tag-1-Quizschlüssel und bestehende Tag-2-Notizschlüssel unverändert. Speicherung ist lokal auf diesem Gerät im jeweiligen Browser; keine Gerätesynchronisierung. Fehlerhafte Daten werden nicht als gültige Ergebnisse übernommen.
+
+Lokal und live jeweils in WebKit/Chrome geprüft: sechs Teilnehmeransichten, zwei echte Neustarts mit gleichem Browserprofil, Auswahl/Feedback nach Reload, zwei Fälle mit gesperrtem Speicher, sechs beschädigte Speicherstände und acht Quizdownloads. Zweier-JSON-Muster und Kopieraktionen geprüft; Tag-1-Speicher bleibt getrennt. 320/390/834/1280 px sowie vergrößerte Schrift und blockierte externe CSS-Anfragen geprüft; keine beobachteten JS-Fehler. Keine direkte Prüfung auf Carmens Mac und keine vollständige Screenreader-Abnahme.
+
+Release `20261027-tag2-einfach` live. 25 öffentliche Dateien per HTTPS bytegenau verglichen, 26 Host-Dateien einschließlich Manifest geprüft; 1.179 lokale Verweise kontrolliert. Die gesamte öffentliche Dateiliste vor/nach abgeglichen: außerhalb der vorgesehenen Ziele alles unverändert. Tag-1-Seiten, dessen PDF/Quizcode sowie die späteren Tagesseiten unverändert. Alte Seiten mit bloß abweichender Aufgaben-Cachekennung nicht veröffentlicht. Im gemeinsamen Aufgabendatensatz änderte sich nur Eintrag 21 (Tag 2). Container gesund, Serverdateien unverändert, Sicherung vor Veröffentlichung vorhanden.
+
+
+## Mittwoch nochmals deutlich vereinfacht · 28.10.2026 (veröffentlicht 27.10.)
+
+Tag 3 heißt jetzt „Die einfache Freigabe-Ampel“. Die sichtbare Hauptstrecke hat nur zwei Erklärkapitel, vier Bauschritte, Fehlerhilfe und vier sehr leichte Quizfragen. Hauptablauf: Tools Set variable stellt den Textstatus bereit, genau ein Filter erlaubt FERTIG, Tools Compose a string zeigt die Meldung. ENTWURF stoppt. Kein JSON, AND/OR, Router, KI-Aufruf oder zusätzliches Konto in der Hauptübung. Browser-Ampel zum kostenlosen Durchspielen von Weiter/Stopp.
+
+Zwei klar freiwillige kleine Automationen statt einer großen Kontaktformular-Kette: RSS Retrieve RSS Feed Items liest maximal eine Schlagzeile aus dem öffentlich geprüften deutschsprachigen tagesschau-Feed; Compose a string macht einen Lesezettel daraus. Zweites Extra nur mit bestehendem Google-Konto: eine Idee aus Set variable nach Google Sheets Add a Row übertragen. Jede Ausführung fügt eine Zeile in die eigene neue Tabelle hinzu. Keine Veröffentlichung, kein Mailversand, keine externen Kontoschreibaktionen durch den Agenten. Google-Einrichtung nicht als bei jedem Konto sofort lauffähig versprochen; RSS bleibt die Alternative ohne zusätzliche Anmeldung.
+
+Die zehn Originalfolien (17–23 und 28–30), sieben restlichen Branchenideen und die schwierigen Begriffe bleiben im aufklappbaren Nachleseteil. System-/User-/Assistant-Rollen, Formular-KI-Kette, Fehlerprüfung und Router-Reihenfolge werden erklärt, aber nicht als Baupflicht aufgegeben. Recherche am 27.10.2026 anhand offizieller Make-Unterlagen; öffentlicher RSS-GET separat mit HTTP 200 und gültigen Items geprüft (`sources-day3.json`, `rss-day3-proof.json`). Keine Make-Szenarien in Teilnehmerkonten ausgeführt, keine Google-Verbindung eingerichtet. Planwerte klar von echtem Verbrauch getrennt: Hauptversuche ungefähr 4 Credits; jedes freiwillige Extra mit Einzelprobe und Zweierlauf ungefähr 3. Unterrichtsbudget für die ganze Reihe bleibt 50.
+
+PDF: 23 Seiten, alle gerendert, Textgrenzen geprüft und alle Kontaktansichten visuell kontrolliert, Schrift-Skalierung überall 1,0. Neues Starterpaket enthält nur einfache Merkzettel, die zwei Status-Testwerte und RSS-Adresse statt JSON-/KI-Aufgaben. Quiz behält Auswahl und Prüfstatus pro Teilnehmer und Tag 3 im jeweiligen Browser auf diesem Gerät. Speichern-Knopf, Speicheranzeige und Textdownload sind vorhanden; kein Geräteabgleich. Frühere Quiz- und Notizschlüssel bleiben unverändert.
+
+Lokal und live jeweils sechs Teilnehmeransichten in WebKit/Chrome, zwei echte Browser-Neustarts, zwei Fälle mit blockiertem Speicher, sechs beschädigte Speicherstände und acht Quizdownloads geprüft. Beide Ampelwerte, RSS-Kopierknopf (Chrome inklusive tatsächlichem Lesen der Zwischenablage), getrennte Tag-1-/Tag-2-Speicher und vier Breiten (320/390/834/1280) plus vergrößerte Schrift geprüft. Externe CSS-Anfragen absichtlich gesperrt; Layout bleibt eingebaut. Keine beobachteten JS-Fehler. Kein direkter Zugriff auf Carmens Mac und keine vollständige Screenreader-Abnahme.
+
+Release `20261027-tag3-leicht` live für Carmen, Ingo und Tabea. 29 öffentliche Dateien per HTTPS bytegenau verglichen; 30 Host-Dateien inklusive Manifest geprüft. 1.482 lokale Verweise kontrolliert. Komplette öffentliche Dateiliste vorher/nachher verglichen: außerhalb der Release-Ziele alles unverändert. Die anderen Tagesseiten und ihre PDFs bleiben unverändert; nur Übersichten und abhängige Aufgaben-/Lernblattdateien wurden passend zu Tag 3 aktualisiert. Im gemeinsamen Aufgabendatensatz änderte sich ausschließlich Eintrag 22. 54 ältere Tagesseiten mit bloßer Cachekennung-Abweichung nicht veröffentlicht. Container gesund, Serverdateien unverändert, vorheriges Public-Verzeichnis und Image gesichert.
+
+
+## Modul 2 · Woche 1 · Learning Hub, Wochenheft und Make-Vorlagen · live am 30.10.2026
+
+Auftrag 30.10.: Tag 5 „Use Cases identifizieren“, alle vier Make-Tage als Wochenheft (Stand 2026), fertige leichte Make-Automationen als JSON mit vollständiger Erklärung, Wochenübersicht mit je 5 Stichpunkten. Nachtrag: **Lernkarten und alle Modul-1-Funktionen gehören immer auch ins neue Modul – als Learning Hub.**
+
+Neu: Learning Hub `/hefte/{person}/modul-2/tag-5/` (interne Kennung 24) mit Start/Wochenübersicht, Use-Case-Labor (Zeitfresser-Rechner, Schmerz-Interview, 3 Steckbriefe mit Nutzen-Check, Stufen/Ausschluss/Kreuzverhör, Entscheidungstreppe, Export als .md), 9 Make-Vorlagen, Trainieren, 33 Learnings, 40 Lernkarten, 12 Testfragen, Aufgabengenerator (4 neue Muster), 66 Folien (Make 1–34, Use Cases 35–66), 40 Wörter, Wochenheft (Web + 62-seitiges PDF). Tag 1–4 (Seiten und Lernhefte) haben einen Hinweis-Kasten mit Direktlink zur passenden Vorlage. Übersichten zeigen Tag 5 als Learning Hub. `aufgaben.js` zeigt für den Hub „Modul 2 · Tag 5“ statt „Tag 24“.
+
+Vorlagen: Modulkennungen und Operatoren mit echten Make-Exporten abgeglichen, Import-Weg mit help.make.com; nicht in einem Make-Konto ausgeführt, Credits sind Planwerte. Details, Präzisierungen und Prüfumfang: `_quellen/modul2/woche1/README.md`.
+
+Release `20261030-woche1-hub` (227 Dateien, 54 Cachetoken-Seiten bewusst nicht) + `20261030-woche1-hub-2` (nur `wochenheft.js`). HTTPS bytegenau, Host + Container-Manifest geprüft, Container gesund, Server unverändert, Sicherung und Vorgänger-Image vorhanden. Live-Browsertest 6/6 (Ingo, Carmen, Tabea × Chrome/WebKit) ohne Fehler. Kein Test direkt auf Carmens Mac.
+
+
+## Einheitliche Plattform · live am 30.10.2026
+
+Auftrag Chris: „gesamte Software einmal richtig umbauen, damit alles gleich aussieht, geordnet, alle Funktionen drinnen, Kontrast schön, Design hell – keine vermischten Sachen. Angaben beibehalten, Struktur und jeder Link ändern.“
+
+- **Struktur:** `/hefte/<person>/modul-1/tag-1…19/` und `/hefte/<person>/modul-2/tag-1…5/`, darunter `lernheft/`, `heft/`, `praxis/`, `bonus/`. Alle alten Adressen `/tag-N/…` sind Weiterleitungen (Parameter und Sprungmarke bleiben). Lernblätter bleiben intern unter `/tag-N/lernblatt/` (PDF-Dienst). Manifest-Pfade der Arbeitshefte zeigen auf die neuen Adressen. Speicherstände hängen an Tag-Nummern/Heft-Kennungen und bleiben erhalten.
+- **Design:** `plattform/public/assets/ui.css` (eine Farbwelt, Archivo + Instrument Serif, hell, Kontraste ≥ 5,9:1), von `_quellen/einheit.py` in jede Seite eingebettet. Jede Seite hat dieselbe Kopfzeile (Logo, Brotkrumen Lernplattform / Person / Modul / Tag / Bereich, Seitenaktionen) und Fußzeile.
+- **Funktionen:** Tag 19 und Modul 2 Tag 1–4 sind jetzt vollwertige Tagesseiten wie Modul 1 (Heute, Demos, Trainieren, Learnings, Lernkarten, Selbsttest, Aufgaben, Folien, Wörter, Lernheft). Der frühere Tagesinhalt steht unverändert im Reiter „Heute“. Lernkarten/Test/Wörter: `_quellen/lernhub_daten.py`.
+- **Links in Skripten:** `KURS.dayUrl()` in `app.js`; `aufgaben.js`, `lerntraining.js` nutzen sie. Startreiter: Start → Heute → Learnings (`kurs.js`).
+- **Prüfung:** `_quellen/qa_einheit.py` – 393 Seiten, 0 kaputte Links, 0 alte Adressen, Rahmen überall, keine doppelten IDs; Chrome + WebKit je 18 Seitenfamilien ohne JS-Fehler, 390 px ohne Querscrollen, Reiter/Lernkarten/Test/Training/Folien, Weiterleitung mit Sprungmarke, Modul-2-Quiz speichert. `modul2/woche1/validate.py` 6/6. Node-Tests 25/25.
+- **Veröffentlichen:** `plattform/ops/release_safe.py <name>` (Live-Vergleich, Sicherung, Image, Healthcheck, HTTPS-Bytevergleich mit Wiederholung). Vorher am 30.10. live: `20261030-vorlagen-fix` (Make meldet `scope` bei Set variable als unbekannt → entfernt; Vorlagen mit Makes eigener Prüfung validiert).
+
+Live: Release `20261030-einheitliches-design` – 402 Dateien (125 neu) per HTTPS bytegenau, alle 1.716 Host-Dateien wie erwartet, Container gesund, Server unverändert, Sicherung und Vorgänger-Image vorhanden. Danach gegen https://quint-games.de/hefte: `qa_einheit.py` (Browser) Chrome + WebKit je 18 Seitenfamilien ohne Fehler, `modul2/woche1/validate.py` 6/6. Kein Test direkt auf Carmens Mac.

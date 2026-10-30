@@ -1,0 +1,18 @@
+{
+  "checked_date": "2026-10-27",
+  "lesson_date": "2026-10-28",
+  "lesson": "Modul 2, Lektion 1, Tag 3",
+  "sources": [
+    "https://help.make.com/filtering",
+    "https://help.make.com/util",
+    "https://help.make.com/credits",
+    "https://help.make.com/router",
+    "https://help.make.com/webhooks",
+    "https://apps.make.com/rss",
+    "https://apps.make.com/google-sheets",
+    "https://apps.make.com/google-sheets-modules",
+    "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml"
+  ],
+  "scope": "One text-equality filter, two Tools modules, optional single-item RSS retrieval and optional mapping into a new personal Google Sheet",
+  "limits": "No participant account connected. No Make scenario executed. No Google write performed. Credit values are calculated. Only the public feed was read directly over HTTP."
+}

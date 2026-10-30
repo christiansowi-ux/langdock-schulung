@@ -157,6 +157,22 @@ for workshop_day, workshop_book in WORKSHOP_BOOKS.items():
         'label': workshop_book['title'], 'full_toc': True,
         'titles': {i:p['title'] for i,p in enumerate(workshop_book['pages'],1)}}
 
+from tag19.content import PDF as FRIDAY_PDF, PAGES as FRIDAY_PAGES
+HEFTE[19] = {'src': 'tag19/lernheft.html', 'out': 'Tag 19 - Design und Make-Ausblick',
+    'pdf': FRIDAY_PDF, 'kurz': 'Design und Make-Ausblick', 'label': 'Design und Make-Ausblick',
+    'full_toc': True, 'titles': {i:p['title'] for i,p in enumerate(FRIDAY_PAGES,1)}}
+
+from modul2.tag1.series import BOOKS as MODULE2_BOOKS, core_pages as module2_core_pages
+for module2_day,module2_book in MODULE2_BOOKS.items():
+    HEFTE[19+module2_day] = {'src': f'modul2/tag1/tag-{module2_day}.html', 'out': module2_book['out'],
+        'pdf': module2_book['pdf'], 'kurz': module2_book['title'], 'label': f'Modul 2 · Lektion 1 · Tag {module2_day}/4',
+        'full_toc': True, 'titles': {i:p['title'] for i,p in enumerate(module2_core_pages(module2_day),1)}}
+
+from modul2.woche1.daten import LERNHEFT as WOCHE1_PDF
+HEFTE[24] = {'src': 'modul2/woche1/hub.py', 'out': 'Modul 2 - KI-Automation/Wochenheft Woche 1',
+    'pdf': WOCHE1_PDF, 'kurz': 'Wochenheft Make & Use Cases', 'label': 'Modul 2 · Woche 1 · Wochenheft',
+    'full_toc': True, 'titles': {1: 'Make-Grundlagen', 2: 'Make-Werkstatt: 9 Vorlagen', 3: 'Use Cases identifizieren', 4: 'Mitnehmen'}}
+
 def toc_titles(tag):
     """Kapitel fuer das Inhaltsverzeichnis der Plattform: alles vor 'Lektion auf einer Seite' + die Uebungsseite."""
     cfg = HEFTE[tag]
@@ -208,6 +224,16 @@ def compose(head, logo, bar='', ux=False, zooms=None, tag=4):
 
 def web_page(pid, tag=4):
     """Web-Fassung je Person (wegen "Unklar?" und Zurueck-Link)."""
+    if tag == 24:
+        from modul2.woche1.hub import render_web
+        return render_web(pid)
+    if tag in (20,21,22,23):
+        from modul2.tag1.build import render_web
+        from modul2.woche1.hub import mit_banner
+        return mit_banner(render_web(pid,tag-19), pid, tag-19)
+    if tag == 19:
+        from tag19.build import render_web
+        return render_web(pid)
     if tag in (16, 17, 18):
         from reihe1618.build import render_web
         return render_web(pid, tag)
@@ -230,6 +256,15 @@ def web_page(pid, tag=4):
 
 def main():
     arg = sys.argv[sys.argv.index('--tag') + 1] if '--tag' in sys.argv else '4'
+    if arg == '24':
+        from modul2.woche1.build import main as build_woche1
+        return build_woche1()
+    if arg in ('20','21','22','23'):
+        from modul2.tag1.build import main as build_mod2
+        return build_mod2(int(arg)-19)
+    if arg == '19':
+        from tag19.build import main as build_friday
+        return build_friday()
     if arg in ('16','17','18'):
         from reihe1618.build import main as build_workshop
         return build_workshop(int(arg))

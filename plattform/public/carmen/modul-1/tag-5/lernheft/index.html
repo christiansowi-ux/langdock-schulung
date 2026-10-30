@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="de" data-person="carmen" data-tag="5" data-page="lernheft">
+<head>
+<meta charset="utf-8">
+<title>Lernheft Tag 5 – Deep Research</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/app.css"><link rel="stylesheet" href="/hefte/assets/lernheft.css"><script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="lh ui ui-lh">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/carmen/">Carmen</a><span class="sep">/</span><a href="/hefte/carmen/#modul-1">Modul 1 · KI-Grundlagen</a><span class="sep">/</span><a href="/hefte/carmen/modul-1/tag-5/">Tag 5 · Deep Research – Recherche, die …</a><span class="sep">/</span><span aria-current="page">Lernheft</span></nav><div class="top-right"><span id="dz-slot"></span><a class="btn" download="" href="/hefte/pdf/Lernheft_Tag5_Deep-Research.pdf">Als PDF</a><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+
+<!-- ============ TITEL ============ -->
+<section class="lp cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Tag 5 · 02.10.2026 · Lektion 5</p>
+  <div class="big" style="font-size:104pt">Deep<br>Research</div>
+  <div class="big2">Recherche, die eine<br>Entscheidung trägt.</div>
+  <p class="sub">Das Lernheft zur Lektion: Wie man der KI einen Rechercheauftrag gibt, aus dem eine belegte Empfehlung wird – statt einer langen Materialsammlung.</p>
+  <span class="note"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg> Zum Lesen und Merken. Kein Stift nötig – geübt wird heute gemeinsam.</span>
+  <div class="band">
+    <div class="bl">Der Bauplan für jeden Rechercheauftrag · sechs Abschnitte</div>
+    <div class="steps6">
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><b>Zweck</b><span>Wozu?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><b>Ausgangslage</b><span>Wo stehen wir?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h10M7 16h7"/></svg></div><b>Rahmen</b><span>Was gehört hinein?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg></div><b>Belege</b><span>Was gilt als belegt?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Vorgehen</b><span>Wie wird gearbeitet?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 15h7M9 18h4M15 3v4h4"/></svg></div><b>Ergebnis</b><span>Wie sieht es aus?</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO GEHT DIESES HEFT ============ -->
+<section class="lp">
+  <div class="kh"><div><p class="kk">Bevor es losgeht</p><h2>So liest man dieses Heft</h2></div></div>
+  <div class="how3">
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Eine Seite, ein Gedanke</b><p>Jedes Kapitel passt auf eine Seite – mit Bild statt langem Text.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><b>Unten der Merksatz</b><p>Der schwarze Kasten am Ende jeder Seite ist das, was hängen bleiben soll.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 14h9"/></svg></div><b>Aus dem Prompt-Labor</b><p>Der Bauplan stammt aus dem Deep-Research-Modul auf prompt.veluna-labs.de, die Funktion aus Langdock.</p></div>
+  </div>
+
+  <h3 class="st">Inhalt</h3>
+  <ol class="toc">
+    <li><span class="n">01</span>Was ist Deep Research?<span class="f">Langdock</span></li>
+    <li><span class="n">02</span>So läuft es in Langdock<span class="f">Langdock</span></li>
+    <li><span class="n">03</span>Erst die Entscheidung, dann die Suche<span class="f">Prompt-Labor</span></li>
+    <li><span class="n">04</span>Der Bauplan: sechs Abschnitte<span class="f">Prompt-Labor</span></li>
+    <li><span class="n">05</span>Zweck und Ausgangslage<span class="f">Abschnitt 1–2</span></li>
+    <li><span class="n">06</span>Der Untersuchungsrahmen<span class="f">Abschnitt 3</span></li>
+    <li><span class="n">07</span>Belege und Regeln<span class="f">Abschnitt 4</span></li>
+    <li><span class="n">08</span>Das Vorgehen<span class="f">Abschnitt 5</span></li>
+    <li><span class="n">09</span>Die Ergebnisform<span class="f">Abschnitt 6</span></li>
+    <li><span class="n">10</span>Der ganze Auftrag auf einen Blick<span class="f"></span></li>
+    <li><span class="n">11</span>Grenzen – und was man prüft<span class="f">Tag 4</span></li>
+    <li><span class="n">12</span>Üben im Prompt-Labor<span class="f">heute</span></li>
+  </ol>
+
+  <h3 class="st">Unser Fall durch das ganze Heft</h3>
+  <div class="fq">
+    <span class="lab">Die (ausgedachte) FlowWerk GmbH – Beispiel aus dem Prompt-Labor</span>
+    <p>„Für das erste Halbjahr 2027 gibt es 180.000 Euro zusätzliches Werbebudget. LinkedIn Ads, Google Ads – oder ein Mix?“</p>
+  </div>
+  <p style="font-size:10.4pt">FlowWerk verkauft erklärungsbedürftige Software an Firmen. Google Ads bringt viele Anfragen, aber nur zwölf Prozent davon bewertet der Vertrieb als wirklich interessant. LinkedIn Ads wurde noch nie richtig getestet. Aus dieser Lage bauen wir Schritt für Schritt einen Rechercheauftrag.</p>
+
+  <div class="merk"><span class="ml">Merksatz</span><p>Deep Research liefert keine Materialsammlung, <em>sondern eine Grundlage für eine Entscheidung.</em></p></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="lp" id="k1">
+  <div class="kh"><span class="kn">01</span><div><p class="kk">Kapitel 1 · Langdock</p><h2>Was ist Deep Research?</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k1" data-unklar-hash="#k1" data-unklar-label="Lernheft · Was ist Deep Research?">Unklar?</button></div>
+  <p class="lead">Deep Research ist eine gründliche Recherche durch die KI: Sie plant viele Suchen aus verschiedenen Blickwinkeln, liest die Quellen und schreibt daraus einen Bericht – jede Aussage mit Quelle.</p>
+  <h3 class="st">Drei Werkzeuge, drei Aufgaben</h3>
+  <div class="cmp3">
+    <div></div><div class="h">Websuche</div><div class="h dr dr2">Deep Research</div><div class="h">Wissensbasis (RAG, Tag 4)</div>
+    <div class="r">Wofür?</div><div>schnelle, gezielte Fragen</div><div class="dr2">große Fragen, für die man viele Quellen vergleichen muss</div><div>Fragen zu den eigenen Dokumenten</div>
+    <div class="r">Woher?</div><div>wenige aktuelle Webseiten</div><div class="dr2">viele Quellen aus dem öffentlichen Internet</div><div>eigene, hochgeladene Dateien</div>
+    <div class="r">Dauer</div><div>Sekunden</div><div class="dr2">etwa 5 bis 30 Minuten</div><div>Sekunden</div>
+    <div class="r">Ergebnis</div><div>kurze Antwort</div><div class="dr2">ausführlicher Bericht mit Quellenliste</div><div>Antwort aus den Dokumenten</div>
+  </div>
+  <div class="facts">
+    <div><div class="big">5–30 Min</div><span>so lange arbeitet eine Recherche</span></div>
+    <div><div class="big">15</div><span>Recherchen pro Person in 30 Tagen (Standard im Workspace)</span></div>
+    <div><div class="big">öffentlich</div><span>nur das offene Internet – keine internen Daten</span></div>
+  </div>
+  <div class="fall"><span class="fl">Unser Fall</span><p>Ob LinkedIn Ads oder Google Ads besser passt, lässt sich nicht mit einer Suche klären. Man muss Studien, Zahlen und Erfahrungen vergleichen – ein Fall für Deep Research.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Kleine Frage: <em>Websuche.</em> Große Frage mit vielen Quellen: <em>Deep Research.</em></p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="lp" id="k2">
+  <div class="kh"><span class="kn">02</span><div><p class="kk">Kapitel 2 · Langdock</p><h2>So läuft Deep Research in Langdock</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k2" data-unklar-hash="#k2" data-unklar-label="Lernheft · So läuft Deep Research in Langdock">Unklar?</button></div>
+  <p class="lead">Man startet Deep Research im Chat über das Werkzeug-Menü. Danach arbeitet die KI in festen Schritten – und man kann zusehen.</p>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Starten</b><span>Im Chat bei den Werkzeugen (Tools) „Deep research“ wählen und die Frage eingeben.</span></div>
+    <div><span class="no">2</span><b>Rückfragen</b><span>Die KI fragt nach, um den Umfang zu klären. Diese Antworten machen den Auftrag genau.</span></div>
+    <div><span class="no">3</span><b>Plan</b><span>Aus den Antworten entsteht ein Rechercheplan.</span></div>
+    <div><span class="no">4</span><b>Viele Suchen</b><span>Die KI sucht aus verschiedenen Blickwinkeln. Man sieht live, welche Quellen dazukommen.</span></div>
+    <div><span class="no">5</span><b>Auswerten</b><span>Alle Funde werden gelesen, verglichen und zusammengeführt.</span></div>
+    <div class="end"><span class="no">6</span><b>Bericht</b><span>Ein gegliederter Bericht mit Quellenangaben – auch als PDF zum Teilen.</span></div>
+  </div>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card"><h4>Was man im Bericht findet</h4><ul class="list"><li>gegliederten Bericht mit Belegen</li><li>Liste aller verwendeten Quellen</li><li>Verlauf aller Suchen und gelesenen Seiten</li></ul></div>
+    <div class="card green"><h4>Tipp aus der Langdock-Doku</h4><p>Ziel, Leser, gewünschte oder ausgeschlossene Quellen, Zeitraum, Region und gewünschtes Ergebnisformat nennen. Eine genaue Frage bringt einen besseren Bericht als „recherchiere zu diesem Thema“.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Die Rückfragen sind kein Hindernis – <em>sie machen den Auftrag genau.</em></p></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="lp" id="k3">
+  <div class="kh"><span class="kn">03</span><div><p class="kk">Kapitel 3 · Prompt-Labor</p><h2>Erst die Entscheidung, dann die Suche</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k3" data-unklar-hash="#k3" data-unklar-label="Lernheft · Erst die Entscheidung, dann die Suche">Unklar?</button></div>
+  <p class="lead">Der häufigste Fehler: Man nennt nur ein Thema. Dann sammelt die KI alles, was sie findet – und niemand weiß, was davon wichtig ist.</p>
+  <div class="vs">
+    <div class="bad"><span class="lab">Nur ein Thema</span><div class="txt">„Recherchiere LinkedIn und Google Ads.“</div><p>Offen bleibt: Wofür werden die Informationen gebraucht? Woran erkennt man eine hilfreiche Antwort?</p></div>
+    <div class="good"><span class="lab">Eine Frage mit Entscheidung</span><div class="txt">„Wie verteilen wir 180.000 Euro auf LinkedIn Ads, Google Ads oder einen Testmix?“</div><p>Jetzt sucht die KI genau das, was für diese Entscheidung nötig ist.</p></div>
+  </div>
+  <div class="vs">
+    <div class="bad"><span class="lab">Noch ein Thema</span><div class="txt">„Markt für Ladeinfrastruktur“</div><p>Beispiel aus dem Prompt-Labor: ein Themenbereich, keine Frage.</p></div>
+    <div class="good"><span class="lab">Die Regel dahinter</span><div class="txt">Eine genaue Forschungsfrage statt eines Themenbereichs.</div><p>Aus dem Thema wird die Frage, die eine konkrete Entscheidung vorbereitet.</p></div>
+  </div>
+  <div class="ask"><span class="q">?</span><p>Die Prüffrage für jeden Auftrag: <b>Was soll nach der Recherche entschieden oder getan werden – und von wem?</b></p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Eine gute Recherche beginnt mit der <em>Entscheidung</em> – nicht mit dem Thema.</p></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="lp" id="k4">
+  <div class="kh"><span class="kn">04</span><div><p class="kk">Kapitel 4 · Prompt-Labor</p><h2>Der Bauplan: sechs Abschnitte</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k4" data-unklar-hash="#k4" data-unklar-label="Lernheft · Der Bauplan: sechs Abschnitte">Unklar?</button></div>
+  <p class="lead">Ein guter Rechercheauftrag besteht aus sechs Abschnitten. Jeder beantwortet eine einfache Frage.</p>
+  <div class="plan6">
+    <div class="c1"><span class="pn">1</span><b>Zweck &amp; Entscheidung</b><span class="q">Wozu?</span><span>Welche Entscheidung soll die Recherche vorbereiten?</span></div>
+    <div class="c2"><span class="pn">2</span><b>Ausgangslage &amp; Kontext</b><span class="q">Wo stehen wir?</span><span>Welche Situation und Erfahrung gibt es schon?</span></div>
+    <div class="c3"><span class="pn">3</span><b>Untersuchungsrahmen</b><span class="q">Was gehört hinein?</span><span>Für wen, wo und in welchen Grenzen?</span></div>
+    <div class="c4"><span class="pn">4</span><b>Belege &amp; Regeln</b><span class="q">Woran ist eine Aussage belegt?</span><span>Welche Quellen gelten, wie aktuell, was bei Lücken?</span></div>
+    <div class="c5"><span class="pn">5</span><b>Vorgehen</b><span class="q">Wie wird gearbeitet?</span><span>Welche Schritte führen von der Frage zur Empfehlung?</span></div>
+    <div class="c6"><span class="pn">6</span><b>Ergebnisform</b><span class="q">Wie soll die Antwort aussehen?</span><span>Wer braucht welches Format, um weiterzuarbeiten?</span></div>
+  </div>
+  <div class="formula6">Zweck + Ausgangslage + Rahmen + Belege + Vorgehen + Ergebnis = <em>ein klarer, prüfbarer Rechercheauftrag</em></div>
+  <h3 class="st">Kennt man schon: die Prompt-Bausteine von Tag 3 – nur strenger</h3>
+  <div class="map6">
+    <div class="a"><b>Ziel und Aufgabe</b></div><div class="arr">→</div><div class="b">genaue Forschungsfrage statt Themenbereich</div>
+    <div class="a"><b>Kontext</b></div><div class="arr">→</div><div class="b">Zeitraum, Region und Sprachraum</div>
+    <div class="a"><b>Eingaben</b></div><div class="arr">→</div><div class="b">erlaubte und ausgeschlossene Quellentypen</div>
+    <div class="a"><b>Testkriterien</b></div><div class="arr">→</div><div class="b">Quellenprüfung und Belegpflicht</div>
+    <div class="a"><b>Grenzen</b></div><div class="arr">→</div><div class="b">Gegenpositionen und Unsicherheiten</div>
+    <div class="a"><b>Ausgabeformat</b></div><div class="arr">→</div><div class="b">Handlungsempfehlungen statt Materialsammlung</div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Sechs Fragen, sechs Abschnitte: <em>Wozu, wo, was, woran, wie, wie aussehen.</em></p></div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="lp" id="k5">
+  <div class="kh"><span class="kn">05</span><div><p class="kk">Kapitel 5 · Abschnitt 1 und 2</p><h2>Zweck und Ausgangslage</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k5" data-unklar-hash="#k5" data-unklar-label="Lernheft · Zweck und Ausgangslage">Unklar?</button></div>
+  <p class="lead">So wird aus dem, was man im Alltag sagen würde, ein klarer Teil des Auftrags.</p>
+  <div class="tf c1">
+    <div class="raw"><span class="lab">So sagt man es</span>„Wir haben 180.000 Euro mehr Werbebudget. Ich muss bis Ende September entscheiden: LinkedIn Ads, Google Ads oder ein Mix?“</div>
+    <div class="down">↓</div>
+    <div class="pr"><span class="lab">1 · Zweck im Auftrag</span>Bereite die Entscheidung vor, wie 180.000 Euro im ersten Halbjahr 2027 auf LinkedIn Ads, Google Ads oder einen Testmix verteilt werden. Die Marketingleitung entscheidet bis zum 30. September. Bewerte die Optionen nach ihrem Beitrag zu qualifizierten Anfragen und zum Vertrieb.</div>
+  </div>
+  <div class="tf c2">
+    <div class="pr"><span class="lab">2 · Ausgangslage im Auftrag</span>FlowWerk verkauft erklärungsbedürftige Software an Firmen. Google Ads bringt viele Anfragen, davon bewertet der Vertrieb nur zwölf Prozent als qualifiziert. LinkedIn Ads wurde bisher nicht systematisch getestet.</div>
+  </div>
+  <div class="fx">
+    <div class="err"><h4>Typische Fehler</h4><ul class="list no"><li>Zweck: nur ein Thema nennen („Recherchiere LinkedIn und Google Ads“).</li><li>Ausgangslage: schon Lösungen oder erfundene Annahmen hineinschreiben.</li></ul></div>
+    <div class="chk"><h4>Daran prüft man es</h4><ul class="list"><li>Ist klar, was entschieden wird – von wem, bis wann, mit welchem Budget?</li><li>Stehen in der Ausgangslage nur bekannte Tatsachen?</li></ul></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Zweck = <em>was entschieden wird.</em> Ausgangslage = <em>was man schon weiß.</em></p></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="lp" id="k6">
+  <div class="kh"><span class="kn">06</span><div><p class="kk">Kapitel 6 · Abschnitt 3</p><h2>Der Untersuchungsrahmen</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k6" data-unklar-hash="#k6" data-unklar-label="Lernheft · Der Untersuchungsrahmen">Unklar?</button></div>
+  <p class="lead">Der Rahmen legt fest, was untersucht wird – und was ausdrücklich nicht. Sonst landen US-Zahlen in einer Recherche über den deutschen Mittelstand.</p>
+  <div class="tf c3">
+    <div class="raw"><span class="lab">So sagt man es</span>„Uns interessieren Firmen mit 250 bis 5.000 Beschäftigten in Deutschland, Österreich und der Schweiz – und Leute aus Operations, IT und Digitalisierung. B2C und andere Märkte nicht.“</div>
+    <div class="down">↓</div>
+    <div class="pr"><span class="lab">3 · Rahmen im Auftrag</span><ul>
+      <li><b>Zielfirmen:</b> 250 bis 5.000 Beschäftigte in der DACH-Region</li>
+      <li><b>Kontakte:</b> Entscheider aus Operations, IT und Digitalisierung</li>
+      <li><b>Optionen:</b> LinkedIn Ads, Google Search Ads, Mix aus beiden</li>
+      <li><b>Bewertet nach:</b> Qualität der Anfragen, Kosten pro qualifizierter Anfrage, Beitrag zum Vertrieb</li>
+      <li><b>Nicht Teil davon:</b> B2C, organische Reichweite, reine Markenbekanntheit, Märkte außerhalb DACH</li></ul></div>
+  </div>
+  <div class="fx">
+    <div class="err"><h4>Typischer Fehler</h4><p>Rahmen und Zweck verwechseln: Zielgruppe und Region sagen, <b>was</b> untersucht wird – nicht, <b>welche Entscheidung</b> damit vorbereitet wird.</p></div>
+    <div class="chk"><h4>Daran prüft man es</h4><ul class="list"><li>Zielgruppe, Markt und Optionen konkret?</li><li>Bewertungskriterien festgelegt?</li><li>Steht da, was nicht dazugehört?</li></ul></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Rahmen sagt, was hineingehört – <em>und was draußen bleibt.</em></p></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="lp" id="k7">
+  <div class="kh"><span class="kn">07</span><div><p class="kk">Kapitel 7 · Abschnitt 4</p><h2>Belege und Regeln</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k7" data-unklar-hash="#k7" data-unklar-label="Lernheft · Belege und Regeln">Unklar?</button></div>
+  <p class="lead">Der wichtigste Abschnitt: Er legt fest, welche Quellen zählen und was passiert, wenn Daten fehlen. Wie an Tag 4: Was nicht belegt ist, ist keine Tatsache.</p>
+  <div class="tf c4">
+    <div class="raw"><span class="lab">So sagt man es</span>„Bitte keine erfundenen Durchschnittswerte. Zahlen von LinkedIn oder Google dürfen vorkommen – aber ich will sehen, dass sie vom Anbieter selbst stammen. Aktuelle DACH-Daten zählen mehr als weltweite Studien.“</div>
+    <div class="down">↓</div>
+    <div class="pr"><span class="lab">4 · Regeln im Auftrag</span><ul>
+      <li>Jede wichtige Zahl mit Quelle und Link belegen.</li>
+      <li>Daten aus den letzten 24 Monaten bevorzugen, dazu DACH-Studien, amtliche Statistiken und Branchenverbände.</li>
+      <li>Wichtige Werte mit einer zweiten, unabhängigen Quelle abgleichen.</li>
+      <li>Angaben von LinkedIn, Google und Agenturen als <b>Anbieterangaben</b> kennzeichnen.</li>
+      <li>Bei Datenlücken die Unsicherheit nennen – nichts erfinden, keine fremden Zahlen einfach übertragen.</li></ul></div>
+  </div>
+  <div class="fx">
+    <div class="err"><h4>Typischer Fehler</h4><p>Nur „Nutze seriöse Quellen“ schreiben. Dann kann niemand prüfen, was „seriös“ bedeutet.</p></div>
+    <div class="chk"><h4>Daran prüft man es</h4><ul class="list"><li>Erlaubte Quellenarten benannt?</li><li>Regeln für Aktualität, Region, Anbieterangaben?</li><li>Was passiert bei Widersprüchen und Lücken?</li></ul></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Wer Quellenregeln vorgibt, bekommt <em>prüfbare</em> Antworten – <em>keine erfundenen Zahlen.</em></p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="lp" id="k8">
+  <div class="kh"><span class="kn">08</span><div><p class="kk">Kapitel 8 · Abschnitt 5</p><h2>Das Vorgehen</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k8" data-unklar-hash="#k8" data-unklar-label="Lernheft · Das Vorgehen">Unklar?</button></div>
+  <p class="lead">Das Vorgehen legt die Reihenfolge fest. So wählt die KI nicht zuerst eine Lieblingslösung und sucht danach nur passende Belege.</p>
+  <div class="tf c5">
+    <div class="raw"><span class="lab">So sagt man es</span>„Kläre zuerst, was eine wirklich gute Anfrage ist. Dann vergleiche beide Kanäle nach denselben Kriterien. Wenn Quellen sich widersprechen, will ich das sehen – keine vorschnelle Empfehlung.“</div>
+    <div class="down">↓</div>
+    <div class="pr"><span class="lab">5 · Vorgehen im Auftrag</span><ul>
+      <li><b>1.</b> Zuerst festlegen, was eine qualifizierte Anfrage ist – und woran man vergleicht.</li>
+      <li><b>2.</b> Jede Option nach denselben Kriterien recherchieren, die Datengrundlage festhalten.</li>
+      <li><b>3.</b> Befunde vergleichen, wichtige Zahlen gegenprüfen, Widersprüche offenlegen.</li>
+      <li><b>4.</b> Für jede Option ein realistisches Szenario bilden, Annahmen kennzeichnen.</li>
+      <li><b>5.</b> Erst dann empfehlen – und sagen, wann eine andere Option besser wäre.</li></ul></div>
+  </div>
+  <div class="fx">
+    <div class="err"><h4>Typischer Fehler</h4><p>Das Vorgehen als Format schreiben („Erstelle eine Tabelle“). Eine Tabelle ordnet die Ausgabe – sie sagt nicht, wie geprüft und verglichen wird.</p></div>
+    <div class="chk"><h4>Daran prüft man es</h4><ul class="list"><li>Begriffe vor der Recherche geklärt?</li><li>Alle Optionen mit derselben Methode?</li><li>Weg von Belegen zur Empfehlung sichtbar?</li></ul></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Erst prüfen, dann vergleichen, <em>dann empfehlen</em> – in dieser Reihenfolge.</p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="lp" id="k9">
+  <div class="kh"><span class="kn">09</span><div><p class="kk">Kapitel 9 · Abschnitt 6</p><h2>Die Ergebnisform</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k9" data-unklar-hash="#k9" data-unklar-label="Lernheft · Die Ergebnisform">Unklar?</button></div>
+  <p class="lead">Am Ende soll etwas stehen, mit dem jemand sofort weiterarbeiten kann – keine lange Studie, sondern eine Vorlage für die Entscheidung.</p>
+  <div class="tf c6">
+    <div class="raw"><span class="lab">So sagt man es</span>„Ich brauche etwas, das ich direkt im Budgettermin zeigen kann: schnelle Übersicht, klare Empfehlung, kleiner Testplan. Die Geschäftsführung will keine lange Studie lesen.“</div>
+    <div class="down">↓</div>
+    <div class="pr"><span class="lab">6 · Ergebnis im Auftrag</span>Eine kompakte Entscheidungsvorlage für Marketingleitung und Geschäftsführung:<ul>
+      <li><b>(1)</b> Zusammenfassung mit höchstens 150 Wörtern</li>
+      <li><b>(2)</b> Vergleichstabelle der drei Optionen nach den festgelegten Kriterien</li>
+      <li><b>(3)</b> begründete Empfehlung mit den drei stärksten Belegen und den wichtigsten Unsicherheiten</li>
+      <li><b>(4)</b> 90-Tage-Testplan mit Budget je Kanal, Zielwerten und Abbruchkriterien</li>
+      <li>dazu eine Liste aller Quellen mit Links – beginnen mit der Zusammenfassung</li></ul></div>
+  </div>
+  <div class="fx">
+    <div class="err"><h4>Typischer Fehler</h4><p>Nur „Fasse die Ergebnisse zusammen“ verlangen. Dann bleiben Leser, Umfang und Aufbau offen.</p></div>
+    <div class="chk"><h4>Daran prüft man es</h4><ul class="list"><li>Empfänger, Format und Umfang genannt?</li><li>Alles dabei, was für den nächsten Schritt nötig ist?</li><li>Reihenfolge festgelegt?</li></ul></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Das Ergebnis endet mit dem, <em>was jemand als Nächstes tun soll.</em></p></div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="lp" id="k10">
+  <div class="kh"><span class="kn">10</span><div><p class="kk">Kapitel 10</p><h2>Der ganze Auftrag auf einen Blick</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k10" data-unklar-hash="#k10" data-unklar-label="Lernheft · Der ganze Auftrag auf einen Blick">Unklar?</button></div>
+  <p class="lead">So sieht der fertige Rechercheauftrag für FlowWerk aus – stark gekürzt. Jede Farbe ist ein Abschnitt des Bauplans.</p>
+  <div class="auftrag">
+    <div class="top"># Rechercheauftrag · Vergleichs- und Entscheidungsrecherche</div>
+    <div class="sec c1"><span class="sn">1</span><div><span class="st2">Zweck</span><p>Entscheidung vorbereiten: 180.000 Euro auf LinkedIn Ads, Google Ads oder Testmix – Entscheidung bis 30. September durch die Marketingleitung.</p></div></div>
+    <div class="sec c2"><span class="sn">2</span><div><span class="st2">## Ausgangslage</span><p>FlowWerk, B2B-Software. Google Ads: viele Anfragen, nur zwölf Prozent qualifiziert. LinkedIn Ads nie systematisch getestet.</p></div></div>
+    <div class="sec c3"><span class="sn">3</span><div><span class="st2">## Untersuchungsrahmen</span><p>DACH-Firmen mit 250 bis 5.000 Beschäftigten · Operations, IT, Digitalisierung · nicht: B2C, organisch, andere Märkte.</p></div></div>
+    <div class="sec c4"><span class="sn">4</span><div><span class="st2">## Regeln</span><p>Jede wichtige Zahl mit Quelle und Link · letzte 24 Monate · Anbieterangaben kennzeichnen · Lücken benennen statt erfinden.</p></div></div>
+    <div class="sec c5"><span class="sn">5</span><div><span class="st2">## Vorgehen</span><p>Begriffe klären → gleich vergleichen → gegenprüfen → Szenarien → erst dann empfehlen.</p></div></div>
+    <div class="sec c6"><span class="sn">6</span><div><span class="st2">## Ergebnis</span><p>Zusammenfassung (150 Wörter) · Vergleichstabelle · Empfehlung mit Belegen und Unsicherheiten · 90-Tage-Testplan · Quellenliste.</p></div></div>
+  </div>
+  <div class="ask"><span class="q">!</span><p>Der Generator im Prompt-Labor baut genau so einen Auftrag. Er fragt sieben Angaben ab – siehe Kapitel 12.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Sechs kurze Abschnitte ergeben einen Auftrag, <em>den jeder prüfen kann.</em></p></div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="lp" id="k11">
+  <div class="kh"><span class="kn">11</span><div><p class="kk">Kapitel 11 · Verbindung zu Tag 4</p><h2>Grenzen – und was man prüft</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k11" data-unklar-hash="#k11" data-unklar-label="Lernheft · Grenzen – und was man prüft">Unklar?</button></div>
+  <p class="lead">Deep Research nimmt viel Arbeit ab, aber nicht das Prüfen. Ein Bericht mit vielen Quellen kann trotzdem einseitig oder veraltet sein.</p>
+  <div class="grid2" style="margin-bottom:4mm">
+    <div class="card red"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Was Deep Research nicht kann</h4><ul class="list no"><li>Es sucht nur im öffentlichen Internet.</li><li>Es kommt nicht an interne Daten, verbundene Apps, Agenten oder Ablagen wie SharePoint, OneDrive oder Google Drive.</li><li>Für schnelle Fragen ist es zu langsam – dann reicht die normale Websuche.</li></ul></div>
+    <div class="card green"><h4><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg> Was man immer prüft</h4><ul class="list"><li>Stammt eine Zahl vom Anbieter selbst? Dann ist sie interessengeleitet.</li><li>Ist die Quelle aktuell und passt sie zur Region?</li><li>Werden Gegenpositionen und Widersprüche genannt?</li><li>Sind Annahmen als Annahmen gekennzeichnet?</li></ul></div>
+  </div>
+  <h3 class="st">Die fünf Urteile von Tag 4 gelten auch hier</h3>
+  <div class="chips" style="margin-bottom:4mm"><span class="u belegt" style="background:var(--green-soft)">belegt</span><span class="u nicht" style="background:var(--amber-soft)">nicht belegt</span><span class="u wider" style="background:#f1ebfb">widersprüchlich</span><span class="u falsch" style="background:var(--red-soft)">falsch</span><span class="u alt" style="background:var(--card)">veraltet</span></div>
+  <div class="card"><h4>Eine Recherche, die nur bestätigt, ist keine Recherche</h4><p>Gute Aufträge verlangen ausdrücklich Gegenpositionen und offene Unsicherheiten. Widersprüche gehören auf den Tisch – nicht unter den Teppich.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Viele Quellen sind nicht automatisch richtige Quellen – <em>prüfen bleibt Menschensache.</em></p></div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section class="lp" id="k12">
+  <div class="kh"><span class="kn">12</span><div><p class="kk">Kapitel 12 · prompt.veluna-labs.de</p><h2>Üben im Prompt-Labor</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k12" data-unklar-hash="#k12" data-unklar-label="Lernheft · Üben im Prompt-Labor">Unklar?</button></div>
+  <p class="lead">Im Prompt-Labor gibt es oben den Bereich „Research“: das Aufbaumodul Deep Research. Empfohlen ist es nach den zehn Grundlagen-Modulen – wer direkt einsteigt, wird von Rückfragen durch alle Angaben geführt.</p>
+  <h3 class="st">Fünf kurze Lektionen</h3>
+  <div class="lessons">
+    <div><span class="ln">1</span><div><b>Den Bauplan erkennen</b><span>die sechs Abschnitte kennenlernen</span></div><span class="min">7 Min</span></div>
+    <div><span class="ln">2</span><div><b>Den vollständigen Prompt lesen</b><span>sehen, wie aus sechs Angaben ein Prompt wird</span></div><span class="min">8 Min</span></div>
+    <div><span class="ln">3</span><div><b>Die Wirkung verstehen</b><span>schwache und starke Formulierungen vergleichen</span></div><span class="min">6 Min</span></div>
+    <div><span class="ln">4</span><div><b>Lücken reparieren</b><span>fehlende Bausteine finden und verbessern</span></div><span class="min">12 Min</span></div>
+    <div><span class="ln">5</span><div><b>Auf den eigenen Fall übertragen</b><span>einen eigenen Auftrag bauen</span></div><span class="min">10 Min</span></div>
+  </div>
+  <h3 class="st">Was der Generator abfragt („Rechercheauftrag erstellen“)</h3>
+  <ol class="gen7">
+    <li>Genaue Forschungsfrage und die Entscheidung dahinter</li>
+    <li>Zeitraum und Aktualitätsanforderung</li>
+    <li>Region und Sprachraum</li>
+    <li>Erlaubte und ausgeschlossene Quellentypen</li>
+    <li>Gewünschte Perspektiven und Gegenpositionen</li>
+    <li>Umgang mit Unsicherheiten und Datenlücken</li>
+    <li>Ausgabeformat und Handlungsempfehlungen</li>
+  </ol>
+  <div class="merk"><span class="ml">Merksatz</span><p>Erst den Bauplan verstehen, <em>dann den eigenen Auftrag bauen</em> – und in Langdock losrecherchieren.</p></div>
+</section>
+
+<!-- ============ AUF EINER SEITE ============ -->
+<section class="lp" id="k13">
+  <div class="kh"><span class="kn">+</span><div><p class="kk">Zum Wiederholen</p><h2>Die Lektion auf einer Seite</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k13" data-unklar-hash="#k13" data-unklar-label="Lernheft · Die Lektion auf einer Seite">Unklar?</button></div>
+  <div class="cheat">
+    <div class="wide"><h4>Die Formel</h4><p class="formula">Deep Research = <span>viele Quellen</span>, ein belegter Bericht – <span>für eine Entscheidung.</span></p></div>
+    <div><h4>Wann was?</h4><p><b>Websuche</b> für schnelle Fragen · <b>Deep Research</b> für große Vergleiche · <b>Wissensbasis</b> für eigene Dokumente</p></div>
+    <div><h4>In Langdock</h4><p>Tools → „Deep research“ · Rückfragen beantworten · Plan · viele Suchen · Bericht mit Quellen · 5–30 Minuten</p></div>
+    <div><h4>Der häufigste Fehler</h4><p>Nur ein Thema nennen. Besser: die Entscheidung, die vorbereitet werden soll.</p></div>
+    <div><h4>Der Bauplan</h4><p>1 Zweck · 2 Ausgangslage · 3 Rahmen · 4 Belege · 5 Vorgehen · 6 Ergebnis</p></div>
+    <div><h4>Belege</h4><p>Quelle und Link je Zahl · aktuell · Anbieterangaben kennzeichnen · Lücken nennen statt erfinden</p></div>
+    <div><h4>Vorgehen</h4><p>Begriffe klären → gleich vergleichen → gegenprüfen → erst dann empfehlen</p></div>
+    <div><h4>Ergebnis</h4><p>Kurze Zusammenfassung, Vergleich, Empfehlung mit Unsicherheiten, nächste Schritte, Quellenliste</p></div>
+    <div><h4>Grenzen</h4><p>Nur öffentliches Internet – keine internen Daten. Prüfen bleibt Menschensache.</p></div>
+    <div class="wide" style="background:var(--head)"><h4 style="color:var(--mint)">Die eine Regel</h4><p class="formula" style="color:#fff">Eine Recherche, die nur bestätigt, ist keine Recherche.</p></div>
+  </div>
+</section>
+
+<!-- ============ MERKFRAGEN ============ -->
+<section class="lp" id="k14">
+  <div class="kh"><span class="kn">?</span><div><p class="kk">Zum Selbst-Abfragen</p><h2>Zwölf Merkfragen – mit Antwort</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k14" data-unklar-hash="#k14" data-unklar-label="Lernheft · Zwölf Merkfragen">Unklar?</button></div>
+  <p class="lead">Frage lesen, kurz selbst überlegen, dann die Antwort darunter lesen. Online gibt es dieselben Fragen als Lernkarten zum Umdrehen.</p>
+  <div class="qa">
+    <div><span class="qn">FRAGE 01</span><b>Was macht Deep Research?</b><p>Es plant viele Suchen, liest und vergleicht die Quellen und schreibt einen Bericht – jede Aussage mit Quelle.</p></div>
+    <div><span class="qn">FRAGE 02</span><b>Websuche oder Deep Research?</b><p>Websuche für schnelle, gezielte Fragen. Deep Research für große Fragen, bei denen man viele Quellen vergleichen muss.</p></div>
+    <div><span class="qn">FRAGE 03</span><b>Wie startet man Deep Research in Langdock?</b><p>Im Chat bei den Werkzeugen (Tools) „Deep research“ wählen, Frage eingeben, Rückfragen beantworten.</p></div>
+    <div><span class="qn">FRAGE 04</span><b>Wie lange dauert eine Deep-Research-Recherche?</b><p>Etwa 5 bis 30 Minuten.</p></div>
+    <div><span class="qn">FRAGE 05</span><b>Was ist der häufigste Fehler?</b><p>Nur ein Thema nennen. Besser: die Entscheidung, die vorbereitet werden soll.</p></div>
+    <div><span class="qn">FRAGE 06</span><b>Die sechs Abschnitte des Bauplans?</b><p>Zweck, Ausgangslage, Untersuchungsrahmen, Belege und Regeln, Vorgehen, Ergebnisform.</p></div>
+    <div><span class="qn">FRAGE 07</span><b>Was gehört in die Ausgangslage?</b><p>Nur bekannte Tatsachen über die Situation – keine Lösungen und keine erfundenen Annahmen.</p></div>
+    <div><span class="qn">FRAGE 08</span><b>Was gehört in den Untersuchungsrahmen?</b><p>Zielgruppe, Region, Optionen, Bewertungskriterien – und was ausdrücklich nicht dazugehört.</p></div>
+    <div><span class="qn">FRAGE 09</span><b>Warum reicht „Nutze seriöse Quellen“ nicht?</b><p>Weil niemand prüfen kann, was „seriös“ heißt. Besser: Quellenarten, Aktualität, Anbieterangaben und Umgang mit Lücken festlegen.</p></div>
+    <div><span class="qn">FRAGE 10</span><b>In welcher Reihenfolge arbeitet ein guter Auftrag?</b><p>Begriffe klären → gleich vergleichen → gegenprüfen → erst dann empfehlen.</p></div>
+    <div><span class="qn">FRAGE 11</span><b>Woran kommt Deep Research nicht heran?</b><p>An interne Daten, verbundene Apps, Agenten und Ablagen wie SharePoint, OneDrive oder Google Drive.</p></div>
+    <div><span class="qn">FRAGE 12</span><b>Was fragt der Generator im Prompt-Labor ab?</b><p>Forschungsfrage, Zeitraum, Region, Quellentypen, Gegenpositionen, Umgang mit Lücken, Ausgabeformat.</p></div>
+  </div>
+</section>
+
+<!-- ============ WOERTER ============ -->
+<section class="lp" id="k15">
+  <div class="kh"><span class="kn">Aa</span><div><p class="kk">Zum Nachschlagen</p><h2>Die Wörter des Tages</h2></div><button class="unklar ux" type="button" data-unklar-ref="t5:lernheft:k15" data-unklar-hash="#k15" data-unklar-label="Lernheft · Die Wörter des Tages">Unklar?</button></div>
+  <div class="gl">
+    <div><b>Deep Research</b><span>Gründliche Recherche durch die KI: viele Suchen, ein Bericht mit Quellen.</span></div>
+    <div><b>Websuche</b><span>Schnelle Suche im Internet für kurze, gezielte Fragen.</span></div>
+    <div><b>Rechercheauftrag</b><span>Der Prompt für Deep Research – am besten nach dem Bauplan mit sechs Abschnitten.</span></div>
+    <div><b>Forschungsfrage</b><span>Die genaue Frage, die eine Entscheidung vorbereitet – mehr als ein Thema.</span></div>
+    <div><b>Untersuchungsrahmen</b><span>Was untersucht wird: Zielgruppe, Region, Optionen, Kriterien – und was nicht.</span></div>
+    <div><b>Anbieterangabe</b><span>Eine Zahl, die vom Anbieter selbst stammt – interessengeleitet, also kennzeichnen.</span></div>
+    <div><b>Gegenposition</b><span>Eine Quelle oder Sicht, die dem eigenen Ergebnis widerspricht.</span></div>
+    <div><b>Datenlücke</b><span>Etwas, wozu es keine verlässlichen Daten gibt – benennen statt erfinden.</span></div>
+    <div><b>Entscheidungsvorlage</b><span>Ein kurzes Ergebnis, mit dem jemand direkt entscheiden kann.</span></div>
+    <div><b>Quellenliste</b><span>Alle verwendeten Quellen mit Links am Ende des Berichts.</span></div>
+  </div>
+  <div class="end"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg><div><b>Alles noch einmal online</b><p>quint-games.de/hefte → eigener Name → Tag 5: Learnings, Lernkarten, Selbsttest und dieses Lernheft.</p></div></div>
+</section>
+
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

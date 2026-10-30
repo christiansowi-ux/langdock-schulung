@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de" data-person="ingo" data-page="lernblatt" data-lernblatt="ingo/tag-22" data-tag="22">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Learnings Tag 22 · Die einfache Freigabe-Ampel – Ingo</title>
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/style.css">
+<link rel="stylesheet" href="/hefte/assets/web.css">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<style>@page { size: A4; margin: 14mm 16mm 17mm 16mm;
+ @bottom-left { content: "KI Automations Spezialist  ·  Praxisblock Langdock  ·  Learnings Tag 22 · Die einfache Freigabe-Ampel  ·  Ingo"; font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; }
+ @bottom-right { content: "Seite " counter(page) " von " counter(pages); font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } }</style>
+<script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="web lernblatt ui ui-web">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/ingo/">Ingo</a><span class="sep">/</span><a href="/hefte/ingo/#modul-2">Modul 2 · KI-Automation</a><span class="sep">/</span><a href="/hefte/ingo/modul-2/tag-3/">Tag 3 · Die einfache Freigabe-Ampel</a><span class="sep">/</span><span aria-current="page">Lernblatt</span></nav><div class="top-right"><div class="wb-status" id="lb-status"></div><div class="wb-actions"><span id="dz-slot"></span><button class="wb-primary" data-lernblatt-here="ingo/tag-22" type="button">Als PDF herunterladen</button></div><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+<section class="lb-cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Praxisblock Langdock · Lernblatt</p>
+  <h1>Learnings Tag 22 · Die einfache <span class="nw">Freigabe-Ampel</span></h1>
+  <p class="lb-for">für <b>Ingo</b> · Druck &amp; Vertrieb</p>
+  <p class="lb-sel" hidden></p>
+</section>
+<section class="section lrn-section" data-lrn-tag="22"><div class="sec-head"><div class="sec-no">Zum Nachlernen</div><h2>Die Learnings von Tag 22</h2><p>Die einfache Freigabe-Ampel – das Wichtigste in kurzen Sätzen, jeweils einfach erklärt und mit der passenden Folie.</p></div><div class="lrn-tools"></div><ol class="lrn thumbs"><li data-lrn="l1"><div class="lrn-no">1</div><div class="lrn-body"><b class="lrn-satz">Mittwoch: Nur Fertiges darf weiter</b><p>Heute machen wir es kleiner: Du gibst nur ein Wort ein. Steht dort FERTIG, darf Make einen nächsten Schritt ausführen. Steht dort ENTWURF, stoppt der Weg.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l2"><div class="lrn-no">2</div><div class="lrn-body"><b class="lrn-satz">Ein Filter ist wie eine kleine Tür</b><p>Stell dir eine Tür mit einem Schild vor: „Nur Fertiges“. Die Tür schaut auf deinen Status. Bei FERTIG geht sie auf. Bei ENTWURF bleibt sie zu. So arbeitet unser Filter.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l3"><div class="lrn-no">3</div><div class="lrn-body"><b class="lrn-satz">Schritt 1: Einen Status bereitstellen</b><p>1. Öffne in Make ein neues eigenes Szenario. Nenne es M2-03 Freigabe-Ampel.
+2. Wähle über das Plus Tools → Set variable.
+3. Trage bei Variable name status ein.
+4. Trage bei Variable value FERTIG ein. Falls eine Lebensdauer gefragt wird: One execution.
+5. Bestätige, speichere und klicke einmal auf Run once.
+6. Öffne die Ausgabe am Baustein. Dort muss FERTIG stehen.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l4"><div class="lrn-no">4</div><div class="lrn-body"><b class="lrn-satz">Schritt 2: Die Meldung vorbereiten</b><p>1. Ergänze rechts einen zweiten Baustein: Tools → Compose a string.
+2. Tippe in Text: Beitrag zur Planung bereit. Status: und danach ein Leerzeichen.
+3. Wähle dahinter den Wert status aus dem ersten Baustein aus.
+4. Bestätige und speichere.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l5"><div class="lrn-no">5</div><div class="lrn-body"><b class="lrn-satz">Schritt 3: Genau eine Regel einsetzen</b><p>1. Klicke auf die Verbindung zwischen den beiden Bausteinen.
+2. Gib dem Filter den Namen Nur Fertiges.
+3. Wähle links das Feld status aus dem ersten Baustein.
+4. Wähle als Textvergleich Equal to. Das heißt „ist gleich“.
+5. Tippe rechts FERTIG ein.
+6. Speichere den Filter und den Ablauf.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l6"><div class="lrn-no">6</div><div class="lrn-body"><b class="lrn-satz">Schritt 4: Einmal weiter, einmal stoppen</b><p>Speichere und starte den ganzen Ablauf mit Run once. Öffne die neue Ausgabe des zweiten Bausteins. Erwartet: Beitrag zur Planung bereit. Status: FERTIG</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l7"><div class="lrn-no">7</div><div class="lrn-body"><b class="lrn-satz">Wenn es nicht so klappt</b><p>Ändere immer nur eine Sache und teste dann gezielt. Wenn beide Fälle wie erwartet funktionieren, bist du mit der Hauptaufgabe fertig.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l8"><div class="lrn-no">8</div><div class="lrn-body"><b class="lrn-satz">Vier sehr leichte Fragen</b><p>Du darfst nachlesen. Deine Auswahl und die geprüften Antworten werden auf diesem Gerät in diesem Browser gespeichert. Bei Problemen hilft der Textdownload.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l9"><div class="lrn-no">9</div><div class="lrn-body"><b class="lrn-satz">Die Lösungen kurz erklärt</b><p>1. Antwort B: Nur der vereinbarte Wert FERTIG erfüllt unsere eine Regel.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l10"><div class="lrn-no">10</div><div class="lrn-body"><b class="lrn-satz">Das reicht für Mittwoch</b><p>Ich kann erklären: Mein Filter lässt FERTIG durch und stoppt ENTWURF. Ich habe beide Fälle geprüft. Die Meldung steht nur in Make.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l11"><div class="lrn-no">11</div><div class="lrn-body"><b class="lrn-satz">Extra 1: Eine frische Schlagzeile holen</b><p>Nützlich für ein kleines Ideen- oder Nachrichtenboard: Make liest eine Überschrift und einen Link. Keine zusätzliche Anmeldung. Als Beispiel verwenden wir den öffentlichen deutschsprachigen tagesschau-Feed. Eine Schlagzeile ist noch kein geprüfter eigener Social-Media-Text.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l12"><div class="lrn-no">12</div><div class="lrn-body"><b class="lrn-satz">Aus der Schlagzeile wird dein Lesezettel</b><p>1. Hänge Tools → Compose a string hinter den erfolgreich getesteten RSS-Baustein.
+2. Tippe Lesetipp: und ein Leerzeichen. Wähle das Feld für die Überschrift aus der RSS-Ausgabe, häufig Title.
+3. Füge eine neue Zeile hinzu und wähle den Artikel-Link aus derselben Ausgabe.
+4. Speichere und starte beide Bausteine einmal.
+5. Prüfe, ob die Überschrift und der Link im fertigen Text zusammenpassen.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l13"><div class="lrn-no">13</div><div class="lrn-body"><b class="lrn-satz">Extra 2: Eine Idee in Google Sheets sichern</b><p>Hier entsteht wirklich eine gespeicherte Tabellenzeile. Wähle dieses Extra nur, wenn du bereits ein eigenes Google-Konto hast und es mit Make verbinden möchtest. Sonst nimm das RSS-Beispiel.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l14"><div class="lrn-no">14</div><div class="lrn-body"><b class="lrn-satz">Die schwierigen Folien in Alltagssprache</b><p>Die Folien zeigen ein großes Kontaktformular mit Tally, Modell-API, E-Mail und HubSpot. Dort wird eine Nachricht eingeordnet, als JSON ausgegeben und passend weitergeleitet. Dafür braucht man mehrere Zugänge und mehr Erfahrung.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li></ol><div class="keep lrn-wordbox"><h4>Die Wörter des Tages</h4><div class="lrn-words"><div><b>Filter</b>Prüfstelle auf einer Verbindung: Nur passende Daten gehen weiter.</div><div><b>Router</b>Weiche, die einen Ablauf in mehrere Wege teilt.</div><div><b>AND / OR</b>AND: alle Bedingungen müssen stimmen. OR: eine reicht.</div><div><b>Webhook</b>Adresse, an die eine Anwendung sofort Daten schickt, wenn etwas passiert.</div><div><b>Polling</b>Regelmäßiges Nachfragen, ob es Neues gibt.</div><div><b>System-Prompt</b>Feste Anweisung an die KI zu Rolle, Ton und Regeln.</div><div><b>Strukturierter Output</b>KI-Antwort als JSON mit festen Feldern statt Fließtext.</div><div><b>Human-in-the-Loop</b>Fester Haltepunkt, an dem ein Mensch freigibt.</div></div></div></section>
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

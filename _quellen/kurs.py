@@ -295,3 +295,18 @@ TAGE[15] = TAG15
 from reihe1618.content import course as workshop_course
 for workshop_day in (16, 17, 18):
     TAGE[workshop_day] = workshop_course(workshop_day)
+
+from tag19.content import course as friday_course
+TAGE[19] = friday_course()
+
+from modul2.tag1.series import course as module2_course
+for module2_day in (1,2,3,4):
+    TAGE[19+module2_day] = module2_course(module2_day)
+
+# Modul 2 · Woche 1 · Tag 5: Use Cases + Learning Hub mit allen Modul-1-Funktionen (30.10.2026)
+from modul2.woche1.daten import course as woche1_course
+TAGE[24] = woche1_course()
+
+# Jeder Tag ein Learning Hub: Lernkarten, Selbsttest und Wörter für Tag 19 und Modul 2 (30.10.2026)
+from lernhub_daten import ergaenzen as _lernhub
+_lernhub(TAGE)

@@ -1,0 +1,215 @@
+{
+  "name": "M2 · A8 Use-Case-Steckbrief",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "name",
+            "value": "Druckanfragen vorsortieren"
+          },
+          {
+            "name": "eigentuemer",
+            "value": "Leitung Innendienst"
+          },
+          {
+            "name": "problem",
+            "value": "Anfragen kommen unvollständig per E-Mail; Rückfragen kosten Tage."
+          },
+          {
+            "name": "ausloeser",
+            "value": "Neue E-Mail im Postfach anfragen@"
+          },
+          {
+            "name": "input",
+            "value": "E-Mail-Text: Produkt, Auflage, Format, Papier, Termin"
+          },
+          {
+            "name": "verarbeitung",
+            "value": "Angaben auslesen, fehlende Felder markieren, Rückfrage-Entwurf vorbereiten"
+          },
+          {
+            "name": "output",
+            "value": "Neue Zeile in der Anfragetabelle + Entwurf zur Prüfung"
+          },
+          {
+            "name": "volumen",
+            "value": "180 Anfragen pro Monat"
+          },
+          {
+            "name": "nutzen",
+            "value": "15 Stunden pro Monat im Innendienst"
+          },
+          {
+            "name": "richtig_wenn",
+            "value": "Alle fünf Angaben stimmen mit der E-Mail überein"
+          },
+          {
+            "name": "nicht_dabei",
+            "value": "Keine Preise, kein automatischer Versand an Kundschaft"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Steckbrief ausfüllen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "name",
+            "label": "name",
+            "type": "any"
+          },
+          {
+            "name": "eigentuemer",
+            "label": "eigentuemer",
+            "type": "any"
+          },
+          {
+            "name": "problem",
+            "label": "problem",
+            "type": "any"
+          },
+          {
+            "name": "ausloeser",
+            "label": "ausloeser",
+            "type": "any"
+          },
+          {
+            "name": "input",
+            "label": "input",
+            "type": "any"
+          },
+          {
+            "name": "verarbeitung",
+            "label": "verarbeitung",
+            "type": "any"
+          },
+          {
+            "name": "output",
+            "label": "output",
+            "type": "any"
+          },
+          {
+            "name": "volumen",
+            "label": "volumen",
+            "type": "any"
+          },
+          {
+            "name": "nutzen",
+            "label": "nutzen",
+            "type": "any"
+          },
+          {
+            "name": "richtig_wenn",
+            "label": "richtig_wenn",
+            "type": "any"
+          },
+          {
+            "name": "nicht_dabei",
+            "label": "nicht_dabei",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:ComposeTransformer",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "value": "USE-CASE-STECKBRIEF\n1 Name: {{1.name}}\n2 Verantwortlich: {{1.eigentuemer}}\n3 Problem: {{1.problem}}\n4 Auslöser: {{1.ausloeser}}\n5 Input: {{1.input}}\n6 System übernimmt: {{1.verarbeitung}}\n7 Output: {{1.output}}\n8 Volumen: {{1.volumen}}\n9 Nutzen: {{1.nutzen}}\n10 Richtig, wenn: {{1.richtig_wenn}}\n11 Nicht dabei: {{1.nicht_dabei}}\n\nOffene Felder markieren statt raten."
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Steckbrief formatieren"
+        },
+        "restore": {},
+        "expect": [
+          {
+            "name": "value",
+            "type": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

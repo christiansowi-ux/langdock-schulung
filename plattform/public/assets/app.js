@@ -10,6 +10,8 @@
   var PDFMODE = /[?&]pdf=1/.test(location.search);
   var NAMES = { carmen: 'Carmen', ingo: 'Ingo', tabea: 'Tabea' };
   var FKEY = 'kurs:v1:fragen';
+  // Neue Adressen seit 30.10.2026: Modul 1 = Tag 1–19, Modul 2 = interne Tage 20–24 (Tag 1–5)
+  function dayUrl(tag, person) { tag = +tag; return BASE + '/' + (person || PERSON) + '/' + (tag <= 19 ? 'modul-1/tag-' + tag : 'modul-2/tag-' + (tag - 19)) + '/'; }
   var BELL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>';
 
   /* ---------- Hilfen ---------- */
@@ -192,7 +194,7 @@
       var tag = sec ? sec.getAttribute('data-lrn-tag') : TAG;
       if (!n || !tag || !PERSON || s.closest('.legend')) return;
       var a = el('a', s.className, s.textContent);
-      a.href = BASE + '/' + PERSON + '/tag-' + tag + '/?folie=' + n + '#folien';
+      a.href = dayUrl(tag) + '?folie=' + n + '#folien';
       a.title = 'Folie ' + n + ' ansehen';
       s.parentNode.replaceChild(a, s);
     });
@@ -343,7 +345,7 @@
     refreshMine(true);
     setInterval(function () { if (!document.hidden) refreshMine(); }, 45000);
     bell();
-    window.KURS = { mine: mine, mark: markButtons, refresh: refreshMine, pdf: lernblattPdf, toast: toast, showAnswer: showAnswer, ls: ls, api: api, names: NAMES };
+    window.KURS = { dayUrl: dayUrl, mine: mine, mark: markButtons, refresh: refreshMine, pdf: lernblattPdf, toast: toast, showAnswer: showAnswer, ls: ls, api: api, names: NAMES };
     fire();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();

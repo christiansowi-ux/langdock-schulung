@@ -1,0 +1,262 @@
+{
+  "name": "M2 · A9 Rechnungs-Regel: KI liest, Regel entscheidet",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "lieferant",
+            "value": "Papierhaus Muster GmbH"
+          },
+          {
+            "name": "lieferant_bekannt",
+            "value": "ja"
+          },
+          {
+            "name": "bestellbezug",
+            "value": "ja"
+          },
+          {
+            "name": "betrag",
+            "value": "840"
+          },
+          {
+            "name": "sicherheit",
+            "value": "93"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Ausgelesene Rechnung (Beispiel)"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "lieferant",
+            "label": "lieferant",
+            "type": "any"
+          },
+          {
+            "name": "lieferant_bekannt",
+            "label": "lieferant_bekannt",
+            "type": "any"
+          },
+          {
+            "name": "bestellbezug",
+            "label": "bestellbezug",
+            "type": "any"
+          },
+          {
+            "name": "betrag",
+            "label": "betrag",
+            "type": "any"
+          },
+          {
+            "name": "sicherheit",
+            "label": "sicherheit",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Regel prüft"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "STANDARDFALL · Stufe 3\nRechnung von {{1.lieferant}} über {{1.betrag}} € erfüllt alle vier Regeln.\nFreigabe vorbereitet. Ein Mensch prüft Stichproben."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -100,
+                  "name": "3a · Standardfall (Stufe 3)"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Alle 4 Regeln erfüllt (UND)",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.lieferant_bekannt}}",
+                      "o": "text:equal",
+                      "b": "ja"
+                    },
+                    {
+                      "a": "{{1.bestellbezug}}",
+                      "o": "text:equal",
+                      "b": "ja"
+                    },
+                    {
+                      "a": "{{1.betrag}}",
+                      "o": "number:less",
+                      "b": "1000"
+                    },
+                    {
+                      "a": "{{1.sicherheit}}",
+                      "o": "number:greaterorequal",
+                      "b": "90"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "AUSNAHME · Stufe 2\nRechnung von {{1.lieferant}} über {{1.betrag}} € braucht eine menschliche Freigabe.\nBekannt: {{1.lieferant_bekannt}} · Bestellbezug: {{1.bestellbezug}} · Sicherheit: {{1.sicherheit}} %"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 100,
+                  "name": "3b · Ausnahme (Stufe 2)"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Mindestens 1 Regel verletzt (ODER)",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.lieferant_bekannt}}",
+                      "o": "text:notequal",
+                      "b": "ja"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.bestellbezug}}",
+                      "o": "text:notequal",
+                      "b": "ja"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.betrag}}",
+                      "o": "number:greaterorequal",
+                      "b": "1000"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.sicherheit}}",
+                      "o": "number:less",
+                      "b": "90"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

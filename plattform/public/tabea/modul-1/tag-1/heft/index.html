@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="de" data-heft="tabea/tag-1" data-person="tabea" data-tag="1" data-page="heft">
+<head>
+<meta charset="utf-8">
+<title>Langdock für Video, Design &amp; Creative Direction – Arbeitsheft</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="heft-id" content="tabea/tag-1"><meta name="heft-file" content="Tag1_Tabea"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/style.css"><link rel="stylesheet" href="/hefte/assets/web.css"><link rel="stylesheet" href="/hefte/assets/app.css"><style>@page { size: A4; margin: 14mm 16mm 17mm 16mm; @bottom-left { content: "KI Automations Spezialist  ·  Praxisblock Langdock  ·  Video, Design & Creative Direction"; font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } @bottom-right { content: "Seite " counter(page) " von " counter(pages); font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } } @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }</style><script src="/hefte/assets/hefte.js" defer></script><script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="web ui ui-web">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/tabea/">Tabea</a><span class="sep">/</span><a href="/hefte/tabea/#modul-1">Modul 1 · KI-Grundlagen</a><span class="sep">/</span><a href="/hefte/tabea/modul-1/tag-1/">Tag 1 · KI – Hype oder Realität?</a><span class="sep">/</span><span aria-current="page">Arbeitsheft</span></nav><div class="top-right"><div aria-live="polite" class="wb-status" id="wb-status">Noch nichts eingetragen</div><div class="wb-actions"><span id="dz-slot"></span><button class="wb-primary" id="wb-pdf" type="button">PDF herunterladen</button><details class="wb-more"><summary>Mehr</summary><div class="wb-menu"><a href="#lrn-anchor" id="wb-lrn">Zu den Learnings</a><button id="wb-export" type="button">Antworten als Datei sichern</button><label class="wb-file">Antworten aus Datei laden<input accept=".json,application/json" id="wb-import" type="file"/></label><a download="" href="/hefte/pdf/Langdock_Praxisblock_C_Video-Design-Creative.pdf">Leeres Heft als PDF (zum Ausdrucken)</a><button id="wb-print" type="button">Drucken</button><button class="wb-danger" id="wb-reset" type="button">Alle Eingaben löschen</button></div></details></div><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header><p class="wb-hint">In Felder und Linien tippen, Kästchen anklicken – alles wird automatisch in diesem Browser gespeichert. Etwas unklar? Bei jedem Schritt gibt es den Knopf „Unklar?“ – die Schulungsleitung sieht es sofort.</p>
+
+<!-- ============ TITELSEITE ============ -->
+<section class="cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <div class="profile">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#1a6b5a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="17" width="28" height="21" rx="3"/><path d="M32 23.5l11-6v20l-11-6z"/><circle cx="12" cy="10.5" r="4.5"/><circle cx="24" cy="10.5" r="4.5"/></svg>
+    <div class="kicker">KI Automations Spezialist · Praxisblock Langdock · 3 Stunden</div>
+  </div>
+  <h1>Langdock für Video,<br>Design &amp; Creative Direction</h1>
+  <div class="sub">Konzeption, Bildwelten, Produktion und Kritik – Langdock als Sparring, nicht als Ersatz für Fachwissen.</div>
+  <p class="lead">Dieses Heft führt in drei Abschnitten durch den Praxisblock. Man arbeitet an einer Kampagne für eine ausgedachte Premium-Kaffeemarke: vom Briefing über drei Creative Directions mit Moodbildern bis zu Shotlist, Storyboard-Frames und einem visuellen System über alle Formate. Wer vom Fach ist, bekommt hier bewusst anspruchsvolle Aufgaben – und diskutiert mit der KI, statt ihr nur Befehle zu geben.</p>
+
+  <div class="outcome"><div class="bar"></div><div><span class="lbl">Ergebnis am Ende</span>Ein eigener, wiederverwendbarer <b>„Creative &amp; Video Copilot“</b> als Langdock-Agent – vom Kundenbriefing bis zur Qualitätskontrolle.</div></div>
+
+  <h4>Ablauf</h4>
+  <table class="plan">
+    <tr><th>Abschnitt</th><th>Zeit</th><th>Aufgaben</th><th>Ergebnis</th></tr>
+    <tr><td>1 · Briefing &amp; Creative Directions</td><td>0:00–1:00</td><td>Aufgabe 1 Creative Briefing<br>Aufgabe 2 Drei Directions + Moodbilder</td><td>Briefing, drei Konzepte mit Bildern</td></tr>
+    <tr><td>2 · Produktion &amp; visuelles System</td><td>1:00–2:00</td><td>Aufgabe 3 Shotlist &amp; Realitätscheck<br>Aufgabe 4 Storyboard-Frames<br>Aufgabe 5 System über alle Formate</td><td>Shotlist, Frames, Key Visuals</td></tr>
+    <tr><td>3 · KI als Critic &amp; eigener Copilot</td><td>2:00–3:00</td><td>Aufgabe 6 Kritik auf Senior-Niveau<br>Aufgabe 7 Creative &amp; Video Copilot</td><td>bewertete KI-Kritik, eigener Agent</td></tr>
+  </table>
+
+  <h4>So liest man dieses Heft</h4>
+  <div class="legend">
+  <div><span class="where new">Neuer Chat</span><span>neuen Chat öffnen, dann den Prompt eingeben</span></div>
+  <div><span class="where same">Im selben Chat</span><span>im bisherigen Chat weiterschreiben</span></div>
+  <div><span class="where img">Bild-Schaltfläche</span><span>Bild von Langdock erzeugen lassen</span></div>
+  <div><span class="tag ph">[eckige Klammern]</span><span>durch eigene Angaben ersetzen</span></div>
+  <div><span class="tag watch">Beobachten</span><span>darauf beim Ergebnis achten</span></div>
+  <div><span class="tag merke">Merke</span><span>das Wichtigste zum Mitnehmen</span></div>
+  <div><span class="tag safe">Sicher</span><span>Datenschutz und Verantwortung</span></div>
+  <div><span style="display:inline-block;flex:0 0 31mm;text-align:center"><span style="display:inline-block;width:3.9mm;height:3.9mm;border:.35mm solid #111;border-radius:.7mm;vertical-align:-.6mm"></span></span><span>erledigt? abhaken</span></div>
+</div>
+
+  <div class="namefields"><div>Name</div><div>Datum</div></div>
+</section>
+
+<section class="section">
+  <h2 class="plain">Bevor es losgeht</h2>
+
+  <h4>Sicher arbeiten – diese 6 Regeln gelten den ganzen Tag</h4>
+  <div class="rules">
+    <div class="rule"><div class="num">1</div><div><b>Nur ausgedachte Fälle</b>Alle Firmen, Personen und Zahlen in diesem Heft sind erfunden. Man gibt keine echten Namen, Kundendaten, Personaldaten, Passwörter oder Vertragsdetails ein – auch nicht „nur zum Testen“.</div></div>
+    <div class="rule"><div class="num">2</div><div><b>Nur freigegebene Dateien hochladen</b>Erlaubt sind Schulungsmaterial, öffentlich zugängliche Broschüren und eigene Arbeiten. Keine internen Kalkulationen, keine Unterlagen unter Geheimhaltung.</div></div>
+    <div class="rule"><div class="num">3</div><div><b>Ergebnisse immer prüfen</b>Langdock kann Fakten, Preise, Maße oder technische Angaben erfinden – und klingt dabei überzeugend. Man übernimmt nichts ungeprüft.</div></div>
+    <div class="rule"><div class="num">4</div><div><b>Bilder verantwortungsvoll erzeugen</b>Keine echten Personen, keine fremden Marken oder Logos, keine Namen lebender Kunstschaffender im Bild-Prompt. Keine Fotos von Personen hochladen.</div></div>
+    <div class="rule"><div class="num">5</div><div><b>Nichts verschicken, nichts veröffentlichen</b>Mails bleiben Entwürfe, Websites bleiben auf dem eigenen Rechner, Bilder werden nicht gepostet. Heute ist alles Übung.</div></div>
+    <div class="rule"><div class="num">6</div><div><b>Im Zweifel erst fragen</b>Bei Unsicherheit zuerst die Schulungsleitung fragen, dann eingeben. Zusätzlich gelten die Regeln des eigenen Langdock-Workspace.</div></div>
+  </div>
+
+  <h4>Langdock – die Handgriffe für heute</h4>
+  <table class="how">
+    <tr><th>Was man tun will</th><th>So geht es</th></tr>
+    <tr><td>Neuen Chat starten</td><td>Schaltfläche für einen neuen Chat (oben links). Steht bei einem Schritt <span class="where new">Neuer Chat</span>, beginnt man wirklich neu – sonst beeinflusst der alte Verlauf das Ergebnis.</td></tr>
+    <tr><td>Im Chat weiterarbeiten</td><td>Steht <span class="where same">Im selben Chat</span>, schreibt man einfach im bestehenden Chat weiter. Langdock kennt dann alles, was vorher besprochen wurde.</td></tr>
+    <tr><td>Modell wählen</td><td>Auswahl oben im Chat. Für heute reicht das Standardmodell des Workspace.</td></tr>
+    <tr><td>Datei hochladen</td><td>Büroklammer- bzw. Upload-Symbol im Eingabefeld oder Datei ins Chatfenster ziehen (PDF, Word, Excel, Bilder …).</td></tr>
+    <tr><td>Bild erzeugen</td><td>Steht <span class="where img">Bild-Schaltfläche</span>: im Eingabefeld die Schaltfläche zur Bilderzeugung anklicken (englische Oberfläche: „Generate image“), dann das Bild beschreiben. Über die Auswahl an der Schaltfläche lässt sich ein anderes Bildmodell wählen.</td></tr>
+    <tr><td>Prompt speichern</td><td>In der Prompt-Bibliothek ablegen – dann ist er in jedem Chat und bei jedem Agenten wieder abrufbar.</td></tr>
+    <tr><td>Eigenen Agenten bauen</td><td>Bereich „Agents“ → neuen Agenten erstellen: Name, Anweisungen, Wissen (Dateien) und Fähigkeiten (z. B. Bildgenerierung, Websuche).</td></tr>
+    <tr><td>Diagramm zeichnen lassen</td><td>Im Prompt „… als Mermaid-Flussdiagramm“ oder „… als Mermaid-Mindmap“ verlangen – Langdock zeichnet daraus direkt ein Diagramm.</td></tr>
+    <tr><td>Chats sortieren <span class="small">(optional)</span></td><td>Ein Projekt anlegen, z. B. „Praxisblock Langdock“, und alle Chats des Tages dort sammeln.</td></tr>
+  </table>
+  <p class="small">Die Bezeichnungen können je nach Spracheinstellung und Langdock-Version leicht abweichen. Welche Funktionen freigeschaltet sind, legt der eigene Workspace fest.</p>
+
+  <div class="two">
+    <div class="card">
+      <h4>Der gute Prompt – 5 Bausteine</h4>
+      <ol>
+        <li><b>Rolle</b> – Wer soll Langdock sein? <span class="small">„Du bist die Vertriebsassistenz einer Druckerei.“</span></li>
+        <li><b>Situation</b> – Was ist los? Welche Vorgeschichte gibt es?</li>
+        <li><b>Ziel</b> – Was soll am Ende erreicht sein?</li>
+        <li><b>Format</b> – Länge, Liste, Tabelle, Tonalität, Du oder Sie</li>
+        <li><b>Grenzen</b> – Was darf nicht passieren? <span class="small">„Erfinde keine Preise.“</span></li>
+      </ol>
+      <div class="hint"><b>Profi-Trick:</b> Langdock zuerst Fragen stellen lassen – „Stelle mir zuerst Fragen, bevor du …“. Das spart die meisten Korrekturen.</div>
+    </div>
+    <div class="card">
+      <h4>Der gute Bild-Prompt – 7 Bausteine</h4>
+      <ol>
+        <li><b>Motiv</b> – Was ist zu sehen?</li>
+        <li><b>Umgebung</b> – Wo spielt die Szene?</li>
+        <li><b>Stil</b> – Foto, Illustration, Skizze, 3D …</li>
+        <li><b>Licht &amp; Stimmung</b> – Morgenlicht, warm, kühl, ruhig …</li>
+        <li><b>Perspektive</b> – Nahaufnahme, von oben, Totale …</li>
+        <li><b>Farben</b> – wenige, konkret benannte Farben</li>
+        <li><b>Format &amp; Ausschlüsse</b> – Hoch-/Querformat; „kein Text im Bild, keine Logos, keine erkennbaren Gesichter“</li>
+      </ol>
+      <div class="hint"><b>Gut zu wissen:</b> Bildmodelle sind stark bei Ideen, Entwürfen und Stimmungen – schwach bei exaktem Text, genauen Layouts und Markenvorgaben.</div>
+    </div>
+  </div>
+
+  <div class="keep">
+    <h4>Wenn etwas nicht klappt</h4>
+    <table class="fix">
+      <tr><td>Langdock spielt im Rollenspiel beide Seiten</td><td>„Stopp. Spiele nur deine Rolle und warte auf meine Antwort.“</td></tr>
+      <tr><td>Die Antwort bricht mitten im Text ab</td><td>„Mach weiter.“ – oder: „Mach ab dem Satz [letzter Satz] weiter.“</td></tr>
+      <tr><td>Das Ergebnis ist zu lang oder zu allgemein</td><td>„Kürzer und konkreter, höchstens 100 Wörter.“</td></tr>
+      <tr><td>Langdock erfindet Angaben</td><td>„Welche Angaben davon hast du angenommen? Markiere sie.“</td></tr>
+      <tr><td>Das Bild passt nicht</td><td>Nicht neu anfangen, sondern gezielt ändern: „Gleiches Bild, aber …“</td></tr>
+      <tr><td>Eine Funktion fehlt im Workspace</td><td>Kurz der Schulungsleitung Bescheid geben; die Aufgabe geht meist auch als normaler Chat-Prompt.</td></tr>
+    </table>
+  </div>
+
+  <div class="bridge">
+    <div class="q">„</div>
+    <div><b>Brücke zu Lektion 1 – „Künstliche Intelligenz: Hype oder Realität?“</b><br>
+    Dort ging es darum, wo KI schon besser ist als der Mensch und wo sie noch aufholen muss – und wie rasant die Bildgenerierung besser geworden ist. Heute prüft man das selbst, im eigenen Fachgebiet. Die Bilanz dazu steht am Ende dieses Hefts.</div>
+  </div>
+</section>
+
+
+<!-- ============ ABSCHNITT 1 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 1 <span class="chip">0:00–1:00</span></div>
+    <h2>Briefing, Creative Directions &amp; Moodbilder</h2>
+    <p>Langdock führt ein Briefing-Gespräch, entwickelt drei Richtungen, visualisiert sie – und muss eine davon gegen Kritik verteidigen.</p>
+  </div>
+  <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Wichtig:</b> Für die Aufgaben 1 bis 5 benutzt man <b>denselben Chat</b>. So bauen Briefing, Konzept, Shotlist und visuelles System aufeinander auf.</div></div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 1</span><h3>Creative Briefing wie im Agenturalltag</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Langdock stellt die Fragen einer erfahrenen Creative Direction – daraus entsteht ein professionelles Briefing.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Briefing-Gespräch starten</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> – bleibt bis Aufgabe 5</div>
+        <p>Du bist meine Creative-Strategy-Assistenz. Auftrag: eine ausgedachte Premium-Kaffeemarke. Zielgruppe: 20 bis 35 Jahre. Ziel: Markenbekanntheit. Format: 20 Sekunden Social Video. Entwickle noch kein Konzept. Interviewe mich zuerst so, wie es eine erfahrene Creative Direction in einem Briefing-Gespräch tun würde. Stelle immer nur eine Frage auf einmal.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Antworten – acht bis zehn Fragen lang</div>
+      <p>Die Marke denkt man sich selbst aus: Name, Herkunft, Haltung, Tonalität. Bitte keine echte Marke verwenden.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Briefing erstellen lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Erstelle aus meinen Antworten ein professionelles Creative Briefing auf einer Seite: Hintergrund, Ziel, Zielgruppe, Insight, Kernbotschaft, Tonalität, Pflichtelemente, No-Gos, Format und Ausspielung, Erfolgskriterien. Markiere Punkte, die ich nicht beantwortet habe, mit [offen].</p></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 2</span><h3>Drei Creative Directions – mit Moodbildern und Diskussion</h3><span class="time">35 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Wirklich unterschiedliche Richtungen erzeugen, sie sichtbar machen und mit der KI fachlich streiten.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Directions entwickeln</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Entwickle drei visuell wirklich unterschiedliche Creative Directions. Für jede: Grundidee, Story, Look, Licht, Kamera, Schnitt, Sound, Typografie, Referenzrichtung. Beschreibe die Referenzrichtung über Genres, Epochen und Stilmittel – nicht über Namen realer Personen, Filme oder Marken.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Ein Moodbild je Direction</div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where img">Bild-Schaltfläche</span> – dreimal, je Direction einmal</div>
+        <p>Erstelle ein Moodbild für Direction 1 als Standbild aus dem Video – genau nach ihrem Look, Licht und ihrer Kamera. Hochformat 9:16, filmischer Look. Kein Text, keine Logos. Menschen nur angeschnitten, von hinten oder unscharf.</p></div>
+      <p>Danach denselben Prompt für Direction 2 und Direction 3 wiederholen. Langdock übernimmt die Beschreibung selbst aus dem Chatverlauf.</p>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Passt das Bild zur Textbeschreibung? Welche Direction gewinnt durch das Bild – welche verliert?</div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Fachlich kritisieren</div>
+      <p>Man schreibt mindestens drei Kritikpunkte in eigenen Worten direkt in den Chat – an Konzept <b>und</b> Moodbildern.</p>
+      <div class="lines" style="--n:3"></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Verteidigen lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Verteidige Direction 2 gegen meine Kritik. Bleib sachlich, gib nicht sofort nach, räume aber berechtigte Punkte ein. Schlage am Ende eine verbesserte Fassung vor.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Wo argumentiert Langdock überzeugend? Wo weicht es aus oder stimmt zu schnell zu?</div>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke:</b> Mit der KI diskutieren statt nur Befehle zu geben – so entstehen bessere Konzepte. Die Entscheidung trifft die Fachperson.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 2 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 2 <span class="chip">1:00–2:00</span></div>
+    <h2>Produktion planen &amp; visuelles System</h2>
+    <p>Aus einer Idee wird ein realistischer Plan – und aus dem Video eine Kampagne, die in jedem Format wiedererkennbar bleibt.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 3</span><h3>Shotlist und Realitätscheck</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Eine professionelle Shotlist erzeugen, selbst nachprüfen und an echte Rahmenbedingungen anpassen.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Shotlist erstellen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Wir verfolgen Direction <span class="ph">[Nr.]</span> weiter. Erstelle eine professionelle Shotlist für exakt 20 Sekunden als Tabelle mit: Timecode, Shot, Einstellungsgröße, Brennweitenidee, Bewegung, Licht, Handlung, Übergang, Sound. Die Timecodes müssen lückenlos von 00:00 bis 00:20 reichen.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Selbst nachrechnen und prüfen</div>
+      <ul class="check indent">
+        <li>Ergeben alle Shots zusammen genau 20 Sekunden?</li>
+        <li>Passen Einstellungsgröße, Brennweite und Bewegung fachlich zusammen?</li>
+        <li>Ist jeder Shot in der vorgesehenen Zeit überhaupt lesbar?</li>
+      </ul>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>An die Realität anpassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Wir haben nur eine Kamera, eine Person, vier Stunden Produktionszeit und 500 € Produktionsbudget. Passe das Konzept und die Shotlist an, ohne die Grundidee zu zerstören. Zeige, was wegfällt, was vereinfacht wird und warum. Erstelle zusätzlich einen groben Zeitplan für den Drehtag. Kennzeichne alle Kostenangaben als Schätzung.</p></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 4</span><h3>Storyboard-Frames erzeugen</h3><span class="time">10 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Schlüssel-Shots schnell visualisieren – und die Grenzen der Bildgenerierung bei Konsistenz erleben.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Drei Schlüssel-Shots zeichnen lassen</div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where img">Bild-Schaltfläche</span> – für drei Shots wiederholen</div>
+        <p>Storyboard-Frame für Shot 1 der angepassten Shotlist als schlichte Bleistiftskizze in Schwarz-Weiß. Hochformat 9:16, klare Bildaufteilung, Kamerabewegung mit einem Pfeil angedeutet, kein Text.</p></div>
+      <div class="box watch"><span class="tag watch">Beobachten</span>Bleiben Figur, Requisiten und Stil zwischen den Frames gleich? Meist nicht – Konsistenz über mehrere Bilder ist eine typische Schwäche und braucht sehr genaue, wiederholte Beschreibungen.</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 5</span><h3>Ein visuelles System über alle Formate</h3><span class="time">25 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Ein konsistentes System entwickeln lassen – und als Fachperson prüfen, wo die KI Unsinn oder Generisches produziert.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>System entwickeln</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Das Video braucht zusätzlich: Instagram Story, Reel Cover, Feed Post, Website Hero und ein digitales Werbebanner. Entwickle ein konsistentes visuelles System über alle Formate: Formate und Maße, Raster, Typografie-Hierarchie, Farbwelt, Bildsprache, Logo-Platzierung, Safe Zones und Regeln dafür, was in jedem Format gleich bleibt und was sich anpasst.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Key Visual in zwei Formaten</div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where img">Bild-Schaltfläche</span></div>
+        <p>Key Visual der Kampagne nach unserem visuellen System, Hochformat 9:16 für eine Instagram Story. Freiraum für die Headline im oberen Drittel. Kein Text, keine Logos.</p></div>
+      <div class="prompt img"><div class="lbl">Bild-Prompt <span class="where img">Bild-Schaltfläche</span></div>
+        <p>Dasselbe Key Visual im Querformat 16:9 für den Website Hero, mit Freiraum links für Text. Bildsprache, Licht und Farben bleiben gleich.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Fachlich prüfen</div>
+      <table class="fill">
+        <tr><th>Wo liefert Langdock fachlich Unsinn oder Generisches?</th><th>Was wäre richtig oder besser?</th></tr>
+        <tr><td>z. B. Maße, Safe Zones, Schriftwahl, Kontraste …</td><td></td></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke:</b> Formate, Maße und Safe Zones der Plattformen ändern sich. Man gleicht sie immer mit den aktuellen offiziellen Vorgaben ab – nicht mit der KI-Antwort.</div></div>
+  </div>
+</section>
+
+<!-- ============ ABSCHNITT 3 ============ -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-no">Abschnitt 3 <span class="chip">2:00–3:00</span></div>
+    <h2>Langdock als Creative Critic &amp; eigener Copilot</h2>
+    <p>Die KI kritisiert eine Gestaltung – und wird dann selbst von der Fachperson bewertet. Zum Schluss entsteht der eigene Kreativ-Workflow.</p>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 6</span><h3>Kritik auf Senior-Niveau</h3><span class="time">30 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Erleben, was eine KI-Kritik leisten kann – und wo Fachexpertise unverzichtbar bleibt.</p></div>
+    <div class="box safe full"><span class="tag safe">Sicher</span>Hochladen darf man nur eigene Arbeiten oder Material, an dem man die Rechte hat. Keine Kundenarbeiten unter Geheimhaltung, keine Fotos erkennbarer Personen ohne deren Einwilligung. <b>Kein passendes Material?</b> Dann das Key Visual aus Aufgabe 5 verwenden: herunterladen und im neuen Chat wieder hochladen.</div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Material hochladen und kritisieren lassen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span> + Bild oder PDF</div>
+        <p>Agiere als kritische Art Direction auf Senior-Niveau. Kein pauschales Lob. Analysiere das hochgeladene Material nach: visueller Hierarchie, Komposition, Typografie, Kontrast, Markenwirkung, Konsistenz und Zielgruppenpassung. Trenne nachvollziehbare Beobachtungen klar von subjektiven Gestaltungsvorschlägen. Kontext: <span class="ph">[Zweck, Zielgruppe und Kanal in einem Satz]</span>.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Die KI bewerten</div>
+      <table class="fill">
+        <tr><th>Punkt aus der KI-Kritik</th><th style="width:34mm">trifft zu / daneben / fehlt</th><th>Begründung aus Fachsicht</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Widersprechen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Folgende Punkte deiner Kritik halte ich für falsch: <span class="ph">[Punkte]</span>. Überprüfe deine Einschätzung und begründe, ob du dabei bleibst.</p></div>
+    </div>
+    <div class="box merke full"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#006ed6" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#006ed6" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.35" fill="#006ed6"/></svg><div><b>Merke:</b> Fachexpertise wird durch Langdock nicht wertlos – im Gegenteil. Nur wer vom Fach ist, erkennt, wann die KI richtig liegt. Passend zu Lektion 1: KI verstärkt Expertise, sie ersetzt sie nicht.</div></div>
+  </div>
+
+  <div class="task">
+    <div class="task-top"><div class="task-head"><span class="task-no">Aufgabe 7</span><h3>Der eigene „Creative &amp; Video Copilot“</h3><span class="time">30 Min</span></div>
+    <p class="goal"><b>Ziel:</b> Die eigene Arbeitsweise in einen Agenten übersetzen, der bei jedem neuen Projekt hilft.</p></div>
+
+    <div class="step"><div class="step-t"><span class="n">1</span>Workflow gemeinsam entwickeln</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where new">Neuer Chat</span></div>
+        <p>Ich möchte einen persönlichen Langdock-Workflow für Creative- und Videoprojekte aufbauen: Kundenbriefing → Creative Strategy → Ideen → Moodboard mit Bildgenerierung → Storyboard → Shotlist → Produktionsplan → Postproduktion → Social Assets → Qualitätskontrolle. Stelle mir zuerst Fragen zu meiner Arbeitsweise, meinen Stärken und typischen Projekten. Erstelle danach einen Masterprompt für einen Langdock-Agenten. Der Agent soll in jedem Schritt Rückfragen stellen, Annahmen kennzeichnen, Referenzen über Stilmittel statt über reale Namen beschreiben und für jeden Bildwunsch einen präzisen Bild-Prompt formulieren.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">2</span>Workflow sichtbar machen</div>
+      <div class="prompt"><div class="lbl">Prompt <span class="where same">Im selben Chat</span></div>
+        <p>Stelle den Workflow als Mermaid-Flussdiagramm dar.</p></div>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">3</span>Als Agent speichern</div>
+      <p>Bereich <b>Agents</b> → neuen Agenten erstellen:</p>
+      <ul class="check indent">
+        <li><b>Name:</b> Creative &amp; Video Copilot</li>
+        <li><b>Anweisungen:</b> den finalen Masterprompt einfügen</li>
+        <li><b>Fähigkeiten:</b> Bildgenerierung aktivieren</li>
+        <li><b>Wissen</b> (optional): eine eigene Briefing-Vorlage ohne Kundendaten</li>
+        <li><b>Test:</b> „Neues Projekt: 15-Sekunden-Video für ein ausgedachtes Fahrradgeschäft. Starte mit dem Briefing.“</li>
+      </ul>
+      <p class="small">Sind Agents im Workspace nicht freigegeben, speichert man den Masterprompt in der Prompt-Bibliothek.</p>
+    </div>
+
+    <div class="step"><div class="step-t"><span class="n">4</span>Extra: Lieblings-Prompts sichern</div>
+      <p>Die besten Prompts von heute (z. B. „Moodbild je Direction“, „Shotlist exakt 20 Sekunden“) in der Prompt-Bibliothek ablegen – im Agenten-Chat lassen sie sich dann Schritt für Schritt abrufen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABGABE ============ -->
+<section class="final">
+  <div class="sec-head">
+    <div class="sec-no">Abschluss</div>
+    <h2>Abgabe &amp; eigene Bilanz</h2>
+    <p>Alles abhaken, was fertig ist. Offene Punkte greift man am nächsten Schulungstag wieder auf.</p>
+  </div>
+  <h4>Abgabe-Checkliste</h4>
+  <ul class="check">
+    <li>Creative Briefing auf einer Seite (Aufgabe 1)</li>
+    <li>Drei Creative Directions mit je einem Moodbild, eigene Kritik und Verteidigung (Aufgabe 2)</li>
+    <li>Shotlist über exakt 20 Sekunden, geprüft und an das Budget angepasst (Aufgabe 3)</li>
+    <li>Drei Storyboard-Frames (Aufgabe 4)</li>
+    <li>Visuelles System und Key Visual in 9:16 und 16:9, fachlich geprüft (Aufgabe 5)</li>
+    <li>KI-Kritik eingeholt und selbst bewertet (Aufgabe 6)</li>
+    <li>Eigener Agent „Creative &amp; Video Copilot“ angelegt und getestet (Aufgabe 7)</li>
+  </ul>
+  <div class="keep" style="margin-top:7mm">
+  <h4>Hype oder Realität? – die eigene Bilanz nach heute</h4>
+  <p>Wie in Lektion 1: Wo ist KI schon besser – und wo muss sie noch aufholen? Diesmal aus eigener Erfahrung, im eigenen Fachgebiet.</p>
+  <table class="fill full tall">
+    <tr><th>Hier war Langdock heute richtig stark</th><th>Hier musste man korrigieren oder Fachwissen einbringen</th></tr>
+    <tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr>
+  </table>
+</div>
+<div class="keep" style="margin-top:6mm">
+  <h4>Für den nächsten Schulungstag</h4>
+  <p class="small">Wofür setzt man den eigenen Copilot als Erstes ein?</p>
+  <div class="lines full" style="--n:2"></div>
+  <p class="small">Welche Frage soll beim nächsten Mal geklärt werden?</p>
+  <div class="lines full" style="--n:2"></div>
+</div>
+</section>
+
+<span id="lrn-anchor"></span><section class="section lrn-section" data-lrn-tag="1"><div class="sec-head"><div class="sec-no">Zum Nachlernen</div><h2>Die Learnings von Tag 1</h2><p>KI – Hype oder Realität? – das Wichtigste in kurzen Sätzen, jeweils einfach erklärt und mit der passenden Folie.</p></div><div class="lrn-tools"></div><ol class="lrn"><li data-lrn="l1"><div class="lrn-no">1</div><div class="lrn-body"><b class="lrn-satz">Die meisten Unternehmen sehen KI als wichtigste Zukunftstechnologie.</b><p>Laut einer Bitkom-Umfrage sagen das 81 % der Unternehmen und 67 % der Bevölkerung. Für einen Hype, der massiv überschätzt wird, halten KI nur 17 % der Unternehmen und 28 % der Bevölkerung.</p><span class="fref" data-folie="3">Folie 3</span></div></li><li data-lrn="l2"><div class="lrn-no">2</div><div class="lrn-body"><b class="lrn-satz">KI ist in vielen Firmen schon angekommen.</b><p>2018 setzten nur 3 % der Unternehmen KI ein, 2025 sind es 36 %. Weitere 47 % planen oder diskutieren es. Für nur noch 17 % ist KI „kein Thema“.</p><span class="fref" data-folie="5">Folie 5</span></div></li><li data-lrn="l3"><div class="lrn-no">3</div><div class="lrn-body"><b class="lrn-satz">Jobs verändern sich eher, als dass sie verschwinden.</b><p>67 % der Unternehmen erwarten in den nächsten fünf Jahren keine Auswirkung auf die Zahl der Stellen, 20 % erwarten weniger, 7 % mehr. 31 % sagen: KI hilft gegen den Fachkräftemangel. In Deutschland könnten in 15 Jahren etwa 1,6 Millionen Arbeitsplätze betroffen sein – abgebaut oder neu geschaffen. Studien zeigen außerdem: Oft entstehen neue Aufgaben und mehr Arbeitsdruck statt echter Entlastung.</p><span class="fref" data-folie="4">Folie 4</span></div></li><li data-lrn="l4"><div class="lrn-no">4</div><div class="lrn-body"><b class="lrn-satz">Fachwissen wird durch KI wichtiger, nicht unwichtiger.</b><p>Unternehmen, die KI nutzen, um das Können ihrer Leute zu verstärken, wachsen schneller als Firmen, die vor allem automatisieren. Die KI liefert Vorschläge – entscheiden und prüfen tut der Mensch.</p><span class="fref" data-folie="2">Folie 2</span></div></li><li data-lrn="l5"><div class="lrn-no">5</div><div class="lrn-body"><b class="lrn-satz">Es gibt nicht die eine Definition von KI.</b><p>Stanford: die Wissenschaft, intelligente Maschinen zu bauen. MIT: Maschinen, die menschliche Fähigkeiten wie Denken, Lernen, Planen und Kreativität nachahmen. EU-Kommission: Systeme, die ihre Umgebung analysieren und bis zu einem gewissen Grad selbstständig handeln.</p><span class="fref" data-folie="7">Folie 7</span></div></li><li data-lrn="l6"><div class="lrn-no">6</div><div class="lrn-body"><b class="lrn-satz">Der Turing-Test fragt: Kann man Mensch und Maschine im Gespräch unterscheiden?</b><p>Alan Turing beschrieb 1950 ein Gedankenexperiment: Eine Person unterhält sich mit einem Menschen und einer Maschine, ohne zu wissen, wer wer ist. Kann sie die Maschine nicht erkennen, gilt die Maschine als intelligent. Durchgeführt wurde der Test damals nicht – die Computer waren viel zu schwach.</p><span class="fref" data-folie="8">Folie 8</span></div></li><li data-lrn="l7"><div class="lrn-no">7</div><div class="lrn-body"><b class="lrn-satz">In manchem ist KI schon besser als Menschen – in anderem holt sie noch auf.</b><p>Besser als Menschen in Tests: Texte lesen und verstehen, Bilder, Handschrift und Sprache erkennen. Bei Mathe, Code und Allgemeinwissen hat KI fast aufgeschlossen. Deutlich zurück liegt sie beim komplexen Schlussfolgern, also beim Denken über viele Schritte. Es geht aber schnell: 2026 hat ein Modell von OpenAI eine Mathe-Vermutung aus dem Jahr 1946 widerlegt (Folie 12).</p><span class="fref" data-folie="9">Folie 9</span></div></li><li data-lrn="l8"><div class="lrn-no">8</div><div class="lrn-body"><b class="lrn-satz">Bilder und Videos aus der KI sind in wenigen Jahren fast echt geworden.</b><p>2014 waren KI-Gesichter noch unscharfe graue Flecken, heute entstehen fotorealistische Bilder. Beim bekannten „Will Smith isst Spaghetti“-Vergleich sieht man den Sprung von März 2023 zu Mai 2026 auch bei Videos (Folie 11).</p><span class="fref" data-folie="10">Folie 10</span></div></li><li data-lrn="l9"><div class="lrn-no">9</div><div class="lrn-body"><b class="lrn-satz">Die KI-Geschichte kennt Hochs und Tiefs.</b><p>1950 Turing-Test, 1956 entsteht der Begriff „Künstliche Intelligenz“. Zweimal folgte auf zu große Erwartungen ein „KI-Winter“ mit weniger Geld und Interesse (1974–1980 und 1987–1993). 1997 schlägt der Schachcomputer Deep Blue den Weltmeister. Seit den 2000ern geht es steil bergauf. Lehre: Hype und Enttäuschung wechseln sich ab.</p><span class="fref" data-folie="13">Folie 13</span></div></li><li data-lrn="l10"><div class="lrn-no">10</div><div class="lrn-body"><b class="lrn-satz">Der Durchbruch mit GPT hat drei Gründe.</b><p>1. Eine neue Bauweise (der „Transformer“, 2017) lässt sich auf Grafikchips sehr schnell rechnen. 2. Es gibt riesige Mengen Trainingsmaterial aus dem Internet. 3. Man bedient KI einfach mit Sprache – dadurch kann sie jede Person nutzen. Dazu kommt: Diese Modelle erzeugen etwas Neues – Text, Bilder, Code, Videos.</p><span class="fref" data-folie="14">Folie 14</span></div></li><li data-lrn="l11"><div class="lrn-no">11</div><div class="lrn-body"><b class="lrn-satz">Ein guter Prompt hat fünf Bausteine: Rolle, Situation, Ziel, Format, Grenzen.</b><p>Prompt = die Anweisung an die KI. Rolle: Wer soll die KI sein? Situation: Was ist los? Ziel: Was soll am Ende herauskommen? Format: Länge, Liste, Tonfall. Grenzen: Was darf nicht passieren, z. B. „keine Preise erfinden“. Je klarer diese Punkte, desto weniger muss man nachbessern.</p><span class="fref aus">Aus dem Arbeitsheft</span></div></li><li data-lrn="l12"><div class="lrn-no">12</div><div class="lrn-body"><b class="lrn-satz">Die KI zuerst Fragen stellen lassen – und mit ihr üben.</b><p>Der Satz „Stelle mir zuerst Fragen, bevor du …“ spart die meisten Korrekturen. In Rollenspielen spielt die KI das Gegenüber (z. B. Kundschaft) und bewertet danach das Gespräch.</p><span class="fref aus">Aus dem Arbeitsheft</span></div></li><li data-lrn="l13"><div class="lrn-no">13</div><div class="lrn-body"><b class="lrn-satz">KI-Bilder sind Ideen und Entwürfe, keine fertigen Druckdaten.</b><p>Ein guter Bild-Prompt beschreibt Motiv, Umgebung, Stil, Licht, Blickwinkel, Farben und Format – und was nicht ins Bild soll. Vor dem Veröffentlichen oder Drucken prüft man Qualität und Nutzungsrechte.</p><span class="fref aus">Aus dem Arbeitsheft</span></div></li><li data-lrn="l14"><div class="lrn-no">14</div><div class="lrn-body"><b class="lrn-satz">Sicher arbeiten: nur ausgedachte Daten eingeben – und Ergebnisse immer prüfen.</b><p>Keine echten Namen, Kundendaten oder Verträge in Übungen. Die KI kann Zahlen, Preise und Fakten erfinden und klingt dabei überzeugend. Deshalb: Belege verlangen und selbst gegenprüfen.</p><span class="fref aus">Aus dem Arbeitsheft</span></div></li></ol><div class="keep lrn-wordbox"><h4>Die Wörter des Tages</h4><div class="lrn-words"><div><b>KI (Künstliche Intelligenz)</b>Computerprogramme, die Aufgaben lösen, für die man sonst menschliches Denken braucht.</div><div><b>Generative KI</b>KI, die etwas Neues erzeugt: Texte, Bilder, Musik, Videos oder Code.</div><div><b>Prompt</b>Die Anweisung oder Frage, die man der KI gibt.</div><div><b>Turing-Test</b>Gedankenexperiment von 1950: Erkennt man im Gespräch, ob man mit Mensch oder Maschine spricht?</div><div><b>KI-Winter</b>Zeit, in der das Interesse und das Geld für KI stark zurückgingen, weil zu viel versprochen wurde.</div><div><b>Expertensystem</b>Frühe KI (1980er), die mit festen Regeln von Fachleuten arbeitete.</div><div><b>GPT</b>„Generative Pre-trained Transformer“ – die Modellart hinter ChatGPT und vielen anderen Chat-KIs.</div><div><b>Agent</b>In Langdock: ein eigener KI-Assistent mit fester Anweisung, der immer gleich arbeitet.</div></div></div></section>
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>
