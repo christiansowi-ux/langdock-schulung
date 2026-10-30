@@ -1,0 +1,302 @@
+[
+  {
+    "n": 1,
+    "group": "Marketing",
+    "title": "Ein Ideenpostfach, das Ordnung hält",
+    "start": "Neue freigegebene Themenidee",
+    "steps": "Idee einlesen → Thema und Kanal zuordnen → internen Zettel erzeugen",
+    "result": "Ein klarer Vorschlag für den Redaktionsplan.",
+    "test": "Workflow 2: thema auf „Blick hinter die Druckkulissen“ und kanal auf „Instagram“ ändern.",
+    "extras": "Später ein freigegebenes Formular oder Tabellenkonto; kein Social-Publishing nötig."
+  },
+  {
+    "n": 2,
+    "group": "Marketing",
+    "title": "Ein Newsletter-Briefing statt leerer Seite",
+    "start": "Ein Termin steht fest",
+    "steps": "Bestätigte Fakten sammeln → Ausgabe strukturieren → Redaktion prüft",
+    "result": "Datum, Zielgruppe und Thema in einem Briefing.",
+    "test": "Workflow 2 mit „Ideenatelier am 06.11.“ und „Newsletter“. Termin muss unverändert bleiben.",
+    "extras": "Später eigenes Newsletter-Werkzeug; Versand bleibt gesondert freizugeben."
+  },
+  {
+    "n": 3,
+    "group": "Marketing",
+    "title": "Freigegebene Kampagnen sichtbar machen",
+    "start": "Kampagne erhält eine Freigabe",
+    "steps": "Status prüfen → nur freigegebene Fälle weiterlassen",
+    "result": "Ein interner Hinweis auf startbereite Arbeit.",
+    "test": "Workflow 3 mit kategorie=MARKETING; Filter passend ändern, true und false vergleichen.",
+    "extras": "Später ein bestehender Projekttracker; keine Werbung automatisch buchen."
+  },
+  {
+    "n": 4,
+    "group": "Marketing",
+    "title": "Ein Linkzettel für Kampagnen",
+    "start": "Eine Kampagne bekommt einen bestätigten Link",
+    "steps": "Name und Zieladresse einlesen → beschrifteten Linkzettel bauen",
+    "result": "Eine leicht prüfbare Übergabe für das Team.",
+    "test": "Im zweiten Modul feste Labels „Kampagne“ und „Zieladresse“ ergänzen; echte URL nur als Testtext verwenden.",
+    "extras": "Für Klickmessung später erlaubte Analyse und sauber definierte Linkparameter; keine Reichweite versprechen."
+  },
+  {
+    "n": 5,
+    "group": "Marketing",
+    "title": "Alte Ideen erneut vorlegen",
+    "start": "Ein vorhandenes Thema soll wieder geprüft werden",
+    "steps": "Thema und Prüfdatum sammeln → Wiedervorlage-Zettel",
+    "result": "Ein Vorschlag zur erneuten redaktionellen Prüfung.",
+    "test": "Workflow 2: „Workshop-Foto erneut prüfen“, Kanal „Wiedervorlage“. Das ist noch kein Zeitplan.",
+    "extras": "Später Datumsfilter oder Projektkalender; Bildrechte und Aktualität vorher prüfen."
+  },
+  {
+    "n": 6,
+    "group": "Videoproduktion",
+    "title": "Ein Drehbriefing aus vier Angaben",
+    "start": "Ein kleines Videoprojekt beginnt",
+    "steps": "Projekt, Thema und Ausspielweg einlesen → Briefing",
+    "result": "Ein lesbarer Zettel für den ersten Austausch.",
+    "test": "Workflow 2 mit „Nordlicht“, „Interview vorbereiten“, „Drehplanung“.",
+    "extras": "Für längere Briefings später weitere bestätigte Felder; keine Videodatei nötig."
+  },
+  {
+    "n": 7,
+    "group": "Videoproduktion",
+    "title": "Nur freigegebene Drehanfragen weitergeben",
+    "start": "Eine Anfrage wird intern freigegeben",
+    "steps": "Kategorie und Freigabe filtern → Planungsnotiz",
+    "result": "Eine eindeutige interne Startmeldung.",
+    "test": "Workflow 3 unverändert mit VIDEO/true und VIDEO/false.",
+    "extras": "Später erlaubtes Formular oder Tracker; Personenfreigaben bleiben echte separate Dokumente."
+  },
+  {
+    "n": 8,
+    "group": "Videoproduktion",
+    "title": "Einheitliche Namen für Projektdateien",
+    "start": "Neue Produktionsphase",
+    "steps": "Projekt und Phase zuordnen → eindeutige Textbezeichnung",
+    "result": "Ein Namensvorschlag wie Nordlicht_Interview_Entwurf.",
+    "test": "Workflow 2: im Textmodul den Projekttoken, einen Unterstrich und einen bestätigten Phasentext verbinden.",
+    "extras": "Zum tatsächlichen Umbenennen später freigegebener Dateizugriff und Schutz vor doppelten Namen."
+  },
+  {
+    "n": 9,
+    "group": "Videoproduktion",
+    "title": "Feedback-Runden bündeln",
+    "start": "Eine Korrekturrunde ist abgeschlossen",
+    "steps": "Rundennummer und bestätigte Rückmeldung sammeln → Änderungszettel",
+    "result": "Eine geordnete Übergabe ohne neue Schnittbehauptung.",
+    "test": "Workflow 2: Thema „Runde 2: Termin im Bauchbinden-Text korrigieren“. Ausgabe mit Quelle vergleichen.",
+    "extras": "Später freigegebenes Feedback-Tool; Clip, Timecodes und Schnittdatei bleiben zusätzlich nötig."
+  },
+  {
+    "n": 10,
+    "group": "Videoproduktion",
+    "title": "Export zur Prüfung anmelden",
+    "start": "Eine Vorschau ist fertig",
+    "steps": "Status prüfen → Prüfliste bereitstellen → Mensch kontrolliert",
+    "result": "Ein Hinweis auf Bild, Text, Ton und Formatprüfung.",
+    "test": "Workflow 3: Freigabe=false darf keine Bereitschaftsmeldung ausgeben.",
+    "extras": "Später Dateilink und Projekttracker; das Lesen eines Links prüft noch keinen Videoexport."
+  },
+  {
+    "n": 11,
+    "group": "Vertrieb",
+    "title": "Druckanfragen sauber vorbesprechen",
+    "start": "Eine Anfrage kommt an",
+    "steps": "Anliegen und Projekt erfassen → interne Zusammenfassung",
+    "result": "Ein Gesprächszettel statt unbestätigter Zusage.",
+    "test": "Workflow 2: Thema „200 Flyer; Papier noch offen“, Kanal „Vertrieb“. Offener Punkt muss sichtbar bleiben.",
+    "extras": "Später erlaubtes Anfrageformular; Preis und Liefertermin werden nicht erfunden."
+  },
+  {
+    "n": 12,
+    "group": "Vertrieb",
+    "title": "Nur prüfbare Angebote vorlegen",
+    "start": "Angebotsunterlagen wurden intern geprüft",
+    "steps": "Kategorie ANGEBOT und Freigabe true filtern",
+    "result": "Eine Meldung für die nächste persönliche Prüfung.",
+    "test": "Workflow 3 mit angepasstem Kategoriefilter und zwei verschiedenen Freigabewerten.",
+    "extras": "Später Angebotsablage oder CRM; kein automatischer Außenversand im Einstieg."
+  },
+  {
+    "n": 13,
+    "group": "Vertrieb",
+    "title": "Gesprächsvorbereitung aus Notizen",
+    "start": "Ein Kundengespräch steht bevor",
+    "steps": "Bestätigte Fragen einlesen → kurzen Gesprächszettel",
+    "result": "Ziel, offene Fragen und nächster Schritt.",
+    "test": "Workflow 2: Thema „Format und Abholung klären“, Kanal „Gespräch“.",
+    "extras": "Später Termin-/CRM-Verbindung mit erlaubten Daten; KI-Zusammenfassung gesondert prüfen."
+  },
+  {
+    "n": 14,
+    "group": "Vertrieb",
+    "title": "Nachfassen als internen Entwurf vormerken",
+    "start": "Ein vereinbarter Nachfasstermin steht an",
+    "steps": "Datum und Projekt prüfen → Aufgabe vorbereiten",
+    "result": "Ein Vorschlag für die persönliche Wiedervorlage.",
+    "test": "Workflow 2: Thema „Rückfrage nach Papiermuster“, Kanal „Nachfassnotiz“. Noch kein automatischer Terminlauf.",
+    "extras": "Später Datumsauswertung und Aufgaben-App; Kontaktfreigabe vor echtem Versand klären."
+  },
+  {
+    "n": 15,
+    "group": "Vertrieb",
+    "title": "Abgeschlossene Fälle aus aktiven Listen halten",
+    "start": "Ein Status wird geändert",
+    "steps": "Erlaubte Statuswerte prüfen → getrennte interne Hinweise",
+    "result": "Weniger Verwechslung zwischen offen und erledigt.",
+    "test": "Workflow 3: Kategorie OFFEN zulassen; ERLEDIGT muss am Filter stoppen.",
+    "extras": "Später CRM-Lesezugriff; Löschen oder Überschreiben ist eine zusätzliche erlaubnispflichtige Aktion."
+  },
+  {
+    "n": 16,
+    "group": "Teamaufbau",
+    "title": "Neue Teammitglieder freundlich begrüßen",
+    "start": "Ein fiktiver Teamstart",
+    "steps": "Vorname zuordnen → Begrüßung vorbereiten",
+    "result": "Ein persönlich formulierter interner Begrüßungstext.",
+    "test": "Workflow 1 mit Luna und Mira vergleichen.",
+    "extras": "Für echten Versand später freigegebener Teamkanal; kein Nutzerkonto automatisch anlegen."
+  },
+  {
+    "n": 17,
+    "group": "Teamaufbau",
+    "title": "Erster-Tag-Zettel für neue Kolleginnen",
+    "start": "Ein Einstiegstermin steht fest",
+    "steps": "Bestätigte Stationen sammeln → Ablaufzettel",
+    "result": "Ein klarer Überblick über den ersten Austausch.",
+    "test": "Workflow 2: Thema „Kennenlernen, Arbeitsplatz zeigen, Fragen sammeln“, Kanal „Onboarding“.",
+    "extras": "Später HR-/Kalenderzugriff nur mit passenden Freigaben; keine Personaldaten im ersten Versuch."
+  },
+  {
+    "n": 18,
+    "group": "Teamaufbau",
+    "title": "Mentoring-Paare vorbereiten",
+    "start": "Ein Mentoring-Vorschlag liegt vor",
+    "steps": "Zustimmung prüfen → Gesprächsnotiz erzeugen",
+    "result": "Ein Vorschlag für zwei Menschen, keine automatische Zuteilung.",
+    "test": "Workflow 3: Kategorie MENTORING und freigabe=true; false stoppt.",
+    "extras": "Später freiwillige Zustimmung und bestätigte Zuordnung; keine Leistungsbewertung automatisieren."
+  },
+  {
+    "n": 19,
+    "group": "Teamaufbau",
+    "title": "Kleine Teamrituale planbar machen",
+    "start": "Eine interne Aktivität wird vorgeschlagen",
+    "steps": "Thema, Zeitpunkt und Kanal sammeln → Hinweisentwurf",
+    "result": "Ein freundlicher Vorschlag fürs Team.",
+    "test": "Workflow 2: „Freitagsaustausch 15 Minuten“, Kanal „Teamrunde“.",
+    "extras": "Später ein erlaubter Teamkalender; Vorschlag ist noch keine Einladung."
+  },
+  {
+    "n": 20,
+    "group": "Teamaufbau",
+    "title": "Wissen für Vertretungen übergeben",
+    "start": "Eine Aufgabe wird übergeben",
+    "steps": "Aktuellen Stand und offenen Punkt ordnen → Übergabezettel",
+    "result": "Ein nachvollziehbarer nächster Schritt.",
+    "test": "Workflow 2: „Flyertext geprüft; Bildauswahl offen“, Kanal „Vertretung“. Offenes nicht als erledigt zeigen.",
+    "extras": "Später Wissensablage oder Projekttracker; Quellenzugriff passend begrenzen."
+  },
+  {
+    "n": 21,
+    "group": "Kundenservice",
+    "title": "Rückfragen vor der Antwort sammeln",
+    "start": "Eine Anfrage ist unvollständig",
+    "steps": "Pflichtangaben prüfen → Rückfrageentwurf",
+    "result": "Eine klare Liste fehlender Angaben.",
+    "test": "Workflow 2: „Termin fehlt; Produkt=Flyer“, Kanal „Serviceentwurf“.",
+    "extras": "Später Formularfelder und Pflichtfeldfilter; Versand erst nach Prüfung."
+  },
+  {
+    "n": 22,
+    "group": "Kundenservice",
+    "title": "Supportfälle intern sichtbar machen",
+    "start": "Ein bestätigter Supportfall liegt vor",
+    "steps": "Kategorie SUPPORT prüfen → Teamhinweis",
+    "result": "Eine interne Bearbeitungsnotiz.",
+    "test": "Workflow 3 auf SUPPORT umstellen; MARKETING darf nicht passieren.",
+    "extras": "Später ein Ticketsystem oder erlaubter Teamkanal."
+  },
+  {
+    "n": 23,
+    "group": "Kundenservice",
+    "title": "Beschwerden zur menschlichen Prüfung legen",
+    "start": "Eine Rückmeldung betrifft eine Beschwerde",
+    "steps": "Erlaubte Kategorie erkennen → interne Prüfnotiz",
+    "result": "Ein markierter Fall ohne automatische Schuldzuweisung.",
+    "test": "Workflow 2: „Druckfarbe weicht ab; Prüfung offen“, Kanal „Beschwerdeprüfung“.",
+    "extras": "Später Ticketsystem; Erstattungen oder rechtliche Aussagen nicht automatisch zusagen."
+  },
+  {
+    "n": 24,
+    "group": "Kundenservice",
+    "title": "FAQ-Ergänzungen als Entwurf sammeln",
+    "start": "Eine wiederkehrende Frage fällt auf",
+    "steps": "Frage erfassen → Vorschlag für Redaktion",
+    "result": "Eine überprüfbare Anregung für eine FAQ-Seite.",
+    "test": "Workflow 2: Thema „Welche Dateiformate werden angenommen?“, Kanal „FAQ-Entwurf“. Antwort bleibt noch offen.",
+    "extras": "Später freigegebene Wissensquelle; keine Website automatisch ändern."
+  },
+  {
+    "n": 25,
+    "group": "Kundenservice",
+    "title": "Erledigte Rückfragen dokumentieren",
+    "start": "Eine Antwort ist bestätigt",
+    "steps": "Status und zuständigen Bereich zuordnen → Abschlussnotiz",
+    "result": "Eine nachvollziehbare interne Dokumentation.",
+    "test": "Workflow 2: „Papierauswahl bestätigt“, Kanal „Abschlussnotiz“.",
+    "extras": "Später Service- oder CRM-Anbindung; tatsächlichen Abschluss nur mit Beleg markieren."
+  },
+  {
+    "n": 26,
+    "group": "Organisation",
+    "title": "Besprechungsergebnisse weitergeben",
+    "start": "Bestätigte Ergebnisnotizen liegen vor",
+    "steps": "Aufgaben und offene Punkte trennen → Übergabe",
+    "result": "Ein kurzer Ergebniszettel.",
+    "test": "Workflow 2: „Mira prüft Text; Bild noch offen“, Kanal „Protokoll“.",
+    "extras": "Später erlaubte Notizquelle; KI darf Vorschläge nicht zu Beschlüssen machen."
+  },
+  {
+    "n": 27,
+    "group": "Organisation",
+    "title": "Freigaben vor Änderungen verlangen",
+    "start": "Ein Änderungswunsch wird geprüft",
+    "steps": "Kategorie AENDERUNG und Freigabe prüfen",
+    "result": "Eine Meldung für einen erlaubten nächsten Schritt.",
+    "test": "Workflow 3 entsprechend umstellen und false testen.",
+    "extras": "Später Projekttracker; tatsächliche Dateiänderung bleibt ein eigener Schritt."
+  },
+  {
+    "n": 28,
+    "group": "Organisation",
+    "title": "Fehlende Projektangaben sichtbar halten",
+    "start": "Ein Projektbriefing ist noch lückenhaft",
+    "steps": "Bekannte Angaben sammeln → offene Punkte benennen",
+    "result": "Ein Zettel mit bewusst ungeklärtem Termin.",
+    "test": "Workflow 2: Thema „Druckidee; Termin noch offen“, Kanal „Projektprüfung“.",
+    "extras": "Später Pflichtfeldprüfung; leere Felder nicht mit geratenen Angaben füllen."
+  },
+  {
+    "n": 29,
+    "group": "Organisation",
+    "title": "Termine eindeutig in Übergaben schreiben",
+    "start": "Ein bestätigter Zeitpunkt wird geteilt",
+    "steps": "Zeitpunkt und Zone prüfen → lesbare Anzeige",
+    "result": "Eine eindeutige Terminnotiz für das Team.",
+    "test": "Workflow 2 zunächst mit „26.10.2026 10:00 Europe/Berlin“ als bestätigtem Text; Datumskapitel nachlesen.",
+    "extras": "Später formatDate und ein Kalender; Textübergabe ist noch kein Kalendereintrag."
+  },
+  {
+    "n": 30,
+    "group": "Organisation",
+    "title": "Ein kleines Testprotokoll erzeugen",
+    "start": "Ein manueller Versuch ist beendet",
+    "steps": "Eingang, Soll und beobachtetes Ist sammeln → Prüfnotiz",
+    "result": "Eine ehrliche Dokumentation des eigenen Laufs.",
+    "test": "Workflow 2: Thema „Luna zu Mira geändert; Ergebnis geprüft“, Kanal „Testprotokoll“.",
+    "extras": "Keine weitere App nötig; erst ein selbst ausgeführter Test erlaubt diese Ergebnisbehauptung."
+  }
+]

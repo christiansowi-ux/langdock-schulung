@@ -1,0 +1,11 @@
+{
+  "url": "https://jsonplaceholder.typicode.com/todos/1",
+  "date": "2026-10-26",
+  "http_status": 200,
+  "response": {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+  }
+}

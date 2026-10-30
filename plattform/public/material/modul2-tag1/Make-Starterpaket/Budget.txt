@@ -1,0 +1,6 @@
+Eigene Lernrunde: maximal50Credits als Unterrichtsbudget, kein Tariflimit.
+WF1: ersteEinzelprobe1 + kompletterLauf2 + zweiterName2 = geplant5.
+WF2: Einzelprobe1 + kompletterLauf2 + Variante2 = geplant5.
+WF3: Einzelprobe1 + passenderFall2 + zweiStopps1+1 = geplant5.
+WF4optional: HTTP-Einzelprobe1 + kompletterLauf2 = geplant3.
+Gemeinsam18Credits unter den genannten Ein-Bundle-Annahmen; weitereFehler/Tests zusätzlich. TatsächlicheAnzeigezählt.

@@ -1,0 +1,154 @@
+{
+  "date": "26.10.2026",
+  "sources": {
+    "M1": [
+      "Make: aktueller Free-Tarif",
+      "https://www.make.com/en/pricing"
+    ],
+    "M2": [
+      "Make: Credits",
+      "https://help.make.com/credits"
+    ],
+    "M3": [
+      "Make: Operations und Bundles",
+      "https://help.make.com/operations"
+    ],
+    "M4": [
+      "Make: Modularten und interne Tools",
+      "https://help.make.com/types-of-modules"
+    ],
+    "M5": [
+      "Make: Tools und Variablen",
+      "https://help.make.com/util"
+    ],
+    "M6": [
+      "Make: Mapping",
+      "https://help.make.com/mapping"
+    ],
+    "M7": [
+      "Make: Einzelstart und Zeitplanung",
+      "https://help.make.com/schedule-a-scenario"
+    ],
+    "M8": [
+      "Make: JSON verarbeiten",
+      "https://apps.make.com/json"
+    ],
+    "M9": [
+      "Make: Filter",
+      "https://help.make.com/filtering"
+    ],
+    "M10": [
+      "Make: Router und Reihenfolge",
+      "https://help.make.com/router"
+    ],
+    "M11": [
+      "Make: aktuelles HTTP-Modul",
+      "https://apps.make.com/http"
+    ],
+    "M12": [
+      "Make: Webhooks",
+      "https://help.make.com/webhooks"
+    ],
+    "M13": [
+      "Make: Datumsfunktionen",
+      "https://help.make.com/date-and-time-functions"
+    ],
+    "M14": [
+      "Make: Blueprints exportieren",
+      "https://help.make.com/blueprints"
+    ],
+    "M15": [
+      "Make Academy: Credits sinnvoll einsetzen",
+      "https://academy-content.make.com/courses/make-foundation-operations-credits/05-using-credits-effectively-in-scenarios/"
+    ],
+    "J1": [
+      "JSONPlaceholder: kostenlose Test-API",
+      "https://jsonplaceholder.typicode.com/"
+    ]
+  },
+  "original_sha256": "ea8cc3c58c64e8c78db7a9077c9a20f657ec2ccb6189c2f847b2a81db8b7aa9f",
+  "slide_assignment": {
+    "1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "2": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      24,
+      25,
+      26,
+      27
+    ],
+    "3": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      28,
+      29,
+      30
+    ],
+    "4": [
+      31,
+      32,
+      33,
+      34
+    ]
+  },
+  "idea_assignment": {
+    "1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "2": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "3": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "4": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  }
+}

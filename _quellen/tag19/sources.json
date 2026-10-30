@@ -1,0 +1,48 @@
+{
+  "date": "23.10.2026",
+  "sources": {
+    "C1": [
+      "Claude: aktueller Einstieg in Design",
+      "https://support.claude.com/en/articles/14604416-get-started-with-claude-design"
+    ],
+    "C2": [
+      "Claude: Designsysteme und eigene Zugänge",
+      "https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design"
+    ],
+    "C3": [
+      "Claude: Wechsel der bisherigen Design-Oberfläche",
+      "https://support.claude.com/en/articles/17440474-move-from-standalone-claude-design-to-claude"
+    ],
+    "G1": [
+      "Google: Stitch, Canvas, DESIGN.md und Übergabe",
+      "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/"
+    ],
+    "A1": [
+      "Canva: Magic Design",
+      "https://www.canva.com/magic-design/"
+    ],
+    "A2": [
+      "Canva: Ränder, Beschnitt und Schnittmarken",
+      "https://www.canva.com/help/margins-bleed-crop-marks/"
+    ],
+    "M1": [
+      "Make: Module als Bausteine",
+      "https://help.make.com/types-of-modules"
+    ],
+    "M2": [
+      "Make: Informationen zuordnen (Mapping)",
+      "https://help.make.com/mapping"
+    ],
+    "M3": [
+      "Make: Start und Zeitplan",
+      "https://help.make.com/schedule-a-scenario"
+    ],
+    "M4": [
+      "Make: Credits und Verbrauch",
+      "https://help.make.com/credits"
+    ]
+  },
+  "original_sha256": "128b0c40124c8a6c5eaee8448aeb863284a0f574d4a6a30416dde4de84edebef",
+  "core_design_pages": 10,
+  "core_make_reading_pages": 10
+}
