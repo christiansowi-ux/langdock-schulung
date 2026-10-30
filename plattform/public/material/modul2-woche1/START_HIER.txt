@@ -1,0 +1,28 @@
+MAKE-VORLAGEN · MODUL 2 · WOCHE 1 (Stand 30.10.2026)
+====================================================
+
+Neun sehr leichte Szenarien für Make Free. Kein fremdes Konto nötig
+(A5 liest nur eine öffentliche Test-API ohne Anmeldung).
+Keine Vorlage verschickt, veröffentlicht oder speichert etwas außerhalb von Make.
+
+SO GEHT DER IMPORT
+1. ZIP entpacken (Rechtsklick > Alle extrahieren / am Mac Doppelklick).
+2. In Make links "Scenarios" > "+ Create a new scenario".
+3. Oben rechts die drei Punkte (...) > "Import blueprint" > "Choose file".
+4. Eine .blueprint.json-Datei wählen > "Save".
+5. Unten speichern (Diskette) und "Run once" klicken.
+6. Auf die Sprechblase über dem letzten Modul klicken > OUTPUT.
+
+Zeitplan bitte AUS lassen. Jeder Lauf kostet etwa 1 Credit pro ausgeführtem Modul.
+Für alle neun Vorlagen mit je zwei Tests rund 40 Credits einplanen.
+Ausführliche Erklärung jeder Einstellung: Wochenheft, Teil B.
+
+A1  Begrüßungs-Mixer                             Tag 1  ->  Hallo Luna! Willkommen in Modul 2.
+A2  Redaktionsbriefing aus JSON                  Tag 2  ->  Projekt: Papierfunke
+A3  Freigabe-Ampel mit Filter                    Tag 3  ->  Beitrag zur Planung bereit. Status: FERTIG
+A4  Anfragen-Weiche mit Router                   Tag 3  ->  SUPPORT: Kim Beispiel braucht Hilfe.
+A5  Test-API lesen (HTTP)                        Tag 4  ->  Testaufgabe 1: delectus aut autem
+A6  Zeitstempel-Übersetzer                       Tag 4  ->  Original (UTC): 2026-07-29T14:35:07Z
+A7  Zeitfresser-Rechner                          Tag 5  ->  TOP-KANDIDAT: Rechnungsdaten abtippen
+A8  Use-Case-Steckbrief                          Tag 5  ->  USE-CASE-STECKBRIEF
+A9  Rechnungs-Regel: KI liest, Regel entscheidet Tag 5  ->  STANDARDFALL · Stufe 3

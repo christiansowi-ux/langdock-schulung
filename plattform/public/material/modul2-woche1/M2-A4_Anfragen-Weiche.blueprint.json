@@ -1,0 +1,246 @@
+{
+  "name": "M2 · A4 Anfragen-Weiche mit Router",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "name",
+            "value": "Kim Beispiel"
+          },
+          {
+            "name": "anliegen",
+            "value": "Support"
+          },
+          {
+            "name": "nachricht",
+            "value": "Der Download-Link aus der Bestätigung funktioniert nicht."
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Anfrage bereitstellen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "name",
+            "label": "name",
+            "type": "any"
+          },
+          {
+            "name": "anliegen",
+            "label": "anliegen",
+            "type": "any"
+          },
+          {
+            "name": "nachricht",
+            "label": "nachricht",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Weiche"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "VERTRIEB: Bitte ein Angebot für {{1.name}} vorbereiten.\nNachricht: {{1.nachricht}}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -150,
+                  "name": "3a · An Vertrieb"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Anliegen enthält Angebot",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.anliegen}}",
+                      "o": "text:contain:ci",
+                      "b": "Angebot"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "SUPPORT: {{1.name}} braucht Hilfe.\nNachricht: {{1.nachricht}}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 0,
+                  "name": "3b · An Support"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Anliegen enthält Support",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.anliegen}}",
+                      "o": "text:contain:ci",
+                      "b": "Support"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "SONSTIGES: Ein Mensch schaut sich die Anfrage von {{1.name}} an.\nNachricht: {{1.nachricht}}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 150,
+                  "name": "3c · Sonstiges"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Anliegen ist Sonstiges",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.anliegen}}",
+                      "o": "text:equal",
+                      "b": "Sonstiges"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}
