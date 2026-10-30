@@ -93,6 +93,7 @@ def page(title, body, *, person='', tag='', kind='', crumbs='', scripts=('kurs.j
 <link rel="stylesheet" href="{BASE}/assets/kurs.css">
 <link rel="stylesheet" href="{BASE}/assets/lerntraining.css">
 <link rel="stylesheet" href="{BASE}/assets/demos.css">
+{'<link rel="stylesheet" href="/hefte/assets/modul2.css">' if kind in ('index','overview') else ''}
 {'<link rel="stylesheet" href="/hefte/assets/privacy.css">' if tag == 13 else '<link rel="stylesheet" href="/hefte/assets/observability.css">' if tag == 14 else ''}
 {js}
 </head>
@@ -140,7 +141,8 @@ AUFG_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 def aufg_widget(n=None):
     """Steuerung + Karte. n = Tagesseite (Reiter), None = alle Tage mit Tag-Auswahl."""
     if n is None:
-        days = ''.join(f'<label><input type="checkbox" value="{d}" checked> Tag {d}</label>' for d in kurs.TAGE)
+        days = ''.join((f'<span class="aufg-mod">Modul {1 if d <= 19 else 2}</span>' if d in (1, 20) else '') +
+                       f'<label><input type="checkbox" value="{d}" checked> Tag {d if d <= 19 else d - 19}</label>' for d in kurs.TAGE)
         extra = f'<fieldset class="aufg-days"><legend>Aus welchen Tagen?</legend>{days}</fieldset>'
     else:
         extra = ('<label class="aufg-chk"><input type="checkbox" class="aufg-frueher"> auch Aufgaben aus früheren Tagen</label>'
@@ -187,7 +189,10 @@ def index_page():
   <span class="pc-fach">{esc(p["fach"])}{" · arbeitet am Mac" if p["mac"] else ""}</span>
   <span class="pc-go">Los geht’s <span aria-hidden="true">→</span></span>
 </a>''')
-    tage = ''.join(f'<li><b>Tag {n}</b><span>{esc(t["titel"])}</span></li>' for n, t in kurs.TAGE.items())
+    tage = ''
+    for module, title in ((1, 'KI-Grundlagen'), (2, 'KI-Automation')):
+        rows = ''.join(f'<li><b>{"Tag " + str(t.get("modul_tag",t["lektion"])) + (" · Learning Hub" if t.get("hub") else " · Lektion " + str(t["lektion"])) if module == 2 else "Tag " + str(n)}</b><span>{esc(t["titel"])}</span></li>' for n,t in kurs.TAGE.items() if t.get('modul',1) == module)
+        tage += f'<section class="module-group" id="modul-{module}"><h3>Modul {module} · {title}</h3><ol class="tagline" aria-label="Modul {module}">{rows}</ol></section>'
     body = f'''<section class="hero wrap">
   <p class="kicker">KI Automations Spezialist · Praxisblock Langdock</p>
   <h1>Nachlernen, üben, ausfüllen.</h1>
@@ -197,7 +202,7 @@ def index_page():
 <section class="wrap">
   <h2 class="h-sec">Wer lernt hier?</h2>
   <div class="pcards">{"".join(cards)}</div>
-  <ol class="tagline" aria-label="Die Kurstage">{tage}</ol>
+  {tage}
 </section>
 <section class="wrap notes">
   <h2 class="h-sec">Gut zu wissen</h2>
@@ -216,9 +221,16 @@ def index_page():
 # ---------------------------------------------------------------- Kursuebersicht je Person
 def overview_page(pid):
     p = kurs.PERSONEN[pid]
-    stations = []
+    stations = {}
     for n, t in kurs.TAGE.items():
-        stations.append(f'''<li class="station" data-tag="{n}" data-date="{iso(t["datum"])}">
+        if t.get('hub'):
+            stations.setdefault(2,[]).append(f'''<li class="station hub-station" data-tag="{n}" data-date="{iso(t['datum'])}"><div class="st-dot" aria-hidden="true">{t['modul_tag']}</div><div class="st-card"><p class="st-kicker">Modul 2 · Tag {t['modul_tag']} · Freitag · {esc(t['datum'])} · Learning Hub <span class="chip-heute" hidden>heute</span></p><h3><a href="{BASE}/{pid}/{t['url']}">{esc(t['titel'])}</a></h3><p class="st-text">{esc(t['kurz'])}</p><ul class="meter"><li><span>Learnings, die sitzen</span><span class="bar"><i data-m="sitzt"></i></span><b data-v="sitzt">0 von {len(t["learnings"])}</b></li><li><span>Selbsttest</span><span class="bar"><i data-m="test"></i></span><b data-v="test">noch offen</b></li></ul><div class="st-btns"><a class="btn primary" href="{BASE}/{pid}/{t['url']}">Learning Hub öffnen</a><a class="btn" href="{BASE}/{pid}/{t['url']}#labor">Use-Case-Labor</a><a class="btn" href="{BASE}/{pid}/{t['url']}#vorlagen">9 Make-Vorlagen</a><a class="btn" href="{BASE}/{pid}/{t['url']}#karten">Lernkarten</a><a class="btn" href="{BASE}/{pid}/{t['url']}lernheft/">Wochenheft</a></div></div></li>''')
+            continue
+        if t.get('modul') == 2:
+            path = t['url']
+            stations.setdefault(2,[]).append(f'''<li class="station" data-tag="{n}" data-date="{iso(t['datum'])}"><div class="st-dot" aria-hidden="true">{t.get('modul_tag',t['lektion'])}</div><div class="st-card"><p class="st-kicker">Modul 2 · Tag {t.get('modul_tag',1)} · {esc(t['datum'])} <span class="chip-heute" hidden>heute</span></p><h3><a href="{BASE}/{pid}/{path}">{esc(t['titel'])}</a></h3><p class="st-text">{esc(t['kurz'])}</p><ul class="meter"><li><span>Learnings, die sitzen</span><span class="bar"><i data-m="sitzt"></i></span><b data-v="sitzt">0 von {len(t["learnings"])}</b></li><li><span>Selbsttest</span><span class="bar"><i data-m="test"></i></span><b data-v="test">noch offen</b></li></ul><div class="st-btns"><a class="btn primary" href="{BASE}/{pid}/{path}">Tag {t.get('modul_tag',1)} öffnen</a><a class="btn" href="{BASE}/{pid}/{path}lernheft/">Lernheft</a><a class="btn" href="{BASE}/{pid}/{path}#karten">Lernkarten</a></div></div></li>''')
+            continue
+        stations.setdefault(1,[]).append(f'''<li class="station" data-tag="{n}" data-date="{iso(t["datum"])}">
   <div class="st-dot" aria-hidden="true">{n}</div>
   <div class="st-card">
     <p class="st-kicker">Tag {n} · {esc(t["datum"])} <span class="chip-heute" hidden>heute</span></p>
@@ -232,15 +244,14 @@ def overview_page(pid):
     <div class="st-btns"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/">Tag {n} öffnen</a>{f'<a class="btn" href="{BASE}/{pid}/tag-{n}/lernheft/">Lernheft</a>' if t.get("lernheft") else f'<a class="btn" href="{BASE}/{pid}/tag-{n}/heft/">Arbeitsheft</a>'}{f'<a class="btn praxis" href="{BASE}/{pid}/tag-{n}/praxis/">Praxisheft</a>' if t.get("praxisheft") else ''}</div>
   </div>
 </li>''')
+    station_sections = ''.join(f'<section class="wrap module-group" id="modul-{m}"><details{" open" if m == 2 else ""}><summary>Modul {m} · {title}</summary><p class="module-intro">{"Der bisherige Grundlagenblock mit den Tagen 1 bis 19." if m == 1 else "Woche 1: Make an vier Tagen (26.–29.10.2026), Freitag Use Cases. Tag 5 ist der Learning Hub der Woche mit Lernkarten, Selbsttest, Training, Folien und 9 fertigen Make-Vorlagen."}</p><ol class="journey">{"".join(stations.get(m,[]))}</ol></details></section>' for m,title in ((1,'KI-Grundlagen'),(2,'KI-Automation')))
     body = f'''<section class="hero wrap slim">
   <p class="kicker">{esc(p["fach"])}{" · Mac" if p["mac"] else ""}</p>
   <h1>Hallo {esc(p["name"])}.</h1>
-  <p class="lead">{len(kurs.TAGE)} Kurstage, alles zum Nachlernen – oben anfangen oder dort weitermachen, wo man aufgehört hat.</p>
+  <p class="lead">Zwei getrennte Module zum Nachlernen. Modul 2 beginnt mit Make und KI-Automation.</p>
 </section>
-{lerntraining.overview(pid, kurs.TAGE)}
-<section class="wrap">
-  <ol class="journey">{"".join(stations)}</ol>
-</section>
+<section class="wrap"><details><summary>Freiwillige Wiederholung aus Modul 1</summary>{lerntraining.overview(pid, {n:t for n,t in kurs.TAGE.items() if t.get('modul',1) == 1 and (t.get('karten') or t.get('test'))})}</details></section>
+{station_sections}
 <section class="wrap">
   <div class="panel-card aufg-teaser">
     <div class="ic">{AUFG_ICON}</div>
@@ -272,9 +283,83 @@ def slide_src(tag, n, thumb=False):
     return f'{BASE}/folien/tag-{tag}/{"t" if thumb else ""}{n:02d}.jpg'
 
 
+# ---------------------------------------------------------------- Learning-Hub-Tage ohne eigene Modul-1-Daten (30.10.2026)
+def arbeitsheft_card(pid, n, p, t, extra, mat, heft_pdf):
+    return f'''  <div class="heftcard">
+    <div class="hc-ico">{icon(pid)}</div>
+    <div class="hc-main">
+      <p class="kicker">Arbeitsheft Tag {n}</p>
+      <h2>{esc(t["titel"])} – für {esc(p["name"])}</h2>
+      {extra}
+      {mat}
+      <p class="hc-prog"><span data-v="heft">noch nicht begonnen</span></p>
+      <div class="btnrow"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/heft/">Heft öffnen und ausfüllen</a><a class="btn" href="{BASE}/pdf/{heft_pdf}" download>Leeres Heft als PDF</a></div>
+      <p class="muted small">Am Ende jedes Hefts stehen noch einmal alle Learnings des Tages – einzeln auswählbar und als PDF zum Lernen.</p>
+    </div>
+  </div>'''
+
+
+def day_kicker(n, t):
+    if t.get('modul') == 2:
+        return f'Modul 2 · Tag {n - 19} · {esc(t["datum"])} · Lektion {t.get("lektion", 1)}'
+    return f'Modul 1 · Tag {n} · {esc(t["datum"])} · {esc(t["unter"])}'
+
+
+def modul2_start(n):
+    if n in (20, 21, 22, 23):
+        from modul2.tag1.series import BOOKS as M2
+        return M2[n - 19]['slides'][0]
+    return 1
+
+
+def folien_pdf(n):
+    if n in (20, 21, 22, 23):
+        return f'{BASE}/folien/tag-20/Folien_Modul2_Tag1.pdf'
+    return f'{BASE}/folien/tag-{n}/Folien_Tag{n}.pdf'
+
+
+def lernheft_text(n):
+    if n == 19:
+        return ('Das Freitagsheft: zehn Design-Stationen mit Claude Design, Google Stitch und Canva sowie zehn ruhige Make-Lesestationen. '
+                'Dazu das Bonusheft mit fünf Anwendungsfällen und 20 Prompts – beides im Reiter „Heute“ verlinkt.')
+    return ('Das Lernheft des Tages: Verstehen, Nachbauen, Prüfen – mit Klickschritten, Soll-Ergebnis, Fehlerhilfe '
+            'und dem Quiz, das deine Antworten in diesem Browser speichert.')
+
+
+def heute_panel(pid, n):
+    """Die frühere Tagesübersicht (Tag 19, Modul 2 Tag 1–4) unverändert als Reiter „Heute“."""
+    if n == 19:
+        from tag19.build import render_day as alt
+        html_alt = alt(pid)
+    else:
+        from modul2.tag1.build import render_day as alt
+        html_alt = alt(pid, n - 19)
+    inner = html_alt[html_alt.index('<main'):html_alt.index('</main>')]
+    inner = inner[inner.index('>') + 1:]
+    inner = re.sub(r'<style>[^<]*</style><aside class="hub-banner".*?</aside>', '', inner, flags=re.S)
+    inner = re.sub(r'\bid="([^"]+)"', r'id="heute-\1"', inner)
+    inner = re.sub(r'href="#([^"]+)"', r'href="#heute-\1"', inner)
+    t = kurs.TAGE[n]
+    extra = ''
+    if n in (20, 21, 22, 23):
+        from modul2.woche1.hub import DAYS
+        vorl = next(v for d, *_, v in DAYS if d == n - 19)
+        hub = f'{BASE}/{pid}/modul-2/tag-5/'
+        extra = ('<div class="panel-card" style="margin:0 0 16px"><div><h2 class="h-sec">Passende Make-Vorlage</h2><p>Fertig zum Importieren und Schritt für Schritt erklärt – im Learning Hub der Woche.</p>'
+                 '<div class="btnrow">' + ''.join(f'<a class="btn primary" href="{hub}#vorlage-a{a}">Make-Vorlage A{a}</a>' for a in vorl) +
+                 f'<a class="btn" href="{hub}">Learning Hub der Woche</a></div></div></div>')
+    return (f'<section class="tpanel wrap heute" id="heute" role="tabpanel" aria-label="Heute"><div class="panel-head"><div><h2>Heute im Überblick</h2>'
+            f'<p>{esc(t["kurz"])}</p></div><div class="btnrow"><a class="btn primary" href="lernheft/">Lernheft öffnen</a></div></div>{extra}{inner}</section>')
+
+
 def day_page(pid, n):
+    if n == 24:
+        from modul2.woche1.hub import render_hub
+        return render_hub(pid)
     p, t = kurs.PERSONEN[pid], kurs.TAGE[n]
-    fol = FOLIEN.get(str(n))
+    heute = heute_panel(pid, n) if t.get('hub_tag') else ''
+    deck = 20 if n in (21, 22, 23) else n  # Modul 2 Tag 1–4 teilen sich eine Folienlektion
+    fol = FOLIEN.get(str(deck))
     has_fol = bool(fol and fol['n'] > 1)
     bt = B.TAGE.get(str(n))
     lcards = []
@@ -284,7 +369,7 @@ def day_page(pid, n):
         fol_btn = (f'<a class="lc-folie" href="#folien" data-folie="{l["folie"]}">Folie {l["folie"]} ansehen</a>' if l['folie']
                    else f'<span class="lc-quelle">{"Quelle: " + esc(l["quelle"]) if l.get("quelle") else "aus dem Arbeitsheft"}</span>')
         thumb = (f'<button class="lc-thumb" type="button" data-folie="{l["folie"]}" aria-label="Folie {l["folie"]} groß ansehen">'
-                 f'<img src="{slide_src(n, l["folie"], True)}" alt="" loading="lazy" width="360" height="{round(360 / fol["ratio"])}"></button>'
+                 f'<img src="{slide_src(deck, l["folie"], True)}" alt="" loading="lazy" width="360" height="{round(360 / fol["ratio"])}"></button>'
                  if l['folie'] else '')
         lcards.append(f'''<li class="lcard" data-lrn="{l["id"]}" id="lrn-{l["id"]}">
   <div class="lc-no">{i:02d}</div>
@@ -307,9 +392,9 @@ def day_page(pid, n):
         opts = ''.join(f'<li{" data-ok" if j == q["richtig"] else ""}>{esc(o)}</li>' for j, o in enumerate(q['optionen']))
         tests.append(f'<li><p class="tq">{esc(q["frage"])}</p><ol class="to">{opts}</ol><p class="tw"><b>Warum:</b> {esc(q["warum"])}</p></li>')
     words = ''.join(f'<div class="word"><dt>{esc(a)}</dt><dd>{esc(b)}</dd></div>' for a, b in t['begriffe'])
-    strip = '' if not has_fol else ''.join(f'<a class="v-th" href="{slide_src(n, i)}" data-n="{i}"><img src="{slide_src(n, i, True)}" alt="Folie {i}" loading="lazy" width="360" height="{round(360 / fol["ratio"])}"><span>{i}</span></a>'
+    strip = '' if not has_fol else ''.join(f'<a class="v-th" href="{slide_src(deck, i)}" data-n="{i}"><img src="{slide_src(deck, i, True)}" alt="Folie {i}" loading="lazy" width="360" height="{round(360 / fol["ratio"])}"><span>{i}</span></a>'
                     for i in range(1, fol['n'] + 1))
-    fdata = '' if not has_fol else json.dumps({'tag': n, 'n': fol['n'], 'start': t.get('folie_start', 1), 'ratio': fol['ratio'], 'links': {s['n']: s['links'] for s in fol['slides'] if s['links']}}, ensure_ascii=False)
+    fdata = '' if not has_fol else json.dumps({'tag': deck, 'n': fol['n'], 'start': t.get('folie_start', modul2_start(n)), 'ratio': fol['ratio'], 'links': {s['n']: s['links'] for s in fol['slides'] if s['links']}}, ensure_ascii=False)
     videos = ''
     if t.get('videos'):
         vs = ''.join(f'''<div class="video" data-yt="{v["id"]}">
@@ -372,7 +457,7 @@ def day_page(pid, n):
     <div class="hc-main">
       <p class="kicker">Lernheft Tag {n} · zum Lesen und Merken</p>
       <h2>{esc(t["titel"])}</h2>
-      <p>{'Teil der fortlaufenden Werkstattreihe vom 20. bis 22. Oktober. Mit aktuellen Anleitungen, Branchen-Missionen, Mitmach-Simulation, Starterpaket und zugeordneten Originalfolien.' if n in (16,17,18) else '28 Originalfolien, ein aktueller Vergleich von Antigravity, Codex und Claude Code sowie sechs Branchen-Missionen. Dazu Plugins, MCP, Selbstchecks und Originalfolien zum Nachsehen.' if n == 15 else 'Alle 74 Folien als kurze Begleitung mit vollständigen Einzelheiten, Beispielen und je einer Merkfrage. Man kann direkt zum gewünschten Gedanken springen.' if n == 13 else 'Alle acht Folien verständlich begleitet, mit Beispielen, Merkfragen und einer praktischen Anleitung zur Spurensuche. Ergänzungen und Voraussetzungen sind markiert.' if n == 14 else f'Die ganze Lektion in {len(lh_titles) - lh_ueb} kurzen Kapiteln – eine Seite pro Gedanke, mit Bildern, Merksätzen, der Lektion auf einer Seite und zwölf Merkfragen.'} Kein Stift nötig: Geübt wird gemeinsam im Kurs.{' Dazu freiwillige Übungen für Langdock – Prompt kopieren, ausprobieren, vergleichen.' if lh_ueb else ''}</p>
+      <p>{lernheft_text(n) if t.get('hub_tag') else ('Teil der fortlaufenden Werkstattreihe vom 20. bis 22. Oktober. Mit aktuellen Anleitungen, Branchen-Missionen, Mitmach-Simulation, Starterpaket und zugeordneten Originalfolien.' if n in (16,17,18) else '28 Originalfolien, ein aktueller Vergleich von Antigravity, Codex und Claude Code sowie sechs Branchen-Missionen. Dazu Plugins, MCP, Selbstchecks und Originalfolien zum Nachsehen.' if n == 15 else 'Alle 74 Folien als kurze Begleitung mit vollständigen Einzelheiten, Beispielen und je einer Merkfrage. Man kann direkt zum gewünschten Gedanken springen.' if n == 13 else 'Alle acht Folien verständlich begleitet, mit Beispielen, Merkfragen und einer praktischen Anleitung zur Spurensuche. Ergänzungen und Voraussetzungen sind markiert.' if n == 14 else f'Die ganze Lektion in {len(lh_titles) - lh_ueb} kurzen Kapiteln – eine Seite pro Gedanke, mit Bildern, Merksätzen, der Lektion auf einer Seite und zwölf Merkfragen.') + ' Kein Stift nötig: Geübt wird gemeinsam im Kurs.' + (' Dazu freiwillige Übungen für Langdock – Prompt kopieren, ausprobieren, vergleichen.' if lh_ueb else '')}</p>
       <ol class="lhtoc">{''.join(f'<li><a href="{BASE}/{pid}/tag-{n}/lernheft/#k{k}">{esc(tt)}</a></li>' for k, tt in lh_titles)}</ol>
       <div class="btnrow"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/lernheft/">Lernheft lesen</a><a class="btn" href="{BASE}/pdf/{t["lernheft"]}" download>Als PDF herunterladen</a></div>
       {uebung}
@@ -383,7 +468,7 @@ def day_page(pid, n):
         mat = ''
     folien_sec = f'''<section class="tpanel wrap" id="folien" role="tabpanel" aria-label="Folien">
   <div class="panel-head"><div><h2>Die Folien</h2><p>Alle {fol["n"] if has_fol else 0} Folien der Lektion.{f' Heute geht es ab Folie {t["folie_start"]} weiter – die Ansicht startet dort.' if t.get('folie_start', 1) > 1 else ''} Blättern mit den Pfeilen, per Wischen oder mit den Pfeiltasten.</p></div>
-    <div class="btnrow"><a class="btn" href="{BASE}/folien/tag-{n}/Folien_Tag{n}.pdf" download>Folien als PDF</a></div></div>
+    <div class="btnrow"><a class="btn" href="{folien_pdf(n)}" download>Folien als PDF</a></div></div>
   <div class="viewer" data-viewer>
     <script type="application/json" class="v-data">{fdata}</script>
     <div class="v-strip">{strip}</div>
@@ -393,13 +478,14 @@ def day_page(pid, n):
 
 ''' if has_fol else ''
     body = f'''<section class="hero wrap day">
-  <p class="kicker">Tag {n} · {esc(t["datum"])} · {esc(t["unter"])}</p>
+  <p class="kicker">{day_kicker(n, t)}</p>
   <h1>{nowrap(t["titel"])}</h1>
   <p class="lead">{esc(t["kurz"])}</p>
-  <div class="hero-btns"><a class="btn primary" href="#demos" data-tab-go="demos">In der Demo ausprobieren</a>{'<a class="btn" href="#einfach" data-tab-go="einfach">Einfach erklärt</a>' if n in (12,13,14,15,16,17,18) else '<a class="btn" href="#learnings" data-tab-go="learnings">Die Learnings lesen</a>'}<a class="btn" href="#training" data-tab-go="training">5 Minuten trainieren</a>{hero_heft}</div>
+  <div class="hero-btns">{'<a class="btn primary" href="#heute" data-tab-go="heute">Heute im Überblick</a>' if heute else ''}<a class="btn{'' if heute else ' primary'}" href="#demos" data-tab-go="demos">In der Demo ausprobieren</a>{'<a class="btn" href="#einfach" data-tab-go="einfach">Einfach erklärt</a>' if n in (12,13,14,15,16,17,18) else '<a class="btn" href="#learnings" data-tab-go="learnings">Die Learnings lesen</a>'}<a class="btn" href="#training" data-tab-go="training">5 Minuten trainieren</a>{hero_heft}</div>
   <p class="progress-line" aria-live="polite"><span data-v="sitzt">0 von {len(t["learnings"])}</span> Learnings sitzen · Selbsttest <span data-v="test">noch offen</span>{' · Heft <span data-v="heft">noch nicht begonnen</span>' if bt else ''}</p>
 </section>
 <div class="tabs-wrap"><nav class="tabs wrap" role="tablist" aria-label="Bereiche von Tag {n}">
+  {'<a role="tab" href="#heute" data-tab="heute">Heute</a>' if heute else ''}
   <a role="tab" href="#demos" data-tab="demos">Demos</a>
   {'<a role="tab" href="#einfach" data-tab="einfach">Einfach erklärt</a>' if n in (12,13,14,15,16,17,18) else ''}
   <a role="tab" href="#training" data-tab="training">Trainieren</a>
@@ -412,6 +498,7 @@ def day_page(pid, n):
   <a role="tab" href="#heft" data-tab="heft">{("Lernheft + Praxis" if t.get("praxisheft") else "Lernheft") if t.get("lernheft") else "Arbeitsheft"}</a>
 </nav></div>
 
+{heute}
 {einfach_tag12.render() if n == 12 else einfach_tag13.render() if n == 13 else einfach_tag14.render() if n == 14 else einfach_tag15.render() if n == 15 else workshop_simple(n) if n in (16,17,18) else ''}
 {lerntraining.panel(pid, n, kurs.TAGE)}
 {datenschutzwerkstatt.panel(pid,n) if n == 13 else observabilitywerkstatt.panel(pid,n) if n == 14 else demowerkstatt.panel(pid, n)}
@@ -453,18 +540,7 @@ def day_page(pid, n):
 <section class="tpanel wrap" id="heft" role="tabpanel" aria-label="{"Lernheft" if t.get("lernheft") else "Arbeitsheft"}">
 {praxis_card}
 {lernheft_card}
-  <div class="heftcard"{' style="display:none"' if (t.get("lernheft") or not bt) else ''}>
-    <div class="hc-ico">{icon(pid)}</div>
-    <div class="hc-main">
-      <p class="kicker">Arbeitsheft Tag {n}</p>
-      <h2>{esc(t["titel"])} – für {esc(p["name"])}</h2>
-      {extra}
-      {mat}
-      <p class="hc-prog"><span data-v="heft">noch nicht begonnen</span></p>
-      <div class="btnrow"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/heft/">Heft öffnen und ausfüllen</a><a class="btn" href="{BASE}/pdf/{heft_pdf}" download>Leeres Heft als PDF</a></div>
-      <p class="muted small">Am Ende jedes Hefts stehen noch einmal alle Learnings des Tages – einzeln auswählbar und als PDF zum Lernen.</p>
-    </div>
-  </div>
+{arbeitsheft_card(pid, n, p, t, extra, mat, heft_pdf) if (bt and not t.get("lernheft")) else ''}
 </section>'''
     return page(f'Tag {n} · {t["titel"]} – {p["name"]}', body, person=pid, tag=n, kind='day', scripts=('kurs.js', 'aufgaben.js', 'lerntraining-core.js', 'lerntraining.js', 'demo-core.js', 'demos.js') + (('privacy-core.js', 'privacy.js') if n == 13 else ('observability-core.js', 'observability.js') if n == 14 else ()),
                 crumbs=crumb(('Lernplattform', f'{BASE}/'), (p['name'], f'{BASE}/{pid}/'), (f'Tag {n}', '')))
@@ -694,3 +770,5 @@ def build():
     with open(os.path.join(WEB_OUT, 'manifest.json'), 'w', encoding='utf-8') as f:
         json.dump(manifest, f, ensure_ascii=False, indent=1)
     print('Plattform:', len(manifest['hefte']), 'Hefte,', len(manifest['lernblaetter']), 'Lernblätter')
+    import einheit
+    einheit.alles(kurs.TAGE)

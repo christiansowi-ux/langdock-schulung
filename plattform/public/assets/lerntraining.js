@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  function dayLink(day, person) { var K = window.KURS; return K && K.dayUrl ? K.dayUrl(day, person) : '/hefte/' + person + '/tag-' + day + '/'; }
   var C = window.LerntrainingCore;
   if (!C) return;
   var person = document.documentElement.dataset.person;
@@ -28,7 +29,7 @@
     var od = dataFrom(overview), pending = od ? C.due(od.cards, state.cards, C.today()) : [];
     if (pending.length) {
       q('[data-review-summary]', overview).textContent = pending.length + ' Karten sind zur Wiederholung bereit. Die nächste Runde beginnt mit dem, was wieder dran ist.';
-      q('[data-review-link]', overview).href = '/hefte/' + person + '/tag-' + Math.max.apply(null, od.cards.map(function (c) { return c.day; })) + '/#training';
+      q('[data-review-link]', overview).href = dayLink(Math.max.apply(null, od.cards.map(function (c) { return c.day; })), person) + '#training';
     }
   }
   var host = q('[data-training]');
@@ -103,7 +104,7 @@
       if (card.example) {
         var simple = element('details'); simple.append(element('summary', '', 'Mit einem Beispiel verstehen'), element('p', '', card.explanation), element('p', '', card.example)); answer.append(simple);
         var slideLink = element('a', 'lt-source', 'Folie ' + card.slide + ' in einfachen Worten nachlesen →');
-        slideLink.href = '/hefte/' + person + '/tag-' + card.day + '/#einfach-' + card.slide; answer.append(slideLink);
+        slideLink.href = dayLink(card.day, person) + '#einfach-' + card.slide; answer.append(slideLink);
       }
       a.append(element('p', '', 'Die eigenen Worte dürfen anders sein. Entscheidend ist, ob der Gedanke stimmt.'));
       var row = controls(a), used = false;

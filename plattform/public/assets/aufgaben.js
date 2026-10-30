@@ -86,6 +86,9 @@
     var tag = g.length > 1 ? g[1] : String(m.tag);
     return DATA.tage[tag] ? { m: m, tag: tag, gen: g.length > 1, key: id } : null;
   }
+  /* Modul 2 zeigt „Modul 2 · Tag 5“ statt der internen Kennung (z. B. 24). */
+  function dayUrlA(t) { var K = window.KURS; return K && K.dayUrl ? K.dayUrl(t) : BASE + '/' + PERSON + '/tag-' + t + '/'; }
+  function dayLabel(t) { var x = DATA.tage && DATA.tage[String(t)]; return x && x.label ? x.label : 'Tag ' + t; }
   function build(code) {
     var parts = String(code || '').split('.');
     if (parts.length !== 3) return null;
@@ -183,7 +186,7 @@
     if (!a) { roll(false); return; }
     var here = W().getAttribute('data-tag');
     if (here && settings().days.indexOf(a.tag) < 0) {
-      if (!push) { location.replace(BASE + '/' + PERSON + '/tag-' + a.tag + '/?aufgabe=' + encodeURIComponent(code) + '#aufgaben'); return; }
+      if (!push) { location.replace(dayUrlA(a.tag) + '?aufgabe=' + encodeURIComponent(code) + '#aufgaben'); return; }
       roll(false); return;
     }
     if (a.deep !== (mode() === 'deep')) setMode(a.deep ? 'deep' : 'kurz');
@@ -249,8 +252,8 @@
         if (idx < 0) return;
         if (!first) lp.appendChild(document.createTextNode(' · '));
         first = false;
-        var link = el('a', '', (t !== a.tag || a.deep ? 'Tag ' + t + ', ' : '') + 'Learning ' + (idx + 1) + ': ' + T.learnings[idx][1]);
-        link.href = BASE + '/' + PERSON + '/tag-' + t + '/#lrn-' + id;
+        var link = el('a', '', (t !== a.tag || a.deep ? dayLabel(t) + ', ' : '') + 'Learning ' + (idx + 1) + ': ' + T.learnings[idx][1]);
+        link.href = dayUrlA(t) + '#lrn-' + id;
         link.setAttribute('data-lrn', id);
         link.setAttribute('data-lrn-tag', t);
         lp.appendChild(link);
@@ -296,7 +299,7 @@
     var card = $('.aufg-card', W()), s = a.s, m = a.m;
     card.textContent = '';
     card.classList.remove('deep');
-    head(card, a, ['Tag ' + a.tag, m.dauer + ' Min', a.bereich.name, m.id.charAt(0) === 'g' ? 'aus den Learnings' : null], s);
+    head(card, a, [dayLabel(a.tag), m.dauer + ' Min', a.bereich.name, m.id.charAt(0) === 'g' ? 'aus den Learnings' : null], s);
     lageBox(card, a, s);
     card.appendChild(steps(m.schritte, s));
     var ach = el('div', 'aufg-achten');
@@ -324,7 +327,7 @@
     var card = $('.aufg-card', W()), s = a.s, m = a.m;
     card.textContent = '';
     card.classList.add('deep');
-    head(card, a, ['Deep Learn', '60 Min', 'Tag ' + a.tag, a.bereich.name], s);
+    head(card, a, ['Deep Learn', '60 Min', dayLabel(a.tag), a.bereich.name], s);
     var erg = el('div', 'aufg-ergebnis');
     erg.appendChild(el('b', '', 'Am Ende liegt vor'));
     erg.appendChild(el('p', '', fill(m.ergebnis, s)));

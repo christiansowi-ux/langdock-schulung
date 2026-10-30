@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de" data-person="carmen" data-page="lernblatt" data-lernblatt="carmen/tag-24" data-tag="24">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Learnings Tag 24 · Use Cases finden + Learning Hub der Woche – Carmen</title>
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/style.css">
+<link rel="stylesheet" href="/hefte/assets/web.css">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<style>@page { size: A4; margin: 14mm 16mm 17mm 16mm;
+ @bottom-left { content: "KI Automations Spezialist  ·  Praxisblock Langdock  ·  Learnings Tag 24 · Use Cases finden + Learning Hub der Woche  ·  Carmen"; font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; }
+ @bottom-right { content: "Seite " counter(page) " von " counter(pages); font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } }</style>
+<script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="web lernblatt ui ui-web">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/carmen/">Carmen</a><span class="sep">/</span><a href="/hefte/carmen/#modul-2">Modul 2 · KI-Automation</a><span class="sep">/</span><a href="/hefte/carmen/modul-2/tag-5/">Tag 5 · Use Cases finden + Learning Hub …</a><span class="sep">/</span><span aria-current="page">Lernblatt</span></nav><div class="top-right"><div class="wb-status" id="lb-status"></div><div class="wb-actions"><span id="dz-slot"></span><button class="wb-primary" data-lernblatt-here="carmen/tag-24" type="button">Als PDF herunterladen</button></div><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+<section class="lb-cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Praxisblock Langdock · Lernblatt</p>
+  <h1>Learnings Tag 24 · Use Cases finden + Learning Hub der Woche</h1>
+  <p class="lb-for">für <b>Carmen</b> · Teamleitung, Business &amp; Website</p>
+  <p class="lb-sel" hidden></p>
+</section>
+<section class="section lrn-section" data-lrn-tag="24"><div class="sec-head"><div class="sec-no">Zum Nachlernen</div><h2>Die Learnings von Tag 24</h2><p>Use Cases finden + Learning Hub der Woche – das Wichtigste in kurzen Sätzen, jeweils einfach erklärt und mit der passenden Folie.</p></div><div class="lrn-tools"></div><ol class="lrn thumbs"><li data-lrn="l1"><div class="lrn-no">1</div><div class="lrn-body"><b class="lrn-satz">KI-Automation heißt hier: ein festes Gerüst, in dem an einzelnen Stellen eine KI arbeitet.</b><p>Der Weg steht vorher fest: was den Ablauf startet, welche Schritte folgen und was am Ende herauskommt. Nur dort, wo früher ein Mensch lesen und beurteilen musste – einordnen, zusammenfassen, Angaben aus Freitext ziehen, formulieren – sitzt ein Sprachmodell. Der Rest ist normale Datenarbeit. So bleibt der Ablauf kontrollierbar, testbar und wiederholbar.</p><span class="fref" data-folie="4">Folie 4</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 4" src="/hefte/folien/tag-24/t04.jpg"></div></li><li data-lrn="l2"><div class="lrn-no">2</div><div class="lrn-body"><b class="lrn-satz">Ein Agent plant den Weg selbst – ein Workflow folgt immer demselben vorgezeichneten Weg.</b><p>Agentisch (z. B. Claude Cowork): Du nennst ein Ziel, das Modell wählt Werkzeuge und Reihenfolge erst während der Arbeit. Flexibel, aber schwer zu wiederholen und zu prüfen. Workflow (Make, n8n, Zapier): Du zeichnest die Schritte vorher. Jeder Durchlauf nimmt dieselbe Strecke – gut für gleichförmige Aufgaben mit viel Menge. Im Kurs meint „KI-Automatisierung“ ab jetzt immer den Workflow.</p><span class="fref" data-folie="5">Folie 5</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 5" src="/hefte/folien/tag-24/t05.jpg"></div></li><li data-lrn="l3"><div class="lrn-no">3</div><div class="lrn-body"><b class="lrn-satz">Jeder Workflow hat vier Teile: Auslöser → Daten holen → Verarbeiten → Ergebnis erzeugen.</b><p>Egal ob Make, n8n oder Zapier – das Grundmuster ist gleich, nur die Wörter unterscheiden sich. Beispiel: Neue Anfrage kommt an (Auslöser) → Angaben aus der Mail lesen (Daten holen) → einordnen (Verarbeiten) → Zeile in einer Tabelle (Ergebnis).</p><span class="fref" data-folie="6">Folie 6</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 6" src="/hefte/folien/tag-24/t06.jpg"></div></li><li data-lrn="l4"><div class="lrn-no">4</div><div class="lrn-body"><b class="lrn-satz">Trigger startet, Modul arbeitet, Mapping verbindet, Execution ist ein Durchlauf.</b><p>Trigger: das Ereignis, das startet (Zeitplan, Webhook, manueller Start). Modul: ein einzelner Arbeitsschritt (n8n sagt Node, Zapier Step). Mapping: Felder von einem Schritt in den nächsten einsetzen – laut Folie die häufigste Fehlerquelle überhaupt. Execution: ein Durchlauf; hier wird abgerechnet und im Fehlerfall nachgelesen.</p><span class="fref" data-folie="7">Folie 7</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 7" src="/hefte/folien/tag-24/t07.jpg"></div></li><li data-lrn="l5"><div class="lrn-no">5</div><div class="lrn-body"><b class="lrn-satz">KI-Schritte streuen. Feste Auswahl, festes Format und wiederholte Tests machen sie verlässlicher.</b><p>Ein Sprachmodell wählt Wort für Wort nach Wahrscheinlichkeit. Darum kommt derselbe Lieferant mal als „Musterbau GmbH“, mal als „Musterbau“ heraus – drei Schreibweisen ergeben drei Datensätze. Die Temperatur senkt die Streuung, aber nie auf null. Gegenmittel: erlaubte Werte vorgeben, Antwort als JSON verlangen und prüfen, dieselbe Eingabe zehnmal testen und ein Feld „unsicher“ mitliefern lassen.</p><span class="fref" data-folie="8">Folie 8</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 8" src="/hefte/folien/tag-24/t08.jpg"></div></li><li data-lrn="l6"><div class="lrn-no">6</div><div class="lrn-body"><b class="lrn-satz">Erst Betriebsmodell und Team klären, dann ein einziges Werkzeug wählen.</b><p>Leitfragen der Folie: Selbst betreiben oder Cloud-Dienst? Wer kann es technisch? (ohne Technik: Zapier/Langdock, mit einer technischen Person: Make, mit Entwicklung: n8n). Abrechnung verstehen: Zapier pro Task, Make nach Operationen bzw. heute Credits, n8n Cloud pro Ausführung – Modellkosten kommen dazu. Geeignet sind wiederkehrende, beschreibbare Abläufe mit klaren Eingängen, genug Menge und prüfbarem Ergebnis.</p><span class="fref" data-folie="10">Folie 10</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 10" src="/hefte/folien/tag-24/t10.jpg"></div></li><li data-lrn="l7"><div class="lrn-no">7</div><div class="lrn-body"><b class="lrn-satz">Klein anfangen, mit Ausreißern testen und Fehler aktiv melden lassen.</b><p>Der erste Workflow hat 5–7 Schritte, nicht den kompliziertesten Prozess. Getestet wird auch mit leeren Feldern, Sonderzeichen und falschen Formaten. Es gibt einen Fehlerweg mit Wiederholung, eine Benachrichtigung und getrennte Test- und Echtumgebungen. Typische Fehler: zu groß anfangen, alles per KI lösen, Fließtext statt fester Felder weiterreichen, nach dem Start keine Stichproben.</p><span class="fref" data-folie="11">Folie 11</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 11" src="/hefte/folien/tag-24/t11.jpg"></div></li><li data-lrn="l8"><div class="lrn-no">8</div><div class="lrn-body"><b class="lrn-satz">Make Free: 1.000 Credits im Monat. Zeitplan aus lassen und bewusst mit „Run once“ testen.</b><p>Ein normales Modul verbraucht pro Arbeitsgang meist 1 Credit; Router und Filter selbst kosten nichts, KI-Module können mehr kosten. Free erlaubt zwei aktive Szenarien und Zeitpläne ab 15 Minuten. Eine Abfrage alle 15 Minuten würde 2.880 Credits im Monat allein fürs Nachsehen verbrauchen – deshalb üben wir nur mit Einzelstarts. Maßgeblich ist die Anzeige im eigenen Konto.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l9"><div class="lrn-no">9</div><div class="lrn-body"><b class="lrn-satz">Die Folienübung Outlook → Excel zeigt das ganze Handwerk: Trigger, Action, Mapping, Test, Zeitplan, History.</b><p>Jede neue Mail (Microsoft 365 Email › Watch Emails) wird als Zeile in eine echte Excel-Tabelle geschrieben (Excel › Add a Table Row). Wichtig: Der Bereich in Excel muss als Tabelle formatiert sein, sonst findet Make das Ziel nicht. Dafür braucht man ein Microsoft-365-Konto. Unsere Vorlagen üben dieselben Handgriffe ohne fremdes Konto.</p><span class="fref" data-folie="12">Folie 12</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 12" src="/hefte/folien/tag-24/t12.jpg"></div></li><li data-lrn="l10"><div class="lrn-no">10</div><div class="lrn-body"><b class="lrn-satz">JSON ist ein beschrifteter Zettel: links der Feldname, rechts der Wert.</b><p>JSON (JavaScript Object Notation) ist ein leichtes, für Menschen lesbares Datenformat. Systeme und KI-Modelle tauschen darüber Daten aus. Vorteil für Automationen: feste, gleich aufgebaute Antworten, die sich einfach zerlegen lassen.</p><span class="fref" data-folie="24">Folie 24</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 24" src="/hefte/folien/tag-24/t24.jpg"></div></li><li data-lrn="l11"><div class="lrn-no">11</div><div class="lrn-body"><b class="lrn-satz">Sechs JSON-Typen: String, Number, Boolean, Null, Object, Array.</b><p>String = Text in Anführungszeichen (&quot;Produkt X&quot;). Number = Zahl ohne Anführungszeichen (123, 3.14). Boolean = true oder false. Null = absichtlich leer (nicht dasselbe wie &quot;&quot;). Object = Sammlung von Feldern in { }. Array = geordnete Liste in [ ].</p><span class="fref" data-folie="25">Folie 25</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 25" src="/hefte/folien/tag-24/t25.jpg"></div></li><li data-lrn="l12"><div class="lrn-no">12</div><div class="lrn-body"><b class="lrn-satz">Variablen tragen Werte von Schritt zu Schritt. Daten wandern als Päckchen (Bundles) durch den Ablauf.</b><p>Eine Variable ist ein Platzhalter für einen Wert, der sich je Durchlauf ändert. Make und n8n machen aus JSON automatisch Felder, die man im nächsten Modul einsetzt (mappt). Jedes Modul bekommt ein Päckchen, verarbeitet es und gibt ein neues weiter.</p><span class="fref" data-folie="26">Folie 26</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 26" src="/hefte/folien/tag-24/t26.jpg"></div></li><li data-lrn="l13"><div class="lrn-no">13</div><div class="lrn-body"><b class="lrn-satz">Parse JSON macht aus JSON-Text einzelne Felder, die man mappen kann.</b><p>Kommt eine KI-Antwort als JSON-Text an, zerlegt JSON › Parse JSON sie in betreff, kategorie, prioritaet … Danach kann jedes Feld einzeln weiterverwendet werden. Ist der Text kein gültiges JSON, stoppt das Modul mit einem Fehler – das ist gewollt.</p><span class="fref" data-folie="27">Folie 27</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 27" src="/hefte/folien/tag-24/t27.jpg"></div></li><li data-lrn="l14"><div class="lrn-no">14</div><div class="lrn-body"><b class="lrn-satz">Ein Filter ist eine Tür (weiter oder Stopp), ein Router ist eine Weiche (mehrere Wege).</b><p>Filter prüfen Daten an einer Stelle; nur passende gehen weiter. Das spart Kosten, weil unnötige KI-Schritte gar nicht erst laufen. Router teilen einen Ablauf in mehrere Wege, z. B. Anfragen nach Abteilung. Jeder Weg hat seinen eigenen Filter – passen mehrere, laufen mehrere Wege.</p><span class="fref" data-folie="28">Folie 28</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 28" src="/hefte/folien/tag-24/t28.jpg"></div></li><li data-lrn="l15"><div class="lrn-no">15</div><div class="lrn-body"><b class="lrn-satz">AND heißt: alle Bedingungen müssen stimmen. OR heißt: mindestens eine.</b><p>Vergleichsoperatoren prüfen zwei Werte: gleich, ungleich, größer, kleiner, enthält. Logische Operatoren verbinden Bedingungen: AND (alle wahr) oder OR (mindestens eine wahr).</p><span class="fref" data-folie="29">Folie 29</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 29" src="/hefte/folien/tag-24/t29.jpg"></div></li><li data-lrn="l16"><div class="lrn-no">16</div><div class="lrn-body"><b class="lrn-satz">Ein Webhook meldet sich sofort (Push). Polling fragt immer wieder nach (Pull).</b><p>Ein Webhook ist eine automatische Nachricht an eine feste Adresse, sobald etwas passiert (z. B. Formular abgeschickt). Das ist schneller und sparsamer als regelmäßiges Nachfragen. Eine API muss man dagegen ausdrücklich anfragen.</p><span class="fref" data-folie="17">Folie 17</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 17" src="/hefte/folien/tag-24/t17.jpg"></div></li><li data-lrn="l17"><div class="lrn-no">17</div><div class="lrn-body"><b class="lrn-satz">System-Prompt = Rolle und Regeln. User-Prompt = konkrete Eingabe. Assistant = Antwort des Modells.</b><p>Der System-Prompt legt Identität, Ton und Regeln fest und gilt für jede Antwort. Der User-Prompt ist die konkrete Frage. Die Assistant-Antwort wird Teil des Verlaufs. In der API kommen alle drei als Liste von messages mit role und content.</p><span class="fref" data-folie="30">Folie 30</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 30" src="/hefte/folien/tag-24/t30.jpg"></div></li><li data-lrn="l18"><div class="lrn-no">18</div><div class="lrn-body"><b class="lrn-satz">Die große Folienübung: Formular → KI ordnet ein → JSON zerlegen → Router verteilt.</b><p>Tally-Formular startet sofort, Mistral liefert ein festes JSON (betreff, body_text, kategorie, prioritaet), Parse JSON zerlegt es, eine Bestätigung geht raus, der Router verteilt an Vertrieb, Support oder Marketing. Braucht vier zusätzliche Konten und einen API-Schlüssel. Vor echten Mails an Kundschaft gehört eine menschliche Prüfung dazu.</p><span class="fref" data-folie="18">Folie 18</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 18" src="/hefte/folien/tag-24/t18.jpg"></div></li><li data-lrn="l19"><div class="lrn-no">19</div><div class="lrn-body"><b class="lrn-satz">HTTP GET liest Daten. Status 200 heißt: Abruf hat geklappt – nicht: Inhalt ist richtig.</b><p>Eine API ist eine vereinbarte Adresse für Daten, HTTP der Weg dorthin. GET liest nur. Der Statuscode sagt, ob der Abruf technisch klappte (200 = ok, 404 = nicht gefunden). Ob die gelesenen Daten fachlich stimmen, ist eine zweite Frage.</p><span class="fref aus">Aus dem Arbeitsheft</span></div><div class="lrn-pic"></div></li><li data-lrn="l20"><div class="lrn-no">20</div><div class="lrn-body"><b class="lrn-satz">ISO 8601 mit Z oder Offset ist eindeutig. Ohne Zeitzone drohen Stunden-Verschiebungen.</b><p>2026-07-29T14:35:07Z: Datum, T als Trenner, Uhrzeit, Z = UTC. +02:00 heißt zwei Stunden vor UTC (Sommerzeit Berlin), im Winter gilt +01:00. Ohne Z oder Offset ist der Zeitpunkt mehrdeutig. ISO 8601 nutzt immer 24 Stunden.</p><span class="fref" data-folie="32">Folie 32</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 32" src="/hefte/folien/tag-24/t32.jpg"></div></li><li data-lrn="l21"><div class="lrn-no">21</div><div class="lrn-body"><b class="lrn-satz">formatDate macht aus einem Zeitpunkt lesbaren Text – in der richtigen Zeitzone.</b><p>formatDate(now; &quot;DD.MM.YYYY HH:mm&quot;; &quot;Europe/Berlin&quot;) ergibt z. B. 30.10.2026 10:00. Für Menschen ist das deutsche Format richtig, für APIs und Vergleiche das Format, das das Zielfeld erwartet – meist ISO 8601.</p><span class="fref" data-folie="34">Folie 34</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 34" src="/hefte/folien/tag-24/t34.jpg"></div></li><li data-lrn="l22"><div class="lrn-no">22</div><div class="lrn-body"><b class="lrn-satz">„95 % ohne messbaren Effekt“ ist nicht dasselbe wie „abgebrochen“. Zahlen genau lesen.</b><p>MIT NANDA (2025) misst generative KI-Piloten ohne nachweisbaren Effekt auf das Geschäftsergebnis – oft, weil vorher kein Ausgangswert erhoben wurde. Gartner prognostiziert, dass über 40 % der agentenbasierten Projekte bis Ende 2027 abgebrochen werden. Zwei verschiedene Messgrößen, nicht addierbar. Gemeinsam: Das Modell war nie die Hauptursache.</p><span class="fref" data-folie="40">Folie 40</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 40" src="/hefte/folien/tag-24/t40.jpg"></div></li><li data-lrn="l23"><div class="lrn-no">23</div><div class="lrn-body"><b class="lrn-satz">Projekte scheitern an Ziel, Messung, Daten, Zuständigkeit und Betrieb – nicht am Modell.</b><p>Die fünf Ursachen: unklares Ziel, keine Erfolgskriterien, Daten nicht maschinell verfügbar, Recht und Zuständigkeit zu spät geprüft, niemand verantwortet den Betrieb. „Das Modell war zu schwach“ ist auf der Folie ausdrücklich durchgestrichen. Erfolgreiche Projekte entscheiden vorher: gestufte Autonomie, Freigaben nach Umkehrbarkeit, ROI-Prüfpunkte, ein benannter Eigentümer.</p><span class="fref" data-folie="41">Folie 41</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 41" src="/hefte/folien/tag-24/t41.jpg"></div></li><li data-lrn="l24"><div class="lrn-no">24</div><div class="lrn-body"><b class="lrn-satz">Zeitfresser werden gerechnet, nicht gefühlt: Häufigkeit × Minuten je Vorgang.</b><p>Jede Tätigkeit, die mindestens wöchentlich vorkommt, mit Häufigkeit pro Monat, Minuten je Vorgang, Anzahl Systeme und Fehleranfälligkeit notieren. Erst rechnen, dann sortieren. Die nervigste Aufgabe ist selten die teuerste.</p><span class="fref" data-folie="43">Folie 43</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 43" src="/hefte/folien/tag-24/t43.jpg"></div></li><li data-lrn="l25"><div class="lrn-no">25</div><div class="lrn-body"><b class="lrn-satz">Ein Use-Case braucht alle drei: echtes Problem, abgrenzbaren KI-Teil, messbaren Mehrwert.</b><p>Fehlt der messbare Mehrwert, ist es ein Bauchgefühl-Projekt. Fehlt der KI-Teil, ist es eine Prozessverbesserung. Fehlt das echte Problem, sucht eine Technik eine Anwendung. Fast jeder Fall startet in einer dieser Zwischenzonen.</p><span class="fref" data-folie="45">Folie 45</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 45" src="/hefte/folien/tag-24/t45.jpg"></div></li><li data-lrn="l26"><div class="lrn-no">26</div><div class="lrn-body"><b class="lrn-satz">Die Ebene entscheidet über die Kennzahl: Aufgabe → Sekunden, Prozess → Durchlaufzeit, Use-Case → Geschäftswirkung.</b><p>Wer nur eine Aufgabe beschleunigt, aber die Wartezeit davor und danach lässt, ändert für das Unternehmen nichts. Wer Geschäftswirkung verspricht, muss sie auch messen – nicht nur Sekunden pro Vorgang.</p><span class="fref" data-folie="47">Folie 47</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 47" src="/hefte/folien/tag-24/t47.jpg"></div></li><li data-lrn="l27"><div class="lrn-no">27</div><div class="lrn-body"><b class="lrn-satz">Gute Use-Cases sind korrigierbar, haben einen Eigentümer und genug Volumen.</b><p>Neben den sechs bekannten Merkmalen (abgegrenzt, datenbasiert, umsetzbar, messbar, wiederholbar, im Unternehmen verankert) fehlen oft drei: Fehler bleiben folgenlos oder werden bemerkt, eine benannte Person steht für die Ergebnisse gerade, und der Ablauf kommt oft genug vor.</p><span class="fref" data-folie="49">Folie 49</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 49" src="/hefte/folien/tag-24/t49.jpg"></div></li><li data-lrn="l28"><div class="lrn-no">28</div><div class="lrn-body"><b class="lrn-satz">Im Steckbrief ist Nutzen immer Zahl + Einheit + Zeitraum.</b><p>„Spart 30 Stunden im Monat in der Buchhaltung“ zählt, „spart Zeit“ nicht. Felder, die du nicht füllen kannst, markierst du – leere Felder sind ein Ergebnis, kein Versagen.</p><span class="fref" data-folie="51">Folie 51</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 51" src="/hefte/folien/tag-24/t51.jpg"></div></li><li data-lrn="l29"><div class="lrn-no">29</div><div class="lrn-body"><b class="lrn-satz">Autonomie hat fünf Stufen (0–4) und wird pro Pfad festgelegt, nicht pro Workflow.</b><p>0 manuell, 1 Assistenz, 2 Mensch gibt jeden Fall frei, 3 System entscheidet mit Stichproben, 4 ohne Aufsicht. Häufiges gutes Muster: Standardfall Stufe 3, Ausnahme Stufe 2. Wer 200 Vorschläge am Tag durchklickt, ist faktisch Stufe 4. Für Endentscheidungen über Menschen ist Stufe 4 nicht zulässig.</p><span class="fref" data-folie="54">Folie 54</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 54" src="/hefte/folien/tag-24/t54.jpg"></div></li><li data-lrn="l30"><div class="lrn-no">30</div><div class="lrn-body"><b class="lrn-satz">Erst Regel, dann KI an einer Stelle, Agent zuletzt. KI liest – die Regel entscheidet.</b><p>Treppe: Lässt sich die Entscheidung als Regel formulieren? → fester Workflow. Reicht ein Modell an genau einer Stelle? → Sprachmodell im Workflow. Wechseln Werkzeuge und Reihenfolge je Fall? → Agent. Beispiel Rechnung: Das Modell liest vier Felder, eine feste Regel entscheidet über die Freigabe. Ändert sich die Grenze, ändert sich nur eine Zahl.</p><span class="fref" data-folie="56">Folie 56</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 56" src="/hefte/folien/tag-24/t56.jpg"></div></li><li data-lrn="l31"><div class="lrn-no">31</div><div class="lrn-body"><b class="lrn-satz">Use-Cases findet man systematisch: Zeitfresser, Prozess-Inventur, Schmerz-Interviews, Datenspuren.</b><p>Ein Brainstorming liefert, was gerade in Artikeln steht. Besser: eine Woche Tätigkeiten mitschreiben, Kernprozesse mit Volumen und Fehlerhäufigkeit schätzen, Kolleginnen und Kollegen befragen und Postfächer oder Tickets auswerten. Zehn bis fünfzehn grobe Kandidaten sind ein gutes Ergebnis.</p><span class="fref" data-folie="58">Folie 58</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 58" src="/hefte/folien/tag-24/t58.jpg"></div></li><li data-lrn="l32"><div class="lrn-no">32</div><div class="lrn-body"><b class="lrn-satz">Bei HR, Marketing und Vertrieb die rechtlichen Fallstricke früh prüfen.</b><p>Bewerbungen bewerten oder ranken gilt nach der EU-KI-Verordnung in der Regel als Hochrisiko. Vollautomatische Absagen sind nach Art. 22 DSGVO grundsätzlich unzulässig. Tragfähig: KI strukturiert, ein Mensch bewertet. Bei veröffentlichten KI-Inhalten, Lead-Scoring und Werbemails Kennzeichnung, Datenschutz und Werberecht vorher klären.</p><span class="fref" data-folie="61">Folie 61</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 61" src="/hefte/folien/tag-24/t61.jpg"></div></li><li data-lrn="l33"><div class="lrn-no">33</div><div class="lrn-body"><b class="lrn-satz">Fünf Ausschlusskriterien kommen vor jeder Rechnung.</b><p>Kein Zugriff auf die Daten, kein Verantwortlicher im Fachbereich, rechtlich unzulässiges Ziel, kein definierbarer richtiger Output, Prozess wird gerade umgestellt. Wer hier durchfällt, wird gar nicht erst bewertet.</p><span class="fref" data-folie="64">Folie 64</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 64" src="/hefte/folien/tag-24/t64.jpg"></div></li></ol><div class="keep lrn-wordbox"><h4>Die Wörter des Tages</h4><div class="lrn-words"><div><b>Use-Case</b>Echtes Problem + abgrenzbarer KI-Teil + messbarer Mehrwert.</div><div><b>Zeitfresser</b>Wiederkehrende Tätigkeit, gerechnet als Häufigkeit × Minuten.</div><div><b>Steckbrief</b>Raster mit elf Feldern, das eine Idee zu einem prüfbaren Use-Case macht.</div><div><b>Autonomie-Stufe</b>Wie viel das System allein entscheiden darf: Stufe 0 bis 4.</div><div><b>Eigentümer</b>Benannte Person im Fachbereich, die für die Ergebnisse geradesteht.</div><div><b>Ausschlusskriterium</b>Grund, einen Kandidaten gar nicht erst zu bewerten.</div></div></div></section>
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

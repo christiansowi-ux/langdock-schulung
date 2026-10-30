@@ -1722,6 +1722,9 @@ _t14_short, _t14_deep = register_tag14(M, DL, E)
 MUSTER += _t14_short
 DEEP += _t14_deep
 
+from modul2.woche1.aufgaben_w1 import muster as _w1_muster
+MUSTER += _w1_muster(M)
+
 SLOT = re.compile(r'\{(\w+)\}')
 ABGELEITET = {'fakten', 'notizen_liste', 'doc', 'tag', 'tagtitel', 'satz', 'lrn_nr', 'r_frage', 'r_weg'}
 
@@ -1735,7 +1738,8 @@ def export(tage):
         'muster': MUSTER,
         'generisch': GENERISCH,
         'deep': DEEP,
-        'tage': {str(n): {'titel': t['titel'], 'learnings': [[l['id'], l['satz']] for l in t['learnings']]} for n, t in tage.items()},
+        'tage': {str(n): {'titel': t['titel'], 'learnings': [[l['id'], l['satz']] for l in t['learnings']],
+                          **({'label': f"Modul 2 · Tag {n - 19}"} if n > 19 else {})} for n, t in tage.items()},
     }
 
 

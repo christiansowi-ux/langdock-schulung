@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="de" data-page="day" data-person="carmen" data-tag="6">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tag 6 · Prompt Engineering – gute Prompts schreiben – Carmen</title>
+
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<link rel="stylesheet" href="/hefte/assets/kurs.css">
+<link rel="stylesheet" href="/hefte/assets/lerntraining.css">
+<link rel="stylesheet" href="/hefte/assets/demos.css">
+
+
+<script src="/hefte/assets/app.js" defer></script><script src="/hefte/assets/kurs.js" defer></script><script src="/hefte/assets/aufgaben.js" defer></script><script src="/hefte/assets/lerntraining-core.js" defer></script><script src="/hefte/assets/lerntraining.js" defer></script><script src="/hefte/assets/demo-core.js" defer></script><script src="/hefte/assets/demos.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="kurs ui ui-kurs">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/carmen/">Carmen</a><span class="sep">/</span><a href="/hefte/carmen/#modul-1">Modul 1 · KI-Grundlagen</a><span class="sep">/</span><span aria-current="page">Tag 6 · Prompt Engineering – gute …</span></nav><div class="top-right"><span id="dz-slot"></span><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+<main id="main">
+<section class="hero wrap day">
+  <p class="kicker">Modul 1 · Tag 6 · 05.10.2026 · Lektion 6 · Prompt Engineering · Teil 1</p>
+  <h1>Prompt Engineering – gute Prompts schreiben</h1>
+  <p class="lead">Was ein Prompt ist, die zehn häufigsten Fehler, die Frameworks RTF und 4 Elemente – und eine eigene Prompt-Bibliothek in Langdock.</p>
+  <div class="hero-btns"><a class="btn primary" href="#demos" data-tab-go="demos">In der Demo ausprobieren</a><a class="btn" href="#learnings" data-tab-go="learnings">Die Learnings lesen</a><a class="btn" href="#training" data-tab-go="training">5 Minuten trainieren</a><a class="btn" href="/hefte/carmen/modul-1/tag-6/lernheft/">Lernheft öffnen</a></div>
+  <p class="progress-line" aria-live="polite"><span data-v="sitzt">0 von 12</span> Learnings sitzen · Selbsttest <span data-v="test">noch offen</span></p>
+</section>
+<div class="tabs-wrap"><nav class="tabs wrap" role="tablist" aria-label="Bereiche von Tag 6">
+  
+  <a role="tab" href="#demos" data-tab="demos">Demos</a>
+  
+  <a role="tab" href="#training" data-tab="training">Trainieren</a>
+  <a role="tab" href="#learnings" data-tab="learnings">Learnings</a>
+  <a role="tab" href="#karten" data-tab="karten">Lernkarten</a>
+  <a role="tab" href="#test" data-tab="test">Selbsttest</a>
+  <a role="tab" href="#aufgaben" data-tab="aufgaben">Aufgaben</a>
+  <a role="tab" href="#folien" data-tab="folien">Folien</a>
+  <a role="tab" href="#woerter" data-tab="woerter">Wörter</a>
+  <a role="tab" href="#heft" data-tab="heft">Lernheft</a>
+</nav></div>
+
+
+
+<section class="tpanel wrap" id="training" role="tabpanel" aria-label="Trainieren">
+  <div class="lt-intro"><div><p class="kicker">Kleine Runde · ungefähr 5 Minuten · ohne Zeitdruck</p>
+    <h2>Aus Wissen wird Können.</h2><p>Erst selbst überlegen, dann vergleichen. Was noch wackelt, kommt wieder.</p></div>
+    <ol class="lt-path" aria-label="So wird geübt"><li><b>01</b> Erinnern</li><li><b>02</b> Anwenden</li><li><b>03</b> Wiederholen</li></ol></div>
+  <div data-training><script type="application/json" class="lt-data">{"day": 6, "cards": [{"id": "t1-09ca8a5d7b7d", "day": 1, "question": "Wie viel Prozent der Unternehmen halten KI für die wichtigste Zukunftstechnologie?", "answer": "81 % (Bevölkerung: 67 %).", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-2f122693c205", "day": 1, "question": "Wie viele Unternehmen setzten 2025 KI ein?", "answer": "36 % – 2018 waren es nur 3 %.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-0b8b4d3262f6", "day": 1, "question": "Was prüft der Turing-Test?", "answer": "Ob man im Gespräch erkennen kann, ob das Gegenüber Mensch oder Maschine ist.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-8beea1ac3061", "day": 1, "question": "Was ist ein „KI-Winter“?", "answer": "Eine Phase, in der Interesse und Geld für KI stark zurückgingen – nach zu großen Erwartungen.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-098bd9de5168", "day": 1, "question": "Welche drei Gründe machten den Durchbruch mit GPT möglich?", "answer": "Neue Bauweise (Transformer) passend zu Grafikchips, riesige Datenmengen, Bedienung mit Sprache.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-7d79a595ea6d", "day": 1, "question": "Worin ist KI schon besser als Menschen?", "answer": "Z. B. Texte verstehen, Bilder, Handschrift und Sprache erkennen.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-8639b8baf653", "day": 1, "question": "Worin muss KI noch aufholen?", "answer": "Beim komplexen Schlussfolgern über viele Schritte.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-458ddbe3649e", "day": 1, "question": "Die fünf Bausteine eines guten Prompts?", "answer": "Rolle, Situation, Ziel, Format, Grenzen.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-5b637f74febf", "day": 1, "question": "Welcher Satz spart die meisten Korrekturen?", "answer": "„Stelle mir zuerst Fragen, bevor du …“", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t1-2bf48e9b4766", "day": 1, "question": "Wird Fachwissen durch KI unwichtiger?", "answer": "Nein – Firmen, die KI zur Verstärkung von Fachwissen nutzen, wachsen schneller.", "title": "KI – Hype oder Realität?", "explanation": "", "example": "", "slide": null}, {"id": "t2-784fba0f4d60", "day": 2, "question": "Welche drei Regionen prägen die KI-Welt?", "answer": "USA (Spitzenmodelle), China (holt mit freien Modellen auf), Europa (setzt auf Souveränität).", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-59242d905ad3", "day": 2, "question": "Nenne zwei europäische KI-Anbieter.", "answer": "Z. B. Mistral, Aleph Alpha, Black Forest Labs.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-0ace4103edcf", "day": 2, "question": "Was bedeutet „Open Weight“?", "answer": "Das gelernte Wissen des Modells ist frei verfügbar – man kann es selbst betreiben und anpassen.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-2ee927c2e248", "day": 2, "question": "Was bedeutet „mini“, „flash“ oder „lite“ im Namen?", "answer": "Kleiner, schneller, günstiger.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-49583ba04d4b", "day": 2, "question": "Wann lohnt sich ein Nachdenk-Modell?", "answer": "Bei harten Denkaufgaben: Mathe, Code, Analyse, Planung.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-9ec7d74039e1", "day": 2, "question": "Warum sind Ranglisten mit Vorsicht zu lesen?", "answer": "Viele Tests sind zu leicht, manche Anbieter trainieren darauf – eine Zahl sagt wenig über den eigenen Fall.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-a269d8b8f197", "day": 2, "question": "Welche Faustregel gilt bei der Modellwahl?", "answer": "Die kleinste Lösung nehmen, die den Job zuverlässig erledigt – und selbst testen.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-d0666c5c340c", "day": 2, "question": "Was lehrt der Fall der abgeschalteten Modelle (Juni 2026)?", "answer": "Politik kann Modelle über Nacht abschalten – Abhängigkeit von einem Anbieter ist ein Risiko.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-18aa25dab205", "day": 2, "question": "Wofür ist ein Sprachmodell NICHT das beste Werkzeug?", "answer": "Für genaues Rechnen und Optimieren – das gehört in Tabellen oder Spezialprogramme.", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t2-3909343bcaaf", "day": 2, "question": "Nenne drei der neun Auswahlfragen.", "answer": "Z. B. Nachdenken nötig? Kosten? Datenschutz? (weitere: Input, Output, Textmenge, Tempo, Lizenz, Deutsch)", "title": "Welches KI-Modell für welche Aufgabe?", "explanation": "", "example": "", "slide": null}, {"id": "t3-65fa0f8e473e", "day": 3, "question": "Welche fünf Stationen durchläuft eine KI-Anfrage?", "answer": "Anfrage → Transport → Load Balancer → API → Rechenzentrum.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-288bc58a02df", "day": 3, "question": "Wie wird die Anfrage übertragen?", "answer": "Verschlüsselt über HTTPS/SSL – wie ein versiegelter Brief.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-b99ecc218004", "day": 3, "question": "Was macht der Load Balancer?", "answer": "Er verteilt die vielen Anfragen auf freie Server – wie ein Weichenstellwerk.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-fc17e78245b2", "day": 3, "question": "Was macht die API?", "answer": "Sie leitet die Anfrage ans richtige Modell, übersetzt sie in ein passendes Format und bringt die Antwort zurück.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-9057b81ccd1f", "day": 3, "question": "Wo läuft das Sprachmodell?", "answer": "Im Rechenzentrum, auf Spezialchips (GPUs/TPUs).", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-53e48bb8d6fb", "day": 3, "question": "Was ist der Kontext?", "answer": "Alles, was die KI für diese Frage bekommt: Frage, bisheriger Chat, Anhänge.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-232733e6f0ab", "day": 3, "question": "Was ist ein Token?", "answer": "Ein kleines Textstück – ein Wort, ein Wortteil oder ein Zeichen.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-03c86facca5f", "day": 3, "question": "Was ist ein Embedding?", "answer": "Zahlen, die die Bedeutung eines Textstücks abbilden. Ähnliche Bedeutung = ähnliche Zahlen.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-4e8e10e91d7b", "day": 3, "question": "Warum erscheint die Antwort Stück für Stück?", "answer": "Sie wird Token für Token berechnet und sofort geschickt (Stream).", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-aa3150e3d6f3", "day": 3, "question": "Was passiert nach der Antwort mit dem Zwischenspeicher?", "answer": "Der Cache wird geleert – für die Anfragen anderer.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t3-9d1866cfe635", "day": 3, "question": "Was tut die KI, wenn eine Angabe fehlt?", "answer": "Sie füllt die Lücke meist mit einer plausiblen Erfindung, statt nachzufragen.", "title": "Was passiert bei einer KI-Anfrage?", "explanation": "", "example": "", "slide": null}, {"id": "t4-b4a1701b9e9e", "day": 4, "question": "Welche fünf Wissensquellen hat eine KI?", "answer": "Modelltraining, aktuelles Gespräch, bereitgestellte Dokumente, Websuche, verbundene Systeme.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-bdbd9f914756", "day": 4, "question": "Woher weiß eine KI „Unser Professional-Tarif kostet 89 Euro“?", "answer": "Aus bereitgestellten Dokumenten – im Training steht das nicht.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-a11c56851514", "day": 4, "question": "Wofür stehen die drei Teile von RAG?", "answer": "Retrieval = suchen, Augmented = die Frage um das Gefundene erweitern, Generation = die Antwort erzeugen.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-395f158456c0", "day": 4, "question": "Die sechs Schritte einer RAG-Anfrage?", "answer": "Frage → Suche → Textstellen → Kontext → Antwort → Prüfung.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-1b49247e6dc3", "day": 4, "question": "Was ist ein Chunk?", "answer": "Ein kleiner Abschnitt aus einem Dokument, z. B. „Preise“ oder „Vertragsbedingungen“.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-84eb15d624b0", "day": 4, "question": "Warum findet RAG auch andere Formulierungen?", "answer": "Weil es nach Bedeutung sucht (Embeddings, semantische Suche) – nicht nur nach Stichwörtern.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-d5c1ba91881b", "day": 4, "question": "Ist mehr Kontext immer besser?", "answer": "Nein. Das Kontextfenster ist begrenzt – es zählt die Genauigkeit, nicht die Menge.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-1150197aa828", "day": 4, "question": "Was macht RAG mit einer alten Preisliste?", "answer": "Nichts – es kann sie finden und den alten Preis nennen. RAG korrigiert schlechte Unterlagen nicht.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-1697e7f87807", "day": 4, "question": "Was kosten zwölf Professional-Lizenzen (89 Euro, 15 % ab zehn Lizenzen)?", "answer": "12 × 89 = 1.068 Euro, minus 15 % = 907,80 Euro im Monat.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-c9159da3aba0", "day": 4, "question": "Die fünf Urteile beim Prüfen?", "answer": "Belegt, nicht belegt, widersprüchlich, falsch, veraltet.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-4c8822e911d8", "day": 4, "question": "Wofür ist RAG nicht geeignet?", "answer": "Live-Lagerbestände, aktueller CRM-Stand, offene Rechnungen, freie Termine, rechtliche Freigaben.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t4-e533aa47a9ae", "day": 4, "question": "Datei anhängen oder Wissensbasis?", "answer": "Anhängen: Langdock liest alles – für wenige kurze Dateien. Wissensbasis: sucht die passenden Abschnitte – für viele oder lange Dokumente.", "title": "RAG – erst suchen, dann antworten", "explanation": "", "example": "", "slide": null}, {"id": "t5-3faa245cb06e", "day": 5, "question": "Was macht Deep Research?", "answer": "Es plant viele Suchen, liest und vergleicht die Quellen und schreibt einen Bericht – jede Aussage mit Quelle.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-a16724185dff", "day": 5, "question": "Websuche oder Deep Research?", "answer": "Websuche für schnelle, gezielte Fragen. Deep Research für große Fragen, bei denen man viele Quellen vergleichen muss.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-ff6c7565093c", "day": 5, "question": "Wie startet man Deep Research in Langdock?", "answer": "Im Chat bei den Werkzeugen (Tools) „Deep research“ wählen, Frage eingeben, Rückfragen beantworten.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-40d62c8a1193", "day": 5, "question": "Wie lange dauert eine Deep-Research-Recherche?", "answer": "Etwa 5 bis 30 Minuten.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-7dfbcff324b7", "day": 5, "question": "Was ist der häufigste Fehler?", "answer": "Nur ein Thema nennen. Besser: die Entscheidung, die vorbereitet werden soll.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-839ae17a3b24", "day": 5, "question": "Die sechs Abschnitte des Bauplans?", "answer": "Zweck, Ausgangslage, Untersuchungsrahmen, Belege und Regeln, Vorgehen, Ergebnisform.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-0d39b83dfb8a", "day": 5, "question": "Was gehört in die Ausgangslage?", "answer": "Nur bekannte Tatsachen über die Situation – keine Lösungen und keine erfundenen Annahmen.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-1eb888f0c74d", "day": 5, "question": "Was gehört in den Untersuchungsrahmen?", "answer": "Zielgruppe, Region, Optionen, Bewertungskriterien – und was ausdrücklich nicht dazugehört.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-a1dac951d0cf", "day": 5, "question": "Warum reicht „Nutze seriöse Quellen“ nicht?", "answer": "Weil niemand prüfen kann, was „seriös“ heißt. Besser: Quellenarten, Aktualität, Anbieterangaben und Umgang mit Lücken festlegen.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-9ceb6d416576", "day": 5, "question": "In welcher Reihenfolge arbeitet ein guter Auftrag?", "answer": "Begriffe klären → gleich vergleichen → gegenprüfen → erst dann empfehlen.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-e57fa5cb67ac", "day": 5, "question": "Woran kommt Deep Research nicht heran?", "answer": "An interne Daten, verbundene Apps, Agenten und Ablagen wie SharePoint, OneDrive oder Google Drive.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t5-159373d3b7b2", "day": 5, "question": "Was fragt der Generator im Prompt-Labor ab?", "answer": "Forschungsfrage, Zeitraum, Region, Quellentypen, Gegenpositionen, Umgang mit Lücken, Ausgabeformat.", "title": "Deep Research – Recherche, die eine Entscheidung trägt", "explanation": "", "example": "", "slide": null}, {"id": "t6-9b827aa51528", "day": 6, "question": "Was ist ein Prompt?", "answer": "Eine präzise Arbeitsanweisung, die Verhalten und Ausgaben einer KI steuert.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-7fffe4351503", "day": 6, "question": "Was bringen gute Prompts?", "answer": "Wiederholbare, klare und direkt verwertbare Ergebnisse – weniger Nachbessern.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-3001774632e9", "day": 6, "question": "Was ist an „Schreib mir was über KI“ falsch?", "answer": "Zu vage: kein Thema im Detail, keine Zielgruppe, kein Umfang, kein Format.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-104cdc0b3359", "day": 6, "question": "Wie löst man „zu viele Aufgaben auf einmal“?", "answer": "In Schritte teilen: Schritt 1, Schritt 2, Schritt 3.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-72dd96ef8a19", "day": 6, "question": "Wie bringt man der KI einen Stil bei?", "answer": "Mit einem kurzen Beispiel – „übernimm nur den Stil“.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-32a7dd7a3ebd", "day": 6, "question": "Was hilft, wenn man selbst noch nicht alles weiß?", "answer": "Die KI zuerst Fragen stellen lassen: „Stelle mir zuerst maximal 5 gezielte Fragen.“", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-1c415defad6a", "day": 6, "question": "Was ist Context Pollution?", "answer": "Verschiedene Themen in einem Chat – lieber ein Thema pro Chat.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-6d725baf0236", "day": 6, "question": "Was ist Context Drift?", "answer": "Das Thema verschiebt sich im langen Chat – dann ein neues Chat-Fenster öffnen.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-8eb47ae7d9d9", "day": 6, "question": "Wofür steht RTF?", "answer": "Rolle, Task, Format – für schnelle Prompts zwischendurch.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-b78b707a49f6", "day": 6, "question": "Die vier Elemente für wichtige Aufgaben?", "answer": "Rolle, Aufgabe, Kontext, Format.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-c80082828536", "day": 6, "question": "Wo sind „Ziel“ und „Qualität“ geblieben?", "answer": "Sie gehören im 4-Elemente-Framework zur Aufgabe: Erfolgsmaßstab, Tonfall, Länge, Stil.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}, {"id": "t6-322a8749d46e", "day": 6, "question": "Wie speichert man einen Prompt mit Variable in Langdock?", "answer": "Prompt-Bibliothek → „Prompt hinzufügen“, Variablen wie {{ thema }} schreiben, später mit @ → Prompts abrufen.", "title": "Prompt Engineering – gute Prompts schreiben", "explanation": "", "example": "", "slide": null}], "cases": []}</script>
+    <p class="lt-storage" role="status" hidden></p><div class="lt-dashboard"></div>
+    <div class="lt-stage"></div>
+    <details class="lt-transfer"><summary>In eigenen Worten: Was nehme ich mit?</summary>
+      <label for="lt-note">Ein Merksatz und ein ausgedachtes Beispiel aus dem eigenen Bereich</label>
+      <textarea id="lt-note" rows="4" maxlength="3000" placeholder="Ich achte künftig auf … Zum Beispiel …" aria-describedby="lt-note-hint"></textarea>
+      <p id="lt-note-hint">Nur ausgedachte Daten. Die Notiz bleibt in diesem Browser und wird nicht automatisch bewertet.</p>
+      <p class="lt-note-status" role="status"></p></details>
+    <p class="lt-footnote">Der Lernstand gehört zur gewählten Person und bleibt auf diesem Gerät in diesem Browser. Er ist keine Prüfung oder Zertifizierung. Beim Löschen der Browserdaten geht er verloren.</p>
+    <noscript><p>Das Training braucht JavaScript. Die Learnings und Lernhefte kann man weiterhin lesen.</p></noscript>
+  </div></section>
+<section class="tpanel wrap" id="demos" role="tabpanel" aria-label="Demos">
+      <div class="demo-hero"><div><p class="demo-eyebrow">Die Demo-Werkstatt · selbst ausprobieren</p>
+        <h2>Was passiert,<br>wenn man es anders macht?</h2>
+        <p>Etwas verändern. Die Wirkung sehen. Den Unterschied verstehen.</p>
+        <div class="demo-tags"><span>Ohne Anmeldung</span><span>Ohne echte Daten</span><span>Im eigenen Tempo</span></div></div>
+        <div class="demo-hero-sketch" aria-hidden="true"><span>Die eigene Idee</span><i>↓</i><span class="demo-sketch-active">Ausprobieren & verändern</span><i>↓</i><span>Der Aha-Moment</span></div></div>
+      <div data-demos data-profile="carmen" data-day="6">
+        <p class="demo-save" role="status"></p>
+        <div class="demo-rooms" aria-label="Demo auswählen"><button type="button" class="demo-room" data-room="prompt" aria-pressed="false" aria-controls="demo-stage"><span class="demo-room-no">01</span><strong>Prompt-Studio</strong><span>Aus einer vagen Bitte wird ein brauchbarer Auftrag.</span><small>Auftrag → Ergebnis <span data-done="prompt"></span></small></button></div>
+        <div id="demo-stage" class="demo-stage"></div>
+        <noscript><p>Die Demo-Werkstatt braucht JavaScript. Die Learnings und Lernhefte funktionieren weiterhin ohne die Simulation.</p></noscript>
+        <p class="demo-bottom">Alles hier ist eine Lernsimulation mit vorbereiteten Beispielen. Es wird kein echtes KI-System eingerichtet, keine Nachricht verschickt und keine Website veröffentlicht. Einstellungen bleiben für die gewählte Person nur in diesem Browser. Die Demos ersetzen weder die vollständigen Folien noch eine konkrete fachliche Prüfung.</p>
+      </div></section>
+<section class="tpanel wrap" id="learnings" role="tabpanel" aria-label="Learnings">
+  <div class="panel-head">
+    <div><h2>Die Learnings von Tag 6</h2><p>Das Wichtigste in einem Satz – „Nochmal erklärt“ öffnet die einfache Erklärung. Was sitzt, abhaken; was unklar ist, melden.</p></div>
+    <div class="btnrow">
+      <button class="btn ghost" type="button" data-act="expand">Alle aufklappen</button>
+      <button class="btn" type="button" data-lernblatt="carmen/tag-6">Alle als PDF</button>
+      <button class="btn" type="button" data-lernblatt-sel="carmen/tag-6" disabled>Auswahl als PDF</button>
+    </div>
+  </div>
+  <ol class="lcards"><li class="lcard" data-lrn="l1" id="lrn-l1">
+  <div class="lc-no">01</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Ein Prompt ist eine präzise Arbeitsanweisung an die KI.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Prompts steuern das Verhalten und die Ausgaben einer KI. Sie sind die Schnittstelle zwischen dem, was man will, und dem, was die Maschine tut. Das Wort kommt von der Eingabeaufforderung am Computer („C:\&gt;“, Folie 3).</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="4">Folie 4 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l1"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l1" data-unklar-label="Learning 1: Ein Prompt ist eine präzise Arbeitsanweisung an die KI.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="4" aria-label="Folie 4 groß ansehen"><img src="/hefte/folien/tag-6/t04.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l2" id="lrn-l2">
+  <div class="lc-no">02</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Schlechte Prompts kosten Zeit, gute Prompts schaffen Verlässlichkeit.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Schlechte Prompts bringen falsche Antworten, viele Nachbesserungen und höheren Zeitaufwand. Gute Prompts liefern wiederholbare, klare und direkt verwertbare Ergebnisse. Darum ist professionelles Prompting eine Kernkompetenz.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="6">Folie 6 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l2"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l2" data-unklar-label="Learning 2: Schlechte Prompts kosten Zeit, gute Prompts schaffen Verlässlichkeit.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="6" aria-label="Folie 6 groß ansehen"><img src="/hefte/folien/tag-6/t06.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l3" id="lrn-l3">
+  <div class="lc-no">03</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Fehler 1 bis 3: zu vage, kein Kontext, zu viel auf einmal.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>„Schreib mir was über KI“ ist zu vage. Ohne Kontext (wer schreibt, an wen, warum) rät die KI. Mehrere Aufgaben in einem Satz besser in Schritte teilen: erst zusammenfassen, dann übersetzen, dann den Post schreiben.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="9">Folie 9 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l3"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l3" data-unklar-label="Learning 3: Fehler 1 bis 3: zu vage, kein Kontext, zu viel auf einmal.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="9" aria-label="Folie 9 groß ansehen"><img src="/hefte/folien/tag-6/t09.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l4" id="lrn-l4">
+  <div class="lc-no">04</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Fehler 4 bis 6: kein Format, keine Zielgruppe, keine Einschränkungen.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Sagen, wie die Antwort aussehen soll (z. B. nummerierte Liste mit 7 Tipps), für wen sie ist (z. B. 16-Jährige ohne Vorkenntnisse) und was nicht passieren soll (z. B. kein Fachjargon, 600–800 Wörter, keine unrealistischen Versprechen).</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="12">Folie 12 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l4"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l4" data-unklar-label="Learning 4: Fehler 4 bis 6: kein Format, keine Zielgruppe, keine Einschränkungen.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="12" aria-label="Folie 12 groß ansehen"><img src="/hefte/folien/tag-6/t12.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l5" id="lrn-l5">
+  <div class="lc-no">05</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Fehler 7 und 8: keine Beispiele, keine Nachfragen.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Ein kurzes Beispiel zeigt den gewünschten Stil besser als jede Beschreibung („übernimm nur den Stil“). Und bei unklaren Aufgaben die KI zuerst fragen lassen: „Stelle mir zuerst maximal 5 gezielte Fragen.“</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="15">Folie 15 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l5"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l5" data-unklar-label="Learning 5: Fehler 7 und 8: keine Beispiele, keine Nachfragen.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="15" aria-label="Folie 15 groß ansehen"><img src="/hefte/folien/tag-6/t15.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l6" id="lrn-l6">
+  <div class="lc-no">06</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Fehler 9 und 10: ein Thema pro Chat.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Context Pollution: Werden Vertrag, Ernährungsplan und Steuerrecht in einem Chat gemischt, verwirrt das die KI. Context Drift: Ändert man mitten im langen Chat das Thema („vergiss Anthropic, ich meinte OpenAI“), lieber ein neues Chat-Fenster öffnen.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="17">Folie 17 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l6"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l6" data-unklar-label="Learning 6: Fehler 9 und 10: ein Thema pro Chat.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="17" aria-label="Folie 17 groß ansehen"><img src="/hefte/folien/tag-6/t17.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l7" id="lrn-l7">
+  <div class="lc-no">07</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Für schnelle Prompts: das RTF-Framework.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Rolle („Du bist Social-Media-Manager“), Task (die konkrete Aufgabe) und Format (z. B. Tabelle mit bestimmten Spalten). Reicht für schnelle Prompts zwischendurch.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="20">Folie 20 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l7"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l7" data-unklar-label="Learning 7: Für schnelle Prompts: das RTF-Framework.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="20" aria-label="Folie 20 groß ansehen"><img src="/hefte/folien/tag-6/t20.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l8" id="lrn-l8">
+  <div class="lc-no">08</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Für wichtige Aufgaben: das 4-Elemente-Framework.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Rolle: Wer ist die KI? Aufgabe: Was soll sie konkret tun – mit Erfolgsmaßstab, Tonfall, Länge und Stil. Kontext: Welche Informationen sind relevant? Format: Wie soll die Ausgabe gegliedert sein?</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="21">Folie 21 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l8"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l8" data-unklar-label="Learning 8: Für wichtige Aufgaben: das 4-Elemente-Framework.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="21" aria-label="Folie 21 groß ansehen"><img src="/hefte/folien/tag-6/t21.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l9" id="lrn-l9">
+  <div class="lc-no">09</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Früher waren es sechs Elemente – heute stecken Ziel und Qualität in der Aufgabe.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Das ältere 6-Elemente-Framework hatte zusätzlich „Ziel“ (Woran erkennt man ein gutes Ergebnis?) und „Qualität“ (Tonfall, Länge, Stil). Im 4-Elemente-Framework gehören beide zur Aufgabe.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="22">Folie 22 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l9"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l9" data-unklar-label="Learning 9: Früher waren es sechs Elemente – heute stecken Ziel und Qualität in der Aufgabe.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="22" aria-label="Folie 22 groß ansehen"><img src="/hefte/folien/tag-6/t22.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l10" id="lrn-l10">
+  <div class="lc-no">10</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Ein gutes Beispiel: die Antwort auf eine Beschwerde.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Rolle: Support-Mitarbeiter mit 5 Jahren Erfahrung. Aufgabe: professionell und empathisch antworten, entschuldigen, 2 Lösungen anbieten. Kontext: Lieferung 3 Tage zu spät, Kunde verärgert, plus seine E-Mail. Format: Einleitung, Erklärung, Lösungen, Abschluss – höchstens 6 Sätze, keine Floskeln.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="23">Folie 23 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l10"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l10" data-unklar-label="Learning 10: Ein gutes Beispiel: die Antwort auf eine Beschwerde.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="23" aria-label="Folie 23 groß ansehen"><img src="/hefte/folien/tag-6/t23.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l11" id="lrn-l11">
+  <div class="lc-no">11</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Schwache Prompts lassen sich gezielt verbessern.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Einen Prompt nehmen, der nicht gut funktioniert hat, überlegen, woran es lag (meist einer der 10 Fehler), nach dem Framework neu schreiben und das Ergebnis vorher und nachher vergleichen.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="24">Folie 24 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l11"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l11" data-unklar-label="Learning 11: Schwache Prompts lassen sich gezielt verbessern.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="24" aria-label="Folie 24 groß ansehen"><img src="/hefte/folien/tag-6/t24.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li><li class="lcard" data-lrn="l12" id="lrn-l12">
+  <div class="lc-no">12</div>
+  <div class="lc-main">
+    <h3 class="lc-satz">Eine Prompt-Bibliothek spart die Arbeit beim nächsten Mal.</h3>
+    <details class="lc-more"><summary>Nochmal erklärt</summary><p>Gute Prompts in Langdock speichern (Prompt-Bibliothek → „Prompt hinzufügen“ oder Plus an der eigenen Nachricht). Wechselnde Stellen als Variablen schreiben, z. B. {{ thema }}. Abrufen mit @ → Prompts.</p></details>
+    
+    <div class="lc-actions">
+      <button class="chipbtn lc-sitzt" type="button" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Sitzt</button>
+      <a class="lc-folie" href="#folien" data-folie="26">Folie 26 ansehen</a>
+      <label class="lc-pick"><input type="checkbox" value="l12"> fürs Lernblatt</label>
+      <button class="unklar" type="button" data-unklar-ref="t6:learning:l12" data-unklar-label="Learning 12: Eine Prompt-Bibliothek spart die Arbeit beim nächsten Mal.">Unklar?</button>
+    </div>
+  </div>
+  <button class="lc-thumb" type="button" data-folie="26" aria-label="Folie 26 groß ansehen"><img src="/hefte/folien/tag-6/t26.jpg" alt="" loading="lazy" width="360" height="212"></button>
+</li></ol>
+</section>
+
+<section class="tpanel wrap" id="karten" role="tabpanel" aria-label="Lernkarten">
+  <div class="panel-head"><div><h2>Lernkarten</h2><p>Frage lesen, Antwort überlegen, Karte umdrehen. Dann ehrlich einsortieren: gewusst oder nochmal.</p></div></div>
+  <div class="deck" data-deck>
+    <ol class="karten-src"><li><b>Was ist ein Prompt?</b><span>Eine präzise Arbeitsanweisung, die Verhalten und Ausgaben einer KI steuert.</span></li><li><b>Was bringen gute Prompts?</b><span>Wiederholbare, klare und direkt verwertbare Ergebnisse – weniger Nachbessern.</span></li><li><b>Was ist an „Schreib mir was über KI“ falsch?</b><span>Zu vage: kein Thema im Detail, keine Zielgruppe, kein Umfang, kein Format.</span></li><li><b>Wie löst man „zu viele Aufgaben auf einmal“?</b><span>In Schritte teilen: Schritt 1, Schritt 2, Schritt 3.</span></li><li><b>Wie bringt man der KI einen Stil bei?</b><span>Mit einem kurzen Beispiel – „übernimm nur den Stil“.</span></li><li><b>Was hilft, wenn man selbst noch nicht alles weiß?</b><span>Die KI zuerst Fragen stellen lassen: „Stelle mir zuerst maximal 5 gezielte Fragen.“</span></li><li><b>Was ist Context Pollution?</b><span>Verschiedene Themen in einem Chat – lieber ein Thema pro Chat.</span></li><li><b>Was ist Context Drift?</b><span>Das Thema verschiebt sich im langen Chat – dann ein neues Chat-Fenster öffnen.</span></li><li><b>Wofür steht RTF?</b><span>Rolle, Task, Format – für schnelle Prompts zwischendurch.</span></li><li><b>Die vier Elemente für wichtige Aufgaben?</b><span>Rolle, Aufgabe, Kontext, Format.</span></li><li><b>Wo sind „Ziel“ und „Qualität“ geblieben?</b><span>Sie gehören im 4-Elemente-Framework zur Aufgabe: Erfolgsmaßstab, Tonfall, Länge, Stil.</span></li><li><b>Wie speichert man einen Prompt mit Variable in Langdock?</b><span>Prompt-Bibliothek → „Prompt hinzufügen“, Variablen wie {{ thema }} schreiben, später mit @ → Prompts abrufen.</span></li></ol>
+  </div>
+</section>
+
+<section class="tpanel wrap" id="test" role="tabpanel" aria-label="Selbsttest">
+  <div class="panel-head"><div><h2>Selbsttest</h2><p>6 kurze Fragen. Nach jeder Antwort steht sofort da, warum. Nichts wird bewertet – es ist nur für einen selbst.</p></div></div>
+  <div class="quiz" data-quiz><ol class="test-src"><li><p class="tq">Welcher Prompt ist besser?</p><ol class="to"><li>„Schreib mir was über KI.“</li><li data-ok>„Erkläre in einfachen Worten Chancen und Risiken von generativer KI für kleine Dienstleister in Deutschland. Max. 300 Wörter, gegliedert.“</li><li>„KI?“</li></ol><p class="tw"><b>Warum:</b> Er nennt Thema, Zielgruppe, Umfang und Gliederung – genau das Beispiel aus Folie 9.</p></li><li><p class="tq">Was gehört NICHT zum 4-Elemente-Framework?</p><ol class="to"><li>Rolle</li><li>Kontext</li><li data-ok>Belohnung</li></ol><p class="tw"><b>Warum:</b> Die vier Elemente sind Rolle, Aufgabe, Kontext und Format.</p></li><li><p class="tq">Mitten im Chat will man ein ganz anderes Thema. Was ist am besten?</p><ol class="to"><li>Im selben Chat weiterschreiben</li><li data-ok>Ein neues Chat-Fenster öffnen</li><li>Den Prompt dreimal schicken</li></ol><p class="tw"><b>Warum:</b> Sonst droht Context Drift oder Context Pollution – ein Thema pro Chat.</p></li><li><p class="tq">Wofür ist das RTF-Framework gedacht?</p><ol class="to"><li data-ok>Für schnelle Prompts zwischendurch</li><li>Nur für Bilder</li><li>Für Verträge</li></ol><p class="tw"><b>Warum:</b> RTF (Rolle, Task, Format) ist die schnelle Variante; für wichtige Aufgaben nimmt man die vier Elemente.</p></li><li><p class="tq">Wie zeigt man der KI am einfachsten einen gewünschten Stil?</p><ol class="to"><li data-ok>Mit einem kurzen Beispiel</li><li>Mit möglichst vielen Fachbegriffen</li><li>Gar nicht – das geht nicht</li></ol><p class="tw"><b>Warum:</b> Ein Beispiel wirkt oft stärker als eine lange Beschreibung (Fehler 7, Folie 15).</p></li><li><p class="tq">Wie schreibt man eine Variable in einen gespeicherten Langdock-Prompt?</p><ol class="to"><li>[[thema]]</li><li data-ok>{{ thema }}</li><li>#thema#</li></ol><p class="tw"><b>Warum:</b> Langdock erkennt doppelte geschweifte Klammern und fragt den Wert beim Einsetzen ab.</p></li></ol></div>
+</section>
+
+<section class="tpanel wrap" id="aufgaben" role="tabpanel" aria-label="Aufgaben">
+  <div class="panel-head"><div><h2>Aufgabengenerator</h2><p>Freiwillige Aufgaben zum Stoff von Tag 6 – jedes Mal neu gemischt, mit ausgedachten Firmen aus dem eigenen Bereich. Kurzaufgaben für zwischendurch oder Deep Learn: eine Stunde, eine größere Aufgabe, alles in Langdock.</p></div>
+    <div class="btnrow"><a class="btn" href="/hefte/carmen/aufgaben/">Aus allen Tagen würfeln</a></div></div>
+<div class="aufg" data-aufg data-src="/hefte/assets/aufgaben.json?v=fc966c1d73" data-tag="6">
+  <div class="aufg-mode" role="group" aria-label="Art der Aufgaben">
+    <button type="button" data-mode="kurz" aria-pressed="true"><b>Kurzaufgaben</b><span>5–10 Minuten, ein Gedanke</span></button>
+    <button type="button" data-mode="deep" aria-pressed="false"><b>Deep Learn</b><span>1 Stunde, 5 Etappen, alles in Langdock</span></button>
+  </div>
+  <div class="aufg-ctl">
+    <button class="btn primary aufg-roll" type="button">Neue Aufgabe würfeln</button>
+    <label class="sel">Bereich<select class="aufg-bereich"><option value="mein">Mein Bereich</option><option value="druck">Druck &amp; Vertrieb</option><option value="web">Business &amp; Website</option><option value="video">Video &amp; Design</option><option value="alle">Gemischt</option></select></label>
+    <label class="sel">Dauer<select class="aufg-dauer"><option value="">egal</option><option value="5">etwa 5 Minuten</option><option value="10">etwa 10 Minuten</option></select></label>
+    <label class="aufg-chk"><input type="checkbox" class="aufg-frueher"> auch Aufgaben aus früheren Tagen</label>
+  </div>
+  <p class="aufg-stat" aria-live="polite"></p>
+  <article class="aufg-card" aria-live="polite"><noscript>Der Aufgabengenerator braucht JavaScript.</noscript></article>
+  <p class="aufg-note">Alle Firmen, Namen und Zahlen sind ausgedacht. Die Prompts in Langdock in einen neuen Chat kopieren – der Fortschritt bleibt nur in diesem Browser.</p>
+</div>
+</section>
+
+<section class="tpanel wrap" id="folien" role="tabpanel" aria-label="Folien">
+  <div class="panel-head"><div><h2>Die Folien</h2><p>Alle 41 Folien der Lektion. Blättern mit den Pfeilen, per Wischen oder mit den Pfeiltasten.</p></div>
+    <div class="btnrow"><a class="btn" href="/hefte/folien/tag-6/Folien_Tag6.pdf" download>Folien als PDF</a></div></div>
+  <div class="viewer" data-viewer>
+    <script type="application/json" class="v-data">{"tag": 6, "n": 41, "start": 1, "ratio": 1.6945, "links": {"7": ["https://www.youtube.com/watch?v=NZFbJEiHDZ4", "https://www.youtube.com/watch?v=jvKf6zXrNO4"], "26": ["https://startbrain.ai/de/blog/ki-prompt-engineering-kurs/"], "36": ["https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"]}}</script>
+    <div class="v-strip"><a class="v-th" href="/hefte/folien/tag-6/01.jpg" data-n="1"><img src="/hefte/folien/tag-6/t01.jpg" alt="Folie 1" loading="lazy" width="360" height="212"><span>1</span></a><a class="v-th" href="/hefte/folien/tag-6/02.jpg" data-n="2"><img src="/hefte/folien/tag-6/t02.jpg" alt="Folie 2" loading="lazy" width="360" height="212"><span>2</span></a><a class="v-th" href="/hefte/folien/tag-6/03.jpg" data-n="3"><img src="/hefte/folien/tag-6/t03.jpg" alt="Folie 3" loading="lazy" width="360" height="212"><span>3</span></a><a class="v-th" href="/hefte/folien/tag-6/04.jpg" data-n="4"><img src="/hefte/folien/tag-6/t04.jpg" alt="Folie 4" loading="lazy" width="360" height="212"><span>4</span></a><a class="v-th" href="/hefte/folien/tag-6/05.jpg" data-n="5"><img src="/hefte/folien/tag-6/t05.jpg" alt="Folie 5" loading="lazy" width="360" height="212"><span>5</span></a><a class="v-th" href="/hefte/folien/tag-6/06.jpg" data-n="6"><img src="/hefte/folien/tag-6/t06.jpg" alt="Folie 6" loading="lazy" width="360" height="212"><span>6</span></a><a class="v-th" href="/hefte/folien/tag-6/07.jpg" data-n="7"><img src="/hefte/folien/tag-6/t07.jpg" alt="Folie 7" loading="lazy" width="360" height="212"><span>7</span></a><a class="v-th" href="/hefte/folien/tag-6/08.jpg" data-n="8"><img src="/hefte/folien/tag-6/t08.jpg" alt="Folie 8" loading="lazy" width="360" height="212"><span>8</span></a><a class="v-th" href="/hefte/folien/tag-6/09.jpg" data-n="9"><img src="/hefte/folien/tag-6/t09.jpg" alt="Folie 9" loading="lazy" width="360" height="212"><span>9</span></a><a class="v-th" href="/hefte/folien/tag-6/10.jpg" data-n="10"><img src="/hefte/folien/tag-6/t10.jpg" alt="Folie 10" loading="lazy" width="360" height="212"><span>10</span></a><a class="v-th" href="/hefte/folien/tag-6/11.jpg" data-n="11"><img src="/hefte/folien/tag-6/t11.jpg" alt="Folie 11" loading="lazy" width="360" height="212"><span>11</span></a><a class="v-th" href="/hefte/folien/tag-6/12.jpg" data-n="12"><img src="/hefte/folien/tag-6/t12.jpg" alt="Folie 12" loading="lazy" width="360" height="212"><span>12</span></a><a class="v-th" href="/hefte/folien/tag-6/13.jpg" data-n="13"><img src="/hefte/folien/tag-6/t13.jpg" alt="Folie 13" loading="lazy" width="360" height="212"><span>13</span></a><a class="v-th" href="/hefte/folien/tag-6/14.jpg" data-n="14"><img src="/hefte/folien/tag-6/t14.jpg" alt="Folie 14" loading="lazy" width="360" height="212"><span>14</span></a><a class="v-th" href="/hefte/folien/tag-6/15.jpg" data-n="15"><img src="/hefte/folien/tag-6/t15.jpg" alt="Folie 15" loading="lazy" width="360" height="212"><span>15</span></a><a class="v-th" href="/hefte/folien/tag-6/16.jpg" data-n="16"><img src="/hefte/folien/tag-6/t16.jpg" alt="Folie 16" loading="lazy" width="360" height="212"><span>16</span></a><a class="v-th" href="/hefte/folien/tag-6/17.jpg" data-n="17"><img src="/hefte/folien/tag-6/t17.jpg" alt="Folie 17" loading="lazy" width="360" height="212"><span>17</span></a><a class="v-th" href="/hefte/folien/tag-6/18.jpg" data-n="18"><img src="/hefte/folien/tag-6/t18.jpg" alt="Folie 18" loading="lazy" width="360" height="212"><span>18</span></a><a class="v-th" href="/hefte/folien/tag-6/19.jpg" data-n="19"><img src="/hefte/folien/tag-6/t19.jpg" alt="Folie 19" loading="lazy" width="360" height="212"><span>19</span></a><a class="v-th" href="/hefte/folien/tag-6/20.jpg" data-n="20"><img src="/hefte/folien/tag-6/t20.jpg" alt="Folie 20" loading="lazy" width="360" height="212"><span>20</span></a><a class="v-th" href="/hefte/folien/tag-6/21.jpg" data-n="21"><img src="/hefte/folien/tag-6/t21.jpg" alt="Folie 21" loading="lazy" width="360" height="212"><span>21</span></a><a class="v-th" href="/hefte/folien/tag-6/22.jpg" data-n="22"><img src="/hefte/folien/tag-6/t22.jpg" alt="Folie 22" loading="lazy" width="360" height="212"><span>22</span></a><a class="v-th" href="/hefte/folien/tag-6/23.jpg" data-n="23"><img src="/hefte/folien/tag-6/t23.jpg" alt="Folie 23" loading="lazy" width="360" height="212"><span>23</span></a><a class="v-th" href="/hefte/folien/tag-6/24.jpg" data-n="24"><img src="/hefte/folien/tag-6/t24.jpg" alt="Folie 24" loading="lazy" width="360" height="212"><span>24</span></a><a class="v-th" href="/hefte/folien/tag-6/25.jpg" data-n="25"><img src="/hefte/folien/tag-6/t25.jpg" alt="Folie 25" loading="lazy" width="360" height="212"><span>25</span></a><a class="v-th" href="/hefte/folien/tag-6/26.jpg" data-n="26"><img src="/hefte/folien/tag-6/t26.jpg" alt="Folie 26" loading="lazy" width="360" height="212"><span>26</span></a><a class="v-th" href="/hefte/folien/tag-6/27.jpg" data-n="27"><img src="/hefte/folien/tag-6/t27.jpg" alt="Folie 27" loading="lazy" width="360" height="212"><span>27</span></a><a class="v-th" href="/hefte/folien/tag-6/28.jpg" data-n="28"><img src="/hefte/folien/tag-6/t28.jpg" alt="Folie 28" loading="lazy" width="360" height="212"><span>28</span></a><a class="v-th" href="/hefte/folien/tag-6/29.jpg" data-n="29"><img src="/hefte/folien/tag-6/t29.jpg" alt="Folie 29" loading="lazy" width="360" height="212"><span>29</span></a><a class="v-th" href="/hefte/folien/tag-6/30.jpg" data-n="30"><img src="/hefte/folien/tag-6/t30.jpg" alt="Folie 30" loading="lazy" width="360" height="212"><span>30</span></a><a class="v-th" href="/hefte/folien/tag-6/31.jpg" data-n="31"><img src="/hefte/folien/tag-6/t31.jpg" alt="Folie 31" loading="lazy" width="360" height="212"><span>31</span></a><a class="v-th" href="/hefte/folien/tag-6/32.jpg" data-n="32"><img src="/hefte/folien/tag-6/t32.jpg" alt="Folie 32" loading="lazy" width="360" height="212"><span>32</span></a><a class="v-th" href="/hefte/folien/tag-6/33.jpg" data-n="33"><img src="/hefte/folien/tag-6/t33.jpg" alt="Folie 33" loading="lazy" width="360" height="212"><span>33</span></a><a class="v-th" href="/hefte/folien/tag-6/34.jpg" data-n="34"><img src="/hefte/folien/tag-6/t34.jpg" alt="Folie 34" loading="lazy" width="360" height="212"><span>34</span></a><a class="v-th" href="/hefte/folien/tag-6/35.jpg" data-n="35"><img src="/hefte/folien/tag-6/t35.jpg" alt="Folie 35" loading="lazy" width="360" height="212"><span>35</span></a><a class="v-th" href="/hefte/folien/tag-6/36.jpg" data-n="36"><img src="/hefte/folien/tag-6/t36.jpg" alt="Folie 36" loading="lazy" width="360" height="212"><span>36</span></a><a class="v-th" href="/hefte/folien/tag-6/37.jpg" data-n="37"><img src="/hefte/folien/tag-6/t37.jpg" alt="Folie 37" loading="lazy" width="360" height="212"><span>37</span></a><a class="v-th" href="/hefte/folien/tag-6/38.jpg" data-n="38"><img src="/hefte/folien/tag-6/t38.jpg" alt="Folie 38" loading="lazy" width="360" height="212"><span>38</span></a><a class="v-th" href="/hefte/folien/tag-6/39.jpg" data-n="39"><img src="/hefte/folien/tag-6/t39.jpg" alt="Folie 39" loading="lazy" width="360" height="212"><span>39</span></a><a class="v-th" href="/hefte/folien/tag-6/40.jpg" data-n="40"><img src="/hefte/folien/tag-6/t40.jpg" alt="Folie 40" loading="lazy" width="360" height="212"><span>40</span></a><a class="v-th" href="/hefte/folien/tag-6/41.jpg" data-n="41"><img src="/hefte/folien/tag-6/t41.jpg" alt="Folie 41" loading="lazy" width="360" height="212"><span>41</span></a></div>
+  </div>
+  <h3 class="h-sub">Die Videos aus der Lektion</h3><div class="videos"><div class="video" data-yt="NZFbJEiHDZ4">
+  <div class="v-frame"><button class="v-load" type="button"><span class="play" aria-hidden="true"></span><span>Video laden</span><small>Beim Laden verbindet sich die Seite mit YouTube.</small></button></div>
+  <div class="v-meta"><b>Prompt Engineering Is Dead. This Replaced It.</b><span>12:39 Min · englisch, deutsche Untertitel einschaltbar · Folie 7</span><p>Zugespitzte These zur Diskussion in der Lektion: Ist Prompt Engineering 2026 noch relevant?</p>
+  <a href="https://www.youtube.com/watch?v=NZFbJEiHDZ4" rel="noopener" target="_blank">Auf YouTube öffnen ↗</a></div>
+</div><div class="video" data-yt="jvKf6zXrNO4">
+  <div class="v-frame"><button class="v-load" type="button"><span class="play" aria-hidden="true"></span><span>Video laden</span><small>Beim Laden verbindet sich die Seite mit YouTube.</small></button></div>
+  <div class="v-meta"><b>Prompt Engineering is Dead – Nir Gazit, Traceloop</b><span>14:19 Min · englisch, deutsche Untertitel einschaltbar · Folie 7</span><p>Vortrag zur selben Frage: Handarbeit an Prompts skaliert schlecht – was tritt an ihre Stelle?</p>
+  <a href="https://www.youtube.com/watch?v=jvKf6zXrNO4" rel="noopener" target="_blank">Auf YouTube öffnen ↗</a></div>
+</div></div>
+</section>
+
+<section class="tpanel wrap" id="woerter" role="tabpanel" aria-label="Wörter">
+  <div class="panel-head"><div><h2>Die Wörter des Tages</h2><p>Jedes Fachwort in einem einfachen Satz.</p></div></div>
+  <dl class="words"><div class="word"><dt>Prompt</dt><dd>Die Arbeitsanweisung an die KI – Frage, Auftrag, Vorgaben.</dd></div><div class="word"><dt>Prompt Engineering</dt><dd>Das bewusste Gestalten von Prompts, damit die Ergebnisse verlässlich gut werden.</dd></div><div class="word"><dt>Kontext</dt><dd>Alles, was die KI für die Aufgabe wissen muss: wer, was, warum, für wen.</dd></div><div class="word"><dt>Ausgabeformat</dt><dd>Wie die Antwort aussehen soll: Liste, Tabelle, Länge, Gliederung.</dd></div><div class="word"><dt>Context Pollution</dt><dd>Verschiedene Themen in einem Chat vermischen – die KI wird ungenau.</dd></div><div class="word"><dt>Context Drift</dt><dd>In langen Chats verschiebt sich das Thema – besser neuer Chat.</dd></div><div class="word"><dt>RTF-Framework</dt><dd>Rolle, Task, Format – für schnelle Prompts.</dd></div><div class="word"><dt>4-Elemente-Framework</dt><dd>Rolle, Aufgabe, Kontext, Format – für wichtige Aufgaben.</dd></div><div class="word"><dt>Prompt-Bibliothek</dt><dd>Sammlung gespeicherter Prompts in Langdock, abrufbar mit @.</dd></div><div class="word"><dt>Variable</dt><dd>Platzhalter im gespeicherten Prompt, z. B. {{ thema }} – wird beim Einsetzen ausgefüllt.</dd></div></dl>
+</section>
+
+<section class="tpanel wrap" id="heft" role="tabpanel" aria-label="Lernheft">
+
+  <div class="heftcard lhcard">
+    <div class="hc-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 10h14a5 5 0 0 1 5 5v25a4 4 0 0 0-4-4H5z"/><path d="M43 10H29a5 5 0 0 0-5 5v25a4 4 0 0 1 4-4h15z"/></svg></div>
+    <div class="hc-main">
+      <p class="kicker">Lernheft Tag 6 · zum Lesen und Merken</p>
+      <h2>Prompt Engineering – gute Prompts schreiben</h2>
+      <p>Die ganze Lektion in 9 kurzen Kapiteln – eine Seite pro Gedanke, mit Bildern, Merksätzen, der Lektion auf einer Seite und zwölf Merkfragen. Kein Stift nötig: Geübt wird gemeinsam im Kurs. Dazu freiwillige Übungen für Langdock – Prompt kopieren, ausprobieren, vergleichen.</p>
+      <ol class="lhtoc"><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k1">Was ist ein Prompt?</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k2">Warum Prompts so wichtig sind</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k3">Die zehn Fehler (1–5)</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k4">Die zehn Fehler (6–10)</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k5">Schnell: das RTF-Framework</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k6">Wichtig: die vier Elemente</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k7">Unser Fall – gerettet</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k8">Einen Prompt verbessern</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k9">Die Prompt-Bibliothek in Langdock</a></li><li><a href="/hefte/carmen/modul-1/tag-6/lernheft/#k11">Freiwillige Übungen in Langdock</a></li></ol>
+      <div class="btnrow"><a class="btn primary" href="/hefte/carmen/modul-1/tag-6/lernheft/">Lernheft lesen</a><a class="btn" href="/hefte/pdf/Lernheft_Tag6_Prompt-Engineering-1.pdf" download>Als PDF herunterladen</a></div>
+      <p class="uebung">Übungsseite: <a href="https://prompt.veluna-labs.de/" target="_blank" rel="noopener">Prompt-Labor · prompt.veluna-labs.de ↗</a></p>
+      
+      
+    </div>
+  </div>
+
+</section>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <span>Futureway KI Institut · Kurs „KI Automations Spezialist“ · Praxisblock Langdock</span>
+  <span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span>
+</div></footer>
+</body>
+</html>

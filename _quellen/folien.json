@@ -2126,5 +2126,254 @@
     ]
    }
   ]
+ },
+ "19": {
+  "pdf": "KIAutomSpez_1_16_Claude_Design.pdf",
+  "n": 20,
+  "ratio": 1.7747,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": []
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": [
+     "https://github.com/VoltAgent/awesome-design-md"
+    ]
+   },
+   {
+    "n": 15,
+    "links": [
+     "https://www.youtube.com/watch?v=VeWf0l4ci6Y",
+     "https://www.jeffsu.org/claude-design-tutorial/"
+    ]
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": [
+     "https://www.youtube.com/watch?v=NTDmPtrB4JY"
+    ]
+   },
+   {
+    "n": 18,
+    "links": [
+     "https://www.youtube.com/watch?v=KtK4cywgNUA"
+    ]
+   },
+   {
+    "n": 19,
+    "links": [
+     "https://www.youtube.com/watch?v=3RWm4inkS2E"
+    ]
+   },
+   {
+    "n": 20,
+    "links": [
+     "https://www.youtube.com/watch?v=ovabeVoWrA0"
+    ]
+   }
+  ]
+ },
+ "20": {
+  "pdf": "Folien_Modul2_Tag1.pdf",
+  "n": 34,
+  "ratio": 1.7747,
+  "slides": [
+   {
+    "n": 1,
+    "links": []
+   },
+   {
+    "n": 2,
+    "links": []
+   },
+   {
+    "n": 3,
+    "links": []
+   },
+   {
+    "n": 4,
+    "links": []
+   },
+   {
+    "n": 5,
+    "links": []
+   },
+   {
+    "n": 6,
+    "links": []
+   },
+   {
+    "n": 7,
+    "links": []
+   },
+   {
+    "n": 8,
+    "links": []
+   },
+   {
+    "n": 9,
+    "links": []
+   },
+   {
+    "n": 10,
+    "links": []
+   },
+   {
+    "n": 11,
+    "links": []
+   },
+   {
+    "n": 12,
+    "links": [
+     "https://www.make.com/en"
+    ]
+   },
+   {
+    "n": 13,
+    "links": []
+   },
+   {
+    "n": 14,
+    "links": []
+   },
+   {
+    "n": 15,
+    "links": []
+   },
+   {
+    "n": 16,
+    "links": []
+   },
+   {
+    "n": 17,
+    "links": []
+   },
+   {
+    "n": 18,
+    "links": [
+     "https://tally.so/",
+     "https://console.mistral.ai/",
+     "https://hubspot.com/"
+    ]
+   },
+   {
+    "n": 19,
+    "links": []
+   },
+   {
+    "n": 20,
+    "links": []
+   },
+   {
+    "n": 21,
+    "links": []
+   },
+   {
+    "n": 22,
+    "links": []
+   },
+   {
+    "n": 23,
+    "links": []
+   },
+   {
+    "n": 24,
+    "links": []
+   },
+   {
+    "n": 25,
+    "links": []
+   },
+   {
+    "n": 26,
+    "links": []
+   },
+   {
+    "n": 27,
+    "links": []
+   },
+   {
+    "n": 28,
+    "links": []
+   },
+   {
+    "n": 29,
+    "links": []
+   },
+   {
+    "n": 30,
+    "links": []
+   },
+   {
+    "n": 31,
+    "links": []
+   },
+   {
+    "n": 32,
+    "links": []
+   },
+   {
+    "n": 33,
+    "links": []
+   },
+   {
+    "n": 34,
+    "links": []
+   }
+  ]
  }
 }

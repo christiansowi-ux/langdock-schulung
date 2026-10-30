@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="de" data-person="carmen" data-tag="7" data-page="lernheft">
+<head>
+<meta charset="utf-8">
+<title>Lernheft Tag 7 – Prompting-Techniken (Teil 2)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/hefte/assets/app.css"><link rel="stylesheet" href="/hefte/assets/lernheft.css"><script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="lh ui ui-lh">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/carmen/">Carmen</a><span class="sep">/</span><a href="/hefte/carmen/#modul-1">Modul 1 · KI-Grundlagen</a><span class="sep">/</span><a href="/hefte/carmen/modul-1/tag-7/">Tag 7 · Prompting-Techniken – von …</a><span class="sep">/</span><span aria-current="page">Lernheft</span></nav><div class="top-right"><span id="dz-slot"></span><a class="btn" download="" href="/hefte/pdf/Lernheft_Tag7_Prompt-Engineering-2.pdf">Als PDF</a><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+
+<!-- ============ TITEL ============ -->
+<section class="lp cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Tag 7 · 06.10.2026 · Lektion 6, Teil 2</p>
+  <div class="big" style="font-size:84pt">Prompting-<br>Techniken</div>
+  <div class="big2">Von Few-Shot<br>bis zum Agenten.</div>
+  <p class="sub">Das Lernheft zu den Folien 27 bis 41: acht Techniken für bessere Antworten, drei Arten, Prompts zu gliedern – und der erste eigene Agent.</p>
+  <span class="note"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg> Zum Lesen und Merken – mit freiwilligen Übungen in Langdock am Ende.</span>
+  <div class="cvs">
+    <div class="x"><b>Ohne</b><span>„Wie viele Kunden sind es danach?“ – und hoffen, dass die Rechnung stimmt.</span></div>
+    <div class="o"><b>Mit</b><span>„Denke Schritt für Schritt.“ – jeder Rechenschritt steht da und lässt sich prüfen.</span></div>
+  </div>
+  <div class="band">
+    <div class="bl">Das Grundmuster moderner KI-Agenten · ReAct · Folie 33</div>
+    <div class="steps6" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3h1V4z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3h-1V4z"/></svg></div><b>Denken</b><span>Was brauche ich?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg></div><b>Handeln</b><span>Werkzeug nutzen</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.6-4.6"/></svg></div><b>Beobachten</b><span>Was kam heraus?</span></div>
+      <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg></div><b>Antworten</b><span>wenn das Ziel erreicht ist</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO GEHT DIESES HEFT ============ -->
+<section class="lp">
+  <div class="kh"><div><p class="kk">Bevor es losgeht</p><h2>So liest man dieses Heft</h2></div></div>
+  <div class="how3">
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><b>Eine Seite, eine Technik</b><p>Jede Technik mit Erklärung, „Wann sinnvoll?“ und dem Beispiel von der Folie.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div><b>Unten der Merksatz</b><p>Der schwarze Kasten am Ende jeder Seite ist das, was hängen bleiben soll.</p></div>
+    <div><div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 14h9"/></svg></div><b>Freiwillig üben</b><p>Am Ende kurze Übungen für Langdock – zum Kopieren, ohne Schreiben im Heft.</p></div>
+  </div>
+  <h3 class="st">Inhalt</h3>
+  <ol class="toc">
+    <li><span class="n">01</span>Welche Technik wann?<span class="f">Folien 27–35</span></li>
+    <li><span class="n">02</span>Zero-Shot: ohne Beispiel<span class="f">Folie 28</span></li>
+    <li><span class="n">03</span>One-Shot und Few-Shot<span class="f">Folien 29–30</span></li>
+    <li><span class="n">04</span>Chain-of-Thought<span class="f">Folie 31</span></li>
+    <li><span class="n">05</span>Tree-of-Thought<span class="f">Folie 32</span></li>
+    <li><span class="n">06</span>ReAct<span class="f">Folie 33</span></li>
+    <li><span class="n">07</span>Self-Refine, Self-Consistency<span class="f">Folien 34–35</span></li>
+    <li><span class="n">08</span>System-Prompts<span class="f">Folie 36</span></li>
+    <li><span class="n">09</span>Markdown im Prompt<span class="f">Folie 37</span></li>
+    <li><span class="n">10</span>XML und JSON<span class="f">Folien 38–39</span></li>
+    <li><span class="n">11</span>Vom Prompt zum Agenten<span class="f">Folien 40–41</span></li>
+    <li><span class="n">+</span>Lektion, Übungen, Merkfragen, Wörter<span class="f"></span></li>
+  </ol>
+  <h3 class="st">Was von gestern bleibt</h3>
+  <div class="fq">
+    <span class="lab">Das 4-Elemente-Framework (Tag 6)</span>
+    <p>Rolle · Aufgabe · Kontext · Format</p>
+  </div>
+  <p style="font-size:10.4pt">Die Techniken von heute ersetzen das Framework nicht – sie kommen <b>dazu</b>. Ein Beispiel im Prompt, ein „Denke Schritt für Schritt“ oder eine klare Gliederung machen einen guten Prompt noch verlässlicher.</p>
+  <div class="merk"><span class="ml">Merksatz</span><p>Framework = <em>was</em> in den Prompt gehört. Technik = <em>wie</em> die KI daran arbeitet.</p></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="lp" id="k1">
+  <div class="kh"><span class="kn">01</span><div><p class="kk">Kapitel 1 <span class="fref" data-folie="27">Folie 27</span></p><h2>Welche Technik wann?</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k1" data-unklar-hash="#k1" data-unklar-label="Lernheft · Welche Technik wann?">Unklar?</button></div>
+  <p class="lead">Jede Technik passt zu einer bestimmten Art von Aufgabe. Diese Übersicht hilft beim Auswählen – die Kapitel danach erklären jede einzeln.</p>
+  <div class="techmap">
+    <div><span>Einfache, klare Standardaufgabe</span><b>Zero-Shot</b></div>
+    <div><span>Festes Muster, Format oder ein bestimmter Ton</span><b>One-Shot</b></div>
+    <div><span>Schwierigeres Muster mit Feinheiten</span><b>Few-Shot</b></div>
+    <div><span>Rechnen, Logik, Abwägen mehrerer Faktoren</span><b>Chain-of-Thought</b></div>
+    <div><span>Strategie mit mehreren möglichen Wegen</span><b>Tree-of-Thought</b></div>
+    <div><span>Zwischenschritte, Suchen, Werkzeuge</span><b>ReAct</b></div>
+    <div><span>Text soll richtig gut werden</span><b>Self-Refine</b></div>
+    <div><span>Fehleranfällige Rechnung oder wichtige Frage</span><b>Self-Consistency</b></div>
+    <div><span>Langer Prompt mit vielen Teilen</span><b>Markdown · XML</b></div>
+    <div><span>Ergebnis soll weiterverarbeitet werden</span><b>JSON</b></div>
+  </div>
+  <div class="ask"><span class="q">?</span><p>Faustregel: <b>Einfach anfangen.</b> Erst ohne Beispiel fragen. Passt das Ergebnis nicht, ein Beispiel dazugeben oder Schritt für Schritt denken lassen.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Nicht jede Technik für alles – <em>die Aufgabe bestimmt die Technik.</em></p></div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="lp" id="k2">
+  <div class="kh"><span class="kn">02</span><div><p class="kk">Kapitel 2 <span class="fref" data-folie="28">Folie 28</span></p><h2>Zero-Shot: ohne Beispiel</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k2" data-unklar-hash="#k2" data-unklar-label="Lernheft · Zero-Shot: ohne Beispiel">Unklar?</button></div>
+  <p class="lead">Die KI löst die Aufgabe ohne vorherige Beispiele – nur mit dem, was sie im Training gelernt hat. „Zero“ heißt null: null Beispiele.</p>
+  <div class="chat">
+    <div class="u"><span class="who">Prompt</span><span>Klassifiziere den folgenden Text als positiv, negativ oder neutral: „Das Produkt hat meine Erwartungen vollständig erfüllt.“</span></div>
+    <div class="a"><span class="who">KI</span><span>positiv</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card green"><h4>Wann sinnvoll?</h4><ul class="list yes"><li>einfache, klar definierte Aufgaben</li><li>schnelle Ergebnisse ohne Vorbereitung</li><li>allgemeine Fragen und Standardaufgaben</li><li>wenn keine Beispieldaten vorhanden sind</li></ul></div>
+    <div class="card red"><h4>Grenze</h4><p>Bei komplexen Aufgaben liefert Zero-Shot oft ungenauere Ergebnisse. Dann besser One-Shot oder Few-Shot verwenden (Kapitel 3).</p></div>
+  </div>
+  <div class="fall" style="margin-top:4mm"><span class="fl">Kennt man schon</span><p>Fast jeder Prompt aus dem Alltag ist Zero-Shot: „Fasse diesen Text zusammen“, „Übersetze ins Englische“. Das 4-Elemente-Framework macht ihn trotzdem genau.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Zero-Shot = <em>ohne Beispiel.</em> Schnell – aber nur für einfache Aufgaben.</p></div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="lp" id="k3">
+  <div class="kh"><span class="kn">03</span><div><p class="kk">Kapitel 3 <span class="fref" data-folie="29">Folie 29</span> <span class="fref" data-folie="30">Folie 30</span></p><h2>One-Shot und Few-Shot</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k3" data-unklar-hash="#k3" data-unklar-label="Lernheft · One-Shot und Few-Shot">Unklar?</button></div>
+  <p class="lead">Ein Beispiel zeigt der KI, wie die Antwort aussehen soll. Sie lernt durch Nachahmen – oft besser als durch eine lange Erklärung.</p>
+  <h3 class="st" style="margin-top:0">One-Shot: genau ein Beispiel (Folie 29)</h3>
+  <div class="code">Klassifiziere Kundenfeedback als positiv oder negativ.
+<span class="k">Beispiel:</span> Eingabe: „Die Lieferung war super schnell!“  →  Ausgabe: positiv
+<span class="k">Jetzt du:</span> Eingabe: „Das Produkt war beschädigt und der Support hat nicht geholfen.“  →  Ausgabe:</div>
+  <h3 class="st">Few-Shot: zwei bis fünf Beispiele (Folie 30)</h3>
+  <div class="code">Klassifiziere den Ton von Kunden-E-Mails und schlage eine passende Antwort-Strategie vor.
+<span class="k">Beispiel 1:</span> „Ich warte seit 2 Wochen auf meine Bestellung …“ <span class="c">→ Ton: frustriert · Strategie: sofort entschuldigen, Lösungsweg, Kulanz</span>
+<span class="k">Beispiel 2:</span> „Könnten Sie mir erklären, wie ich das Produkt zurückgebe?“ <span class="c">→ Ton: sachlich · Strategie: freundlich informieren, Schritt für Schritt</span>
+<span class="k">Beispiel 3:</span> „Wow, der Support war unglaublich hilfreich!“ <span class="c">→ Ton: begeistert · Strategie: danken, Feedback weitergeben</span>
+<span class="k">Jetzt du:</span> „Ich habe das falsche Produkt erhalten und bin sehr enttäuscht.“ → Ton: … Strategie: …</div>
+  <div class="grid2">
+    <div class="card"><h4>One-Shot passt, wenn …</h4><p>ein festes Muster, ein einheitliches Format oder ein bestimmter Ton gewünscht ist – oder Zero-Shot zu ungenau war.</p></div>
+    <div class="card green"><h4>Few-Shot: Qualität vor Menge</h4><p>Für Aufgaben mit Feinheiten. Ab etwa fünf Beispielen bringt jedes weitere kaum noch etwas.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein gutes Beispiel ist oft <em>wirkungsvoller als eine lange Erklärung.</em></p></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="lp" id="k4">
+  <div class="kh"><span class="kn">04</span><div><p class="kk">Kapitel 4 <span class="fref" data-folie="31">Folie 31</span></p><h2>Chain-of-Thought: Schritt für Schritt</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k4" data-unklar-hash="#k4" data-unklar-label="Lernheft · Chain-of-Thought: Schritt für Schritt">Unklar?</button></div>
+  <p class="lead">Die KI soll ihren Denkweg zeigen – wie eine Kette aus einzelnen Gedanken. Das verbessert komplexe, mehrstufige Aufgaben deutlich und macht das Ergebnis prüfbar.</p>
+  <div class="fq"><span class="lab">Das Beispiel von Folie 31</span><p>„Analysiere, ob wir den Preis erhöhen sollten. Denke Schritt für Schritt.“</p></div>
+  <div class="flow6 f4">
+    <div><span class="no">1</span><b>Marktlage</b><span>Wettbewerber haben ihre Preise um 10–15 % erhöht. Die Nachfrage ist stabil.</span></div>
+    <div><span class="no">2</span><b>Kosten</b><span>Die Produktionskosten sind um 8 % gestiegen. Die Marge ist unter Druck.</span></div>
+    <div><span class="no">3</span><b>Kunden</b><span>Laut Umfrage würden 70 % eine moderate Erhöhung akzeptieren.</span></div>
+    <div class="end"><span class="no">4</span><b>Empfehlung</b><span>Eine Erhöhung um 7–10 % ist vertretbar und marktkonform.</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><ul class="list"><li>Rechen- und Logikaufgaben</li><li>Entscheidungen in mehreren Schritten</li><li>Analysen mit mehreren Einflussfaktoren</li><li>wenn Nachvollziehbarkeit wichtig ist</li></ul></div>
+    <div class="card dark"><h4>Der Schlüsselsatz</h4><p style="color:#fff;font-size:17pt;font-weight:800;line-height:1.2;margin-top:2mm">„Denke Schritt für Schritt.“</p><p style="color:#cfd4d8;margin-top:2mm">Er bringt die KI dazu, zuerst zu denken und dann zu antworten.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Erst die Schritte, dann das Ergebnis – <em>so sieht man, ob die Rechnung stimmt.</em></p></div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="lp" id="k5">
+  <div class="kh"><span class="kn">05</span><div><p class="kk">Kapitel 5 <span class="fref" data-folie="32">Folie 32</span></p><h2>Tree-of-Thought: mehrere Wege</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k5" data-unklar-hash="#k5" data-unklar-label="Lernheft · Tree-of-Thought: mehrere Wege">Unklar?</button></div>
+  <p class="lead">Statt einer Gedankenkette erkundet die KI mehrere Lösungswege – wie Äste eines Baums. Am Ende bewertet sie alle und wählt den besten.</p>
+  <div class="fq"><span class="lab">Das Beispiel von Folie 32</span><p>„Entwickle eine Go-to-Market-Strategie für unser neues Software-Produkt. Erkunde 3 verschiedene Ansätze.“</p></div>
+  <div class="three">
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4h6v3M3 13h18"/></svg> Pfad A</span><p>Direktvertrieb</p><ul class="list" style="margin-top:2mm"><li>eigenes Vertriebsteam</li><li>hohe Kontrolle</li><li>langsames Wachstum, hohe Kosten</li></ul></div>
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg> Pfad B</span><p>Partner-Netzwerk</p><ul class="list" style="margin-top:2mm"><li>Wiederverkäufer und Integrationen</li><li>schnelle Reichweite</li><li>geringere Marge, Abhängigkeit</li></ul></div>
+    <div><span class="dn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg> Pfad C</span><p>Kostenlos-Version zuerst</p><ul class="list" style="margin-top:2mm"><li>Freemium-Modell</li><li>Wachstum über Weiterempfehlung</li><li>langer Weg bis zum Kauf</li></ul></div>
+  </div>
+  <div class="card dark" style="margin-bottom:4mm"><h4>Der entscheidende Schluss</h4><p style="color:#e9ecef;font-size:11pt">„Bewerte jeden Pfad und empfehle den besten Ansatz für ein B2B-Startup mit begrenztem Budget.“</p></div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><p>Kreative Aufgaben mit vielen Optionen, strategische Entscheidungen, wenn der beste Ansatz unklar ist, Planungs- und Gestaltungsaufgaben.</p></div>
+    <div class="card green"><h4>Tipp von der Folie</h4><p>Besonders stark, wenn die KI die Pfade am Ende bewertet und einen Gewinner begründet.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Mehrere Wege prüfen, <em>einen begründet empfehlen.</em></p></div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="lp" id="k6">
+  <div class="kh"><span class="kn">06</span><div><p class="kk">Kapitel 6 <span class="fref" data-folie="33">Folie 33</span></p><h2>ReAct: denken, handeln, beobachten</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k6" data-unklar-hash="#k6" data-unklar-label="Lernheft · ReAct: denken, handeln, beobachten">Unklar?</button></div>
+  <p class="lead">ReAct steht für Reasoning + Acting – Denken und Handeln. Die KI plant einen Schritt, führt ihn aus, schaut sich das Ergebnis an und plant den nächsten.</p>
+  <div class="loop">
+    <div class="s"><b>Denken</b><span>Was brauche ich als Nächstes?</span></div>
+    <div class="a">→</div>
+    <div class="s"><b>Handeln</b><span>Werkzeug nutzen, z. B. eine Suche</span></div>
+    <div class="a">→</div>
+    <div class="s"><b>Beobachten</b><span>Was kam heraus? Reicht das?</span></div>
+  </div>
+  <p class="loopback">↺ wiederholen, bis das Ziel erreicht ist – dann antworten</p>
+  <h3 class="st">Das Beispiel von Folie 33</h3>
+  <div class="code"><span class="k">Frage:</span>       Wie hoch ist der aktuelle Bitcoin-Kurs?
+<span class="k">Denke:</span>       Ich brauche aktuelle Daten.
+<span class="k">Handeln:</span>     search("Bitcoin Kurs aktuell")
+<span class="k">Beobachtung:</span> Bitcoin steht aktuell bei 97.430 USD.
+<span class="k">Denke:</span>       Ich habe die Information. Ich kann antworten.
+<span class="k">Antwort:</span>     Der aktuelle Bitcoin-Kurs beträgt 97.430 USD.</div>
+  <div class="grid2">
+    <div class="card"><h4>Wann sinnvoll?</h4><p>Aufgaben mit Zwischenschritten, Abruf externer Informationen, Recherche und Analyse, Abläufe mit Agenten.</p></div>
+    <div class="card green"><h4>Kennt man schon</h4><p>Deep Research (Tag 5) arbeitet nach diesem Muster: suchen, lesen, nächste Suche planen.</p></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>ReAct ist die <em>Grundlage moderner KI-Agenten.</em></p></div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="lp" id="k7">
+  <div class="kh"><span class="kn">07</span><div><p class="kk">Kapitel 7 <span class="fref" data-folie="34">Folie 34</span> <span class="fref" data-folie="35">Folie 35</span></p><h2>Self-Refine und Self-Consistency</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k7" data-unklar-hash="#k7" data-unklar-label="Lernheft · Self-Refine und Self-Consistency">Unklar?</button></div>
+  <p class="lead">Zwei Techniken, bei denen die KI sich selbst kontrolliert: einmal durch Selbstkritik, einmal durch Wiederholung.</p>
+  <h3 class="st" style="margin-top:0">Self-Refine: die KI verbessert sich selbst (Folie 34)</h3>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Entwurf</b><span>„Schreib eine Stellenanzeige für eine Senior-Marketing-Managerin.“</span></div>
+    <div><span class="no">2</span><b>Selbstkritik</b><span>„Was fehlt? Was ist unklar? Was könnte die Zielgruppe abschrecken?“</span></div>
+    <div class="end"><span class="no">3</span><b>Überarbeitung</b><span>„Überarbeite die Anzeige anhand deiner Kritik.“</span></div>
+  </div>
+  <p class="small">Die Kritik auf der Folie: fehlende Vorteile, zu förmliche Sprache, keine Angabe zur Remote-Option. Mehrere Runden sind möglich: „Kritisiere und verbessere erneut.“</p>
+  <h3 class="st">Self-Consistency: Mehrheit durch Wiederholung (Folie 35)</h3>
+  <div class="fq"><span class="lab">Dreimal unabhängig lösen</span><p>Ein Unternehmen hat 240 Kunden. 20 % kündigen, 15 % kommen neu dazu. Wie viele Kunden hat es danach?</p></div>
+  <div class="code"><span class="k">Durchlauf 1:</span> 240 − 48 + 36 = 228  ✓
+<span class="k">Durchlauf 2:</span> 240 × 0,8 + 36 = 228  ✓
+<span class="k">Durchlauf 3:</span> 240 − 48 = 192, 192 + 36 = 228  ✓
+<span class="c">→ Alle drei ergeben 228. Finale Antwort: 228 Kunden.</span></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Self-Refine: <em>kritisieren und verbessern.</em> Self-Consistency: <em>mehrmals lösen, Mehrheit zählt.</em></p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="lp" id="k8">
+  <div class="kh"><span class="kn">08</span><div><p class="kk">Kapitel 8 <span class="fref" data-folie="36">Folie 36</span></p><h2>System-Prompts</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k8" data-unklar-hash="#k8" data-unklar-label="Lernheft · System-Prompts">Unklar?</button></div>
+  <p class="lead">Jedes KI-Werkzeug hat eine feste Grundanweisung, die vor jeder Unterhaltung steht: den System-Prompt. Man sieht ihn nicht – aber er prägt jede Antwort.</p>
+  <div class="chat">
+    <div class="u"><span class="who">System</span><span>Du bist der Support-Assistent eines Online-Shops. Antworte freundlich, in höchstens 5 Sätzen, und gib nie Rabatte ohne Rückfrage. <i style="color:var(--muted)">(steht fest – gilt für jede Unterhaltung)</i></span></div>
+    <div class="u" style="background:#fff"><span class="who">Nutzer</span><span>Meine Bestellung ist noch nicht da. <i style="color:var(--muted)">(wechselt jedes Mal)</i></span></div>
+    <div class="a"><span class="who">KI</span><span>Antwortet im Rahmen beider Anweisungen.</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h4>Zum Anschauen (Folie 36)</h4><p>Eine öffentliche GitHub-Sammlung („system-prompts-and-models-of-ai-tools“) zeigt System-Prompts bekannter Werkzeuge, etwa von Cursor, Perplexity, Notion AI, Lovable oder Manus. Gut zum Lernen: So schreiben Profis Anweisungen.</p></div>
+    <div class="card green"><h4>In Langdock</h4><p>Die Anweisungen eines Agenten sind sein System-Prompt. Wer einen Agenten baut, schreibt also einen System-Prompt – am besten nach den vier Elementen.</p></div>
+  </div>
+  <div class="ask" style="margin-top:4mm"><span class="q">!</span><p>Der System-Prompt sagt, <b>wie</b> die KI immer arbeitet. Der Prompt im Chat sagt, <b>was</b> sie jetzt tun soll.</p></div>
+  <div class="merk"><span class="ml">Merksatz</span><p>System-Prompt = <em>die Daueranweisung</em> hinter jeder Antwort.</p></div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="lp" id="k9">
+  <div class="kh"><span class="kn">09</span><div><p class="kk">Kapitel 9 <span class="fref" data-folie="37">Folie 37</span></p><h2>Markdown im Prompt</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k9" data-unklar-hash="#k9" data-unklar-label="Lernheft · Markdown im Prompt">Unklar?</button></div>
+  <p class="lead">Markdown ist eine einfache Schreibweise, die Text mit wenigen Zeichen gliedert. Im Prompt trennt sie die Teile sauber – und die Antwort kommt besser gegliedert zurück.</p>
+  <div class="map6">
+    <div class="a"><b># Überschrift</b></div><div class="arr">→</div><div class="b">große Überschrift (## = kleinere)</div>
+    <div class="a"><b>**fett**</b></div><div class="arr">→</div><div class="b"><b>fett</b></div>
+    <div class="a"><b>*kursiv*</b></div><div class="arr">→</div><div class="b"><i>kursiv</i></div>
+    <div class="a"><b>- Punkt</b></div><div class="arr">→</div><div class="b">Listenpunkt</div>
+    <div class="a"><b>&gt; Text</b></div><div class="arr">→</div><div class="b">Zitat (eingerückter Block)</div>
+  </div>
+  <h3 class="st">Das Beispiel von Folie 37</h3>
+  <div class="code"><span class="k">## Rolle</span>
+Du bist ein erfahrener Marketing-Experte mit Schwerpunkt Social Media.
+<span class="k">## Aufgabe</span>
+Erstelle eine kreative Kampagnenidee für ein neues nachhaltiges Produkt.
+<span class="k">## Kontext</span>
+- Zielgruppe: umweltbewusste Personen zwischen 20 und 40 Jahren
+- Plattformen: Instagram, TikTok · Budget: mittelgroßes Start-up
+<span class="k">## Format</span>
+- Kurze Kampagnenbeschreibung (max. 150 Wörter)
+- 3 Content-Ideen als Stichpunkte, 1 Beispiel-Post mit Hashtags</div>
+  <div class="merk"><span class="ml">Merksatz</span><p>## Rolle, ## Aufgabe, ## Kontext, ## Format – <em>die vier Elemente als Überschriften.</em></p></div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="lp" id="k10">
+  <div class="kh"><span class="kn">10</span><div><p class="kk">Kapitel 10 <span class="fref" data-folie="38">Folie 38</span> <span class="fref" data-folie="39">Folie 39</span></p><h2>XML und JSON</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k10" data-unklar-hash="#k10" data-unklar-label="Lernheft · XML und JSON">Unklar?</button></div>
+  <p class="lead">XML gliedert den Prompt mit Schildern (Tags). JSON macht die Antwort maschinenlesbar – damit ein anderes Programm sie weiterverarbeiten kann.</p>
+  <h3 class="st" style="margin-top:0">XML: jeder Teil in seinem Tag (Folie 38)</h3>
+  <div class="code"><span class="t">&lt;rolle&gt;</span>Du bist ein erfahrener Marketing-Experte.<span class="t">&lt;/rolle&gt;</span>
+<span class="t">&lt;aufgabe&gt;</span>Erstelle eine Kampagnenidee für ein nachhaltiges Produkt.<span class="t">&lt;/aufgabe&gt;</span>
+<span class="t">&lt;kontext&gt;</span>
+  <span class="t">&lt;zielgruppe&gt;</span>Umweltbewusste Personen, 20–40 Jahre<span class="t">&lt;/zielgruppe&gt;</span>
+  <span class="t">&lt;plattformen&gt;</span>Instagram, TikTok<span class="t">&lt;/plattformen&gt;</span>
+<span class="t">&lt;/kontext&gt;</span>
+<span class="t">&lt;format&gt;</span>Beschreibung (max. 150 Wörter), 3 Ideen, 1 Beispiel-Post<span class="t">&lt;/format&gt;</span></div>
+  <p class="small">Warum? Klare Trennung von Kontext, Aufgabe und Beispielen – die KI erkennt die Struktur zuverlässiger. Ideal für lange, mehrteilige Prompts.</p>
+  <h3 class="st">JSON: Antwort als Datensatz (Folie 39)</h3>
+  <div class="split2">
+    <div><span class="lab">Eingabe</span><div class="code">{ "name": "Anna Müller",
+  "branche": "E-Commerce",
+  "teamgröße": 12,
+  "ziel": "Prozesse automatisieren" }</div></div>
+    <div><span class="lab">Gewünschte Ausgabe</span><div class="code">{ "segment": "KMU",
+  "priorität": "hoch",
+  "empfehlung": "Workflow-Automatisierung",
+  "nächster_schritt": "Demo buchen" }</div></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>„Antworte ausschließlich im JSON-Format“ – <em>kein Fließtext, direkt weiterverarbeitbar.</em></p></div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="lp" id="k11">
+  <div class="kh"><span class="kn">11</span><div><p class="kk">Kapitel 11 <span class="fref" data-folie="40">Folie 40</span> <span class="fref" data-folie="41">Folie 41</span></p><h2>Vom Prompt zum Agenten</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k11" data-unklar-hash="#k11" data-unklar-label="Lernheft · Vom Prompt zum Agenten">Unklar?</button></div>
+  <p class="lead">Die Aufgabe der Lektion: einen Agenten in Langdock bauen, der eine Aufgabe aus dem Alltag abnimmt – als Prototyp. Ideal: Nach einem Prompt liegt schon das gewünschte Ergebnis vor.</p>
+  <h3 class="st" style="margin-top:0">Sechs Überlegungen vorher</h3>
+  <div class="flow6">
+    <div><span class="no">1</span><b>Kontext</b><span>Welche Informationen braucht der Agent?</span></div>
+    <div><span class="no">2</span><b>Schnittstellen</b><span>Was brauche ich – und was simuliere ich, z. B. per Datei-Upload?</span></div>
+    <div><span class="no">3</span><b>Ziel</b><span>Was soll der Agent erreichen?</span></div>
+    <div><span class="no">4</span><b>Erfolg</b><span>Woran messe ich, ob er gut arbeitet?</span></div>
+    <div><span class="no">5</span><b>Rolle</b><span>Wer ist der Agent?</span></div>
+    <div class="end"><span class="no">6</span><b>Format</b><span>Wie sieht das Endergebnis aus?</span></div>
+  </div>
+  <h3 class="st">Fünf Ideen von Folie 41 – und ihre Technik</h3>
+  <div class="techmap">
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Triage:</b> Anfrage rein → Kategorie, Dringlichkeit, Stimmung, Antwort-Entwurf</span><b>Zero- + Few-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Radar-Brief:</b> Meldung rein → Kernaussage, Betroffenheit, Fakt oder Gerücht, nächster Schritt</span><b>One-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Protokoll:</b> Notizen rein → Protokoll + Aufgabe · Verantwortlich · Frist</span><b>Zero- + Few-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Marken-Ton:</b> Entwurf rein → derselbe Text im Hausstil</span><b>One-Shot</b></div>
+    <div><span><b style="all:unset;font-weight:700;color:var(--head)">Prompt-Optimierer:</b> grober Prompt rein → Prompt nach den vier Elementen</span><b>4 Elemente</b></div>
+    <div><span>Tipps: Vorlagen für Dateien nutzen, Testdaten von der KI erzeugen lassen. Bonus: Testfälle zur Bewertung.</span><b>Prototyp</b></div>
+  </div>
+  <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Agent ist ein guter System-Prompt – <em>vier Elemente plus die passende Technik.</em></p></div>
+</section>
+
+<!-- ============ AUF EINER SEITE ============ -->
+<section class="lp" id="k12">
+  <div class="kh"><span class="kn">+</span><div><p class="kk">Zum Wiederholen</p><h2>Die Lektion auf einer Seite</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k12" data-unklar-hash="#k12" data-unklar-label="Lernheft · Die Lektion auf einer Seite">Unklar?</button></div>
+  <div class="cheat">
+    <div class="wide"><h4>Die Formel</h4><p class="formula">Guter Prompt = <span>4 Elemente + die passende Technik + klare Gliederung.</span></p></div>
+    <div><h4>Zero-Shot</h4><p>Ohne Beispiel. Für einfache Standardaufgaben.</p></div>
+    <div><h4>One- und Few-Shot</h4><p>Ein bzw. zwei bis fünf Beispiele. Die KI ahmt das Muster nach.</p></div>
+    <div><h4>Chain-of-Thought</h4><p>„Denke Schritt für Schritt.“ Für Rechnen, Logik, Abwägen.</p></div>
+    <div><h4>Tree-of-Thought</h4><p>Mehrere Wege prüfen, bewerten, den besten begründen.</p></div>
+    <div><h4>ReAct</h4><p>Denken → Handeln → Beobachten. Grundlage von Agenten.</p></div>
+    <div><h4>Self-Refine · Self-Consistency</h4><p>Selbst kritisieren und verbessern · mehrmals lösen, Mehrheit zählt.</p></div>
+    <div><h4>System-Prompt</h4><p>Die Daueranweisung eines Werkzeugs – in Langdock die Anweisungen eines Agenten.</p></div>
+    <div><h4>Markdown · XML · JSON</h4><p>## Überschriften · &lt;tags&gt; · Antwort als Datensatz.</p></div>
+    <div class="wide" style="background:var(--head)"><h4 style="color:var(--mint)">Vor dem ersten Agenten</h4><p class="formula" style="color:#fff;font-size:12.5pt">Kontext · Schnittstellen · Ziel · Erfolg · Rolle · Format</p></div>
+  </div>
+</section>
+
+<!-- ============ UEBUNGEN 1 ============ -->
+<section class="lp" id="k13">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (1)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k13" data-unklar-hash="#k13" data-unklar-label="Lernheft · Üben in Langdock (1)">Unklar?</button></div>
+  <p class="lead">Prompt kopieren, in einen neuen Chat einfügen, Ergebnis ansehen. Nur ausgedachte Daten.</p>
+  <div class="ueb"><div class="uh"><span class="un">Übung 1</span><h4>Mit und ohne Beispiel</h4><span class="min">5 Min</span></div>
+    <p>Erst ohne Beispiel, dann in einem neuen Chat mit einem Beispiel für den gewünschten Stil.</p>
+    <div class="ucode">Schreibe einen Satz, der unser neues Kaffee-Abo vorstellt.</div>
+    <div class="ucode">Schreibe einen Satz, der unser neues Kaffee-Abo vorstellt. Beispiel für unseren Stil (übernimm nur den Stil): „Frisch geröstet, ehrlich gehandelt – und jeden Monat ein bisschen besser.“</div>
+    <p class="look"><b>Darauf achten:</b> Wie stark übernimmt die KI den Ton des Beispiels?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 2</span><h4>Schritt für Schritt – und dreimal</h4><span class="min">5 Min</span></div>
+    <p>Diese Frage in drei neuen Chats stellen. Kommt jedes Mal dasselbe heraus?</p>
+    <div class="ucode">Ein Unternehmen hat 240 Kunden. 20 % kündigen, 15 % kommen neu dazu. Wie viele Kunden hat es danach? Denke Schritt für Schritt.</div>
+    <p class="look"><b>Darauf achten:</b> Stimmen die Schritte? Die richtige Antwort ist 228.</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 3</span><h4>Drei Wege, ein Gewinner</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Wir wollen mehr Stammkunden gewinnen. Erkunde 3 verschiedene Wege (Pfad A, B, C) mit Vorteilen und Nachteilen. Bewerte dann jeden Pfad und empfehle den besten für ein kleines Team mit wenig Budget. Begründe die Wahl in 3 Sätzen.</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> „mehr Folgeaufträge von Bestandskunden“ · <b>Business &amp; Website:</b> „mehr Anfragen über die Website“ · <b>Video &amp; Design:</b> „mehr Aufrufe für unsere Kurzvideos“</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 4</span><h4>Die KI kritisiert sich selbst</h4><span class="min">5 Min</span></div>
+    <p>Erst einen kurzen Text schreiben lassen (z. B. eine Stellenanzeige), dann im selben Chat:</p>
+    <div class="ucode">Kritisiere nun deine eigene Antwort: Was fehlt? Was ist unklar oder zu allgemein? Was könnte die Zielgruppe abschrecken? Überarbeite den Text danach anhand deiner Kritik.</div>
+    <p class="look"><b>Darauf achten:</b> Ist die zweite Fassung wirklich besser? Noch eine Runde: „Kritisiere und verbessere erneut.“</p></div>
+</section>
+
+<!-- ============ UEBUNGEN 2 ============ -->
+<section class="lp" id="k14">
+  <div class="kh"><span class="kn">Ü</span><div><p class="kk">Freiwillig · je etwa 5 Minuten</p><h2>Üben in Langdock (2)</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k14" data-unklar-hash="#k14" data-unklar-label="Lernheft · Üben in Langdock (2)">Unklar?</button></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 5</span><h4>Ein Prompt mit Überschriften</h4><span class="min">5 Min</span></div>
+    <div class="ucode">## Rolle<br>Du bist [Rolle].<br>## Aufgabe<br>[Was soll entstehen?]<br>## Kontext<br>- Zielgruppe: [wer?]<br>- Rahmen: [Budget, Kanal, Zeit]<br>## Format<br>- [z. B. 3 Ideen als Stichpunkte, 1 Beispiel]</div>
+    <p class="var"><b>Druck &amp; Vertrieb:</b> Vertriebsberater, Aktion für Firmenkunden zum Jahresende · <b>Business &amp; Website:</b> Webtexter, neue Startseite für eine Steuerkanzlei · <b>Video &amp; Design:</b> Creative Director, Reel-Serie für ein Café</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Übung 6</span><h4>Antwort als JSON</h4><span class="min">5 Min</span></div>
+    <div class="ucode">Analysiere diese Kundenanfrage und antworte ausschließlich im JSON-Format mit den Feldern "kategorie", "dringlichkeit" (niedrig/mittel/hoch), "stimmung" und "antwort_entwurf". Anfrage: „Hallo, unsere Bestellung 4711 fehlt seit Montag, wir brauchen sie bis Freitag für eine Messe!“</div>
+    <p class="look"><b>Darauf achten:</b> Kommt wirklich nur JSON zurück – ohne Text davor und danach?</p></div>
+  <div class="ueb"><div class="uh"><span class="un">Bonus</span><h4>Der erste Mini-Agent: Protokoll</h4><span class="min">10 Min</span></div>
+    <p>Diese Anweisung als Agent anlegen – oder ohne Agent als Prompt in der Prompt-Bibliothek speichern und am Chat-Anfang einsetzen. Dann ausgedachte Notizen einfügen.</p>
+    <div class="ucode">Du bist Protokoll-Assistent. Aus rohen Meeting-Notizen machst du ein sauberes Protokoll. Format: 1) Thema und Datum 2) Ergebnisse in Stichpunkten 3) Tabelle mit Aufgabe · Verantwortlich · Frist. Erfinde nichts: Fehlt eine Angabe, schreibe „offen“.</div>
+    <p class="look"><b>Darauf achten:</b> Kommt nach einem einzigen Prompt schon das fertige Ergebnis? Genau das ist das Ziel von Folie 40.</p></div>
+</section>
+
+<!-- ============ MERKFRAGEN ============ -->
+<section class="lp" id="k15">
+  <div class="kh"><span class="kn">?</span><div><p class="kk">Zum Selbst-Abfragen</p><h2>Zwölf Merkfragen – mit Antwort</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k15" data-unklar-hash="#k15" data-unklar-label="Lernheft · Zwölf Merkfragen">Unklar?</button></div>
+  <p class="lead">Frage lesen, kurz selbst überlegen, dann die Antwort darunter lesen. Online gibt es dieselben Fragen als Lernkarten zum Umdrehen.</p>
+  <div class="qa">
+    <div><span class="qn">FRAGE 01</span><b>Was ist Zero-Shot-Prompting?</b><p>Die KI löst die Aufgabe ohne Beispiel – gut für einfache Standardaufgaben.</p></div>
+    <div><span class="qn">FRAGE 02</span><b>Wann nimmt man One-Shot?</b><p>Wenn ein festes Muster, Format oder ein bestimmter Ton gewünscht ist.</p></div>
+    <div><span class="qn">FRAGE 03</span><b>Wie viele Beispiele bei Few-Shot?</b><p>Zwei bis fünf – danach bringt jedes weitere kaum noch etwas.</p></div>
+    <div><span class="qn">FRAGE 04</span><b>Der Schlüsselsatz für Chain-of-Thought?</b><p>„Denke Schritt für Schritt.“</p></div>
+    <div><span class="qn">FRAGE 05</span><b>Wofür ist Tree-of-Thought gut?</b><p>Für Strategien und kreative Aufgaben mit mehreren Lösungswegen – am Ende den besten begründen lassen.</p></div>
+    <div><span class="qn">FRAGE 06</span><b>Welches Muster steckt hinter ReAct?</b><p>Denken → Handeln → Beobachten, so lange, bis das Ziel erreicht ist.</p></div>
+    <div><span class="qn">FRAGE 07</span><b>Wie funktioniert Self-Refine?</b><p>Entwurf → Selbstkritik → überarbeitete Fassung.</p></div>
+    <div><span class="qn">FRAGE 08</span><b>Wie funktioniert Self-Consistency?</b><p>Dieselbe Frage mehrmals unabhängig lösen lassen; die häufigste Antwort zählt.</p></div>
+    <div><span class="qn">FRAGE 09</span><b>Was ist ein System-Prompt?</b><p>Die feste Grundanweisung eines Werkzeugs – in Langdock die Anweisungen eines Agenten.</p></div>
+    <div><span class="qn">FRAGE 10</span><b>Wofür Markdown im Prompt?</b><p>Um Rolle, Aufgabe, Kontext und Format mit Überschriften und Listen sauber zu gliedern.</p></div>
+    <div><span class="qn">FRAGE 11</span><b>Welcher Satz erzwingt JSON?</b><p>„Antworte ausschließlich im JSON-Format.“</p></div>
+    <div><span class="qn">FRAGE 12</span><b>Welche Fragen klärt man vor dem Bau eines Agenten?</b><p>Kontext, Schnittstellen, Ziel, Erfolgsmessung, Rolle und Ergebnisformat.</p></div>
+  </div>
+</section>
+
+<!-- ============ WOERTER ============ -->
+<section class="lp" id="k16">
+  <div class="kh"><span class="kn">Aa</span><div><p class="kk">Zum Nachschlagen</p><h2>Die Wörter des Tages</h2></div><button class="unklar ux" type="button" data-unklar-ref="t7:lernheft:k16" data-unklar-hash="#k16" data-unklar-label="Lernheft · Die Wörter des Tages">Unklar?</button></div>
+  <div class="gl">
+    <div><b>Zero-Shot</b><span>Aufgabe ohne Beispiel.</span></div>
+    <div><b>One-Shot</b><span>Aufgabe mit genau einem Beispiel.</span></div>
+    <div><b>Few-Shot</b><span>Aufgabe mit zwei bis fünf Beispielen.</span></div>
+    <div><b>Chain-of-Thought</b><span>Schritt für Schritt denken lassen.</span></div>
+    <div><b>Tree-of-Thought</b><span>Mehrere Lösungswege prüfen und den besten wählen.</span></div>
+    <div><b>ReAct</b><span>Denken – Handeln – Beobachten, bis das Ziel erreicht ist. Grundlage von Agenten.</span></div>
+    <div><b>Self-Refine</b><span>Die KI kritisiert und verbessert ihre eigene Antwort.</span></div>
+    <div><b>Self-Consistency</b><span>Mehrere unabhängige Durchläufe, die häufigste Antwort gewinnt.</span></div>
+    <div><b>System-Prompt</b><span>Die feste Grundanweisung eines KI-Werkzeugs oder Agenten.</span></div>
+    <div><b>Markdown / XML / JSON</b><span>Drei Arten, Prompts und Antworten zu strukturieren.</span></div>
+  </div>
+  <div class="end"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg><div><b>Alles noch einmal online</b><p>quint-games.de/hefte → eigener Name → Tag 7: Folien, Lernkarten, Selbsttest und dieses Lernheft.</p></div></div>
+</section>
+
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

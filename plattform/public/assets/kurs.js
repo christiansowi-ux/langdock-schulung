@@ -99,8 +99,10 @@
 
   /* ---------- Tagesseite ---------- */
   var tabs = [], panels = {};
+  // Startreiter: Hub „Start“, sonst „Heute“, sonst wie bisher „Learnings“
+  function firstTab() { return panels.start ? 'start' : panels.heute ? 'heute' : 'learnings'; }
   function showTab(id, focus) {
-    if (!panels[id]) id = 'learnings';
+    if (!panels[id]) id = firstTab();
     tabs.forEach(function (t) { var on = t.getAttribute('data-tab') === id; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
     Object.keys(panels).forEach(function (k) { panels[k].hidden = k !== id; });
     if (focus) { var nav = $('.tabs-wrap'); var y = nav.getBoundingClientRect().top + window.scrollY; if (window.scrollY > y) window.scrollTo(0, y); }
@@ -124,10 +126,10 @@
     function openHash() {
       var h = location.hash.slice(1), section = /^lrn-/.test(h) ? 'learnings' : /^einfach-/.test(h) ? 'einfach' : h;
       if (h && !panels[section]) return;
-      showTab(section || 'learnings');
+      showTab(section || firstTab());
       if (section !== h) { var c = document.getElementById(h); if (c) { c.scrollIntoView({block:'start', behavior:'instant'}); c.tabIndex = -1; c.focus({preventScroll:true}); } }
     }
-    showTab('learnings');
+    showTab(firstTab());
     openHash();
     window.addEventListener('hashchange', openHash);
   }
