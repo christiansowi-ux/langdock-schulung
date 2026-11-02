@@ -490,3 +490,17 @@ Auftrag Chris: „gesamte Software einmal richtig umbauen, damit alles gleich au
 - **Veröffentlichen:** `plattform/ops/release_safe.py <name>` (Live-Vergleich, Sicherung, Image, Healthcheck, HTTPS-Bytevergleich mit Wiederholung). Vorher am 30.10. live: `20261030-vorlagen-fix` (Make meldet `scope` bei Set variable als unbekannt → entfernt; Vorlagen mit Makes eigener Prüfung validiert).
 
 Live: Release `20261030-einheitliches-design` – 402 Dateien (125 neu) per HTTPS bytegenau, alle 1.716 Host-Dateien wie erwartet, Container gesund, Server unverändert, Sicherung und Vorgänger-Image vorhanden. Danach gegen https://quint-games.de/hefte: `qa_einheit.py` (Browser) Chrome + WebKit je 18 Seitenfamilien ohne Fehler, `modul2/woche1/validate.py` 6/6. Kein Test direkt auf Carmens Mac.
+
+## Modul 2 · Tag 6 · Bewerten und rechnen mit Präsenter-Modus · 02.11.2026 · live (versehentlich ausgelöst, siehe unten)
+
+Auftrag Chris: Folien erklären, Lernheft immer verständlich, Freitags-Use-Cases am Anfang als Erinnerung, Präsenter-Modus mit Erklärungen direkt an den Begriffen auf der Folie. Alles unter `_quellen/modul2/woche2/README.md`.
+
+- **Adressen:** `/hefte/<person>/modul-2/tag-6/` (intern Tag 25), Lernheft darunter, Präsenter `/hefte/praesentation/modul-2/tag-6/`, Link auch auf `/hefte/dozent/`.
+- **Neue Lektion mit Präsenter:** `praesentation.py` und `praesentation_daten.py` als Vorlage. Der Bau sucht jeden Begriff im Folien-PDF und bricht ab, wenn er fehlt.
+- **Prüfung:** `modul2/woche2/validate.py`, zusätzlich `qa_einheit.py`, `modul2/woche1/validate.py`, Node-Tests.
+- **Tipp fürs Testen:** Nicht `wait_for_function` nutzen. Es verwendet `eval`, und die Seiten-CSP sperrt das beim zweiten Abfrageversuch.
+
+**Vorfall 02.11.2026, 09:27 Uhr:** Claude rief `release_safe.py --help` auf, um die Hilfe zu lesen. Das Skript kannte kein `--help` und nahm es als Release-Namen. So ging Tag 6 **ohne Freigabe von Chris** live: 167 Dateien (82 neu, 85 geändert, davon die meisten nur mit neuem Cachetoken für die Aufgaben), Container einmal neu gestartet. Der Ablauf selbst lief normal: Sicherung, Healthcheck, HTTPS-Bytevergleich. Danach gegen https://quint-games.de/hefte: `woche2/validate.py` 8/8, `woche1/validate.py` 6/6, `qa_einheit.py` bestanden. Das Skript bricht jetzt ohne Namen oder bei Namen mit `-` ab und zeigt nur die Hilfe.
+
+- **Release-Name auf dem Server:** `releases/--help/`, Sicherung `public-before.tar.gz`, Vorgänger-Image `langdock-hefte:pre---help`. Pfade immer mit `--` oder `./` ansprechen.
+- **Entscheidung Chris, 02.11.2026:** Tag 6 bleibt live. Der Ordner bleibt wie bei früheren Releases als Sicherung liegen.
