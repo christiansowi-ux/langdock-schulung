@@ -1,0 +1,326 @@
+{
+  "name": "M2 · A10 Scoring-Rechner mit Matrix",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "kandidat",
+            "value": "Druckanfragen vorsortieren"
+          },
+          {
+            "name": "nutzen",
+            "value": "4"
+          },
+          {
+            "name": "daten",
+            "value": "4"
+          },
+          {
+            "name": "einfachheit",
+            "value": "3"
+          },
+          {
+            "name": "risikoarmut",
+            "value": "4"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Kandidat bewerten"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "kandidat",
+            "label": "kandidat",
+            "type": "any"
+          },
+          {
+            "name": "nutzen",
+            "label": "nutzen",
+            "type": "any"
+          },
+          {
+            "name": "daten",
+            "label": "daten",
+            "type": "any"
+          },
+          {
+            "name": "einfachheit",
+            "label": "einfachheit",
+            "type": "any"
+          },
+          {
+            "name": "risikoarmut",
+            "label": "risikoarmut",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Welches Feld?"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Kandidat: {{1.kandidat}}\nGewichtete Punktzahl: {{round((1.nutzen * 0.4 + 1.daten * 0.25 + 1.einfachheit * 0.2 + 1.risikoarmut * 0.15) * 100) / 100}}\nWert: {{1.nutzen * 1 + 1.daten * 1}} · Aufwand: {{12 - 1.einfachheit - 1.risikoarmut}}\nFeld: SOFORT STARTEN. Hier liegt das Erstprojekt."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -220,
+                  "name": "3a · Sofort starten"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Viel Wert, wenig Aufwand",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.nutzen * 1 + 1.daten * 1}}",
+                      "o": "number:greaterorequal",
+                      "b": "7"
+                    },
+                    {
+                      "a": "{{12 - 1.einfachheit - 1.risikoarmut}}",
+                      "o": "number:less",
+                      "b": "6"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Kandidat: {{1.kandidat}}\nGewichtete Punktzahl: {{round((1.nutzen * 0.4 + 1.daten * 0.25 + 1.einfachheit * 0.2 + 1.risikoarmut * 0.15) * 100) / 100}}\nWert: {{1.nutzen * 1 + 1.daten * 1}} · Aufwand: {{12 - 1.einfachheit - 1.risikoarmut}}\nFeld: PLANEN und in Etappen schneiden."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -70,
+                  "name": "3b · Planen"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Viel Wert, viel Aufwand",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.nutzen * 1 + 1.daten * 1}}",
+                      "o": "number:greaterorequal",
+                      "b": "7"
+                    },
+                    {
+                      "a": "{{12 - 1.einfachheit - 1.risikoarmut}}",
+                      "o": "number:greaterorequal",
+                      "b": "6"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Kandidat: {{1.kandidat}}\nGewichtete Punktzahl: {{round((1.nutzen * 0.4 + 1.daten * 0.25 + 1.einfachheit * 0.2 + 1.risikoarmut * 0.15) * 100) / 100}}\nWert: {{1.nutzen * 1 + 1.daten * 1}} · Aufwand: {{12 - 1.einfachheit - 1.risikoarmut}}\nFeld: NEBENBEI, wenn Kapazität frei ist."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 80,
+                  "name": "3c · Nebenbei"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Wenig Wert, wenig Aufwand",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.nutzen * 1 + 1.daten * 1}}",
+                      "o": "number:less",
+                      "b": "7"
+                    },
+                    {
+                      "a": "{{12 - 1.einfachheit - 1.risikoarmut}}",
+                      "o": "number:less",
+                      "b": "6"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 6,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Kandidat: {{1.kandidat}}\nGewichtete Punktzahl: {{round((1.nutzen * 0.4 + 1.daten * 0.25 + 1.einfachheit * 0.2 + 1.risikoarmut * 0.15) * 100) / 100}}\nWert: {{1.nutzen * 1 + 1.daten * 1}} · Aufwand: {{12 - 1.einfachheit - 1.risikoarmut}}\nFeld: STREICHEN. Das ist ein Ergebnis, kein Scheitern."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 230,
+                  "name": "3d · Streichen"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Wenig Wert, viel Aufwand",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.nutzen * 1 + 1.daten * 1}}",
+                      "o": "number:less",
+                      "b": "7"
+                    },
+                    {
+                      "a": "{{12 - 1.einfachheit - 1.risikoarmut}}",
+                      "o": "number:greaterorequal",
+                      "b": "6"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}
