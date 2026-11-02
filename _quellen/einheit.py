@@ -210,7 +210,7 @@ def vereinheitlichen(tage):
     for p in sorted(PUB.rglob('*.html')):
         rel = p.relative_to(PUB).as_posix()
         text = p.read_text(encoding='utf8')
-        if STUB in text:
+        if STUB in text or 'eigenes-layout' in text[:400]:  # Präsenter-Modus: eigene Bühne ohne Kopf und Fuß
             continue
         if 'id="ui-design"' in text:  # schon vereinheitlicht (statische Seite): nur das Design auffrischen
             new = re.sub(r'<style id="ui-design">.*?</style>', lambda _: style, text, count=1, flags=re.S)
