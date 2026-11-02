@@ -123,4 +123,6 @@ def verify_only(name):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 2 or sys.argv[1].startswith('-'):  # am 02.11.2026 löste „--help“ einen echten Release aus
+        sys.exit(__doc__)
     verify_only(sys.argv[1]) if '--verify-only' in sys.argv else main()
