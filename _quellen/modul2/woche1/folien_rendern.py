@@ -3,8 +3,10 @@
 Aufruf (einmalig, aus _quellen):
   python -X utf8 -I modul2/woche1/folien_rendern.py "C:/Users/chris/Downloads/Use_Cases_identifizieren_v2 (2).html"
 
-Ergebnis: plattform/public/folien/tag-24/35.jpg … 66.jpg (1600 px), t35.jpg … (360 px)
-und Folien_Modul2_Tag5_Use-Cases.pdf. Die HTML läuft nur im lokalen Headless-Chrome.
+Weitere Präsentation: ... <html> <ordner> <offset> <anzahl> <pdfname>
+Tag 6: ... tag-25 0 29 Folien_Modul2_Tag6_Bewerten-und-Rechnen.pdf
+Ergebnis: plattform/public/folien/<ordner>/NN.jpg (1600 px), tNN.jpg (360 px) und das Folien-PDF.
+Die HTML läuft nur im lokalen Headless-Chrome.
 """
 import json
 import sys
@@ -15,14 +17,15 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / 'plattform/public/folien/tag-24'
-OFFSET = 34  # 1–34 sind die Make-Folien (Kopie aus tag-20)
+FOLIEN = ROOT / 'plattform/public/folien'
 CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
 
 
-def main(src):
+def main(src, ordner='tag-24', offset=34, anzahl=32, pdfname='Folien_Modul2_Tag5_Use-Cases.pdf'):
+    """offset 34 bei Tag 5: 1–34 sind dort die Make-Folien (Kopie aus tag-20)."""
+    OUT = FOLIEN / ordner
     OUT.mkdir(parents=True, exist_ok=True)
-    pdf = OUT / 'Folien_Modul2_Tag5_Use-Cases.pdf'
+    pdf = OUT / pdfname
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=CHROME)
         page = browser.new_page(viewport={'width': 1920, 'height': 1080})
@@ -33,10 +36,10 @@ def main(src):
         page.pdf(path=str(pdf), width='1920px', height='1080px', print_background=True, prefer_css_page_size=True)
         browser.close()
     doc = fitz.open(pdf)
-    assert len(doc) == count == 32, (len(doc), count)
+    assert len(doc) == count == anzahl, (len(doc), count)
     for i, pg in enumerate(doc, 1):
         zoom = 1600 / pg.rect.width
-        nr = OFFSET + i
+        nr = offset + i
         tmp = OUT / f'{nr:02d}.png'
         pg.get_pixmap(matrix=fitz.Matrix(zoom, zoom)).save(tmp)
         im = Image.open(tmp).convert('RGB')
@@ -47,4 +50,5 @@ def main(src):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    a = sys.argv[1:]
+    main(a[0], *(a[1:2]), *(int(x) for x in a[2:4]), *(a[4:5]))

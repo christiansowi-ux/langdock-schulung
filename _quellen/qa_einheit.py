@@ -43,7 +43,7 @@ def statisch():
             continue
         url = '/hefte/' + rel[:-len('index.html')] if rel.endswith('index.html') else '/hefte/' + rel
         soup = BeautifulSoup(text, 'html.parser')
-        if not soup.select_one('header.ui-top') or not soup.select_one('footer.foot') or not soup.select_one('style#ui-design'):
+        if 'eigenes-layout' not in text[:400] and (not soup.select_one('header.ui-top') or not soup.select_one('footer.foot') or not soup.select_one('style#ui-design')):
             problems.append((rel, 'Rahmen fehlt'))
         ids = [e['id'] for e in soup.select('[id]')]
         dup = {i for i in ids if ids.count(i) > 1}
@@ -90,7 +90,7 @@ def kontrast():
 def browser():
     from playwright.sync_api import sync_playwright
     pages = {'start': '/', 'uebersicht': '/carmen/', 'm1-tag12': '/carmen/modul-1/tag-12/', 'm1-tag2': '/carmen/modul-1/tag-2/',
-             'm1-tag19': '/carmen/modul-1/tag-19/', 'm2-tag2': '/carmen/modul-2/tag-2/', 'hub': '/carmen/modul-2/tag-5/',
+             'm1-tag19': '/carmen/modul-1/tag-19/', 'm2-tag2': '/carmen/modul-2/tag-2/', 'hub': '/carmen/modul-2/tag-5/', 'm2-tag6': '/carmen/modul-2/tag-6/', 'lh-tag6': '/carmen/modul-2/tag-6/lernheft/',
              'lh12': '/carmen/modul-1/tag-12/lernheft/', 'lh16': '/carmen/modul-1/tag-16/lernheft/', 'lh19': '/carmen/modul-1/tag-19/lernheft/',
              'bonus19': '/carmen/modul-1/tag-19/bonus/', 'm2lh2': '/carmen/modul-2/tag-2/lernheft/', 'praxis': '/carmen/modul-1/tag-10/praxis/',
              'heft2': '/carmen/modul-1/tag-2/heft/', 'aufgaben': '/carmen/aufgaben/', 'lernblatt': '/carmen/tag-12/lernblatt/',
@@ -117,7 +117,7 @@ def browser():
                     page.screenshot(path=str(OUT / f'qa-{name}-390.png'))
             page.set_viewport_size({'width': 1280, 'height': 860})
             # Tagesseiten: Startreiter, Lernkarten, Selbsttest, Training
-            for u, first in (('/carmen/modul-2/tag-2/', 'heute'), ('/carmen/modul-1/tag-19/', 'heute'), ('/carmen/modul-1/tag-12/', 'learnings'), ('/carmen/modul-2/tag-5/', 'start')):
+            for u, first in (('/carmen/modul-2/tag-2/', 'heute'), ('/carmen/modul-1/tag-19/', 'heute'), ('/carmen/modul-1/tag-12/', 'learnings'), ('/carmen/modul-2/tag-5/', 'start'), ('/carmen/modul-2/tag-6/', 'start')):
                 page.goto(BASE + u); page.wait_for_load_state('networkidle')
                 assert page.evaluate("document.querySelector('[aria-selected=true]').dataset.tab") == first, (u, first)
                 page.click('[data-tab="karten"]'); page.click('#karten .kcard'); page.click('#karten .btn.primary')

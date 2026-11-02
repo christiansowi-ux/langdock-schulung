@@ -1724,6 +1724,8 @@ DEEP += _t14_deep
 
 from modul2.woche1.aufgaben_w1 import muster as _w1_muster
 MUSTER += _w1_muster(M)
+from modul2.woche2.aufgaben_w2 import muster as _w2_muster
+MUSTER += _w2_muster(M)
 
 SLOT = re.compile(r'\{(\w+)\}')
 ABGELEITET = {'fakten', 'notizen_liste', 'doc', 'tag', 'tagtitel', 'satz', 'lrn_nr', 'r_frage', 'r_weg'}
