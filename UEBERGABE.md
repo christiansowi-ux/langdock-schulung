@@ -504,3 +504,13 @@ Auftrag Chris: Folien erklären, Lernheft immer verständlich, Freitags-Use-Case
 
 - **Release-Name auf dem Server:** `releases/--help/`, Sicherung `public-before.tar.gz`, Vorgänger-Image `langdock-hefte:pre---help`. Pfade immer mit `--` oder `./` ansprechen.
 - **Entscheidung Chris, 02.11.2026:** Tag 6 bleibt live. Der Ordner bleibt wie bei früheren Releases als Sicherung liegen.
+
+## Modul 2 · Tag 7 · Tatort Prozess mit Präsenter-Modus · 03.11.2026 · live
+
+Auftrag Chris: Wie Tag 6 zum Deck „Geschäftsprozesse“, dazu „spaßiger und nicht so trocken, aber vom Schema und Style ist alles gut“. Alles unter `_quellen/modul2/tag7/README.md`.
+
+- **Release:** `20261103-tag7-prozess`, mit Freigabe von Chris: 196 Dateien (100 neu, 96 geändert, davon 75 nur mit neuem Cachetoken). Danach gegen https://quint-games.de/hefte: `tag7/validate.py` 8/8, `woche2/validate.py` 8/8, `woche1/validate.py` 6/6, `qa_einheit.py` bestanden.
+- **Adressen:** `/hefte/<person>/modul-2/tag-7/` (intern Tag 26), Lernheft darunter, Präsenter `/hefte/praesentation/modul-2/tag-7/`, Link auch auf `/hefte/dozent/`.
+- **Stil für weitere Lektionen:** Durchgehendes Thema, kleine Geschichte, Dialoge, Alltagsvergleiche, Mini-Spiele aus `spiele.py`. Der Spaß steckt in Inhalt und Mitmachen, das Design bleibt gleich.
+- **Prüfung:** `modul2/tag7/validate.py`, zusätzlich `modul2/woche2/validate.py` (gleiche Präsenter-Bühne), `qa_einheit.py`, `modul2/woche1/validate.py`, Node-Tests.
+- **WebKit:** `select` in engen Rasterzeilen ergibt beim ersten Layout Querscrollen. Der Behälter braucht `overflow:hidden`.
