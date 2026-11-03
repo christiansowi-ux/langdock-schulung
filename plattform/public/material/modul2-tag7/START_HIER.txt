@@ -1,0 +1,20 @@
+MAKE-VORLAGEN · MODUL 2 · TAG 7 (Stand 03.11.2026)
+=================================================
+
+Drei sehr leichte Szenarien für Make Free. Kein fremdes Konto nötig.
+Keine Vorlage verschickt, veröffentlicht oder speichert etwas außerhalb von Make.
+
+SO GEHT DER IMPORT
+1. ZIP entpacken (Rechtsklick > Alle extrahieren / am Mac Doppelklick).
+2. In Make links "Scenarios" > "+ Create a new scenario".
+3. Oben rechts die drei Punkte (...) > "Import blueprint" > "Choose file".
+4. Eine .blueprint.json-Datei wählen > "Save".
+5. Unten speichern (Diskette) und "Run once" klicken.
+6. Auf die Sprechblase über dem letzten Modul klicken > OUTPUT.
+
+Zeitplan bitte AUS lassen. Jeder Lauf kostet etwa 1 Credit pro ausgeführtem Modul.
+Ausführliche Erklärung jeder Einstellung: Lernheft Tag 7, Reiter Make-Vorlagen.
+
+A12  Zielsatz-Prüfer            ->  WUNSCH: Noch kein prüfbares Ziel.
+A13  Durchlaufzeit-Detektiv     ->  Bearbeitungszeit: 12 Minuten
+A14  Die Scope-Tür              ->  RAUS: Kaffeebohnen (86 Euro) bleibt beim Menschen.

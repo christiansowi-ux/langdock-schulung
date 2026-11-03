@@ -1,0 +1,323 @@
+{
+  "name": "M2 · A13 Durchlaufzeit-Detektiv",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "minuten",
+            "value": "12"
+          },
+          {
+            "name": "warte1",
+            "value": "1.5"
+          },
+          {
+            "name": "warte2",
+            "value": "2"
+          },
+          {
+            "name": "warte3",
+            "value": "0.5"
+          },
+          {
+            "name": "warte4",
+            "value": "1"
+          },
+          {
+            "name": "stunden_pro_tag",
+            "value": "8"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Die Spuren"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "minuten",
+            "label": "minuten",
+            "type": "any"
+          },
+          {
+            "name": "warte1",
+            "label": "warte1",
+            "type": "any"
+          },
+          {
+            "name": "warte2",
+            "label": "warte2",
+            "type": "any"
+          },
+          {
+            "name": "warte3",
+            "label": "warte3",
+            "type": "any"
+          },
+          {
+            "name": "warte4",
+            "label": "warte4",
+            "type": "any"
+          },
+          {
+            "name": "stunden_pro_tag",
+            "label": "stunden_pro_tag",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "tage",
+            "value": "{{1.warte1 * 1 + 1.warte2 * 1 + 1.warte3 * 1 + 1.warte4 * 1}}"
+          },
+          {
+            "name": "verhaeltnis",
+            "value": "{{round((1.warte1 * 1 + 1.warte2 * 1 + 1.warte3 * 1 + 1.warte4 * 1) * 1.stunden_pro_tag * 60 / 1.minuten)}}"
+          },
+          {
+            "name": "groesste",
+            "value": "{{max(1.warte1 * 1; 1.warte2 * 1; 1.warte3 * 1; 1.warte4 * 1)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Rechnen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "tage",
+            "label": "tage",
+            "type": "any"
+          },
+          {
+            "name": "verhaeltnis",
+            "label": "verhaeltnis",
+            "type": "any"
+          },
+          {
+            "name": "groesste",
+            "label": "groesste",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "3 · Welcher Befund?"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Bearbeitungszeit: {{1.minuten}} Minuten\nDurchlaufzeit: {{2.tage}} Tage\nAuf 1 Minute Arbeit kommen {{2.verhaeltnis}} Minuten Warten.\nGrößte Übergabe: {{2.groesste}} Tage\nBefund: Hier wird vor allem gewartet. Prüfe zuerst die Übergaben, nicht die Arbeit."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 900,
+                  "y": -120,
+                  "name": "4a · Wartezeit-Alarm"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Mindestens 1 zu 50",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.verhaeltnis}}",
+                      "o": "number:greaterorequal",
+                      "b": "50"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "Bearbeitungszeit: {{1.minuten}} Minuten\nDurchlaufzeit: {{2.tage}} Tage\nAuf 1 Minute Arbeit kommen {{2.verhaeltnis}} Minuten Warten.\nGrößte Übergabe: {{2.groesste}} Tage\nBefund: Arbeit und Warten liegen nah beieinander. Schau dir hier die Arbeitsschritte an."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 900,
+                  "y": 120,
+                  "name": "4b · Unauffällig"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Unter 1 zu 50",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.verhaeltnis}}",
+                      "o": "number:less",
+                      "b": "50"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

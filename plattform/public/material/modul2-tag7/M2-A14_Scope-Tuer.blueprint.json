@@ -1,0 +1,262 @@
+{
+  "name": "M2 · A14 Die Scope-Tür",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "rechnung",
+            "value": "Kaffeebohnen"
+          },
+          {
+            "name": "betrag",
+            "value": "86"
+          },
+          {
+            "name": "sonderprojekt",
+            "value": "nein"
+          },
+          {
+            "name": "klaerungsvermerk",
+            "value": "nein"
+          },
+          {
+            "name": "bestellbezug",
+            "value": "nein"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Wer klopft an?"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "rechnung",
+            "label": "rechnung",
+            "type": "any"
+          },
+          {
+            "name": "betrag",
+            "label": "betrag",
+            "type": "any"
+          },
+          {
+            "name": "sonderprojekt",
+            "label": "sonderprojekt",
+            "type": "any"
+          },
+          {
+            "name": "klaerungsvermerk",
+            "label": "klaerungsvermerk",
+            "type": "any"
+          },
+          {
+            "name": "bestellbezug",
+            "label": "bestellbezug",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · An der Tür"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "REIN: {{1.rechnung}} ({{1.betrag}} Euro) gehört zum Scope. Die Automatisierung darf ran."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -120,
+                  "name": "3a · Rein"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Alle Regeln erfüllt",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.betrag}}",
+                      "o": "number:less",
+                      "b": "1000"
+                    },
+                    {
+                      "a": "{{1.sonderprojekt}}",
+                      "o": "text:equal",
+                      "b": "nein"
+                    },
+                    {
+                      "a": "{{1.klaerungsvermerk}}",
+                      "o": "text:equal",
+                      "b": "nein"
+                    },
+                    {
+                      "a": "{{1.bestellbezug}}",
+                      "o": "text:equal",
+                      "b": "ja"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "RAUS: {{1.rechnung}} ({{1.betrag}} Euro) bleibt beim Menschen.\nGrund: {{if(1.betrag * 1 >= 1000; \"[ab 1.000 Euro] \"; \"\")}}{{if(1.sonderprojekt = \"ja\"; \"[Sonderprojekt] \"; \"\")}}{{if(1.klaerungsvermerk = \"ja\"; \"[Klärungsvermerk] \"; \"\")}}{{if(1.bestellbezug = \"nein\"; \"[kein Bestellbezug] \"; \"\")}}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 120,
+                  "name": "3b · Raus"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Mindestens eine Regel verletzt",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.betrag}}",
+                      "o": "number:greaterorequal",
+                      "b": "1000"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.sonderprojekt}}",
+                      "o": "text:equal",
+                      "b": "ja"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.klaerungsvermerk}}",
+                      "o": "text:equal",
+                      "b": "ja"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.bestellbezug}}",
+                      "o": "text:equal",
+                      "b": "nein"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}
