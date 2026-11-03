@@ -13,7 +13,7 @@ from .daten import KLASSENBUCH, BEGRIFFE
 MATERIAL = '/hefte/material/modul2-woche1'
 ZIP = 'Make-Vorlagen-Woche1.zip'
 LEVEL = {1: 'ganz leicht', 2: 'leicht', 3: 'mit Router'}
-TAGNAME = {1: 'Montag · Tag 1', 2: 'Dienstag · Tag 2', 3: 'Mittwoch · Tag 3', 4: 'Donnerstag · Tag 4', 5: 'Freitag · Tag 5'}
+TAGNAME = {1: 'Montag · Tag 1', 2: 'Dienstag · Tag 2', 3: 'Mittwoch · Tag 3', 4: 'Donnerstag · Tag 4', 5: 'Freitag · Tag 5', 6: 'Montag · Tag 6', 7: 'Dienstag · Tag 7'}
 
 
 # ================================================================ Teil A · Make-Grundlagen
@@ -239,7 +239,7 @@ def import_anleitung():
         P(f'Alle neun auf einmal: **{ZIP}** (ZIP-Datei, vorher entpacken). Für alle Vorlagen mit je zwei Tests planst du rund **40 Credits** ein.'))
 
 
-def vorlage(a, web=True):
+def vorlage(a, web=True, MATERIAL=MATERIAL):
     nr = a['nr']
     file = f'M2-{a["slug"]}.blueprint.json'
     mods = ''.join(
@@ -250,7 +250,7 @@ def vorlage(a, web=True):
     buttons = (f'<div class="bp-btns"><a class="btn primary" href="{MATERIAL}/{file}" download>JSON herunterladen</a>'
                f'<button class="btn" type="button" data-copy-url="{MATERIAL}/{file}">JSON kopieren</button>'
                f'<label class="bp-done"><input type="checkbox" data-save="vorlage-a{nr}"> erledigt</label></div>') if web else \
-              f'<p class="bp-file">Datei: <b>{E(file)}</b> · quint-games.de/hefte/material/modul2-woche1/</p>'
+              f'<p class="bp-file">Datei: <b>{E(file)}</b> · quint-games.de{E(MATERIAL)}/</p>'
     fehler = ''.join(f'<li><b>{md(t)}</b> {md(x)}</li>' for t, x in a['fehler'])
     body = (f'<div class="bp-meta"><span class="chip">{E(TAGNAME[a["tag"]])}</span><span class="chip">{dots} {E(LEVEL[a["level"]])}</span>'
             f'<span class="chip">≈ {a["minuten"]} Min.</span><span class="chip">≈ {a["credits"]} Credits je Lauf</span><span class="chip">kein fremdes Konto</span></div>'

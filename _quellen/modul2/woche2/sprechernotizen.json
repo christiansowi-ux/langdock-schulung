@@ -1,0 +1,118 @@
+{
+ "1": {
+  "titel": "Bewerten, rechnen, priorisieren",
+  "notiz": "Auftakt Block 2 von 5. Voraussetzung: drei Steckbriefe aus Block 1 liegen ausgefüllt vor. Kurz abfragen, wer echte Volumenzahlen mitgebracht hat."
+ },
+ "2": {
+  "titel": "Abschnitt 1: Bewerten",
+  "notiz": "Einstieg: Bewertet wird nicht nach Gefühl, sondern nach vier Kriterien. Kurz halten."
+ },
+ "3": {
+  "titel": "Zwei Fragen, die oft verwechselt werden",
+  "notiz": "Diese Unterscheidung trägt den ganzen Block: erst das Scoring über alle drei Kandidaten, dann die Rechnung für den stärksten. Wer sie vermischt, bekommt entweder eine sortierte Liste unwirtschaftlicher Vorhaben oder einen guten Fall ohne Vergleich."
+ },
+ "4": {
+  "titel": "Die vier Kernkriterien",
+  "notiz": "Die vier Kriterien nur benennen, nicht diskutieren. Die Prüffragen kommen auf der nächsten Folie."
+ },
+ "5": {
+  "titel": "Was hinter jedem Kriterium zu prüfen ist",
+  "notiz": "Diese Prüffragen sind der eigentliche Inhalt der Bewertung. Wer eine Frage nicht beantworten kann, hat die Antwort auch nicht in der Punktzahl."
+ },
+ "6": {
+  "titel": "Vor jeder Bewertung",
+  "notiz": "Der Hinweis, der jede Bewertung trägt. Im Heft ist die Leserichtung in Abschnitt 2.1 bereits so angelegt — hier nur bewusst machen, warum das so ist."
+ },
+ "7": {
+  "titel": "Was 1 Punkt und was 5 Punkte bedeutet",
+  "notiz": "Das ist die Tabelle aus Abschnitt 2.1 des Arbeitshefts. Wichtig ist die dritte und vierte Zeile: Einfachheit und Risikoarmut messen Komplexität und Risiko — nur in der Leserichtung „hoher Wert = gut“."
+ },
+ "8": {
+  "titel": "Gewichtung für ein Erstprojekt",
+  "notiz": "Eine eigene Gewichtung ist erlaubt, aber sie muss begründet sein. Nachsetzen: Das erste Projekt muss nicht das wertvollste sein, sondern das, das fertig wird."
+ },
+ "9": {
+  "titel": "Ausschlusskriterien vor dem Scoring",
+  "notiz": "Bekannt aus Block 1, hier aber als Filter vor dem Rechnen. Ein Ausschluss ist keine schlechte Punktzahl — er beendet die Prüfung."
+ },
+ "10": {
+  "titel": "Arbeitsauftrag 01: Kandidaten bewerten",
+  "notiz": "Konsequent zurückgeben, wenn eine Bewertung ohne Begründungssatz dasteht. Der Satz ist die Bewertung — die Zahl ist nur ihre Abkürzung."
+ },
+ "11": {
+  "titel": "Abschnitt 2: Priorisieren",
+  "notiz": "Von der Bewertung zur Reihenfolge: Punktzahl allein sagt nicht, womit man anfängt."
+ },
+ "12": {
+  "titel": "Wert-Aufwand-Matrix",
+  "notiz": "Die Gruppe die eigenen drei Kandidaten in die Felder einordnen lassen — mündlich, eine Minute. Das untere rechte Feld ist das wichtigste."
+ },
+ "13": {
+  "titel": "Reihenfolge der ersten drei Projekte",
+  "notiz": "Nachsetzen: Diese Reihenfolge ist nicht wertmaximierend, sondern abschlussmaximierend. Wer mit dem größten Fall anfängt, hat nach sechs Monaten nichts zu zeigen."
+ },
+ "14": {
+  "titel": "Arbeitsauftrag 02: Matrix und Haupt-Use-Case",
+  "notiz": "Kurzer Auftrag, aber der wichtigste Schnitt des Tages: Ab hier wird nur noch mit einem Fall gerechnet. Wer sich nicht entscheiden kann, rechnet später drei halbe Business Cases."
+ },
+ "15": {
+  "titel": "Abschnitt 3: Der Business Case",
+  "notiz": "Jetzt wird gerechnet. Ab hier braucht jede Aussage eine Zahl mit Herkunft."
+ },
+ "16": {
+  "titel": "Die drei Kennzahlen",
+  "notiz": "Alle drei Zahlen am selben Beispiel durchrechnen — das ist der Punkt. Die Falle bei der Amortisation laut vorführen: mit Bruttonutzen gerechnet sind es 8 statt 10 Monate. Laufende Kosten gehören in jede der drei Zahlen."
+ },
+ "17": {
+  "titel": "Kosten, die regelmäßig vergessen werden",
+  "notiz": "Diese beiden Spalten laut durchgehen und die Gruppe abhaken lassen, was in ihrer eigenen Schätzung fehlt. Meistens fehlt die halbe rechte Spalte."
+ },
+ "18": {
+  "titel": "Drei Erfahrungswerte",
+  "notiz": "Diese drei Werte sind Erfahrungswerte aus der Projektpraxis, keine erhobenen Kennzahlen. So auch benennen."
+ },
+ "19": {
+  "titel": "Beispielrechnung Rechnungsfreigabe",
+  "notiz": "Zeile für Zeile mitrechnen lassen. Wichtig ist nicht das Ergebnis, sondern dass jede Zeile eine Herkunft hat: gemessen, nachgeschlagen oder geschätzt."
+ },
+ "20": {
+  "titel": "Nur zählen, was zählbar wird",
+  "notiz": "Die dritte Spalte ist die häufigste Stelle, an der ein Business Case unglaubwürdig wird. Qualitative Effekte benennen — aber nicht in den ROI rechnen."
+ },
+ "21": {
+  "titel": "Arbeitsauftrag 03: Business Case rechnen",
+  "notiz": "Die Pflichtspalte „Woher stammt die Zahl?“ ist der Kern dieses Auftrags. Bei jedem Tisch eine Zeile stichprobenartig nachfragen."
+ },
+ "22": {
+  "titel": "Drei Szenarien statt einer Zahl",
+  "notiz": "Nachsetzen: Kippt der Fall im konservativen Szenario, ist er kein sicherer Kandidat. Das ist keine Rechenübung, sondern die Entscheidungsgrundlage."
+ },
+ "23": {
+  "titel": "Faustregel",
+  "notiz": "Der Schnelltest vor jedem Rechnen. Wichtig ist der letzte Punkt: Ein Projekt, das mit einem falschen Versprechen startet, wird nach zwölf Monaten an diesem Versprechen gemessen — und scheitert dann, obwohl es funktioniert hat."
+ },
+ "24": {
+  "titel": "Abschnitt 4: Entscheiden",
+  "notiz": "Letzter Abschnitt: was erfahrungsgemäß trägt, was scheitert — und die Entscheidung mit Abbruchbedingung."
+ },
+ "25": {
+  "titel": "Best Practices",
+  "notiz": "Acht Punkte aus der Auswertung erfolgreicher und gescheiterter Vorhaben. Punkt 07 und 08 sind die, die in Angeboten fast immer fehlen."
+ },
+ "26": {
+  "titel": "Stolpersteine",
+  "notiz": "Die rechte Spalte wird erst nach dem Projektende sichtbar — und ist die teurere. Jeden Punkt kurz gegen den eigenen Haupt-Use-Case prüfen lassen."
+ },
+ "27": {
+  "titel": "Nicht machen ist ein Ergebnis",
+  "notiz": "Wer bei seiner Rechnung auf ein Nein kommt, stellt es im Plenum vor. Das ist die wertvollste Präsentation des Tages und setzt für den Rest des Workshops den Maßstab."
+ },
+ "28": {
+  "titel": "Arbeitsauftrag 04: Entscheidung und Abbruchbedingung",
+  "notiz": "„Nicht machen“ laut als gültige Empfehlung aussprechen — sonst schreibt niemand sie hin. Die Abbruchbedingung braucht eine Zahl, einen Zeitpunkt und eine Person."
+ },
+ "29": {
+  "titel": "Was jetzt entschieden ist",
+  "notiz": "Kurz halten. Der Übergang zu Block 3 ist inhaltlich wichtig: Ohne verstandenen Prozess bleibt der gerechnete Nutzen eine Annahme."
+ }
+}

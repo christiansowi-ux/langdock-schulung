@@ -1,0 +1,262 @@
+{
+  "name": "M2 · A11 Business-Case-Rechner",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "volumen",
+            "value": "800"
+          },
+          {
+            "name": "minuten",
+            "value": "4"
+          },
+          {
+            "name": "anteil",
+            "value": "70"
+          },
+          {
+            "name": "restminuten",
+            "value": "0.5"
+          },
+          {
+            "name": "stundensatz",
+            "value": "45"
+          },
+          {
+            "name": "laufend",
+            "value": "300"
+          },
+          {
+            "name": "investition",
+            "value": "12000"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Annahmen eintragen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "volumen",
+            "label": "volumen",
+            "type": "any"
+          },
+          {
+            "name": "minuten",
+            "label": "minuten",
+            "type": "any"
+          },
+          {
+            "name": "anteil",
+            "label": "anteil",
+            "type": "any"
+          },
+          {
+            "name": "restminuten",
+            "label": "restminuten",
+            "type": "any"
+          },
+          {
+            "name": "stundensatz",
+            "label": "stundensatz",
+            "type": "any"
+          },
+          {
+            "name": "laufend",
+            "label": "laufend",
+            "type": "any"
+          },
+          {
+            "name": "investition",
+            "label": "investition",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "stunden",
+            "value": "{{round(1.volumen * 1.anteil / 100 * (1.minuten - 1.restminuten) / 60)}}"
+          },
+          {
+            "name": "brutto",
+            "value": "{{round(1.volumen * 1.anteil / 100 * (1.minuten - 1.restminuten) / 60) * 1.stundensatz}}"
+          },
+          {
+            "name": "netto",
+            "value": "{{round(1.volumen * 1.anteil / 100 * (1.minuten - 1.restminuten) / 60) * 1.stundensatz - 1.laufend}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Nutzen rechnen"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "stunden",
+            "label": "stunden",
+            "type": "any"
+          },
+          {
+            "name": "brutto",
+            "label": "brutto",
+            "type": "any"
+          },
+          {
+            "name": "netto",
+            "label": "netto",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "util:ComposeTransformer",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "value": "Ersparnis: {{2.stunden}} Std. pro Monat\nBruttonutzen: {{2.brutto}} €\nNettonutzen: {{2.netto}} €\nAmortisation: rund {{round(1.investition / 2.netto)}} Monate\nROI nach 12 Monaten: {{round((2.netto * 12 - 1.investition) / 1.investition * 1000) / 10}} %\nROI nach 36 Monaten: {{round((2.netto * 36 - 1.investition) / 1.investition * 1000) / 10}} %\nTCO über 3 Jahre: {{1.investition * 1 + 1.laufend * 36}} €"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "3 · Ergebnis ausgeben"
+        },
+        "restore": {},
+        "expect": [
+          {
+            "name": "value",
+            "type": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

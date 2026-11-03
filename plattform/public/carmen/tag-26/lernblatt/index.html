@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de" data-person="carmen" data-page="lernblatt" data-lernblatt="carmen/tag-26" data-tag="26">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Learnings Tag 26 · Prozess verstehen und abgrenzen – Carmen</title>
+<link rel="icon" href="/hefte/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/hefte/assets/style.css">
+<link rel="stylesheet" href="/hefte/assets/web.css">
+<link rel="stylesheet" href="/hefte/assets/app.css">
+<style>@page { size: A4; margin: 14mm 16mm 17mm 16mm;
+ @bottom-left { content: "KI Automations Spezialist  ·  Praxisblock Langdock  ·  Learnings Tag 26 · Prozess verstehen und abgrenzen  ·  Carmen"; font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; }
+ @bottom-right { content: "Seite " counter(page) " von " counter(pages); font-family: Archivo, sans-serif; font-size: 7.5pt; color: #6b6f73; } }</style>
+<script src="/hefte/assets/app.js" defer></script>
+<style id="ui-design">@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/hefte/assets/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(/hefte/assets/fonts/archivo-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Einheitliches Design der Lernplattform (30.10.2026).
+   Hell, ruhig, kontrastreich. Gilt für alle Seitenfamilien: Plattform, Learning Hubs, Lernhefte,
+   Arbeitshefte, Lernblätter. Wird von _quellen/einheit.py in jede Seite eingebettet (zuletzt, gewinnt). */
+:root{
+  --ui-bg:#f4f6f5;--ui-surface:#fff;--ui-line:#dfe5e2;--ui-line2:#c9d2ce;--ui-head:#0f1513;--ui-ink:#2a312e;--ui-muted:#58615c;
+  --ui-brand:#05614c;--ui-brand-d:#044434;--ui-brand-deep:#073d31;--ui-brand-soft:#e8f4f0;--ui-brand-line:#c7e5dc;
+  --ui-mint:#05dbba;--ui-mint-soft:#e2fcf7;--ui-gold-soft:#fdf6d6;--ui-gold-line:#ead777;--ui-gold-ink:#6b5300;
+  --ui-info:#0a5bb8;--ui-info-soft:#eef5ff;--ui-red:#b42318;--ui-red-soft:#fdecea;
+  --ui-r:18px;--ui-shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+  --ui-font:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;--ui-serif:"Instrument Serif",Georgia,serif;
+  /* gemeinsame Namen der älteren Stylesheets auf dieselbe Farbwelt legen */
+  --head:#0f1513;--muted:#58615c;--line:#dfe5e2;--line2:#c9d2ce;--bg:#f4f6f5;--card:#fff;
+  --green:#05614c;--green-d:#044434;--green-soft:#e8f4f0;--green-line:#c7e5dc;--mint:#c7e5dc;--paper:#f4f6f5;
+  --info-ink:#0a5bb8;--blue:#0a5bb8;--blue-soft:#eef5ff;--red:#b42318;--red-soft:#fdecea;--shadow:0 1px 2px rgba(15,21,19,.05),0 10px 28px rgba(3,42,33,.06);
+}
+html{scroll-padding-top:84px}
+body.ui{font-family:var(--ui-font);color:var(--ui-ink);background:var(--ui-bg)}
+body.ui h1,body.ui h2,body.ui h3,body.ui h4{font-family:var(--ui-font);color:var(--ui-head)}
+body.ui a{color:var(--ui-brand)}
+body.ui ::selection{background:var(--ui-mint-soft)}
+body.ui :focus-visible{outline:3px solid rgba(5,219,186,.6);outline-offset:2px}
+
+/* ---------- Kopfzeile: auf jeder Seite gleich ---------- */
+header.ui-top{display:block!important;position:sticky!important;top:0;z-index:60;margin:0!important;padding:0!important;background:rgba(255,255,255,.94)!important;
+  color:var(--ui-head)!important;border-bottom:1px solid var(--ui-line);backdrop-filter:saturate(1.4) blur(8px);font:500 14.5px/1.3 var(--ui-font)!important;box-shadow:none!important}
+.ui-top .top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;min-height:64px}
+.ui-top .top-brand{display:inline-flex;flex:0 0 auto}
+.ui-top .top-brand img{display:block;width:118px;height:auto}
+.ui-top nav.crumbs{all:unset;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;flex:1 1 280px;min-width:0;font:500 14px/1.35 var(--ui-font);color:var(--ui-muted)}
+.ui-top nav.crumbs a{color:var(--ui-muted)!important;text-decoration:none;font-weight:600;white-space:nowrap}
+.ui-top nav.crumbs a:hover{color:var(--ui-brand)!important;text-decoration:underline}
+.ui-top nav.crumbs .sep{color:var(--ui-line2)}
+.ui-top nav.crumbs [aria-current]{color:var(--ui-head);font-weight:700}
+.ui-top .top-right{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+.ui-top .top-right a,.ui-top .top-right button,.ui-top .top-right summary{font:600 14px/1.2 var(--ui-font)!important}
+.ui-top .top-switch{color:var(--ui-muted)!important;text-decoration:none;font-weight:600}
+.ui-top .top-switch:hover{color:var(--ui-brand)!important}
+.ui-top .wb-status,.ui-top #lb-status{font-size:13px;color:var(--ui-muted);background:var(--ui-brand-soft);border-radius:999px;padding:6px 11px}
+.ui-top .wb-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ui-top .btn,.ui-top .wb-primary,.ui-top a[download]{display:inline-flex;align-items:center;gap:6px;border-radius:999px!important;padding:9px 15px!important;
+  background:var(--ui-brand)!important;color:#fff!important;border:1px solid var(--ui-brand)!important;text-decoration:none!important;cursor:pointer;white-space:nowrap}
+.ui-top .btn:hover,.ui-top .wb-primary:hover,.ui-top a[download]:hover{background:var(--ui-brand-d)!important}
+.ui-top .wb-more{position:relative}
+.ui-top .wb-more summary{list-style:none;cursor:pointer;border:1px solid var(--ui-line2);border-radius:999px;padding:8px 14px;background:#fff;color:var(--ui-head)}
+.ui-top .wb-more summary::-webkit-details-marker{display:none}
+.ui-top .wb-menu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:var(--ui-shadow);padding:8px;min-width:260px;z-index:70;display:grid;gap:2px}
+.ui-top .wb-menu a,.ui-top .wb-menu button,.ui-top .wb-menu label{all:unset;display:block;padding:9px 12px;border-radius:10px;font:500 14.5px/1.3 var(--ui-font);color:var(--ui-head);cursor:pointer}
+.ui-top .wb-menu a:hover,.ui-top .wb-menu button:hover,.ui-top .wb-menu label:hover{background:var(--ui-brand-soft)}
+.ui-top .wb-menu .wb-danger{color:var(--ui-red)}
+.ui-top .wb-menu input[type=file]{display:none}
+
+/* ---------- Fußzeile ---------- */
+footer.foot{margin-top:48px;border-top:1px solid var(--ui-line);background:#fff;color:var(--ui-muted);font:500 14px/1.5 var(--ui-font)}
+footer.foot .foot-in{max-width:1240px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer.foot a{color:var(--ui-muted)}
+
+/* ---------- Knöpfe, Chips ---------- */
+body.ui .btn{border-radius:999px;font-family:var(--ui-font);font-weight:650;border:1px solid var(--ui-line2);background:#fff;color:var(--ui-head)}
+body.ui .btn:hover{border-color:var(--ui-brand);color:var(--ui-brand)}
+body.ui .btn.primary{background:var(--ui-brand);border-color:var(--ui-brand);color:#fff}
+body.ui .btn.primary:hover{background:var(--ui-brand-d);color:#fff}
+body.ui .btn.ghost{background:transparent}
+
+/* ---------- Plattformseiten (Start, Übersicht, Tagesseiten, Hub) ---------- */
+body.ui-kurs .hero,body.ui-kurs .hub-hero{position:relative;overflow:hidden;color:var(--ui-ink);
+  background:radial-gradient(700px 320px at 92% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4 0%,var(--ui-bg) 100%);border-bottom:1px solid var(--ui-line)}
+body.ui-kurs .hero{max-width:none;padding-left:max(20px,calc((100% - 1200px)/2));padding-right:max(20px,calc((100% - 1200px)/2))}
+body.ui-kurs .hero .kicker,body.ui-kurs .hub-hero .kicker{color:var(--ui-brand)!important;font-weight:800;letter-spacing:.12em}
+body.ui-kurs .hero h1,body.ui-kurs .hub-hero h1{color:var(--ui-head)!important;letter-spacing:-.035em}
+body.ui-kurs .hub-hero h1 em,body.ui-kurs .hero h1 em{font-family:var(--ui-serif);font-style:italic;font-weight:400;color:var(--ui-brand)!important;letter-spacing:0}
+body.ui-kurs .hero .lead,body.ui-kurs .hub-hero .lead{color:var(--ui-ink)!important}
+body.ui-kurs .hub-hero::after{display:none}
+body.ui-kurs .hub-hero .hero-btns .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+body.ui-kurs .hub-hero .hero-btns .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+body.ui-kurs .hub-stat{background:#fff!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)}
+body.ui-kurs .hub-stat b{color:var(--ui-head)!important}
+body.ui-kurs .hub-stat>span{color:var(--ui-muted)!important}
+body.ui-kurs .progress-line{color:var(--ui-muted)}
+body.ui-kurs .tabs-wrap{background:rgba(255,255,255,.96);border-color:var(--ui-line);top:64px;backdrop-filter:blur(8px)}
+body.ui-kurs .tabs a{color:var(--ui-muted);font-weight:650}
+body.ui-kurs .tabs a[aria-selected="true"]{color:var(--ui-head);border-bottom-color:var(--ui-brand)}
+body.ui-kurs .tabs a:hover{color:var(--ui-head)}
+body.ui-kurs .lcard,body.ui-kurs .st-card,body.ui-kurs .heftcard,body.ui-kurs .panel-card,body.ui-kurs .pcard,body.ui-kurs .deck-end,body.ui-kurs .qcard,body.ui-kurs .word,
+body.ui-kurs .simple-slide,body.ui-kurs .aufg-card{border-color:var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow)}
+body.ui-kurs .lc-no{background:var(--ui-brand-soft);color:var(--ui-brand)}
+body.ui-kurs .lcard.sitzt .lc-no{background:var(--ui-brand);color:#fff}
+body.ui-kurs .st-dot{background:#fff;border-color:var(--ui-brand-line);color:var(--ui-brand)}
+body.ui-kurs .module-group>details>summary{font-size:22px;font-weight:800;color:var(--ui-head)}
+body.ui-kurs .kicker{color:var(--ui-brand)}
+
+/* „Heute“-Reiter: frühere Tagesübersicht (Tag 19, Modul 2) */
+.heute .chapter{background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:22px 26px;margin:0 0 16px}
+.heute .chapter h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 10px}
+.heute .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--ui-brand);margin:0 0 4px}
+.heute .note,.heute aside.note{background:var(--ui-gold-soft);border:1px solid var(--ui-gold-line);border-radius:14px;padding:12px 16px;margin:12px 0}
+.heute details.original{border-top:1px solid var(--ui-line);padding:10px 0}
+.heute details.original summary{cursor:pointer;font-weight:700;color:var(--ui-head)}
+.heute details.original img{max-width:min(100%,720px);border:1px solid var(--ui-line);border-radius:10px;margin-top:8px}
+.heute figure{margin:12px 0}.heute figure img{max-width:min(100%,720px);border-radius:10px;border:1px solid var(--ui-line)}
+
+/* ---------- Lesefamilie A: Lernhefte als Seiten (Modul 1) ---------- */
+body.ui-lh{background:var(--ui-bg)}
+body.ui-lh section.lp{border-radius:14px;box-shadow:0 1px 2px rgba(15,21,19,.06),0 14px 34px rgba(3,42,33,.08)}
+
+/* ---------- Lesefamilie B: Leseseiten mit Seitennavigation (Tag 15–19, Modul 2) ---------- */
+body.ui-tb{background:var(--ui-bg)!important;color:var(--ui-ink)!important;font-family:var(--ui-font)!important}
+body.ui-tb .layout{max-width:1240px;gap:28px;padding:24px 20px 56px}
+body.ui-tb .layout>nav{top:88px!important;background:#fff;border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:14px!important;box-shadow:var(--ui-shadow);font-size:14px!important}
+body.ui-tb .layout>nav a{display:block;padding:4px 8px;border-radius:8px;color:var(--ui-ink)}
+body.ui-tb .layout>nav a:hover{background:var(--ui-brand-soft);text-decoration:none!important}
+body.ui-tb main{max-width:none!important}
+body.ui-tb .chapter,body.ui-tb section.chapter,body.ui-tb .lesson-part>.chapter{background:#fff;border:1px solid var(--ui-line)!important;border-radius:var(--ui-r);box-shadow:var(--ui-shadow);padding:24px 28px!important;margin:0 0 16px}
+body.ui-tb h2{color:var(--ui-head)!important;font-size:clamp(24px,3vw,34px)!important;letter-spacing:-.025em!important;max-width:none!important}
+body.ui-tb h3{color:var(--ui-head)!important}
+body.ui-tb .eyebrow{color:var(--ui-brand)!important;font-weight:800!important;letter-spacing:.1em!important}
+body.ui-tb .note,body.ui-tb .today-important{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)!important;border-left:5px solid #d4b23a!important;border-radius:14px!important;color:var(--ui-ink)!important}
+body.ui-tb .check{background:var(--ui-mint-soft)!important;border-left:5px solid var(--ui-mint)!important;border-radius:14px!important}
+body.ui-tb .prompt{background:#f3f5f4!important;border:1px solid var(--ui-line)!important;border-radius:14px!important}
+body.ui-tb button{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important;border-radius:999px!important;font-family:var(--ui-font)!important;font-weight:650}
+body.ui-tb button:hover{background:var(--ui-brand-d)!important}
+body.ui-tb th{background:var(--ui-brand-deep)!important;color:#fff!important}
+body.ui-tb tbody tr:nth-child(odd){background:#fff!important}
+body.ui-tb tbody tr:nth-child(even){background:#f6f8f7!important}
+body.ui-tb th,body.ui-tb td{border-bottom-color:var(--ui-line)!important}
+body.ui-tb .tablewrap{border:1px solid var(--ui-line);border-radius:14px}
+body.ui-tb .reading-intro,body.ui-tb .part-heading{background:linear-gradient(180deg,#eef8f4,#fff);border:1px solid var(--ui-line);border-radius:var(--ui-r);padding:22px 26px;margin:0 0 16px}
+body.ui-tb .reading-intro h1{color:var(--ui-head)!important}
+body.ui-tb .reading-route a,body.ui-tb .today-nav a{border-radius:999px!important;border-color:var(--ui-line2)!important;background:#fff!important;color:var(--ui-head)!important}
+body.ui-tb .phase-title{color:var(--ui-brand)!important}
+body.ui-tb .missionlink{background:var(--ui-gold-soft)!important;border:1px solid var(--ui-gold-line)}
+body.ui-tb details{border-color:var(--ui-line)}
+
+/* ---------- Lesefamilie C: Arbeitshefte und Lernblätter ---------- */
+body.ui-web{background:var(--ui-bg)}
+
+/* ---------- Learning Hub / Wochenheft: helle Variante ---------- */
+.wh{--fw:#05614c;--fw-d:#073d31;--fw-t:#e8f4f0;--fw-l:#c7e5dc;--ink:#2a312e;--head:#0f1513;--mut:#58615c;--line:#dfe5e2}
+.wh .teil-kopf{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-head)!important;border:1px solid var(--ui-line)}
+.wh .teil-kopf::after{background:radial-gradient(circle,rgba(5,219,186,.18),transparent 70%)!important}
+.wh .teil-t{color:var(--ui-head)!important}
+.wh .teil-kopf p{color:var(--ui-ink)!important}
+.wh .teil-b{background:var(--ui-brand)!important;color:#fff!important}
+.wh .kernsatz{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line);border-left:6px solid var(--ui-mint)}
+.wh .kernsatz cite{color:var(--ui-brand)!important}
+.wh .tr-res{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important;border:1px solid var(--ui-brand-line)}
+.wh .tr-res b{color:var(--ui-brand)!important}
+.wh .tab th{background:var(--ui-brand-deep)!important}
+.rd-cover{background:radial-gradient(800px 360px at 88% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,var(--ui-bg))!important;color:var(--ui-ink)!important;border-bottom:1px solid var(--ui-line)}
+.rd-cover h1{color:var(--ui-head)!important}
+.rd-cover h1 em{color:var(--ui-brand)!important}
+.rd-cover p{color:var(--ui-ink)!important}
+.rd-cover .eyebrow{color:var(--ui-brand)!important}
+.rd-cover .btn{background:#fff!important;border-color:var(--ui-line2)!important;color:var(--ui-head)!important}
+.rd-cover .btn.primary{background:var(--ui-brand)!important;border-color:var(--ui-brand)!important;color:#fff!important}
+.hub-banner{background:linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important;border:1px solid var(--ui-brand-line)}
+.hub-banner p{color:var(--ui-ink)!important}.hub-banner b{color:var(--ui-brand)!important}
+.hub-banner a{background:var(--ui-brand)!important;color:#fff!important}
+.hub-banner a.alt{background:#fff!important;color:var(--ui-head)!important;border:1px solid var(--ui-line2)!important}
+
+/* ---------- Handy ---------- */
+@media (max-width:760px){
+  .ui-top .top-in{padding:8px 16px;min-height:56px;gap:6px 12px}
+  .ui-top .top-brand img{width:96px}
+  .ui-top nav.crumbs{order:3;flex-basis:100%;font-size:13px}
+  body.ui-kurs .tabs-wrap{top:0;position:relative}
+  header.ui-top{position:relative!important}
+  body.ui-tb .layout{padding:16px 16px 40px}
+  body.ui-tb .chapter,body.ui-tb section.chapter{padding:18px 16px!important}
+}
+@media print{header.ui-top,footer.foot,.hub-banner{display:none!important}body.ui{background:#fff}}
+
+/* Praxisheft-Deckblatt hell (nur Bildschirm; das PDF bleibt unverändert) */
+@media screen{
+  body.ui-lh .lp.cover.px{background:radial-gradient(120mm 80mm at 90% 0%,rgba(5,219,186,.16),transparent 60%),linear-gradient(180deg,#eef8f4,#fff)!important;color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .kicker{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .big{color:var(--ui-head)!important}
+  body.ui-lh .lp.cover.px .big2{color:var(--ui-brand)!important}
+  body.ui-lh .lp.cover.px .sub{color:var(--ui-ink)!important}
+  body.ui-lh .lp.cover.px .note{background:var(--ui-brand-soft)!important;color:var(--ui-head)!important}
+}
+/* Aufgabengenerator: Tagesauswahl nach Modulen */
+.aufg-days .aufg-mod{display:block;width:100%;font-weight:800;color:var(--ui-brand);margin:8px 0 2px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+/* lange deutsche Wörter in Überschriften sauber trennen (schmale Handys) */
+.wh .k-head>div{min-width:0}
+body.ui h1,body.ui h2,body.ui h3,.wh .k-kicker{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+</style></head>
+<body class="web lernblatt ui ui-web">
+<header class="top ui-top"><div class="top-in"><a class="top-brand" href="/hefte/"><img src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut" width="132" height="53"></a><nav class="crumbs" aria-label="Brotkrumen"><a href="/hefte/">Lernplattform</a><span class="sep">/</span><a href="/hefte/carmen/">Carmen</a><span class="sep">/</span><a href="/hefte/carmen/#modul-2">Modul 2 · KI-Automation</a><span class="sep">/</span><a href="/hefte/carmen/modul-2/tag-7/">Tag 7 · Prozess verstehen und abgrenzen</a><span class="sep">/</span><span aria-current="page">Lernblatt</span></nav><div class="top-right"><div class="wb-status" id="lb-status"></div><div class="wb-actions"><span id="dz-slot"></span><button class="wb-primary" data-lernblatt-here="carmen/tag-26" type="button">Als PDF herunterladen</button></div><a class="top-switch" href="/hefte/?wechseln=1">Person wechseln</a></div></div></header>
+<section class="lb-cover">
+  <img class="logo" src="/hefte/assets/futureway_logo.png" alt="Futureway KI Institut">
+  <p class="kicker">KI Automations Spezialist · Praxisblock Langdock · Lernblatt</p>
+  <h1>Learnings Tag 26 · Prozess verstehen und abgrenzen</h1>
+  <p class="lb-for">für <b>Carmen</b> · Teamleitung, Business &amp; Website</p>
+  <p class="lb-sel" hidden></p>
+</section>
+<section class="section lrn-section" data-lrn-tag="26"><div class="sec-head"><div class="sec-no">Zum Nachlernen</div><h2>Die Learnings von Tag 26</h2><p>Prozess verstehen und abgrenzen – das Wichtigste in kurzen Sätzen, jeweils einfach erklärt und mit der passenden Folie.</p></div><div class="lrn-tools"></div><ol class="lrn thumbs"><li data-lrn="l1"><div class="lrn-no">1</div><div class="lrn-body"><b class="lrn-satz">Prozesse wurden selten entworfen. Sie sind einfach passiert.</b><p>Sie sind um Personen, Systemwechsel und Ausnahmen herum gewachsen, ungefähr so wie eine Besteckschublade. Das Wissen steckt in Köpfen statt in Dokumenten, derselbe Vorgang läuft je nach Person und Tageszeit anders, und niemand weiß genau, wer am Ende entscheidet. Das fällt erst auf, wenn eine Automatisierung eine eindeutige Regel verlangt, wo bisher Erfahrung gereicht hat.</p><span class="fref" data-folie="4">Folie 4</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 4" src="/hefte/folien/tag-26/t04.jpg"></div></li><li data-lrn="l2"><div class="lrn-no">2</div><div class="lrn-body"><b class="lrn-satz">Nur was beschreibbar ist, ist automatisierbar.</b><p>Person A arbeitet nach Regeln, Person B nach Erfahrung. Beide liefern richtige Ergebnisse, und bei schwierigen Fällen ist der Erfahrungsweg oft sogar der bessere. Das Ziel ist nicht, ihn abzuschaffen, sondern zu wissen, wann er greift.</p><span class="fref" data-folie="5">Folie 5</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 5" src="/hefte/folien/tag-26/t05.jpg"></div></li><li data-lrn="l3"><div class="lrn-no">3</div><div class="lrn-body"><b class="lrn-satz">Die Unschärfe ist kein Hindernis, sondern der erste Teil des Nutzens.</b><p>Ein Automatisierungsprojekt zwingt eine Organisation oft zum ersten Mal zu entscheiden, wie ein Ablauf laufen soll. Ein Teil des Wertes entsteht schon dadurch. Wichtige Regel dazu: Widersprüche sind kein Vorwurf an die Beteiligten. Der einzige Verdächtige ist der Prozess. Wer das anders vermittelt, bekommt beim nächsten Gespräch keine ehrlichen Antworten mehr.</p><span class="fref" data-folie="6">Folie 6</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 6" src="/hefte/folien/tag-26/t06.jpg"></div></li><li data-lrn="l4"><div class="lrn-no">4</div><div class="lrn-body"><b class="lrn-satz">Projekte starten aus einem Schmerz, nicht aus einer Idee.</b><p>Wer mit „Wir sollten mal KI einsetzen“ beginnt, sucht danach ein Problem und findet meist ein zu kleines. Der Fachbereich beschreibt das Problem, nicht die Lösung. Der Test: Lässt sich das Problem in drei Sätzen erklären, ohne ein Werkzeug zu nennen? Dann ist der Start sauber.</p><span class="fref" data-folie="8">Folie 8</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 8" src="/hefte/folien/tag-26/t08.jpg"></div></li><li data-lrn="l5"><div class="lrn-no">5</div><div class="lrn-body"><b class="lrn-satz">Ein Wunsch wird erst dann zum Ziel, wenn man ihn prüfen kann.</b><p>„Weniger E-Mails manuell bearbeiten“ klingt gut, lässt aber offen: Wie viel weniger? Welche? Woran gemessen? So kann man nie feststellen, ob das Projekt funktioniert hat. Das ist keine Formulierungskunst, sondern der Unterschied zwischen Projekt und Neujahrsvorsatz.</p><span class="fref" data-folie="9">Folie 9</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 9" src="/hefte/folien/tag-26/t09.jpg"></div></li><li data-lrn="l6"><div class="lrn-no">6</div><div class="lrn-body"><b class="lrn-satz">Ein Ziel hat fünf Bausteine: Anteil oder Menge, Fallmenge, Handlung, Kennzahl, Zeitpunkt.</b><p>Beispiel: 70 Prozent (Anteil) der Rechnungen unter 1.000 Euro ohne Klärungsbedarf (Fallmenge) werden ohne manuelle Prüfung freigegeben (Handlung), gemessen an der Freigabequote im Monatsbericht (Kennzahl), ab drei Monaten nach Start (Zeitpunkt). Fehlt ein Baustein, kann man den Satz in sechs Monaten nicht mehr prüfen.</p><span class="fref" data-folie="10">Folie 10</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 10" src="/hefte/folien/tag-26/t10.jpg"></div></li><li data-lrn="l7"><div class="lrn-no">7</div><div class="lrn-body"><b class="lrn-satz">Fünf frühe Fragen entscheiden über den Zeitplan.</b><p>Wer entscheidet am Ende (nicht wer mitredet, wer freigibt)? Was passiert heute, wenn etwas schiefgeht? Welche Systeme sind beteiligt, und wer verwaltet die Zugänge? Gibt es einen Betriebsrat, und ist er informiert? Was ist in sechs Monaten anders? Besonders die Zugänge sind regelmäßig der längste Einzelposten im Zeitplan.</p><span class="fref" data-folie="11">Folie 11</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 11" src="/hefte/folien/tag-26/t11.jpg"></div></li><li data-lrn="l8"><div class="lrn-no">8</div><div class="lrn-body"><b class="lrn-satz">Brauchbare Antworten enthalten eine Zahl, eine Grenze und eine Ausschlussliste.</b><p>Nicht „alle Rechnungen“, sondern: Rechnungen unter 1.000 Euro, keine Sonderprojekte, kein manueller Klärungsbedarf. Dazu ausdrücklich, was nicht dazugehört. Damit lässt sich bauen, testen und abnehmen. Das ist der Unterschied zwischen Absichtserklärung und Arbeitsgrundlage.</p><span class="fref" data-folie="12">Folie 12</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 12" src="/hefte/folien/tag-26/t12.jpg"></div></li><li data-lrn="l9"><div class="lrn-no">9</div><div class="lrn-body"><b class="lrn-satz">Prozesse werden nicht modelliert, sondern erzählt. Die Kunst liegt im Nachfragen.</b><p>Interviews statt Fragebögen, denn ein Fragebogen bekommt die geschönte Version. Achte auf Handlungen, Entscheidungen und Übergaben. Frag nach den Ausnahmen vor dem Standardfall und kläre Unklares sofort. „Dann geben wir die Rechnung frei“ ist keine Prozessbeschreibung: Es fehlt, wer prüft, nach welchen Kriterien und was bei Unsicherheit passiert.</p><span class="fref" data-folie="14">Folie 14</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 14" src="/hefte/folien/tag-26/t14.jpg"></div></li><li data-lrn="l10"><div class="lrn-no">10</div><div class="lrn-body"><b class="lrn-satz">Das Interview hat sechs Schritte, und die Gegenprobe ist der wertvollste.</b><p>Erzählen lassen am letzten echten Fall, in drei Spalten mitschreiben, bei jeder Entscheidung nachbohren, nach dem seltenen Fall fragen, eine zweite Person aus demselben Team unabhängig befragen, die Skizze vorlesen und bestätigen lassen. Die Abweichungen zwischen beiden Beschreibungen sind das wertvollste Ergebnis des Tages.</p><span class="fref" data-folie="15">Folie 15</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 15" src="/hefte/folien/tag-26/t15.jpg"></div></li><li data-lrn="l11"><div class="lrn-no">11</div><div class="lrn-body"><b class="lrn-satz">Vier Alarmsätze zeigen zuverlässig, wo eine Regel fehlt.</b><p>„Normalerweise …“ verdeckt unbekannte Ausnahmen. „Das sieht man dann schon“ verdeckt Erfahrungswissen. „Das macht die Kollegin“ verdeckt einen Schritt ohne Regel und ohne Vertretung. „Das ist eigentlich immer gleich“ verdeckt Unterschiede, die niemandem mehr auffallen. Keine Nachlässigkeit, sondern normal: Menschen wenden Erfahrung schneller an, als sie sie beschreiben können.</p><span class="fref" data-folie="16">Folie 16</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 16" src="/hefte/folien/tag-26/t16.jpg"></div></li><li data-lrn="l12"><div class="lrn-no">12</div><div class="lrn-body"><b class="lrn-satz">SIPOC legt fest, wo der Prozess anfängt und wo er aufhört.</b><p>Lieferant, Input, Prozess, Output, Empfänger. Die häufigste Ursache für ausufernde Projekte ist ein Prozess, dessen Ende nie festgelegt wurde. Lassen sich die fünf Spalten nicht in zehn Minuten füllen, ist der Fall noch nicht scharf genug für die technische Planung.</p><span class="fref" data-folie="19">Folie 19</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 19" src="/hefte/folien/tag-26/t19.jpg"></div></li><li data-lrn="l13"><div class="lrn-no">13</div><div class="lrn-body"><b class="lrn-satz">Fünf Symbole reichen: Start, Ende, Aufgabe, Entscheidung, Bahn.</b><p>Sie stammen aus dem Standard BPMN, der über hundert Symbole kennt. Die fünf sind gültiges BPMN und ohne Vorwissen lesbar. Jeder Pfad endet in einem Endpunkt, jede Raute hat beschriftete Ausgänge. Ein kleines Personensymbol markiert Schritte, an denen ein Mensch entscheidet. Dort hängen später Kapazität, Zeit und rechtliche Verantwortung.</p><span class="fref" data-folie="21">Folie 21</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 21" src="/hefte/folien/tag-26/t21.jpg"></div></li><li data-lrn="l14"><div class="lrn-no">14</div><div class="lrn-body"><b class="lrn-satz">Jeder Pfeil über eine Bahngrenze ist eine Übergabe, und dort verschwindet die Zeit.</b><p>Im Beispiel: 12 Minuten Arbeit, 5 Tage Durchlauf. Der Unterschied steckt vollständig in den vier Übergaben. Wer nur die Bearbeitungszeit automatisiert, verändert an der Durchlaufzeit fast nichts. Die Rechnung war fünf Tage unterwegs und wurde zwölf Minuten beachtet.</p><span class="fref" data-folie="22">Folie 22</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 22" src="/hefte/folien/tag-26/t22.jpg"></div></li><li data-lrn="l15"><div class="lrn-no">15</div><div class="lrn-body"><b class="lrn-satz">Bearbeitungszeit und Durchlaufzeit gehören beide in die Erfolgskriterien.</b><p>Die Rechnung von gestern misst Bearbeitungszeit. Was das Geschäft stört, ist oft die Durchlaufzeit. Beide Zahlen erzählen eine andere Geschichte, und nur zusammen stimmen sie.</p><span class="fref" data-folie="23">Folie 23</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 23" src="/hefte/folien/tag-26/t23.jpg"></div></li><li data-lrn="l16"><div class="lrn-no">16</div><div class="lrn-body"><b class="lrn-satz">Prüfe an jeder Bahngrenze zuerst: Muss diese Übergabe überhaupt stattfinden?</b><p>Eine Übergabe besteht meist aus zusammenstellen, weiterleiten, warten, erinnern und Rückfragen beantworten. Das lässt sich oft automatisieren, ohne eine einzige fachliche Entscheidung anzutasten. Das ist der risikoärmste Einstieg überhaupt. Und der wertvollste Schritt ist sehr oft der, der einfach entfällt.</p><span class="fref" data-folie="23">Folie 23</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 23" src="/hefte/folien/tag-26/t23.jpg"></div></li><li data-lrn="l17"><div class="lrn-no">17</div><div class="lrn-body"><b class="lrn-satz">Zeichne so viel Notation, wie die Person mit dem wenigsten Vorwissen lesen kann.</b><p>Die schlanke Variante ist der Normalfall und kostet Stunden. Gibt es schon eine Prozesslandkarte, schließt du daran an, sonst entstehen zwei Wahrheiten. Vollständiges BPMN lohnt sich bei mehreren verbundenen Prozessen, Zertifizierungen oder wenn das Modell direkt ausgeführt werden soll.</p><span class="fref" data-folie="24">Folie 24</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 24" src="/hefte/folien/tag-26/t24.jpg"></div></li><li data-lrn="l18"><div class="lrn-no">18</div><div class="lrn-body"><b class="lrn-satz">Ist und Soll strikt trennen: Die Differenz ist der eigentliche Projektinhalt.</b><p>Der Ist-Prozess wird ohne Wertung aufgenommen, mit Umwegen und der einen Datei auf dem Desktop. Der Soll-Prozess markiert, was entfällt, was automatisiert wird, was bewusst manuell bleibt und welche Übergabe wegfällt. Der häufigste Fehler: Das Ist wird schöner aufgeschrieben, als es ist. Das ist wie den Bauch einziehen beim Vorher-Foto.</p><span class="fref" data-folie="26">Folie 26</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 26" src="/hefte/folien/tag-26/t26.jpg"></div></li><li data-lrn="l19"><div class="lrn-no">19</div><div class="lrn-body"><b class="lrn-satz">Ein Prozess, der vor der Automatisierung nicht funktioniert, funktioniert danach schneller nicht.</b><p>Das ist der übersprungene Schritt Null. KI auf einem instabilen Ablauf erzeugt schnellere Fehler, keine besseren Ergebnisse. Fördert die Aufnahme einen kaputten Prozess zutage, heißt die Reihenfolge: erst reparieren, dann automatisieren. Das ist unbequem und spart Monate.</p><span class="fref" data-folie="27">Folie 27</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 27" src="/hefte/folien/tag-26/t27.jpg"></div></li><li data-lrn="l20"><div class="lrn-no">20</div><div class="lrn-body"><b class="lrn-satz">Ein SOP ist so geschrieben, dass eine neue Kollegin ohne Nachfrage arbeiten kann.</b><p>SOP heißt Standard Operating Procedure, also eine schriftliche Arbeitsanweisung. Jeder Schritt beginnt mit der Rolle, nennt das System und steht in der tatsächlichen Reihenfolge. Wartezeiten sind eigene Schritte. Beim Gegenlesen wird nicht diskutiert, nur markiert. Jede Markierung ist eine fehlende Regel oder eine noch nicht erfasste Ausnahme.</p><span class="fref" data-folie="28">Folie 28</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 28" src="/hefte/folien/tag-26/t28.jpg"></div></li><li data-lrn="l21"><div class="lrn-no">21</div><div class="lrn-body"><b class="lrn-satz">Die Out-of-Scope-Liste ist der wichtigere Teil.</b><p>Sie verhindert die Diskussion, die sonst in Monat drei kommt. Weil sie nie vollständig ist, gehört ein Schutzsatz dazu: Alles, was nicht ausdrücklich aufgeführt ist, gilt als außerhalb des Umfangs. Dazu die Annahmen: Ändert sich eine, ändert sich der Aufwand.</p><span class="fref" data-folie="30">Folie 30</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 30" src="/hefte/folien/tag-26/t30.jpg"></div></li><li data-lrn="l22"><div class="lrn-no">22</div><div class="lrn-body"><b class="lrn-satz">Erfolgskriterien brauchen einen Ausgangswert.</b><p>Kriterium, Wert heute, Zielwert, Messquelle, Zeitpunkt. Ohne die Spalte „heute“ gibt es später keinen Nachweis und keine Verteidigung gegen „gefühlt bringt das nichts“. „Zielwert gleich Ausgangswert“ ist erlaubt und sichert zu, dass die Qualität nicht schlechter wird.</p><span class="fref" data-folie="31">Folie 31</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 31" src="/hefte/folien/tag-26/t31.jpg"></div></li><li data-lrn="l23"><div class="lrn-no">23</div><div class="lrn-body"><b class="lrn-satz">Ist der Ausgangswert unbekannt, ist die erste Projektaufgabe eine Messung.</b><p>Das ist der häufigste Fall und kein Grund zum Abbruch. Drei Wege: Stichprobe von Hand (zwanzig Fälle mit der Stoppuhr), Systemauswertung (Zeitstempel) oder aufschreiben über eine Woche. Niemals die Zahl schätzen und später so tun, als sei sie gemessen worden.</p><span class="fref" data-folie="33">Folie 33</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 33" src="/hefte/folien/tag-26/t33.jpg"></div></li><li data-lrn="l24"><div class="lrn-no">24</div><div class="lrn-body"><b class="lrn-satz">Vier Rollen müssen ausgesprochen sein, auch wenn sie bei einer Person liegen.</b><p>Auftraggeber entscheidet über Budget und Umfang. Fachlicher Eigentümer legt fest, was fachlich richtig ist, und bleibt nach der Übergabe zuständig. Umsetzung baut und testet. Betrieb überwacht und verwaltet Zugänge. Der fachliche Eigentümer ist die wichtigste und am häufigsten unbesetzte Rolle.</p><span class="fref" data-folie="34">Folie 34</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 34" src="/hefte/folien/tag-26/t34.jpg"></div></li><li data-lrn="l25"><div class="lrn-no">25</div><div class="lrn-body"><b class="lrn-satz">Der wichtigste Prüfpunkt: Kann der Fachbereich den Ablauf ohne technische Begriffe nacherzählen?</b><p>Zwischen den Phasen stehen Prüfpunkte, denn ein Projektzyklus ohne Übergangsbedingungen ist eine Wunschliste. Wer an der Workflow-Skizze weitergeht, obwohl der Fachbereich den Ablauf nicht erklären kann, baut mit hoher Wahrscheinlichkeit an der Realität vorbei.</p><span class="fref" data-folie="35">Folie 35</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 35" src="/hefte/folien/tag-26/t35.jpg"></div></li><li data-lrn="l26"><div class="lrn-no">26</div><div class="lrn-body"><b class="lrn-satz">Der Bau ist selten der größte Posten.</b><p>Laut Folie entfallen 25–35 % auf Problemdefinition, Aufnahme und Scope, 10 % auf Skizze und Abstimmung, 20–30 % auf die Umsetzung, 20–25 % auf Test und Korrekturen und 10–15 % auf Übergabe, Doku und Schulung. Angeboten wird meist nur der Bau. Bei internen Teams heißt der Rest „nicht eingeplant“ und zeigt sich als Terminüberschreitung.</p><span class="fref" data-folie="36">Folie 36</span></div><div class="lrn-pic"><img class="lrn-thumb" alt="Folie 36" src="/hefte/folien/tag-26/t36.jpg"></div></li></ol><div class="keep lrn-wordbox"><h4>Die Wörter des Tages</h4><div class="lrn-words"><div><b>Prozessaufnahme</b>Herausfinden und festhalten, wie ein Ablauf heute wirklich läuft.</div><div><b>Ist-Prozess</b>Der Ablauf, wie er heute tatsächlich ist, mit allen Umwegen.</div><div><b>Soll-Prozess</b>Der Ablauf, wie er nach der Automatisierung laufen soll.</div><div><b>Implizites Wissen</b>Erfahrung, die jemand anwendet, aber nie aufgeschrieben hat.</div><div><b>Fachbereich</b>Die Abteilung, die den Ablauf täglich macht und das Problem am besten kennt.</div><div><b>Fallmenge</b>Genau die Fälle, für die das Ziel gilt.</div><div><b>Kennzahl</b>Die Zahl, an der du den Erfolg abliest.</div><div><b>Eskalation</b>Ein Fall wird an eine Stelle weitergereicht, die mehr entscheiden darf.</div><div><b>Betriebsrat</b>Die gewählte Vertretung der Beschäftigten. Bei Technik, die Verhalten oder Leistung überwachen kann, hat er ein Mitbestimmungsrecht.</div><div><b>Gegenprobe</b>Eine zweite Person aus dem Team wird unabhängig befragt.</div><div><b>Alarmsatz</b>Formulierung, die zuverlässig anzeigt, dass hier eine Regel fehlt.</div><div><b>Varianz</b>Unterschiede zwischen Fällen, die eigentlich gleich aussehen.</div><div><b>SIPOC</b>Supplier, Input, Process, Output, Customer. Eine Tabelle, die Anfang und Ende eines Prozesses festlegt.</div><div><b>BPMN</b>Business Process Model and Notation. Internationaler Standard für Prozessdiagramme.</div><div><b>Notation</b>Vereinbarte Zeichen, mit denen man etwas aufschreibt, wie Noten in der Musik.</div><div><b>Start-Event</b>BPMN-Wort für den Auslöser eines Ablaufs.</div><div><b>End-Event</b>BPMN-Wort für einen Endpunkt. Jeder Pfad braucht einen.</div><div><b>Task</b>BPMN-Wort für eine Aufgabe.</div><div><b>Gateway</b>BPMN-Wort für eine Entscheidung, gezeichnet als Raute.</div><div><b>Lane / Bahn</b>Streifen im Diagramm, der zeigt, wer einen Schritt ausführt.</div><div><b>Übergabe</b>Ein Pfeil über eine Bahngrenze. Hier entsteht meist die Wartezeit.</div><div><b>Bearbeitungszeit</b>Zeit, in der wirklich jemand an dem Vorgang arbeitet.</div><div><b>Durchlaufzeit</b>Zeit vom Anfang bis zum Ende, inklusive Warten.</div><div><b>Prozesslandkarte</b>Übersicht über die Abläufe eines Unternehmens.</div><div><b>QM-System</b>Qualitätsmanagement: geregelte Abläufe, oft mit Handbuch und Zertifizierung.</div><div><b>SOP</b>Standard Operating Procedure. Schriftliche Arbeitsanweisung, nach der eine neue Person ohne Nachfrage arbeiten kann.</div><div><b>Scope</b>Der Umfang: was zum Projekt gehört und was nicht.</div><div><b>Annahme</b>Etwas, wovon du ausgehst, ohne es sicher zu wissen. Ändert sie sich, ändert sich der Aufwand.</div><div><b>Erfolgskriterium</b>Festgelegter Maßstab mit Ausgangswert, Zielwert, Messquelle und Zeitpunkt.</div><div><b>Ausgangswert</b>Der gemessene Wert von heute, gegen den später verglichen wird.</div><div><b>Stichprobe</b>Ein Teil der Fälle wird gemessen, zum Beispiel zwanzig Stück mit der Stoppuhr.</div><div><b>Zeitstempel</b>Automatisch gespeicherter Zeitpunkt, wann in einem System etwas passiert ist.</div><div><b>ERP</b>Enterprise Resource Planning. Software, in der ein Unternehmen Einkauf, Lager und Buchhaltung steuert.</div><div><b>Auftraggeber</b>Entscheidet über Budget und Umfang.</div><div><b>Fachlicher Eigentümer</b>Legt fest, was fachlich richtig ist, und bleibt nach der Übergabe zuständig.</div><div><b>Lead</b>Eine interessierte Person oder Firma, die der Vertrieb noch ansprechen möchte.</div><div><b>CRM</b>Customer Relationship Management. Software für Kundendaten und Vertrieb.</div></div></div></section>
+<footer class="foot"><div class="wrap foot-in"><span>Futureway KI Institut · Kurs „KI Automations Spezialist“</span><span><a href="https://quint-marketplace.de/impressum">Impressum</a> · <a href="https://quint-marketplace.de/datenschutz">Datenschutz</a> · <a href="/hefte/dozent/">Für die Schulungsleitung</a></span></div></footer></body>
+</html>

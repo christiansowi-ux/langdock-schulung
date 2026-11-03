@@ -1,0 +1,19 @@
+MAKE-VORLAGEN · MODUL 2 · TAG 6 (Stand 02.11.2026)
+=================================================
+
+Zwei sehr leichte Rechen-Szenarien für Make Free. Kein fremdes Konto nötig.
+Keine Vorlage verschickt, veröffentlicht oder speichert etwas außerhalb von Make.
+
+SO GEHT DER IMPORT
+1. ZIP entpacken (Rechtsklick > Alle extrahieren / am Mac Doppelklick).
+2. In Make links "Scenarios" > "+ Create a new scenario".
+3. Oben rechts die drei Punkte (...) > "Import blueprint" > "Choose file".
+4. Eine .blueprint.json-Datei wählen > "Save".
+5. Unten speichern (Diskette) und "Run once" klicken.
+6. Auf die Sprechblase über dem letzten Modul klicken > OUTPUT.
+
+Zeitplan bitte AUS lassen. Jeder Lauf kostet etwa 1 Credit pro ausgeführtem Modul.
+Ausführliche Erklärung jeder Einstellung: Lernheft Tag 6, Reiter Vorlagen.
+
+A10  Scoring-Rechner mit Matrix           ->  Kandidat: Druckanfragen vorsortieren
+A11  Business-Case-Rechner                ->  Ersparnis: 33 Std. pro Monat

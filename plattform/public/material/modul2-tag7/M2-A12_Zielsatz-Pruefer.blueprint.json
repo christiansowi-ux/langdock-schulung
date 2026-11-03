@@ -1,0 +1,274 @@
+{
+  "name": "M2 · A12 Zielsatz-Prüfer",
+  "flow": [
+    {
+      "id": 1,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "anteil",
+            "value": "70 Prozent"
+          },
+          {
+            "name": "fallmenge",
+            "value": "der Rechnungen unter 1.000 Euro ohne Klärungsbedarf"
+          },
+          {
+            "name": "handlung",
+            "value": "werden ohne manuelle Prüfung freigegeben"
+          },
+          {
+            "name": "kennzahl",
+            "value": "gemessen an der Freigabequote im Monatsbericht"
+          },
+          {
+            "name": "zeitpunkt",
+            "value": "offen"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "1 · Fünf Bausteine"
+        },
+        "restore": {
+          "expect": {
+            "variables": {
+              "items": [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "variables",
+            "type": "array",
+            "label": "Variables",
+            "validate": {
+              "unique": {
+                "by": "name"
+              }
+            },
+            "spec": {
+              "type": "collection",
+              "label": "Variable",
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "label": "Variable name",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "label": "Variable value",
+                  "type": "any"
+                }
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "anteil",
+            "label": "anteil",
+            "type": "any"
+          },
+          {
+            "name": "fallmenge",
+            "label": "fallmenge",
+            "type": "any"
+          },
+          {
+            "name": "handlung",
+            "label": "handlung",
+            "type": "any"
+          },
+          {
+            "name": "kennzahl",
+            "label": "kennzahl",
+            "type": "any"
+          },
+          {
+            "name": "zeitpunkt",
+            "label": "zeitpunkt",
+            "type": "any"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "2 · Alles da?"
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 3,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "ZIEL: {{1.anteil}} {{1.fallmenge}} {{1.handlung}}, {{1.kennzahl}}, {{1.zeitpunkt}}."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": -120,
+                  "name": "3a · Das ist ein Ziel"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Alle fünf Bausteine sind da",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.anteil}}",
+                      "o": "text:notequal",
+                      "b": "offen"
+                    },
+                    {
+                      "a": "{{1.fallmenge}}",
+                      "o": "text:notequal",
+                      "b": "offen"
+                    },
+                    {
+                      "a": "{{1.handlung}}",
+                      "o": "text:notequal",
+                      "b": "offen"
+                    },
+                    {
+                      "a": "{{1.kennzahl}}",
+                      "o": "text:notequal",
+                      "b": "offen"
+                    },
+                    {
+                      "a": "{{1.zeitpunkt}}",
+                      "o": "text:notequal",
+                      "b": "offen"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:ComposeTransformer",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "value": "WUNSCH: Noch kein prüfbares Ziel.\nEs fehlt: {{if(1.anteil = \"offen\"; \"[Anteil oder Menge] \"; \"\")}}{{if(1.fallmenge = \"offen\"; \"[Fallmenge] \"; \"\")}}{{if(1.handlung = \"offen\"; \"[Handlung] \"; \"\")}}{{if(1.kennzahl = \"offen\"; \"[Kennzahl] \"; \"\")}}{{if(1.zeitpunkt = \"offen\"; \"[Zeitpunkt] \"; \"\")}}\nFehlt ein Baustein, kann in sechs Monaten niemand mehr prüfen, ob es funktioniert hat."
+              },
+              "metadata": {
+                "designer": {
+                  "x": 600,
+                  "y": 120,
+                  "name": "3b · Das ist ein Wunsch"
+                },
+                "restore": {},
+                "expect": [
+                  {
+                    "name": "value",
+                    "type": "text",
+                    "label": "Text"
+                  }
+                ]
+              },
+              "filter": {
+                "name": "Mindestens ein Baustein ist offen",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{1.anteil}}",
+                      "o": "text:equal",
+                      "b": "offen"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.fallmenge}}",
+                      "o": "text:equal",
+                      "b": "offen"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.handlung}}",
+                      "o": "text:equal",
+                      "b": "offen"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.kennzahl}}",
+                      "o": "text:equal",
+                      "b": "offen"
+                    }
+                  ],
+                  [
+                    {
+                      "a": "{{1.zeitpunkt}}",
+                      "o": "text:equal",
+                      "b": "offen"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}

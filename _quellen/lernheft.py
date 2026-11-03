@@ -173,6 +173,16 @@ HEFTE[24] = {'src': 'modul2/woche1/hub.py', 'out': 'Modul 2 - KI-Automation/Woch
     'pdf': WOCHE1_PDF, 'kurz': 'Wochenheft Make & Use Cases', 'label': 'Modul 2 · Woche 1 · Wochenheft',
     'full_toc': True, 'titles': {1: 'Make-Grundlagen', 2: 'Make-Werkstatt: 9 Vorlagen', 3: 'Use Cases identifizieren', 4: 'Mitnehmen'}}
 
+from modul2.woche2.daten import LERNHEFT as WOCHE2_PDF
+HEFTE[25] = {'src': 'modul2/woche2/hub.py', 'out': 'Modul 2 - KI-Automation/Lektion 3 - Bewerten und Rechnen',
+    'pdf': WOCHE2_PDF, 'kurz': 'Lernheft Bewerten und rechnen', 'label': 'Modul 2 · Lektion 3 · Tag 6',
+    'full_toc': True, 'titles': {1: 'Erinnerung an Freitag', 2: 'Bewerten', 3: 'Priorisieren', 4: 'Rechnen', 5: 'Entscheiden', 6: 'Make-Vorlagen', 7: 'Mitnehmen'}}
+
+from modul2.tag7.daten import LERNHEFT as TAG7_PDF
+HEFTE[26] = {'src': 'modul2/tag7/hub.py', 'out': 'Modul 2 - KI-Automation/Lektion 4 - Prozess verstehen',
+    'pdf': TAG7_PDF, 'kurz': 'Lernheft Tatort Prozess', 'label': 'Modul 2 · Lektion 4 · Tag 7',
+    'full_toc': True, 'titles': {1: 'Was bisher geschah', 2: 'Tatort besichtigen', 3: 'Den Auftrag klären', 4: 'Die Befragung', 5: 'Die Tatortskizze', 6: 'Beweise sichern', 7: 'Mitnehmen'}}
+
 def toc_titles(tag):
     """Kapitel fuer das Inhaltsverzeichnis der Plattform: alles vor 'Lektion auf einer Seite' + die Uebungsseite."""
     cfg = HEFTE[tag]
@@ -224,6 +234,12 @@ def compose(head, logo, bar='', ux=False, zooms=None, tag=4):
 
 def web_page(pid, tag=4):
     """Web-Fassung je Person (wegen "Unklar?" und Zurueck-Link)."""
+    if tag == 26:
+        from modul2.tag7.hub import render_web
+        return render_web(pid)
+    if tag == 25:
+        from modul2.woche2.hub import render_web
+        return render_web(pid)
     if tag == 24:
         from modul2.woche1.hub import render_web
         return render_web(pid)

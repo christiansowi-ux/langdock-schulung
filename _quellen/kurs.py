@@ -307,6 +307,13 @@ for module2_day in (1,2,3,4):
 from modul2.woche1.daten import course as woche1_course
 TAGE[24] = woche1_course()
 
+# Modul 2 · Tag 6: Use Cases bewerten und rechnen, mit Rechen-Labor und Präsenter-Modus (02.11.2026)
+from modul2.woche2.daten import course as woche2_course
+TAGE[25] = woche2_course()
+# Modul 2 · Tag 7: Prozess verstehen und abgrenzen, mit Ermittlungsakte, Spielen und Präsenter-Modus (03.11.2026)
+from modul2.tag7.daten import course as tag7_course
+TAGE[26] = tag7_course()
+
 # Jeder Tag ein Learning Hub: Lernkarten, Selbsttest und Wörter für Tag 19 und Modul 2 (30.10.2026)
 from lernhub_daten import ergaenzen as _lernhub
 _lernhub(TAGE)

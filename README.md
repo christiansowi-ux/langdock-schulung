@@ -1,7 +1,7 @@
 # Langdock-Schulung · interaktive Lernplattform
 
 Schulungsmaterial und Quellcode der Lernplattform unter **https://quint-games.de/hefte/**.
-Stand: 30.10.2026. Modul 1 mit 19 Tagen sowie Modul 2 „KI-Automation“: Lektion 1 über vier Tage (26.–29.10.2026: Make-Einstieg, Daten/Mapping, Filter/KI, API/Zeit) und Tag 5 (30.10.) „Use Cases identifizieren“ als Learning Hub der Woche mit Wochenheft, 9 Make-Vorlagen (JSON), Lernkarten, Selbsttest und Training. Aufbau: [`_quellen/modul2/woche1/README.md`](_quellen/modul2/woche1/README.md).
+Stand: 03.11.2026. Modul 1 mit 19 Tagen sowie Modul 2 „KI-Automation“: Lektion 1 über vier Tage (26.–29.10.2026: Make-Einstieg, Daten/Mapping, Filter/KI, API/Zeit) und Tag 5 (30.10.) „Use Cases identifizieren“ als Learning Hub der Woche mit Wochenheft, 9 Make-Vorlagen (JSON), Lernkarten, Selbsttest und Training. Aufbau: [`_quellen/modul2/woche1/README.md`](_quellen/modul2/woche1/README.md). Dazu Tag 6 (02.11.) „Bewerten und rechnen“ mit Rechen-Labor und Präsenter-Modus: [`_quellen/modul2/woche2/README.md`](_quellen/modul2/woche2/README.md). Dazu Tag 7 (03.11.) „Tatort Prozess“ mit Ermittlungsakte, Spielen und Präsenter-Modus: [`_quellen/modul2/tag7/README.md`](_quellen/modul2/tag7/README.md).
 
 Die Plattform bietet Lernhefte, Originalfolien, einfache Erklärungen, Lernkarten, Selbsttests,
 Erinnerungsübungen und interaktive Demos für Druck/Vertrieb, Team/Business/Website und Video/Design.
