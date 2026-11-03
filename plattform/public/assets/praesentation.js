@@ -1,5 +1,5 @@
 /* Präsenter-Modus: Folien mit Erklärungen direkt an den Begriffen.
-   Schrittfolge je Folie: Folie → Einfach gesagt → Begriffe (mit Scheinwerfer) → Hinweis → Frage an die Runde → nächste Folie.
+   Schrittfolge je Folie: Folie → Einfach gesagt → Begriffe (mit Scheinwerfer) → Aus der Akte → Hinweis → Frage an die Runde → nächste Folie.
    Referentenansicht (zweites Fenster) läuft über BroadcastChannel synchron und zeigt die Sprechernotizen. */
 (function () {
   'use strict';
@@ -19,6 +19,7 @@
     if (!erklaeren) return out;
     if (fr.kern) out.push({ a: 'kern' });
     fr.orte.forEach(function (o, i) { out.push({ a: 'ort', i: i }); });
+    if (fr.fun) out.push({ a: 'fun' });
     if (fr.hinweis) out.push({ a: 'hinweis' });
     if (fr.frage) out.push({ a: 'frage' });
     return out;
@@ -44,7 +45,7 @@
     leiste.appendChild(knopf('←', 'Zurück (Pfeil links)', zurueck));
     leiste.appendChild(knopf('Weiter →', 'Weiter (Pfeil rechts, Leertaste)', vor, 'haupt'));
     ui.erk = knopf('Erklärungen', 'Erklärungen ein oder aus (E)', umschalten, 'opt'); ui.erk.setAttribute('aria-pressed', 'true'); leiste.appendChild(ui.erk);
-    ui.liveKn = knopf('Live-Rechner', 'Rechner auf der Folie (L)', function () { liveUm(); }); leiste.appendChild(ui.liveKn);
+    ui.liveKn = knopf('Live-Rechner', 'Auf der Folie mitmachen (L)', function () { liveUm(); }); leiste.appendChild(ui.liveKn);
     leiste.appendChild(knopf('Übersicht', 'Alle Folien (G)', rasterUm));
     leiste.appendChild(knopf('Referentenansicht', 'Notizen im zweiten Fenster (R)', refOeffnen, 'opt'));
     leiste.appendChild(knopf('Vollbild', 'Vollbild (F)', voll, 'opt'));
@@ -81,7 +82,7 @@
       b.addEventListener('click', function () { rasterUm(); geh(i, 0); }); g.appendChild(b);
     });
     ui.raster.appendChild(g); document.body.appendChild(ui.raster);
-    ui.hilfe = el('div', 'hilfe'); ui.hilfe.innerHTML = '<div><h2>Tastenkürzel</h2><table>' + [['→ Leertaste Bild↓', 'Nächster Schritt (auch Presenter-Clicker)'], ['← Bild↑', 'Zurück'], ['↓ ↑', 'Direkt zur nächsten oder vorigen Folie'], ['E', 'Erklärungen ein oder aus'], ['L', 'Live-Rechner auf der Folie'], ['G', 'Übersicht aller Folien'], ['R', 'Referentenansicht mit Notizen'], ['F', 'Vollbild'], ['Esc', 'Erklärung schließen']].map(function (z) { return '<tr><td><kbd>' + z[0] + '</kbd></td><td>' + z[1] + '</td></tr>'; }).join('') + '</table><p style="margin:12px 0 0"><button class="kn haupt" type="button">Alles klar</button></p></div>';
+    ui.hilfe = el('div', 'hilfe'); ui.hilfe.innerHTML = '<div><h2>Tastenkürzel</h2><table>' + [['→ Leertaste Bild↓', 'Nächster Schritt (auch Presenter-Clicker)'], ['← Bild↑', 'Zurück'], ['↓ ↑', 'Direkt zur nächsten oder vorigen Folie'], ['E', 'Erklärungen ein oder aus'], ['L', 'Live-Rechner oder Mitmachen auf der Folie'], ['G', 'Übersicht aller Folien'], ['R', 'Referentenansicht mit Notizen'], ['F', 'Vollbild'], ['Esc', 'Erklärung schließen']].map(function (z) { return '<tr><td><kbd>' + z[0] + '</kbd></td><td>' + z[1] + '</td></tr>'; }).join('') + '</table><p style="margin:12px 0 0"><button class="kn haupt" type="button">Alles klar</button></p></div>';
     ui.hilfe.addEventListener('click', function (e) { if (e.target === ui.hilfe || e.target.tagName === 'BUTTON') hilfeUm(); });
     document.body.appendChild(ui.hilfe);
   }
@@ -96,7 +97,7 @@
     var gesehen = false;
     try { gesehen = !!localStorage.getItem('praes:tipp'); localStorage.setItem('praes:tipp', '1'); } catch (e) { /* egal */ }
     if (gesehen || location.hash) return;
-    var t = el('div', 'tipp', '→ oder Klicker: nächster Schritt · E Erklärungen · L Rechner · R Notizen · ? Hilfe');
+    var t = el('div', 'tipp', '→ oder Klicker: nächster Schritt · E Erklärungen · L Mitmachen · R Notizen · ? Hilfe');
     ui.folie.appendChild(t);
     setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 7000);
   }
@@ -113,9 +114,10 @@
     if (ui.img.getAttribute('src') !== fr.bild) { ui.img.src = fr.bild; ui.img.classList.remove('wechsel'); void ui.img.offsetWidth; ui.img.classList.add('wechsel'); marks(fr); if (ui.live.classList.contains('an')) liveZu(); }
     Array.prototype.forEach.call(ui.marks.children, function (m, i) { m.classList.toggle('aktiv', akt.a === 'ort' && akt.i === i); });
     Array.prototype.forEach.call(ui.ablauf.children, function (b, i) { b.classList.toggle('fertig', i < f); b.classList.toggle('jetzt', i === f); });
-    ui.liveKn.hidden = !fr.live;
-    ui.spot.classList.remove('an'); ui.karte.classList.remove('an'); ui.band.classList.remove('an', 'fr', 'hi');
+    ui.liveKn.hidden = !fr.live; ui.liveKn.textContent = fr.liveName || 'Live-Rechner';
+    ui.spot.classList.remove('an'); ui.karte.classList.remove('an'); ui.band.classList.remove('an', 'fr', 'hi', 'fu');
     if (akt.a === 'kern') band('Einfach gesagt', fr.kern, '');
+    if (akt.a === 'fun') band('Aus der Akte', fr.fun, 'fu');
     if (akt.a === 'hinweis') band('Wichtig', fr.hinweis, 'hi');
     if (akt.a === 'frage') band('Frage an die Runde', fr.frage, 'fr');
     if (akt.a === 'ort') scheinwerfer(fr, akt.i);
@@ -162,7 +164,7 @@
   function regler(box, name, text, min, max, step, wert, einheit, fn) {
     var l = el('label'); l.appendChild(el('span', '', text)); var o = el('output'); l.appendChild(o);
     var r = el('input'); r.type = 'range'; r.min = min; r.max = max; r.step = step; r.value = wert;
-    function zeigen() { o.textContent = de(r.value) + einheit; } zeigen();
+    function zeigen() { o.textContent = de(r.value, step < 1 ? 1 : 0) + einheit; } zeigen();
     r.addEventListener('input', function () { zeigen(); fn(name, +r.value); }); r.addEventListener('keydown', function (e) { e.stopPropagation(); });
     l.appendChild(r); box.appendChild(l);
   }
@@ -199,12 +201,110 @@
     regler(L, 'e', 'Einfachheit (20 %)', 1, 5, 1, SC.e, '', set); regler(L, 'r', 'Risikoarmut (15 %)', 1, 5, 1, SC.r, '', set);
     L.appendChild(aus); rechne();
   }
-  function liveZu() { ui.live.classList.remove('an'); ui.liveKn.setAttribute('aria-pressed', 'false'); }
+  /* Mitmachen auf der Folie: Daten kommen aus dem Bau (fr.liveDaten) */
+  function liveSpiel(fr) {
+    var d = fr.liveDaten, L = ui.live, i = 0, ok = 0, n = d.karten.length;
+    L.innerHTML = ''; L.appendChild(el('h3', '', d.titel));
+    var feld = el('div'); L.appendChild(feld);
+    function zeigen() {
+      feld.innerHTML = '';
+      if (i >= n) {
+        var rang = d.raenge.filter(function (r) { return ok / n >= r[0]; })[0];
+        feld.appendChild(el('p', 'sp-erg', ok + ' von ' + n + ' richtig')); feld.appendChild(el('p', 'sp-rang', 'Dienstgrad der Runde: ' + rang[1]));
+        feld.appendChild(knopf('Nochmal', '', function () { i = 0; ok = 0; zeigen(); }));
+        return;
+      }
+      var k = d.karten[i], opts = el('div', 'sp-opt');
+      feld.appendChild(el('p', 'sp-z', 'Karte ' + (i + 1) + ' von ' + n + ': erst abstimmen, dann klicken')); feld.appendChild(el('p', 'sp-t', k.t));
+      (k.o || d.optionen).forEach(function (o) {
+        var b = knopf(o, 'Antwort wählen', function () {
+          var tr = o === k.r; if (tr) ok++;
+          Array.prototype.forEach.call(opts.children, function (x) { x.disabled = true; if (x.textContent === k.r) x.classList.add('richtig'); });
+          if (!tr) b.classList.add('falsch');
+          feld.appendChild(el('p', 'sp-w', k.w));
+          var nx = knopf(i + 1 < n ? 'Nächste Karte →' : 'Auswertung →', '', function () { i++; zeigen(); }, 'haupt'); feld.appendChild(nx); nx.focus({ preventScroll: true });
+        }, 'sp-b');
+        opts.appendChild(b);
+      });
+      feld.appendChild(opts);
+    }
+    zeigen();
+  }
+  var BINGO_AN = [], LINIEN = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+  function liveBingo(fr) {
+    var L = ui.live; L.innerHTML = ''; L.appendChild(el('h3', '', 'Alarmsatz-Bingo der Runde'));
+    var g = el('div', 'lv-bingo'), info = el('p', 'sp-w', 'Sobald jemand einen Satz sagt: antippen.');
+    fr.liveDaten.forEach(function (d, i) {
+      var b = knopf((d.f ? '★ ' : '') + d.a, 'Satz markieren', function () {
+        var p = BINGO_AN.indexOf(i); if (p >= 0) BINGO_AN.splice(p, 1); else BINGO_AN.push(i);
+        b.setAttribute('aria-pressed', String(p < 0));
+        var bingo = LINIEN.some(function (l) { return l.indexOf(i) >= 0 && l.every(function (x) { return BINGO_AN.indexOf(x) >= 0; }); });
+        info.textContent = p >= 0 ? 'Zurückgenommen.' : (bingo ? 'BINGO! ' : '') + 'Rückfrage: ' + d.b;
+      }, 'lv-z');
+      b.setAttribute('aria-pressed', String(BINGO_AN.indexOf(i) >= 0));
+      g.appendChild(b);
+    });
+    L.appendChild(g); L.appendChild(info);
+    L.appendChild(knopf('Neue Runde', '', function () { BINGO_AN = []; liveBingo(fr); }));
+  }
+  var BH = { a: 12, w1: 1.5, w2: 2, w3: .5, w4: 1 };
+  function liveBahnen() {
+    var L = ui.live; L.innerHTML = ''; L.appendChild(el('h3', '', 'Live: Wo sind die Tage hin?'));
+    var aus = el('div', 'erg');
+    function rechne() {
+      var w = BH.w1 + BH.w2 + BH.w3 + BH.w4, t = w + BH.a / 480;
+      aus.innerHTML = '';
+      erg(aus, de(t, 1) + ' Tage', 'Durchlaufzeit', 'gross warn');
+      erg(aus, de(BH.a) + ' Min.', 'Bearbeitungszeit');
+      erg(aus, BH.a && w ? '1 zu ' + de(w * 480 / BH.a) : '–', 'Arbeit zu Warten (8-Stunden-Tag)');
+    }
+    function set(n, v) { BH[n] = v; rechne(); }
+    regler(L, 'a', 'Arbeit, gesamt', 0, 12, 1, BH.a, ' Min.', set);
+    regler(L, 'w1', 'Warten: zur Buchhaltung', 0, 5, .5, BH.w1, ' Tage', set);
+    regler(L, 'w2', 'Warten: zur Fachabteilung', 0, 5, .5, BH.w2, ' Tage', set);
+    regler(L, 'w3', 'Warten: zur Teamleitung', 0, 5, .5, BH.w3, ' Tage', set);
+    regler(L, 'w4', 'Warten: zurück zur Buchhaltung', 0, 5, .5, BH.w4, ' Tage', set);
+    L.appendChild(aus); rechne();
+    L.appendChild(el('p', '', 'Zieh die Arbeit auf 0: Die Tage bleiben. Zieh eine Übergabe auf 0: Die Tage schmelzen.'));
+  }
+  function liveZiel(fr) {
+    var L = ui.live, B = fr.liveDaten.bausteine, an = B.map(function () { return true; }); L.innerHTML = ''; L.appendChild(el('h3', '', 'Was passiert ohne diesen Baustein?'));
+    var knoepfe = el('div', 'sp-opt'), satz = el('p', 'lv-satz'), info = el('p', 'sp-w');
+    function zeigen() {
+      satz.textContent = '';
+      B.forEach(function (x, i) { var t = (i >= 3 ? ', ' : i ? ' ' : '') + x[1]; if (an[i]) satz.appendChild(document.createTextNode(t)); else satz.appendChild(el('s', '', t)); });
+      satz.appendChild(document.createTextNode('.'));
+      var weg = B.filter(function (x, i) { return !an[i]; });
+      info.textContent = weg.length ? weg[weg.length - 1][2] : 'Alle fünf da: Das lässt sich in sechs Monaten prüfen.';
+    }
+    B.forEach(function (x, i) {
+      var b = knopf(x[0], 'Baustein ein oder aus', function () { an[i] = !an[i]; b.setAttribute('aria-pressed', String(an[i])); zeigen(); }, 'sp-b');
+      b.setAttribute('aria-pressed', 'true'); knoepfe.appendChild(b);
+    });
+    L.appendChild(knoepfe); L.appendChild(satz); L.appendChild(info); zeigen();
+  }
+  var AUFW = { b: 5000 };
+  function liveAufwand() {
+    var L = ui.live; L.innerHTML = ''; L.appendChild(el('h3', '', 'Live: Was kostet es wirklich?'));
+    var aus = el('div', 'erg');
+    function rechne() {
+      var von = AUFW.b / .3, bis = AUFW.b / .2;
+      aus.innerHTML = '';
+      erg(aus, 'rund ' + de(Math.round(von / 1000) * 1000) + ' bis ' + de(Math.round(bis / 1000) * 1000) + ' €', 'Gesamtaufwand, wenn der Bau 20–30 % ist', 'gross warn');
+      erg(aus, de(Math.round((von - AUFW.b) / 1000) * 1000) + ' €', 'mindestens nicht im Angebot'); erg(aus, de(Math.round((bis - AUFW.b) / 1000) * 1000) + ' €', 'höchstens nicht im Angebot');
+    }
+    regler(L, 'b', 'Preis im Angebot, nur der Bau', 1000, 40000, 500, AUFW.b, ' €', function (n, v) { AUFW.b = v; rechne(); });
+    L.appendChild(aus); rechne();
+    L.appendChild(el('p', '', 'Grobe Rechnung mit den Anteilen von Folie 36.'));
+  }
+  function liveZu() { ui.live.classList.remove('an', 'breit'); ui.liveKn.setAttribute('aria-pressed', 'false'); }
   function liveUm() {
     var fr = FRAMES[f];
     if (!fr.live) return;
     if (ui.live.classList.contains('an')) return liveZu();
-    if (fr.live === 'bc') liveBc(); else liveScoring();
+    var tools = { bc: liveBc, scoring: liveScoring, spiel: liveSpiel, bingo: liveBingo, bahnen: liveBahnen, ziel: liveZiel, aufwand: liveAufwand };
+    tools[fr.live](fr);
+    if (fr.live === 'spiel' || fr.live === 'ziel' || fr.live === 'bingo') ui.live.classList.add('breit');
     ui.live.classList.add('an'); ui.liveKn.setAttribute('aria-pressed', 'true');
   }
 
@@ -219,6 +319,7 @@
   function tasten(e) {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     var k = e.key;
+    if ((k === ' ' || k === 'Enter') && e.target.closest && e.target.closest('.live')) return;
     if (k === 'Escape') { if (ui.hilfe && ui.hilfe.classList.contains('an')) return hilfeUm(); if (ui.raster && ui.raster.classList.contains('an')) return rasterUm(); if (ui.live && ui.live.classList.contains('an')) return liveZu(); if (s) geh(f, 0); return; }
     if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { e.preventDefault(); vor(); }
     else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); zurueck(); }
@@ -246,7 +347,7 @@
     setInterval(function () { var m = Math.floor((Date.now() - start) / 1000); ui.uhr.textContent = Math.floor(m / 60) + ':' + ('0' + (m % 60)).slice(-2); }, 1000);
     malen = refMalen;
   }
-  function textVon(fr, st) { return st.a === 'folie' ? 'Nur die Folie' : st.a === 'kern' ? 'Einfach gesagt: ' + fr.kern : st.a === 'hinweis' ? 'Wichtig: ' + fr.hinweis : st.a === 'frage' ? 'Frage an die Runde: ' + fr.frage : fr.orte[st.i].t + ': ' + fr.orte[st.i].e + (fr.orte[st.i].b ? ' Zum Beispiel: ' + fr.orte[st.i].b : ''); }
+  function textVon(fr, st) { return st.a === 'folie' ? 'Nur die Folie' : st.a === 'kern' ? 'Einfach gesagt: ' + fr.kern : st.a === 'fun' ? 'Aus der Akte: ' + fr.fun : st.a === 'hinweis' ? 'Wichtig: ' + fr.hinweis : st.a === 'frage' ? 'Frage an die Runde: ' + fr.frage : fr.orte[st.i].t + ': ' + fr.orte[st.i].e + (fr.orte[st.i].b ? ' Zum Beispiel: ' + fr.orte[st.i].b : ''); }
   function refMalen() {
     var fr = FRAMES[f], sch = schritte(fr);
     ui.pos.textContent = fr.label; ui.ti.textContent = fr.titel; ui.notiz.textContent = fr.notiz || 'Keine Notiz zu dieser Folie.';
@@ -254,7 +355,7 @@
     ui.jetzt.src = fr.daumen; ui.nach.src = (FRAMES[f + 1] || fr).daumen;
     ui.liste.innerHTML = '';
     sch.forEach(function (st, i) {
-      var li = el('li'), b = el('button', '', st.a === 'ort' ? (st.i + 1) + '. ' + fr.orte[st.i].t : st.a === 'folie' ? 'Folie' : st.a === 'kern' ? 'Einfach gesagt' : st.a === 'hinweis' ? 'Wichtig' : 'Frage an die Runde');
+      var li = el('li'), b = el('button', '', st.a === 'ort' ? (st.i + 1) + '. ' + fr.orte[st.i].t : st.a === 'folie' ? 'Folie' : st.a === 'kern' ? 'Einfach gesagt' : st.a === 'fun' ? 'Aus der Akte' : st.a === 'hinweis' ? 'Wichtig' : 'Frage an die Runde');
       b.type = 'button'; if (i === s) b.setAttribute('aria-current', 'true');
       b.addEventListener('click', function () { geh(f, i); }); li.appendChild(b); ui.liste.appendChild(li);
     });
