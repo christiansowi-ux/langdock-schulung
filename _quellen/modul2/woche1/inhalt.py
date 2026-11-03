@@ -13,7 +13,7 @@ from .daten import KLASSENBUCH, BEGRIFFE
 MATERIAL = '/hefte/material/modul2-woche1'
 ZIP = 'Make-Vorlagen-Woche1.zip'
 LEVEL = {1: 'ganz leicht', 2: 'leicht', 3: 'mit Router'}
-TAGNAME = {1: 'Montag · Tag 1', 2: 'Dienstag · Tag 2', 3: 'Mittwoch · Tag 3', 4: 'Donnerstag · Tag 4', 5: 'Freitag · Tag 5', 6: 'Montag · Tag 6'}
+TAGNAME = {1: 'Montag · Tag 1', 2: 'Dienstag · Tag 2', 3: 'Mittwoch · Tag 3', 4: 'Donnerstag · Tag 4', 5: 'Freitag · Tag 5', 6: 'Montag · Tag 6', 7: 'Dienstag · Tag 7'}
 
 
 # ================================================================ Teil A · Make-Grundlagen

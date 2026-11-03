@@ -244,7 +244,7 @@ def overview_page(pid):
     <div class="st-btns"><a class="btn primary" href="{BASE}/{pid}/tag-{n}/">Tag {n} öffnen</a>{f'<a class="btn" href="{BASE}/{pid}/tag-{n}/lernheft/">Lernheft</a>' if t.get("lernheft") else f'<a class="btn" href="{BASE}/{pid}/tag-{n}/heft/">Arbeitsheft</a>'}{f'<a class="btn praxis" href="{BASE}/{pid}/tag-{n}/praxis/">Praxisheft</a>' if t.get("praxisheft") else ''}</div>
   </div>
 </li>''')
-    station_sections = ''.join(f'<section class="wrap module-group" id="modul-{m}"><details{" open" if m == 2 else ""}><summary>Modul {m} · {title}</summary><p class="module-intro">{"Der bisherige Grundlagenblock mit den Tagen 1 bis 19." if m == 1 else "Woche 1: Make an vier Tagen (26.–29.10.2026), Freitag Use Cases. Tag 5 ist der Learning Hub der Woche mit Lernkarten, Selbsttest, Training, Folien und 9 fertigen Make-Vorlagen. Woche 2 beginnt mit Tag 6: Use Cases bewerten und rechnen, mit Rechen-Labor."}</p><ol class="journey">{"".join(stations.get(m,[]))}</ol></details></section>' for m,title in ((1,'KI-Grundlagen'),(2,'KI-Automation')))
+    station_sections = ''.join(f'<section class="wrap module-group" id="modul-{m}"><details{" open" if m == 2 else ""}><summary>Modul {m} · {title}</summary><p class="module-intro">{"Der bisherige Grundlagenblock mit den Tagen 1 bis 19." if m == 1 else "Woche 1: Make an vier Tagen (26.–29.10.2026), Freitag Use Cases. Tag 5 ist der Learning Hub der Woche mit Lernkarten, Selbsttest, Training, Folien und 9 fertigen Make-Vorlagen. Woche 2 beginnt mit Tag 6: Use Cases bewerten und rechnen, mit Rechen-Labor. Tag 7 ist „Tatort Prozess“ mit Ermittlungsakte, Spielen und Bingo."}</p><ol class="journey">{"".join(stations.get(m,[]))}</ol></details></section>' for m,title in ((1,'KI-Grundlagen'),(2,'KI-Automation')))
     body = f'''<section class="hero wrap slim">
   <p class="kicker">{esc(p["fach"])}{" · Mac" if p["mac"] else ""}</p>
   <h1>Hallo {esc(p["name"])}.</h1>
@@ -353,6 +353,9 @@ def heute_panel(pid, n):
 
 
 def day_page(pid, n):
+    if n == 26:
+        from modul2.tag7.hub import render_day
+        return render_day(pid)
     if n == 25:
         from modul2.woche2.hub import render_day
         return render_day(pid)
@@ -678,7 +681,7 @@ def dozent_page():
   <p class="kicker">Nur für die Schulungsleitung</p>
   <h1>Fragen aus dem Kurs</h1>
   <p class="lead">Alles, was Carmen, Ingo und Tabea als „unklar“ markiert haben – mit Stelle, Zeit und eigenem Text. Antworten erscheinen bei der Person direkt auf der Seite.</p>
-  <p><a class="btn" href="/hefte/praesentation/modul-2/tag-6/">Präsenter-Modus Tag 6 öffnen</a></p>
+  <p><a class="btn" href="/hefte/praesentation/modul-2/tag-7/">Präsenter-Modus Tag 7 öffnen</a> <a class="btn" href="/hefte/praesentation/modul-2/tag-6/">Präsenter-Modus Tag 6 öffnen</a></p>
 </section>
 <section class="wrap" id="dz-app">
   <form class="dz-login panel-card" id="dz-login" hidden>
@@ -777,5 +780,8 @@ def build():
     from modul2.woche2 import praesentation
     orte, folien = praesentation.schreiben()
     print('Präsenter-Modus Tag 6:', folien, 'Folien,', orte, 'Begriffe')
+    from modul2.tag7 import praesentation as praes7
+    orte, folien = praes7.schreiben()
+    print('Präsenter-Modus Tag 7:', folien, 'Folien,', orte, 'Begriffe')
     import einheit
     einheit.alles(kurs.TAGE)

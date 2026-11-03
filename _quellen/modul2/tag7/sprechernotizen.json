@@ -1,0 +1,154 @@
+{
+ "1": {
+  "titel": "Prozess verstehen und abgrenzen",
+  "notiz": "Auftakt Block 3 von 6. Voraussetzung: aus Block 2 liegt ein ausgewählter Fall mit gerechnetem Nutzen vor. Kurz abfragen, wer seinen Haupt-Use-Case benennen kann."
+ },
+ "2": {
+  "titel": "Der rote Faden",
+  "notiz": "Diese Folie kommt in jedem Block an derselben Stelle und in derselben Gestaltung. Sie ist die Landkarte — kurz zeigen, nicht vorlesen. Nur der Satz zum aktuellen Block wird ausgesprochen."
+ },
+ "3": {
+  "titel": "Abschnitt 1: Ausgangslage",
+  "notiz": "Einstieg: Warum Prozesse so aussehen, wie sie aussehen — und warum das kein Vorwurf ist. Kurz halten."
+ },
+ "4": {
+  "titel": "Typische Ausgangssituation",
+  "notiz": "Die Gruppe fragen, wer den eigenen Prozess dokumentiert hat. Meist wenige Hände. Dann fragen, wer glaubt, dass die Dokumentation den tatsächlichen Ablauf beschreibt. Meist noch weniger."
+ },
+ "5": {
+  "titel": "Zwei Wege, ein Ergebnis",
+  "notiz": "Wichtig: Der rechte Pfad ist nicht schlechter. Er ist oft der bessere, wenn es um schwierige Fälle geht. Das Ziel ist nicht, ihn abzuschaffen, sondern zu wissen, wann er greift."
+ },
+ "6": {
+  "titel": "Kernsatz: Die Unschärfe",
+  "notiz": "Ein Automatisierungsprojekt zwingt eine Organisation, zum ersten Mal explizit zu entscheiden, wie ein Prozess laufen soll. Ein erheblicher Teil des Wertes entsteht dadurch — bevor irgendetwas automatisiert ist. Daraus folgt eine Kommunikationsregel: Widersprüche, die in der Aufnahme sichtbar werden, sind kein Vorwurf an die Beteiligten. Wer das anders vermittelt, bekommt in der nächsten Sitzung keine ehrlichen Antworten mehr."
+ },
+ "7": {
+  "titel": "Abschnitt 2: Ziel und Fragen",
+  "notiz": "Vom Befund zum Auftrag: Wie ein Projekt startet, wie ein Ziel aussieht und welche Fragen früh gestellt gehören."
+ },
+ "8": {
+  "titel": "Wie ein Projekt wirklich startet",
+  "notiz": "Der praktische Test unten ist der Prüfsatz für jeden Projektstart. Laut vorlesen."
+ },
+ "9": {
+  "titel": "Kein Ziel und ein Ziel",
+  "notiz": "Der Unterschied ist nicht Formulierungskunst. Er entscheidet, ob man je feststellen kann, ob das Projekt funktioniert hat."
+ },
+ "10": {
+  "titel": "Ein Ziel hat fünf Bausteine",
+  "notiz": "Fehlt ein Baustein, entsteht ein Satz, den man in sechs Monaten nicht mehr prüfen kann. Den zusammengesetzten Satz laut vorlesen."
+ },
+ "11": {
+  "titel": "Die richtigen Fragen zum Projektstart",
+  "notiz": "Die rechte Spalte ist der Inhalt dieser Folie. Besonders die Systemzugänge: Das ist regelmäßig der längste Einzelposten im Zeitplan."
+ },
+ "12": {
+  "titel": "Fallbeispiel Rechnungsfreigabe",
+  "notiz": "Der Unterschied zwischen einer Absichtserklärung und einer Arbeitsgrundlage: eine Zahl, eine Grenze und eine ausdrückliche Ausschlussliste."
+ },
+ "13": {
+  "titel": "Abschnitt 3: Prozessaufnahme",
+  "notiz": "Jetzt wird aufgenommen: Interview, Nachfragen, Mitschrift. Ab hier arbeitet die Gruppe am eigenen Fall."
+ },
+ "14": {
+  "titel": "Prozessaufnahme in der Praxis",
+  "notiz": "Das Musterbeispiel unten ist der Kern: „Dann geben wir die Rechnung frei“ ist keine Prozessbeschreibung."
+ },
+ "15": {
+  "titel": "Der Ablauf eines Prozessinterviews",
+  "notiz": "Sechs Schritte — und der wertvollste ist die Gegenprobe. Station 5 betonen: Die Abweichungen zwischen beiden Beschreibungen sind das wertvollste Ergebnis des ganzen Tages."
+ },
+ "16": {
+  "titel": "Vier Aussagen, bei denen immer nachgefragt wird",
+  "notiz": "Diese vier Formulierungen markieren zuverlässig eine Stelle, an der die Regel fehlt. Die Rückfragen wörtlich mitgeben — sie werden im Arbeitsauftrag gebraucht."
+ },
+ "17": {
+  "titel": "Arbeitsauftrag 01: Interview",
+  "notiz": "Nach der ersten Runde kurz sammeln: Wer hat bei sich selbst eine der vier Alarmformulierungen gehört? Fast alle."
+ },
+ "18": {
+  "titel": "Abschnitt 4: Notation und Bahnen",
+  "notiz": "Von der Mitschrift zur Darstellung: SIPOC, fünf Symbole, Bahnen. Ab hier wird gezeichnet."
+ },
+ "19": {
+  "titel": "SIPOC: Anfang und Ende festlegen",
+  "notiz": "Die beiden Markierungen sind der eigentliche Zweck. Die häufigste Ursache für ausufernde Projekte ist ein Prozess, dessen Ende nie festgelegt wurde."
+ },
+ "20": {
+  "titel": "BPMN in der schlanken Variante",
+  "notiz": "Wichtigster Punkt ist der letzte: Zwei Prozessdarstellungen desselben Ablaufs sind schlimmer als keine. Vor dem Zeichnen nachfragen, ob es schon eine Prozesslandkarte gibt."
+ },
+ "21": {
+  "titel": "Die fünf Symbole",
+  "notiz": "Die Symbole nur benennen, nicht erklären. Wichtig ist der Zusatz unten: Das Personensymbol markiert die Schritte, an denen später Kapazität, Zeit und rechtliche Verantwortung hängen."
+ },
+ "22": {
+  "titel": "Bahnen zeigen, wo die Zeit verloren geht",
+  "notiz": "Der stärkste Moment des Blocks. 12 Minuten Arbeit, 5 Tage Durchlauf — der Unterschied steckt vollständig in den vier Übergaben. Wer nur die Bearbeitungszeit automatisiert, verändert an der Durchlaufzeit nichts."
+ },
+ "23": {
+  "titel": "Was die Bahnen-Ansicht bedeutet",
+  "notiz": "Die praktische Konsequenz unten ist der wichtigste Satz: Der wertvollste Schritt entfällt sehr oft einfach."
+ },
+ "24": {
+  "titel": "Wann lohnt sich vollständiges BPMN?",
+  "notiz": "Die schlanke Variante ist der Normalfall. Die Faustregel unten laut vorlesen — sie beendet die meisten Werkzeugdiskussionen."
+ },
+ "25": {
+  "titel": "Arbeitsauftrag 02: Ist-Prozess in Bahnen",
+  "notiz": "Herumgehen und nach der Differenz fragen. In fast jeder Gruppe gibt es einen Fall mit dem Verhältnis 1 zu 50 oder schlechter. Diesen Fall im Plenum vorstellen lassen."
+ },
+ "26": {
+  "titel": "Ist und Soll strikt trennen",
+  "notiz": "Der häufigste Fehler: Der Ist-Prozess wird schöner aufgeschrieben, als er ist, weil niemand als schlecht organisiert dastehen will. Dagegen hilft nur, die Aufnahme ausdrücklich als Bestandsaufnahme zu rahmen."
+ },
+ "27": {
+  "titel": "Schritt Null",
+  "notiz": "Der übersprungene Schritt Null. Punktuelle KI-Unterstützung auf einem instabilen Grundprozess erzeugt schnellere Fehler, keine besseren Ergebnisse. Wenn die Aufnahme einen kaputten Prozess zutage fördert, lautet die Reihenfolge: erst reparieren, dann automatisieren. Das ist unbequem und spart Monate."
+ },
+ "28": {
+  "titel": "Arbeitsauftrag 03: SOP schreiben",
+  "notiz": "Beim Gegenlesen die Regel laut ansagen: nicht diskutieren, nur markieren. Jede Markierung ist entweder eine fehlende Regel oder eine noch nicht erfasste Ausnahme — beides wandert in Block 4."
+ },
+ "29": {
+  "titel": "Abschnitt 5: Scope und Kriterien",
+  "notiz": "Letzter Abschnitt: Was gehört dazu, was nicht — und woran man in sechs Monaten misst, ob es funktioniert hat."
+ },
+ "30": {
+  "titel": "Scope: rein, raus, Annahmen",
+  "notiz": "Die Out-of-Scope-Liste ist der wichtigere Teil — sie verhindert die Diskussion, die sonst in Monat drei kommt."
+ },
+ "31": {
+  "titel": "Erfolgskriterien brauchen einen Ausgangswert",
+  "notiz": "Zeile 2 und Zeile 4 sind die wichtigen. Die Durchlaufzeit kommt aus der Bahnen-Analyse, und ein Kriterium, das nur Gleichstand verlangt, ist oft das, an dem ein Projekt tatsächlich scheitert."
+ },
+ "32": {
+  "titel": "Kernsatz: Ohne Messgröße",
+  "notiz": "Kurz stehen lassen. Der Satz ist der Übergang zur Frage, was man tut, wenn der Ausgangswert schlicht nicht bekannt ist."
+ },
+ "33": {
+  "titel": "Wenn der Ausgangswert nicht bekannt ist",
+  "notiz": "Der häufigste Fall — und kein Grund zum Abbruch, sondern die erste Projektaufgabe. Die Messung gehört in Aufwand und Zeitplan."
+ },
+ "34": {
+  "titel": "Rollen im Projekt",
+  "notiz": "Der fachliche Eigentümer ist die wichtigste und am häufigsten unbesetzte Rolle. In kleinen Organisationen oft dieselbe Person — aber immer ausgesprochen."
+ },
+ "35": {
+  "titel": "Prüfpunkte zwischen den Phasen",
+  "notiz": "Der hervorgehobene Prüfpunkt ist der wichtigste. Wer hier weitergeht, obwohl der Fachbereich den Ablauf nicht erklären kann, baut mit hoher Wahrscheinlichkeit an der Realität vorbei."
+ },
+ "36": {
+  "titel": "Wo der Aufwand tatsächlich anfällt",
+  "notiz": "Für interne Teams gilt dasselbe — nur heißt es dort nicht „unbezahlt“, sondern „nicht eingeplant“, und es äußert sich als Terminüberschreitung."
+ },
+ "37": {
+  "titel": "Arbeitsauftrag 04: Ziel, Scope, Erfolgskriterien",
+  "notiz": "Der Teil, an dem sich entscheidet, ob aus der Idee ein Projekt wird. Am Ende drei Zielsätze im Plenum vorlesen und gemeinsam schärfen. Freiwillige zuerst."
+ },
+ "38": {
+  "titel": "Was heute entstanden ist",
+  "notiz": "Die Bitte um echte Fälle deutlich machen — sie entscheidet über die Qualität des Testteils in Block 4 mehr als alles andere."
+ }
+}
